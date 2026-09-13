@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.12 — Verified Lights & Shapes</title>
+<title>Project Watch 1.13 — Lights & Shapes Flashcards</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -137,12 +137,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #buoyChallengeVisual.night .waterShadow{opacity:.15}
 
 
-.lsvTabs,.lsvViews{display:flex;gap:6px;overflow-x:auto;margin:9px 0}.lsvTabs button,.lsvViews button{min-width:92px;background:#16475e;white-space:nowrap}.lsvTabs button.active,.lsvViews button.active{background:#168bcf}
-.lsvGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.lsvCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;overflow:hidden}
-.lsvVisual{height:190px;display:flex;align-items:center;justify-content:center;background:#edf3f5;position:relative}.lsvVisual.night{background:#01070d}.lsvVisual svg{width:96%;height:180px}
-.lsvInfo{padding:10px}.lsvInfo b{display:block}.lsvInfo small{display:block;color:#a8bec9;line-height:1.35;margin-top:4px}.lsvRule{display:inline-block;font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px;margin-top:6px}
-.lsvLamp{filter:drop-shadow(0 0 6px currentColor) drop-shadow(0 0 13px currentColor)}.lsvShape{fill:#050505}.lsvKey{font-size:10px;color:#9db8c5;margin:5px 0}
-@media(min-width:850px){.lsvGrid{grid-template-columns:repeat(3,1fr)}}
+.lfToolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lfToolbar button{flex:1;min-width:105px;background:#16475e}
+.lfToolbar button.active{background:#168bcf}
+.lfAspect{display:flex;gap:5px;overflow-x:auto;margin:8px 0 12px}
+.lfAspect button{min-width:88px;background:#16475e;white-space:nowrap}
+.lfAspect button.active{background:#168bcf}
+.lfGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flashCard{background:#041f2d;border:1px solid #ffffff18;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #0003}
+.flashVisual{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flashVisual.night{background:radial-gradient(circle at 50% 64%,#091523 0,#02070c 58%,#000 100%)}
+.flashVisual.day{background:linear-gradient(#b9e6f7 0 60%,#5ba0c2 61% 74%,#225f7c 75%)}
+.flashVisual svg{width:96%;height:195px}
+.flashInfo{padding:11px}.flashInfo b{display:block;font-size:14px}.flashInfo small{display:block;color:#a8bec9;line-height:1.4;margin-top:4px}
+.flashMeta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.flashPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+.navGlow{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 16px currentColor)}
+.faintShip{opacity:.10}.dayShip{opacity:.72}
+.dayShape{fill:#050505}
+.answerPanel{background:#052a3c;border-radius:14px;padding:12px;margin-top:10px}
+.answerPanel h4{margin:0 0 7px;color:#78dfff}.answerPanel p{margin:0;color:#d8e7ed;font-size:13px;line-height:1.45}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+@media(min-width:850px){.lfGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -165,12 +180,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #buoyChallengeVisual.night .waterShadow{opacity:.15}
 
 
-.lsvTabs,.lsvViews{display:flex;gap:6px;overflow-x:auto;margin:9px 0}.lsvTabs button,.lsvViews button{min-width:92px;background:#16475e;white-space:nowrap}.lsvTabs button.active,.lsvViews button.active{background:#168bcf}
-.lsvGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.lsvCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;overflow:hidden}
-.lsvVisual{height:190px;display:flex;align-items:center;justify-content:center;background:#edf3f5;position:relative}.lsvVisual.night{background:#01070d}.lsvVisual svg{width:96%;height:180px}
-.lsvInfo{padding:10px}.lsvInfo b{display:block}.lsvInfo small{display:block;color:#a8bec9;line-height:1.35;margin-top:4px}.lsvRule{display:inline-block;font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px;margin-top:6px}
-.lsvLamp{filter:drop-shadow(0 0 6px currentColor) drop-shadow(0 0 13px currentColor)}.lsvShape{fill:#050505}.lsvKey{font-size:10px;color:#9db8c5;margin:5px 0}
-@media(min-width:850px){.lsvGrid{grid-template-columns:repeat(3,1fr)}}
+.lfToolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lfToolbar button{flex:1;min-width:105px;background:#16475e}
+.lfToolbar button.active{background:#168bcf}
+.lfAspect{display:flex;gap:5px;overflow-x:auto;margin:8px 0 12px}
+.lfAspect button{min-width:88px;background:#16475e;white-space:nowrap}
+.lfAspect button.active{background:#168bcf}
+.lfGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flashCard{background:#041f2d;border:1px solid #ffffff18;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #0003}
+.flashVisual{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flashVisual.night{background:radial-gradient(circle at 50% 64%,#091523 0,#02070c 58%,#000 100%)}
+.flashVisual.day{background:linear-gradient(#b9e6f7 0 60%,#5ba0c2 61% 74%,#225f7c 75%)}
+.flashVisual svg{width:96%;height:195px}
+.flashInfo{padding:11px}.flashInfo b{display:block;font-size:14px}.flashInfo small{display:block;color:#a8bec9;line-height:1.4;margin-top:4px}
+.flashMeta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.flashPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+.navGlow{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 16px currentColor)}
+.faintShip{opacity:.10}.dayShip{opacity:.72}
+.dayShape{fill:#050505}
+.answerPanel{background:#052a3c;border-radius:14px;padding:12px;margin-top:10px}
+.answerPanel h4{margin:0 0 7px;color:#78dfff}.answerPanel p{margin:0;color:#d8e7ed;font-size:13px;line-height:1.45}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+@media(min-width:850px){.lfGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -200,12 +230,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #buoyChallengeVisual.night .waterShadow{opacity:.15}
 
 
-.lsvTabs,.lsvViews{display:flex;gap:6px;overflow-x:auto;margin:9px 0}.lsvTabs button,.lsvViews button{min-width:92px;background:#16475e;white-space:nowrap}.lsvTabs button.active,.lsvViews button.active{background:#168bcf}
-.lsvGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.lsvCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;overflow:hidden}
-.lsvVisual{height:190px;display:flex;align-items:center;justify-content:center;background:#edf3f5;position:relative}.lsvVisual.night{background:#01070d}.lsvVisual svg{width:96%;height:180px}
-.lsvInfo{padding:10px}.lsvInfo b{display:block}.lsvInfo small{display:block;color:#a8bec9;line-height:1.35;margin-top:4px}.lsvRule{display:inline-block;font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px;margin-top:6px}
-.lsvLamp{filter:drop-shadow(0 0 6px currentColor) drop-shadow(0 0 13px currentColor)}.lsvShape{fill:#050505}.lsvKey{font-size:10px;color:#9db8c5;margin:5px 0}
-@media(min-width:850px){.lsvGrid{grid-template-columns:repeat(3,1fr)}}
+.lfToolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lfToolbar button{flex:1;min-width:105px;background:#16475e}
+.lfToolbar button.active{background:#168bcf}
+.lfAspect{display:flex;gap:5px;overflow-x:auto;margin:8px 0 12px}
+.lfAspect button{min-width:88px;background:#16475e;white-space:nowrap}
+.lfAspect button.active{background:#168bcf}
+.lfGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flashCard{background:#041f2d;border:1px solid #ffffff18;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #0003}
+.flashVisual{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flashVisual.night{background:radial-gradient(circle at 50% 64%,#091523 0,#02070c 58%,#000 100%)}
+.flashVisual.day{background:linear-gradient(#b9e6f7 0 60%,#5ba0c2 61% 74%,#225f7c 75%)}
+.flashVisual svg{width:96%;height:195px}
+.flashInfo{padding:11px}.flashInfo b{display:block;font-size:14px}.flashInfo small{display:block;color:#a8bec9;line-height:1.4;margin-top:4px}
+.flashMeta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.flashPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+.navGlow{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 16px currentColor)}
+.faintShip{opacity:.10}.dayShip{opacity:.72}
+.dayShape{fill:#050505}
+.answerPanel{background:#052a3c;border-radius:14px;padding:12px;margin-top:10px}
+.answerPanel h4{margin:0 0 7px;color:#78dfff}.answerPanel p{margin:0;color:#d8e7ed;font-size:13px;line-height:1.45}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+@media(min-width:850px){.lfGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -228,12 +273,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #buoyChallengeVisual.night .waterShadow{opacity:.15}
 
 
-.lsvTabs,.lsvViews{display:flex;gap:6px;overflow-x:auto;margin:9px 0}.lsvTabs button,.lsvViews button{min-width:92px;background:#16475e;white-space:nowrap}.lsvTabs button.active,.lsvViews button.active{background:#168bcf}
-.lsvGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.lsvCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;overflow:hidden}
-.lsvVisual{height:190px;display:flex;align-items:center;justify-content:center;background:#edf3f5;position:relative}.lsvVisual.night{background:#01070d}.lsvVisual svg{width:96%;height:180px}
-.lsvInfo{padding:10px}.lsvInfo b{display:block}.lsvInfo small{display:block;color:#a8bec9;line-height:1.35;margin-top:4px}.lsvRule{display:inline-block;font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px;margin-top:6px}
-.lsvLamp{filter:drop-shadow(0 0 6px currentColor) drop-shadow(0 0 13px currentColor)}.lsvShape{fill:#050505}.lsvKey{font-size:10px;color:#9db8c5;margin:5px 0}
-@media(min-width:850px){.lsvGrid{grid-template-columns:repeat(3,1fr)}}
+.lfToolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lfToolbar button{flex:1;min-width:105px;background:#16475e}
+.lfToolbar button.active{background:#168bcf}
+.lfAspect{display:flex;gap:5px;overflow-x:auto;margin:8px 0 12px}
+.lfAspect button{min-width:88px;background:#16475e;white-space:nowrap}
+.lfAspect button.active{background:#168bcf}
+.lfGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flashCard{background:#041f2d;border:1px solid #ffffff18;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #0003}
+.flashVisual{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flashVisual.night{background:radial-gradient(circle at 50% 64%,#091523 0,#02070c 58%,#000 100%)}
+.flashVisual.day{background:linear-gradient(#b9e6f7 0 60%,#5ba0c2 61% 74%,#225f7c 75%)}
+.flashVisual svg{width:96%;height:195px}
+.flashInfo{padding:11px}.flashInfo b{display:block;font-size:14px}.flashInfo small{display:block;color:#a8bec9;line-height:1.4;margin-top:4px}
+.flashMeta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.flashPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+.navGlow{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 16px currentColor)}
+.faintShip{opacity:.10}.dayShip{opacity:.72}
+.dayShape{fill:#050505}
+.answerPanel{background:#052a3c;border-radius:14px;padding:12px;margin-top:10px}
+.answerPanel h4{margin:0 0 7px;color:#78dfff}.answerPanel p{margin:0;color:#d8e7ed;font-size:13px;line-height:1.45}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+@media(min-width:850px){.lfGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.appMenu{grid-template-columns:repeat(6,1fr)}.ruleParts{grid-template-columns:repeat(3,1fr)}.moduleCards{grid-template-columns:repeat(3,1fr)}}
 
@@ -290,12 +350,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #buoyChallengeVisual.night .waterShadow{opacity:.15}
 
 
-.lsvTabs,.lsvViews{display:flex;gap:6px;overflow-x:auto;margin:9px 0}.lsvTabs button,.lsvViews button{min-width:92px;background:#16475e;white-space:nowrap}.lsvTabs button.active,.lsvViews button.active{background:#168bcf}
-.lsvGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.lsvCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;overflow:hidden}
-.lsvVisual{height:190px;display:flex;align-items:center;justify-content:center;background:#edf3f5;position:relative}.lsvVisual.night{background:#01070d}.lsvVisual svg{width:96%;height:180px}
-.lsvInfo{padding:10px}.lsvInfo b{display:block}.lsvInfo small{display:block;color:#a8bec9;line-height:1.35;margin-top:4px}.lsvRule{display:inline-block;font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px;margin-top:6px}
-.lsvLamp{filter:drop-shadow(0 0 6px currentColor) drop-shadow(0 0 13px currentColor)}.lsvShape{fill:#050505}.lsvKey{font-size:10px;color:#9db8c5;margin:5px 0}
-@media(min-width:850px){.lsvGrid{grid-template-columns:repeat(3,1fr)}}
+.lfToolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lfToolbar button{flex:1;min-width:105px;background:#16475e}
+.lfToolbar button.active{background:#168bcf}
+.lfAspect{display:flex;gap:5px;overflow-x:auto;margin:8px 0 12px}
+.lfAspect button{min-width:88px;background:#16475e;white-space:nowrap}
+.lfAspect button.active{background:#168bcf}
+.lfGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flashCard{background:#041f2d;border:1px solid #ffffff18;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #0003}
+.flashVisual{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flashVisual.night{background:radial-gradient(circle at 50% 64%,#091523 0,#02070c 58%,#000 100%)}
+.flashVisual.day{background:linear-gradient(#b9e6f7 0 60%,#5ba0c2 61% 74%,#225f7c 75%)}
+.flashVisual svg{width:96%;height:195px}
+.flashInfo{padding:11px}.flashInfo b{display:block;font-size:14px}.flashInfo small{display:block;color:#a8bec9;line-height:1.4;margin-top:4px}
+.flashMeta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.flashPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+.navGlow{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 16px currentColor)}
+.faintShip{opacity:.10}.dayShip{opacity:.72}
+.dayShape{fill:#050505}
+.answerPanel{background:#052a3c;border-radius:14px;padding:12px;margin-top:10px}
+.answerPanel h4{margin:0 0 7px;color:#78dfff}.answerPanel p{margin:0;color:#d8e7ed;font-size:13px;line-height:1.45}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+@media(min-width:850px){.lfGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -318,12 +393,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #buoyChallengeVisual.night .waterShadow{opacity:.15}
 
 
-.lsvTabs,.lsvViews{display:flex;gap:6px;overflow-x:auto;margin:9px 0}.lsvTabs button,.lsvViews button{min-width:92px;background:#16475e;white-space:nowrap}.lsvTabs button.active,.lsvViews button.active{background:#168bcf}
-.lsvGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.lsvCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;overflow:hidden}
-.lsvVisual{height:190px;display:flex;align-items:center;justify-content:center;background:#edf3f5;position:relative}.lsvVisual.night{background:#01070d}.lsvVisual svg{width:96%;height:180px}
-.lsvInfo{padding:10px}.lsvInfo b{display:block}.lsvInfo small{display:block;color:#a8bec9;line-height:1.35;margin-top:4px}.lsvRule{display:inline-block;font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px;margin-top:6px}
-.lsvLamp{filter:drop-shadow(0 0 6px currentColor) drop-shadow(0 0 13px currentColor)}.lsvShape{fill:#050505}.lsvKey{font-size:10px;color:#9db8c5;margin:5px 0}
-@media(min-width:850px){.lsvGrid{grid-template-columns:repeat(3,1fr)}}
+.lfToolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lfToolbar button{flex:1;min-width:105px;background:#16475e}
+.lfToolbar button.active{background:#168bcf}
+.lfAspect{display:flex;gap:5px;overflow-x:auto;margin:8px 0 12px}
+.lfAspect button{min-width:88px;background:#16475e;white-space:nowrap}
+.lfAspect button.active{background:#168bcf}
+.lfGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flashCard{background:#041f2d;border:1px solid #ffffff18;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #0003}
+.flashVisual{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flashVisual.night{background:radial-gradient(circle at 50% 64%,#091523 0,#02070c 58%,#000 100%)}
+.flashVisual.day{background:linear-gradient(#b9e6f7 0 60%,#5ba0c2 61% 74%,#225f7c 75%)}
+.flashVisual svg{width:96%;height:195px}
+.flashInfo{padding:11px}.flashInfo b{display:block;font-size:14px}.flashInfo small{display:block;color:#a8bec9;line-height:1.4;margin-top:4px}
+.flashMeta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.flashPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+.navGlow{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 16px currentColor)}
+.faintShip{opacity:.10}.dayShip{opacity:.72}
+.dayShape{fill:#050505}
+.answerPanel{background:#052a3c;border-radius:14px;padding:12px;margin-top:10px}
+.answerPanel h4{margin:0 0 7px;color:#78dfff}.answerPanel p{margin:0;color:#d8e7ed;font-size:13px;line-height:1.45}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+@media(min-width:850px){.lfGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -353,12 +443,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #buoyChallengeVisual.night .waterShadow{opacity:.15}
 
 
-.lsvTabs,.lsvViews{display:flex;gap:6px;overflow-x:auto;margin:9px 0}.lsvTabs button,.lsvViews button{min-width:92px;background:#16475e;white-space:nowrap}.lsvTabs button.active,.lsvViews button.active{background:#168bcf}
-.lsvGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.lsvCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;overflow:hidden}
-.lsvVisual{height:190px;display:flex;align-items:center;justify-content:center;background:#edf3f5;position:relative}.lsvVisual.night{background:#01070d}.lsvVisual svg{width:96%;height:180px}
-.lsvInfo{padding:10px}.lsvInfo b{display:block}.lsvInfo small{display:block;color:#a8bec9;line-height:1.35;margin-top:4px}.lsvRule{display:inline-block;font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px;margin-top:6px}
-.lsvLamp{filter:drop-shadow(0 0 6px currentColor) drop-shadow(0 0 13px currentColor)}.lsvShape{fill:#050505}.lsvKey{font-size:10px;color:#9db8c5;margin:5px 0}
-@media(min-width:850px){.lsvGrid{grid-template-columns:repeat(3,1fr)}}
+.lfToolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lfToolbar button{flex:1;min-width:105px;background:#16475e}
+.lfToolbar button.active{background:#168bcf}
+.lfAspect{display:flex;gap:5px;overflow-x:auto;margin:8px 0 12px}
+.lfAspect button{min-width:88px;background:#16475e;white-space:nowrap}
+.lfAspect button.active{background:#168bcf}
+.lfGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flashCard{background:#041f2d;border:1px solid #ffffff18;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #0003}
+.flashVisual{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flashVisual.night{background:radial-gradient(circle at 50% 64%,#091523 0,#02070c 58%,#000 100%)}
+.flashVisual.day{background:linear-gradient(#b9e6f7 0 60%,#5ba0c2 61% 74%,#225f7c 75%)}
+.flashVisual svg{width:96%;height:195px}
+.flashInfo{padding:11px}.flashInfo b{display:block;font-size:14px}.flashInfo small{display:block;color:#a8bec9;line-height:1.4;margin-top:4px}
+.flashMeta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.flashPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+.navGlow{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 16px currentColor)}
+.faintShip{opacity:.10}.dayShip{opacity:.72}
+.dayShape{fill:#050505}
+.answerPanel{background:#052a3c;border-radius:14px;padding:12px;margin-top:10px}
+.answerPanel h4{margin:0 0 7px;color:#78dfff}.answerPanel p{margin:0;color:#d8e7ed;font-size:13px;line-height:1.45}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+@media(min-width:850px){.lfGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -381,19 +486,34 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #buoyChallengeVisual.night .waterShadow{opacity:.15}
 
 
-.lsvTabs,.lsvViews{display:flex;gap:6px;overflow-x:auto;margin:9px 0}.lsvTabs button,.lsvViews button{min-width:92px;background:#16475e;white-space:nowrap}.lsvTabs button.active,.lsvViews button.active{background:#168bcf}
-.lsvGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.lsvCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;overflow:hidden}
-.lsvVisual{height:190px;display:flex;align-items:center;justify-content:center;background:#edf3f5;position:relative}.lsvVisual.night{background:#01070d}.lsvVisual svg{width:96%;height:180px}
-.lsvInfo{padding:10px}.lsvInfo b{display:block}.lsvInfo small{display:block;color:#a8bec9;line-height:1.35;margin-top:4px}.lsvRule{display:inline-block;font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px;margin-top:6px}
-.lsvLamp{filter:drop-shadow(0 0 6px currentColor) drop-shadow(0 0 13px currentColor)}.lsvShape{fill:#050505}.lsvKey{font-size:10px;color:#9db8c5;margin:5px 0}
-@media(min-width:850px){.lsvGrid{grid-template-columns:repeat(3,1fr)}}
+.lfToolbar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lfToolbar button{flex:1;min-width:105px;background:#16475e}
+.lfToolbar button.active{background:#168bcf}
+.lfAspect{display:flex;gap:5px;overflow-x:auto;margin:8px 0 12px}
+.lfAspect button{min-width:88px;background:#16475e;white-space:nowrap}
+.lfAspect button.active{background:#168bcf}
+.lfGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flashCard{background:#041f2d;border:1px solid #ffffff18;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #0003}
+.flashVisual{height:210px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.flashVisual.night{background:radial-gradient(circle at 50% 64%,#091523 0,#02070c 58%,#000 100%)}
+.flashVisual.day{background:linear-gradient(#b9e6f7 0 60%,#5ba0c2 61% 74%,#225f7c 75%)}
+.flashVisual svg{width:96%;height:195px}
+.flashInfo{padding:11px}.flashInfo b{display:block;font-size:14px}.flashInfo small{display:block;color:#a8bec9;line-height:1.4;margin-top:4px}
+.flashMeta{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.flashPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+.navGlow{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 16px currentColor)}
+.faintShip{opacity:.10}.dayShip{opacity:.72}
+.dayShape{fill:#050505}
+.answerPanel{background:#052a3c;border-radius:14px;padding:12px;margin-top:10px}
+.answerPanel h4{margin:0 0 7px;color:#78dfff}.answerPanel p{margin:0;color:#d8e7ed;font-size:13px;line-height:1.45}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+@media(min-width:850px){.lfGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.12 • VERIFIED LIGHTS & SHAPES</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.13 • LIGHTS & SHAPES FLASHCARDS</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -415,12 +535,44 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div></div></section>
 
 <section id="lightsPage" class="appPage">
-<div class="panel"><div class="ver">COLREGS PART C • RULES 20–31 • VERIFIED TRAINING SET</div><h2>Lights & Shapes</h2>
-<p class="note">Reference-card training first: learn the prescribed display without decorative vessel artwork getting in the way. Night views apply Rule 21 sectors; all-round status lights remain visible through every aspect.</p>
-<div class="lsvTabs"><button id="lsvDay" class="active" onclick="lsvModeSet('day')">☀️ DAY</button><button id="lsvNight" onclick="lsvModeSet('night')">🌙 NIGHT</button></div>
-<div id="lsvViewWrap" style="display:none"><div class="ver">VIEW FROM YOUR VESSEL</div><div id="lsvViews" class="lsvViews"></div></div>
-<div id="lsvGrid" class="lsvGrid"></div></div>
-<div class="panel"><div class="ver">ORAL / WATCHKEEPER TEST</div><h3 id="lsvQ">Identify this display</h3><div id="lsvChallenge" class="lsvVisual"></div><div id="lsvKey" class="lsvKey"></div><div id="lsvOpts" class="quizOpts"></div><div id="lsvResult" class="quizResult"></div><button class="big alt" onclick="lsvNext()">NEXT DISPLAY</button></div>
+<div class="panel">
+  <div class="ver">COLREGS PART C • FLASHCARD TRAINING METHOD</div>
+  <h2>Lights & Shapes</h2>
+  <p class="note">Study the display the way a watchkeeper sees it. Night cards show a nearly black vessel silhouette with only the lights visible from the selected aspect. Day cards focus on the prescribed day shape rather than decorative artwork.</p>
+
+  <div class="lfToolbar">
+    <button id="lfStudyBtn" class="active" onclick="lfSetMode('study')">📚 STUDY</button>
+    <button id="lfQuizBtn" onclick="lfSetMode('quiz')">🎯 QUIZ</button>
+    <button id="lfDayBtn" onclick="lfSetLighting('day')">☀️ DAY</button>
+    <button id="lfNightBtn" class="active" onclick="lfSetLighting('night')">🌙 NIGHT</button>
+  </div>
+
+  <div id="lfAspectWrap">
+    <div class="ver">VIEW FROM YOUR VESSEL</div>
+    <div id="lfAspectBar" class="lfAspect"></div>
+  </div>
+
+  <div id="lfStudyArea">
+    <div id="lfGrid" class="lfGrid"></div>
+  </div>
+
+  <div id="lfQuizArea" style="display:none">
+    <div class="answerPanel">
+      <div class="ver">WATCHKEEPER RECOGNITION</div>
+      <h3 id="lfQuestion">What are you looking at?</h3>
+      <div id="lfQuizVisual" class="flashVisual night" style="border-radius:14px"></div>
+      <div id="lfQuizAspect" class="note" style="text-align:center;margin-top:7px"></div>
+      <div id="lfQuizChoices" class="quizChoices"></div>
+      <div id="lfQuizResult" class="quizResult"></div>
+      <button class="big alt" onclick="lfNextQuestion()">NEXT CARD</button>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <h3>Build scope</h3>
+  <p class="note">This first flashcard set covers the core recognition cases most useful for watchkeeping. It deliberately avoids pretending that one generic picture covers every special case. Dredging, mine-clearance, pushing/composite-unit variants and other operation-specific displays will be added as separate verified cards.</p>
+</div>
 </section>
 
 <section id="signalsPage" class="appPage"><div class="panel"><div class="ver">COLREGS PART D • RULES 32–37</div><h2>Sound & Light Signals</h2><div class="moduleCards">
@@ -839,69 +991,160 @@ function answerBuoy(id){
 }
 
 
-const LSVIEWS=[['ahead','AHEAD',0],['stbd','STBD SIDE',90],['astern','ASTERN',180],['port','PORT SIDE',270]];
-const LSD=[
-{id:'pd12',n:'Power-driven vessel <12 m',r:'23',sh:[],all:[],nav:'pdSmall',d:'May exhibit an all-round white light and sidelights.'},
-{id:'pd50',n:'Power-driven vessel <50 m',r:'23',sh:[],all:[['mast','W']],nav:'pd',d:'Masthead light, sidelights and sternlight.'},
-{id:'pdBig',n:'Power-driven vessel ≥50 m',r:'23',sh:[],all:[['mast','W'],['mastA','W']],nav:'pdBig',d:'Forward and after masthead lights; after light higher; sidelights and sternlight.'},
-{id:'sail',n:'Sailing vessel underway',r:'25',sh:[],all:[],nav:'sail',d:'Sidelights and sternlight. Optional red-over-green omitted from this core display.'},
-{id:'motorSail',n:'Sailing vessel under machinery',r:'25',sh:['coneD'],all:[['mast','W']],nav:'pd',d:'Cone apex down by day; power-driven lights at night.'},
-{id:'trawl',n:'Trawling',r:'26',sh:['coneMeet'],all:[['top','G'],['mid','W']],nav:'move',d:'Green over white all-round. When making way: sidelights and sternlight. Masthead white is additional for ≥50 m and optional below 50 m.'},
-{id:'fish',n:'Fishing other than trawling',r:'26',sh:['coneMeet'],all:[['top','R'],['mid','W']],nav:'move',d:'Red over white all-round; when making way, sidelights and sternlight.'},
-{id:'gear',n:'Fishing gear extends >150 m',r:'26',sh:['coneMeet','coneGear'],all:[['top','R'],['mid','W'],['gearW','W']],nav:'move',d:'Fishing display plus all-round white / cone apex up in direction of outlying gear.'},
-{id:'nuc',n:'Not under command',r:'27',sh:['ball','ball2'],all:[['top','R'],['mid','R']],nav:'move',d:'Two red all-round / two balls. When making way: sidelights and sternlight; no masthead light.'},
-{id:'ram',n:'Restricted ability to manoeuvre',r:'27',sh:['ball','diamond','ball3'],all:[['top','R'],['mid','W'],['low','R']],nav:'pd',d:'Red-white-red / ball-diamond-ball. When making way: masthead light(s), sidelights and sternlight.'},
-{id:'dredge',n:'Dredging — obstruction / safe side',r:'27',sh:['ball','diamond','ball3','obsBalls','safeDiamonds'],all:[['top','R'],['mid','W'],['low','R'],['obsR1','R'],['obsR2','R'],['safeG1','G'],['safeG2','G']],nav:'pd',d:'RAM display plus two red on obstruction side and two green on safe side.'},
-{id:'mine',n:'Mine-clearance vessel',r:'27',sh:['mineBalls'],all:[['mineT','G'],['mineL','G'],['mineR','G']],nav:'pd',d:'Three all-round green lights / three balls: foremast head and ends of fore yard.'},
-{id:'cbd',n:'Constrained by draught',r:'28',sh:['cylinder'],all:[['top','R'],['mid','R'],['low','R']],nav:'pd',d:'May show three all-round red lights or a cylinder, in addition to Rule 23 lights.'},
-{id:'pilot',n:'Pilot vessel on duty — underway',r:'29',sh:[],all:[['top','W'],['mid','R']],nav:'move',d:'White over red all-round; when underway, sidelights and sternlight.'},
-{id:'anchorS',n:'At anchor <50 m',r:'30',sh:['ball'],all:[['anchorF','W']],nav:'none',d:'One all-round white; one ball by day.'},
-{id:'anchorB',n:'At anchor ≥50 m',r:'30',sh:['ball'],all:[['anchorF','W'],['anchorA','W']],nav:'none',d:'Forward all-round white higher than aft all-round white; one ball.'},
-{id:'aground',n:'Aground',r:'30',sh:['ball','ball2','ball3'],all:[['anchorF','W'],['anchorA','W'],['top','R'],['mid','R']],nav:'none',d:'Anchor light(s) plus two all-round reds; three balls by day.'},
-{id:'tow200',n:'Towing astern — tow ≤200 m',r:'24',sh:[],all:[['tow1','W'],['tow2','W'],['towY','Y']],nav:'tow',d:'Two masthead towing whites vertical; sidelights, sternlight, and yellow towing light above sternlight.'},
-{id:'towLong',n:'Towing astern — tow >200 m',r:'24',sh:['diamond'],all:[['tow0','W'],['tow1','W'],['tow2','W'],['towY','Y']],nav:'tow',d:'Three masthead whites vertical; diamond by day; sidelights, sternlight and yellow towing light.'}
+const LF_ASPECTS=[
+ {id:'ahead',label:'AHEAD',bearing:0},
+ {id:'stbd',label:'STBD SIDE',bearing:90},
+ {id:'astern',label:'ASTERN',bearing:180},
+ {id:'port',label:'PORT SIDE',bearing:270}
 ];
-let lsvMode='day',lsvView='ahead',lsvI=-1;
-const LP={top:[105,27],mid:[105,49],low:[105,71],mast:[105,55],mastA:[130,34],anchorF:[130,43],anchorA:[70,69],gearW:[148,50],obsR1:[145,39],obsR2:[145,61],safeG1:[65,39],safeG2:[65,61],mineT:[105,28],mineL:[75,55],mineR:[135,55],tow0:[105,23],tow1:[105,44],tow2:[105,65],towY:[105,105]};
-function lcol(c){return c==='R'?'#ff3333':c==='G'?'#24e36a':c==='Y'?'#ffd42a':'#fff'}
-function llamp(c,x,y){let z=lcol(c);return `<circle class="lsvLamp" cx="${x}" cy="${y}" r="6" fill="${z}" style="color:${z}"/>`}
-function lshape(s){
- let ball=(x,y)=>`<circle class="lsvShape" cx="${x}" cy="${y}" r="8"/>`,dia=(x,y)=>`<polygon class="lsvShape" points="${x},${y-11} ${x+10},${y} ${x},${y+11} ${x-10},${y}"/>`,up=(x,y)=>`<polygon class="lsvShape" points="${x},${y-11} ${x-10},${y+8} ${x+10},${y+8}"/>`,dn=(x,y)=>`<polygon class="lsvShape" points="${x-10},${y-8} ${x+10},${y-8} ${x},${y+11}"/>`;
- return s==='ball'?ball(105,28):s==='ball2'?ball(105,51):s==='ball3'?ball(105,74):s==='diamond'?dia(105,50):s==='coneD'?dn(105,48):s==='coneMeet'?dn(105,36)+up(105,61):s==='coneGear'?up(148,50):s==='cylinder'?`<rect class="lsvShape" x="96" y="29" width="18" height="38"/>`:s==='mineBalls'?ball(105,27)+ball(75,55)+ball(135,55):s==='obsBalls'?ball(145,38)+ball(145,61):s==='safeDiamonds'?dia(65,38)+dia(65,63):'';
+
+const LF_CARDS=[
+ {id:'pdlt50',name:'Power-driven vessel <50 m underway',rule:'23',shape:'none',normal:'pd1',all:[],note:'One masthead light, sidelights and sternlight.'},
+ {id:'pd50',name:'Power-driven vessel ≥50 m underway',rule:'23',shape:'none',normal:'pd2',all:[],note:'Two masthead lights, the after one higher; sidelights and sternlight.'},
+ {id:'sail',name:'Sailing vessel underway',rule:'25',shape:'none',normal:'sail',all:[],note:'Sidelights and sternlight. Optional red-over-green omitted from this core card.'},
+ {id:'motorsail',name:'Sailing vessel using machinery',rule:'25',shape:'coneDown',normal:'pd1',all:[],note:'Cone apex downward by day. At night, display as a power-driven vessel for the applicable size.'},
+ {id:'trawl',name:'Trawling vessel <50 m, making way',rule:'26',shape:'conesMeet',normal:'move',all:[['top','G'],['mid','W']],note:'Green over white all-round; when making way, sidelights and sternlight.'},
+ {id:'fish',name:'Fishing other than trawling, making way',rule:'26',shape:'conesMeet',normal:'move',all:[['top','R'],['mid','W']],note:'Red over white all-round; when making way, sidelights and sternlight.'},
+ {id:'nuc',name:'Not under command, making way',rule:'27',shape:'twoBalls',normal:'move',all:[['top','R'],['mid','R']],note:'Two all-round reds; when making way, sidelights and sternlight. No masthead light.'},
+ {id:'ram',name:'Restricted in ability to manoeuvre, making way',rule:'27',shape:'ballDiamondBall',normal:'pd1',all:[['top','R'],['mid','W'],['low','R']],note:'Red-white-red all-round; when making way, normal power-driven lights are also shown.'},
+ {id:'cbd',name:'Constrained by draught, underway',rule:'28',shape:'cylinder',normal:'pd1',all:[['top','R'],['mid','R'],['low','R']],note:'May exhibit three all-round red lights and a cylinder in addition to normal power-driven lights.'},
+ {id:'pilot',name:'Pilot vessel on pilotage duty, underway',rule:'29',shape:'none',normal:'move',all:[['top','W'],['mid','R']],note:'White over red all-round; when underway, sidelights and sternlight.'},
+ {id:'anchorS',name:'Vessel <50 m at anchor',rule:'30',shape:'oneBall',normal:'none',all:[['anchorF','W']],note:'One all-round white light; one ball by day.'},
+ {id:'anchorB',name:'Vessel ≥50 m at anchor',rule:'30',shape:'oneBall',normal:'none',all:[['anchorF','W'],['anchorA','W']],note:'Forward all-round white higher than an aft all-round white; one ball by day.'},
+ {id:'aground',name:'Vessel aground',rule:'30',shape:'threeBalls',normal:'none',all:[['anchorF','W'],['anchorA','W'],['top','R'],['mid','R']],note:'Anchor light(s) plus two all-round red lights; three balls by day.'},
+ {id:'tow200',name:'Towing astern — tow ≤200 m',rule:'24',shape:'none',normal:'tow',all:[['tow1','W'],['tow2','W'],['towY','Y']],note:'Two masthead towing whites vertical; sidelights, sternlight and yellow towing light above the sternlight.'},
+ {id:'towLong',name:'Towing astern — tow >200 m',rule:'24',shape:'diamond',normal:'tow',all:[['tow0','W'],['tow1','W'],['tow2','W'],['towY','Y']],note:'Three masthead towing whites vertical; diamond by day; sidelights, sternlight and yellow towing light.'}
+];
+
+let lfMode='study', lfLighting='night', lfAspect='ahead', lfQuizIndex=-1;
+
+const LFPOS={
+ top:[105,25], mid:[105,48], low:[105,71],
+ anchorF:[128,41], anchorA:[68,68],
+ tow0:[105,20], tow1:[105,42], tow2:[105,64], towY:[105,101]
+};
+
+function lfColor(c){return c==='R'?'#ff3434':c==='G'?'#23e36e':c==='Y'?'#ffd32f':'#ffffff'}
+function lfLamp(c,x,y){let z=lfColor(c);return `<circle class="navGlow" cx="${x}" cy="${y}" r="6" fill="${z}" style="color:${z}"/>`}
+
+function lfShape(type){
+ const ball=(x,y)=>`<circle class="dayShape" cx="${x}" cy="${y}" r="8"/>`;
+ const dia=(x,y)=>`<polygon class="dayShape" points="${x},${y-11} ${x+10},${y} ${x},${y+11} ${x-10},${y}"/>`;
+ const up=(x,y)=>`<polygon class="dayShape" points="${x},${y-11} ${x-10},${y+8} ${x+10},${y+8}"/>`;
+ const dn=(x,y)=>`<polygon class="dayShape" points="${x-10},${y-8} ${x+10},${y-8} ${x},${y+11}"/>`;
+ if(type==='coneDown') return dn(105,48);
+ if(type==='conesMeet') return dn(105,35)+up(105,61);
+ if(type==='twoBalls') return ball(105,34)+ball(105,59);
+ if(type==='ballDiamondBall') return ball(105,23)+dia(105,48)+ball(105,73);
+ if(type==='cylinder') return `<rect class="dayShape" x="96" y="29" width="18" height="38"/>`;
+ if(type==='oneBall') return ball(105,46);
+ if(type==='threeBalls') return ball(105,24)+ball(105,48)+ball(105,72);
+ if(type==='diamond') return dia(105,48);
+ return '';
 }
-function sectorNav(c){
- let b=LSVIEWS.find(v=>v[0]===lsvView)[2],a=[],nav=c.nav;
- let ahead=b===0,stbd=b===90,astern=b===180,port=b===270;
- if(nav==='pdSmall'){if(!astern)a.push(['W',105,54]);}
- if(nav==='pd'||nav==='pdBig'){if(!astern){a.push(['W',105,55]);if(nav==='pdBig')a.push(['W',130,34]);}}
- if(nav==='tow'){if(!astern){}}
- if(nav==='sail'||nav==='move'||nav==='pd'||nav==='pdBig'||nav==='pdSmall'||nav==='tow'){
-   if(ahead){a.push(['R',82,104],['G',128,104])}
-   if(stbd)a.push(['G',126,104]);
-   if(port)a.push(['R',84,104]);
-   if(astern)a.push(['W',105,108]);
+
+function lfFaintVessel(aspect,day){
+ const cls=day?'dayShip':'faintShip', fill=day?'#dfe9ed':'#8aa0ae';
+ if(aspect==='ahead') return `<g class="${cls}"><path d="M87 119 L105 70 L123 119 L116 144 L94 144 Z" fill="${fill}"/><line x1="105" y1="70" x2="105" y2="32" stroke="${fill}" stroke-width="3"/></g>`;
+ if(aspect==='astern') return `<g class="${cls}"><path d="M87 120 L123 120 L117 144 L93 144 Z" fill="${fill}"/><line x1="105" y1="120" x2="105" y2="44" stroke="${fill}" stroke-width="3"/></g>`;
+ return `<g class="${cls}"><path d="M27 122 L183 122 L165 145 L48 145 Z" fill="${fill}"/><rect x="68" y="86" width="62" height="36" fill="${fill}"/><line x1="100" y1="86" x2="100" y2="32" stroke="${fill}" stroke-width="3"/></g>`;
+}
+
+function lfSectorLights(card,aspect){
+ const out=[];
+ const ahead=aspect==='ahead', stbd=aspect==='stbd', astern=aspect==='astern', port=aspect==='port';
+
+ // Masthead light(s): visible ahead and on either side, not from directly astern.
+ if(card.normal==='pd1' || card.normal==='pd2'){
+   if(!astern){
+     out.push(['W',105,54]);
+     if(card.normal==='pd2') out.push(['W',132,34]);
+   }
  }
- if(nav==='tow'&&astern)a.push(['Y',105,88]);
- return a;
+
+ // Sail / making-way / power-driven / towing all use sidelights/sternlight as applicable.
+ if(['pd1','pd2','sail','move','tow'].includes(card.normal)){
+   if(ahead){out.push(['R',84,103],['G',126,103]);}
+   if(stbd) out.push(['G',126,103]);
+   if(port) out.push(['R',84,103]);
+   if(astern) out.push(['W',105,109]);
+ }
+
+ // Towing light is visible through the stern sector.
+ if(card.normal==='tow' && astern) out.push(['Y',105,87]);
+
+ return out;
 }
-function lsvGraphic(c){
- let night=lsvMode==='night',base=night?'#01070d':'#edf3f5',ink=night?'#263744':'#53636b';
- let g=`<line x1="25" y1="126" x2="185" y2="126" stroke="${ink}" stroke-width="3"/><path d="M31 126 L179 126 L161 145 L51 145 Z" fill="${night?'#101b24':'#aab6bb'}"/>`;
- if(!night){c.sh.forEach(s=>g+=lshape(s));}
- else{c.all.forEach(([p,col])=>{let q=LP[p];if(q)g+=llamp(col,q[0],q[1])});sectorNav(c).forEach(([col,x,y])=>g+=llamp(col,x,y));}
- return `<svg viewBox="0 0 210 165">${g}</svg>`;
+
+function lfGraphic(card){
+ const day=lfLighting==='day', bg=day?'day':'night';
+ let body=lfFaintVessel(lfAspect,day);
+ if(day){
+   body += lfShape(card.shape);
+ } else {
+   card.all.forEach(([p,c])=>{let q=LFPOS[p]; if(q) body += lfLamp(c,q[0],q[1]);});
+   lfSectorLights(card,lfAspect).forEach(([c,x,y])=>body += lfLamp(c,x,y));
+ }
+ return `<svg viewBox="0 0 210 165">${body}</svg>`;
 }
-function lsvRender(){
- $('lsvDay').classList.toggle('active',lsvMode==='day');$('lsvNight').classList.toggle('active',lsvMode==='night');$('lsvViewWrap').style.display=lsvMode==='night'?'block':'none';
- $('lsvViews').innerHTML=LSVIEWS.map(v=>`<button class="${v[0]===lsvView?'active':''}" onclick="lsvViewSet('${v[0]}')">${v[1]}</button>`).join('');
- $('lsvGrid').innerHTML=LSD.map(c=>`<div class="lsvCard"><div class="lsvVisual ${lsvMode==='night'?'night':''}">${lsvGraphic(c)}</div><div class="lsvInfo"><b>${c.n}</b><small>${c.d}</small><span class="lsvRule">Rule ${c.r}</span></div></div>`).join('');
- if(lsvI>=0)lsvChallengeRender();
+
+function lfRender(){
+ document.getElementById('lfStudyBtn').classList.toggle('active',lfMode==='study');
+ document.getElementById('lfQuizBtn').classList.toggle('active',lfMode==='quiz');
+ document.getElementById('lfDayBtn').classList.toggle('active',lfLighting==='day');
+ document.getElementById('lfNightBtn').classList.toggle('active',lfLighting==='night');
+ document.getElementById('lfAspectWrap').style.display=lfLighting==='night'?'block':'none';
+ document.getElementById('lfStudyArea').style.display=lfMode==='study'?'block':'none';
+ document.getElementById('lfQuizArea').style.display=lfMode==='quiz'?'block':'none';
+
+ document.getElementById('lfAspectBar').innerHTML=LF_ASPECTS.map(a=>`<button class="${a.id===lfAspect?'active':''}" onclick="lfSetAspect('${a.id}')">${a.label}</button>`).join('');
+
+ document.getElementById('lfGrid').innerHTML=LF_CARDS.map(c=>`
+   <div class="flashCard">
+     <div class="flashVisual ${lfLighting}">${lfGraphic(c)}</div>
+     <div class="flashInfo">
+       <b>${c.name}</b>
+       <small>${c.note}</small>
+       <div class="flashMeta"><span class="flashPill">Rule ${c.rule}</span>${lfLighting==='night'?`<span class="flashPill">${LF_ASPECTS.find(a=>a.id===lfAspect).label}</span>`:''}</div>
+     </div>
+   </div>`).join('');
+
+ if(lfQuizIndex>=0) lfRenderQuiz();
 }
-function lsvModeSet(m){lsvMode=m;lsvRender();$('lsvQ').textContent=m==='day'?'Identify this day display':'Identify this night display'}
-function lsvViewSet(v){lsvView=v;lsvRender()}
-function lsvChallengeRender(){let c=LSD[lsvI];$('lsvChallenge').className='lsvVisual '+(lsvMode==='night'?'night':'');$('lsvChallenge').innerHTML=lsvGraphic(c);$('lsvKey').textContent=lsvMode==='night'?'Observed from: '+LSVIEWS.find(v=>v[0]===lsvView)[1]:'Day shape recognition'}
-function lsvNext(){lsvI=(lsvI+1)%LSD.length;let c=LSD[lsvI];lsvChallengeRender();let pool=LSD.filter(x=>x.id!==c.id),w=[pool[(lsvI*3)%pool.length],pool[(lsvI*3+1)%pool.length],pool[(lsvI*3+2)%pool.length]];let o=[c,...w].sort((a,b)=>a.n.localeCompare(b.n));$('lsvOpts').innerHTML=o.map(x=>`<button onclick="lsvAnswer('${x.id}')">${x.n}</button>`).join('');$('lsvResult').textContent=''}
-function lsvAnswer(id){let c=LSD[lsvI],ok=id===c.id;$('lsvResult').textContent=(ok?'✓ Correct — ':'✗ Correct answer: '+c.n+' — ')+c.d;$('lsvResult').className='quizResult '+(ok?'ok':'warn')}
+
+function lfSetMode(m){lfMode=m; lfRender(); if(m==='quiz'&&lfQuizIndex<0)lfNextQuestion();}
+function lfSetLighting(m){lfLighting=m; lfRender();}
+function lfSetAspect(a){lfAspect=a; lfRender();}
+
+function lfRenderQuiz(){
+ const c=LF_CARDS[lfQuizIndex];
+ document.getElementById('lfQuizVisual').className='flashVisual '+lfLighting;
+ document.getElementById('lfQuizVisual').innerHTML=lfGraphic(c);
+ document.getElementById('lfQuizAspect').textContent=lfLighting==='night'?'Observer view: '+LF_ASPECTS.find(a=>a.id===lfAspect).label:'Day shape recognition';
+ document.getElementById('lfQuestion').textContent=lfLighting==='night'?'What are you looking at?':'Identify this day display';
+}
+
+function lfNextQuestion(){
+ lfQuizIndex=(lfQuizIndex+1)%LF_CARDS.length;
+ const c=LF_CARDS[lfQuizIndex];
+ lfRenderQuiz();
+
+ const pool=LF_CARDS.filter(x=>x.id!==c.id);
+ const wrong=[];
+ for(let i=0;wrong.length<3;i++){
+   const x=pool[(lfQuizIndex*3+i)%pool.length];
+   if(!wrong.some(w=>w.id===x.id)) wrong.push(x);
+ }
+ const opts=[c,...wrong].sort((a,b)=>a.name.localeCompare(b.name));
+ document.getElementById('lfQuizChoices').innerHTML=opts.map(o=>`<button type="button" onclick="lfAnswer('${o.id}')">${o.name}</button>`).join('');
+ document.getElementById('lfQuizResult').textContent='';
+}
+
+function lfAnswer(id){
+ const c=LF_CARDS[lfQuizIndex],ok=id===c.id;
+ document.getElementById('lfQuizResult').textContent=(ok?'✓ Correct — ':'✗ Correct answer: '+c.name+' — ')+c.note;
+ document.getElementById('lfQuizResult').className='quizResult '+(ok?'ok':'warn');
+}
 
 const RULE_DATA={"1": {"title": "Application", "summary": "Defines where COLREGS apply and recognises compatible local/special rules.", "training": "Know whether COLREGS, local harbour rules, or both govern the water you are navigating.", "project": "General application; local rules can supplement but should conform closely to COLREGS."}, "2": {"title": "Responsibility", "summary": "No vessel, owner, master or crew is relieved from consequences of neglecting the Rules, required precautions, or ordinary seamanlike practice.", "training": "The Rules are not a substitute for judgement. Departure from a Rule can be required by immediate danger.", "project": "Use all circumstances, limitations and dangers when deciding what safe action requires."}, "3": {"title": "General definitions", "summary": "Defines core terms used throughout COLREGS, including vessel, power-driven vessel, sailing vessel, fishing, NUC, RAM, CBD, underway and restricted visibility.", "training": "Correct classification is essential before deciding which steering rule or light/shape rule applies.", "project": "Project Watch should classify vessel status before applying encounter logic."}, "4": {"title": "Application", "summary": "Rules 4\u201310 apply in any condition of visibility.", "training": "Do not switch off lookout, safe speed or risk-assessment duties simply because visibility is good.", "project": "Forms the baseline conduct layer for all scenarios."}, "5": {"title": "Look-out", "summary": "Requires a proper lookout by sight, hearing and all available appropriate means.", "training": "Radar/AIS do not replace visual and auditory lookout; they supplement it.", "project": "Project Watch can test whether the learner notices developing risks before alarms."}, "6": {"title": "Safe speed", "summary": "Requires proceeding at a safe speed so proper effective action can be taken and the vessel stopped within an appropriate distance.", "training": "Safe speed depends on visibility, traffic, manoeuvrability, background lights, weather, draught and radar factors where fitted.", "project": "Scenario difficulty can vary by visibility, traffic and vessel response."}, "7": {"title": "Risk of collision", "summary": "Requires use of all available means to determine risk; if in doubt, assume risk exists.", "training": "A steady or nearly steady compass bearing with decreasing range is a classic warning, but large vessels/tows can still create risk even with bearing change.", "project": "CPA/TCPA support, but do not replace, proper assessment."}, "8": {"title": "Action to avoid collision", "summary": "Avoiding action should be positive, made in ample time, and large enough to be readily apparent; effectiveness must be checked until finally past and clear.", "training": "Small successive alterations are poor practice where a substantial alteration is available. Passing distance must be safe in the circumstances.", "project": "Project Watch scores timing, clarity of action and outcome separately."}, "9": {"title": "Narrow channels", "summary": "Sets conduct for vessels in narrow channels/fairways, including keeping near the starboard outer limit where safe/practicable and rules on impeding certain vessels.", "training": "Channel constraints can change what manoeuvres are practical and create additional duties.", "project": "Needs dedicated narrow-channel scenarios rather than open-water logic."}, "10": {"title": "Traffic separation schemes", "summary": "Sets conduct in IMO-adopted TSS, including lane use, joining/leaving, crossing, separation zones and inshore traffic zones.", "training": "When obliged to cross a lane, cross on a heading as nearly as practicable at right angles to the general direction of traffic flow.", "project": "TSS training must combine Rule 10 with the ordinary collision-avoidance Rules."}, "11": {"title": "Application", "summary": "Rules 11\u201318 apply to vessels in sight of one another.", "training": "These encounter rules are not the basis for restricted-visibility encounters where vessels are not in sight.", "project": "Simulator must separate in-sight logic from Rule 19 radar-only logic."}, "12": {"title": "Sailing vessels", "summary": "Sets which sailing vessel keeps out of the way based on tack and windward/leeward relationships.", "training": "Learners must first identify tack and relative wind position correctly.", "project": "Requires sailing-specific scenarios and wind display."}, "13": {"title": "Overtaking", "summary": "The overtaking vessel keeps out of the way until finally past and clear; doubt about whether overtaking means treat it as overtaking.", "training": "Responsibility does not transfer merely because bearing changes during the manoeuvre.", "project": "Project Watch target AI must keep this responsibility throughout the pass."}, "14": {"title": "Head-on situation", "summary": "When two power-driven vessels meet on reciprocal or nearly reciprocal courses with risk of collision, each alters course to starboard so they pass port-to-port.", "training": "If in doubt whether a head-on situation exists, treat it as such.", "project": "Near-reciprocal geometry needs a tolerance/uncertainty model, not a single exact heading."}, "15": {"title": "Crossing situation", "summary": "For two power-driven vessels crossing with risk of collision, the vessel that has the other on her starboard side keeps out of the way and, if circumstances admit, avoids crossing ahead.", "training": "The rule determines give-way/stand-on roles; it does not prescribe one universal manoeuvre for every case.", "project": "Project Watch must combine Rule 15 role assignment with Rules 8, 16 and 17."}, "16": {"title": "Action by give-way vessel", "summary": "The give-way vessel takes early and substantial action to keep well clear.", "training": "Timing and decisiveness matter as well as final CPA.", "project": "A late but successful near-miss should not score like an early clear manoeuvre."}, "17": {"title": "Action by stand-on vessel", "summary": "The stand-on vessel normally keeps course and speed, may act when it becomes apparent the give-way vessel is not acting appropriately, and must act when collision cannot be avoided by give-way action alone.", "training": "Stand-on does not mean 'do nothing whatever happens'.", "project": "Project Watch needs escalation logic so stand-on action becomes appropriate when the other vessel fails."}, "18": {"title": "Responsibilities between vessels", "summary": "Sets responsibilities between categories such as power-driven, sailing, fishing, NUC, RAM and CBD, subject to the detailed Rule.", "training": "Vessel status can override ordinary power-vs-power crossing logic.", "project": "Status recognition must be tied to lights/shapes and scenario logic."}, "19": {"title": "Conduct in restricted visibility", "summary": "Applies when vessels are not in sight in or near restricted visibility and sets safe speed, engine readiness, radar-based avoiding-action cautions and response to fog signals.", "training": "Do not apply Rules 11\u201318 as though the vessels were in sight.", "project": "Requires a dedicated radar/restricted-visibility simulation family."}, "20": {"title": "Application", "summary": "Introduces the lights-and-shapes section and when those displays are required.", "training": "Night/day display requirements are part of vessel recognition.", "project": "Training should switch between daylight shapes and night lights."}, "21": {"title": "Definitions", "summary": "Defines masthead, sidelights, sternlight, towing light, all-round light and flashing light.", "training": "Light identity, arc and colour underpin night recognition.", "project": "Project Watch visual assets must respect arcs and positions."}, "22": {"title": "Visibility of lights", "summary": "Specifies minimum ranges at which prescribed lights must be visible, depending on vessel size and light type.", "training": "Recognition distance changes by vessel length and light category.", "project": "Useful later for night scenario detection range."}, "23": {"title": "Power-driven vessels underway", "summary": "Sets the standard lights for power-driven vessels underway, with variations for vessel size and air-cushion craft.", "training": "Core night-recognition pattern: masthead light(s), sidelights and sternlight.", "project": "One of the first Lights & Shapes practical modules."}, "24": {"title": "Towing and pushing", "summary": "Sets lights/shapes for towing, pushing and composite units, including additional displays for long tows.", "training": "Tows can radically change collision risk and apparent vessel footprint.", "project": "Scenarios need tow length and restricted manoeuvrability considerations where applicable."}, "25": {"title": "Sailing vessels and vessels under oars", "summary": "Sets lights/shapes for sailing vessels and permitted alternatives/additional displays.", "training": "A sailing vessel using machinery is treated/displayed differently from pure sail.", "project": "Day-shape and propulsion-status recognition should be tested."}, "26": {"title": "Fishing vessels", "summary": "Sets lights/shapes for trawling and fishing other than trawling, including gear extending more than 150 m.", "training": "'Fishing' under COLREGS is a defined operational status, not simply anyone with a fishing rod.", "project": "Status determines Rule 18 responsibilities."}, "27": {"title": "NUC and RAM vessels", "summary": "Sets lights/shapes for vessels not under command and restricted in ability to manoeuvre, including specific operations.", "training": "These are high-priority status-recognition patterns.", "project": "Simulator must distinguish status from merely slow or stopped vessels."}, "28": {"title": "Vessels constrained by draught", "summary": "Sets additional lights/shape a power-driven vessel constrained by draught may exhibit.", "training": "CBD is specifically defined and applies only in qualifying circumstances.", "project": "Do not treat every deep-draught ship as automatically CBD."}, "29": {"title": "Pilot vessels", "summary": "Sets identification lights/shapes for vessels engaged on pilotage duty.", "training": "Recognition helps explain otherwise unusual manoeuvres near approaches and ports.", "project": "Useful harbour-approach scenario family."}, "30": {"title": "Anchored vessels and vessels aground", "summary": "Sets lights/shapes for vessels at anchor and aground, with size-related variations.", "training": "An anchored target is not an ordinary crossing vessel.", "project": "Collision logic must recognise zero-speed navigational status."}, "31": {"title": "Seaplanes", "summary": "Provides for displays as closely similar as possible when normal lights/shapes cannot be shown.", "training": "Rare but part of the complete COLREG framework.", "project": "Reference module rather than priority simulation content."}, "32": {"title": "Definitions", "summary": "Defines whistle and related terminology for Part D.", "training": "Foundation for sound-signal training.", "project": "Audio training should use correct signal patterns."}, "33": {"title": "Equipment for sound signals", "summary": "Specifies whistle/bell/gong carriage requirements by vessel length.", "training": "Equipment requirements vary with vessel size.", "project": "Reference data can be linked to custom vessel profiles."}, "34": {"title": "Manoeuvring and warning signals", "summary": "Specifies whistle and light signals used by vessels in sight, including course alterations, astern propulsion, doubt/warning and narrow-channel overtaking agreements.", "training": "Signals communicate manoeuvre/intention; they do not themselves replace collision-avoidance duties.", "project": "Project Watch can play a signal and ask the learner to interpret it."}, "35": {"title": "Sound signals in restricted visibility", "summary": "Specifies fog signals for vessel status and activity in or near restricted visibility.", "training": "Signal pattern depends on whether the vessel is making way, stopped, sailing, fishing, towing, anchored, aground, etc.", "project": "Ideal for audio recognition drills."}, "36": {"title": "Signals to attract attention", "summary": "Allows attention-attracting signals that cannot be mistaken for authorised signals and restricts problematic high-intensity/intermittent lights.", "training": "Attention signals should not create confusion with navigation signals.", "project": "Useful reference/safety content."}, "37": {"title": "Distress signals", "summary": "Directs use of the distress signals listed in Annex IV when a vessel is in distress and requires assistance.", "training": "Distress signals are separate from routine collision-avoidance communication.", "project": "Should link to an emergency-signals module."}, "38": {"title": "Exemptions", "summary": "Provides limited exemptions for qualifying vessels built/converted around implementation dates, subject to the Rule.", "training": "Primarily technical/historical application material.", "project": "Reference module rather than encounter scenario."}, "39": {"title": "Definitions", "summary": "Defines terms used in Part F concerning IMO verification.", "training": "Administrative convention-compliance material, not ship-handling conduct.", "project": "Reference-only content for most learners."}, "40": {"title": "Application", "summary": "Sets application of Part F verification provisions.", "training": "Concerns verification of Contracting Parties rather than navigational decisions on the bridge.", "project": "Reference-only content."}, "41": {"title": "Verification of compliance", "summary": "Provides for IMO audit/verification of Contracting Parties' compliance with convention obligations.", "training": "Important at convention/governance level, not a watchkeeping manoeuvre rule.", "project": "Reference-only content."}};
 
@@ -925,7 +1168,7 @@ function openModule(title,summary,training){
 }
 
 function showModule(name,btn){
- if(name==='lights')setTimeout(()=>{lsvRender();if(lsvI<0)lsvNext();},0);
+ if(name==='lights')setTimeout(()=>{lfRender();},0);
  if(name==='buoyage') setTimeout(()=>{renderBuoys(); if(buoyIndex<0)nextBuoyQuestion(); else renderBuoyChallenge();},0);
  
  document.querySelectorAll('.appPage').forEach(p=>p.classList.remove('active'));
@@ -1359,7 +1602,7 @@ function buildDebrief(d){
   $('timeline').innerHTML=events.map(e=>`<div class="event"><b>T+${fmt(e.t)}</b><br><span>${e.text}</span></div>`).join('');
 }
 function restart(){go('handover')}
-initScenario();renderBuoys();nextBuoyQuestion();lsvRender();lsvNext();
+initScenario();renderBuoys();nextBuoyQuestion();lfRender();
 </script>
 
 <div id="detailSheet" class="detailSheet" onclick="if(event.target===this)closeDetail()">
