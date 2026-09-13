@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.3 — 2 NM / 8× Encounter</title>
+<title>Project Watch 1.4 — Scenario Library</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -58,12 +58,20 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .qualityAlert{display:none;position:absolute;z-index:6;left:10px;right:10px;bottom:10px;padding:13px;border-radius:11px;background:#7f3d05ee;border:2px solid #ffc857;color:#fff;font-weight:900;text-align:center;font-size:16px}
 .qualityDetail{font-weight:600;font-size:12px;margin-top:4px;color:#ffe9bd}
 
+
+.scenarios{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.scenarioBtn{background:#0b4059;text-align:left;padding:12px;min-height:76px}
+.scenarioBtn.active{background:#168bcf;box-shadow:0 0 0 2px #8ee7ff66 inset}
+.scenarioBtn b{display:block;font-size:13px}.scenarioBtn span{display:block;font-size:10px;color:#c6dce6;margin-top:4px}
+.scenarioMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.scenarioMeta div{background:#052a3c;border-radius:9px;padding:8px}.scenarioMeta small{display:block;color:#a8bec9;font-size:9px}.scenarioMeta b{font-size:12px}
+
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.3 • 2 NM / 8×</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.4 • SCENARIO LIBRARY</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="handover" class="screen active">
@@ -81,18 +89,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <div class="cond"><small>OWN SPEED</small><b>7.0 kn</b></div>
   </div>
   <div class="panel">
-    <h3>Watch brief</h3>
-    <p class="note">Navigation equipment operational. One power-driven vessel is in sight. Maintain a proper lookout, assess the developing situation and navigate Suilven as you judge appropriate.</p>
-    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p><p class="note"><b>Encounter setup:</b> initial vessel-to-vessel range 2.00 NM. The unaltered tracks intersect. The simulator runs at 8× real time.</p><p class="note">1.3 starts the vessels exactly 2.00 NM apart on an unaltered collision course. The simulation runs at 8× real time. At the current 7 kn / 10 kn crossing geometry, the unaltered time to collision is about 9.83 simulated minutes, or about 74 seconds on screen. No coaching or collision warning is issued until vessel-to-vessel range is 0.50 NM or less. The scenario now ends automatically 10 simulated seconds after the actual minimum range is passed. Rudder-angle and rate-of-turn dynamics remain a generic displacement motor-vessel training model, not yet measured Nordhavn N43 manoeuvring data.</p>
+    <h3>Scenario library</h3>
+    <p class="note">Select an encounter. The exercise itself does not reveal the COLREG rule or expected manoeuvre before you take the watch.</p>
+    <div class="scenarios">
+      <button class="scenarioBtn active" data-sid="cross_stbd" onclick="selectScenario('cross_stbd',this)"><b>01 • Crossing — target starboard</b><span>Power / power • collision course</span></button>
+      <button class="scenarioBtn" data-sid="cross_port" onclick="selectScenario('cross_port',this)"><b>02 • Crossing — target port</b><span>Power / power • stand-on role</span></button>
+      <button class="scenarioBtn" data-sid="head_on" onclick="selectScenario('head_on',this)"><b>03 • Head-on</b><span>Reciprocal power-driven vessels</span></button>
+      <button class="scenarioBtn" data-sid="overtake" onclick="selectScenario('overtake',this)"><b>04 • Overtaking</b><span>Suilven closing from abaft beam</span></button>
+      <button class="scenarioBtn" data-sid="overtaken" onclick="selectScenario('overtaken',this)"><b>05 • Being overtaken</b><span>Faster vessel approaches astern</span></button>
+      <button class="scenarioBtn" data-sid="cross_stbd_offset" onclick="selectScenario('cross_stbd_offset',this)"><b>06 • Crossing — deceptive CPA</b><span>Small initial passing distance</span></button>
+      <button class="scenarioBtn" data-sid="head_on_offset" onclick="selectScenario('head_on_offset',this)"><b>07 • Near head-on</b><span>Slightly offset reciprocal tracks</span></button>
+      <button class="scenarioBtn" data-sid="overtake_port" onclick="selectScenario('overtake_port',this)"><b>08 • Overtake — port quarter</b><span>Different overtaking geometry</span></button>
+    </div>
+    <div class="scenarioMeta">
+      <div><small>INITIAL RANGE</small><b>2.00 NM</b></div>
+      <div><small>SIMULATION</small><b>8×</b></div>
+      <div><small>WARNINGS</small><b>≤ 0.50 NM</b></div>
+    </div>
     <div class="modebar">
       <button id="guidedMode" class="active" onclick="setTrainingMode('guided')">GUIDED</button>
       <button id="watchMode" onclick="setTrainingMode('watch')">WATCH</button>
       <button id="examMode" onclick="setTrainingMode('exam')">EXAM</button>
     </div>
-    <p class="note"><b>Guided</b> gives immediate manoeuvre-quality coaching. <b>Watch</b> records poor decisions but only gives collision alerts. <b>Exam</b> suppresses coaching until debrief.</p>
+    <p class="note"><b>Guided</b> gives supported coaching where scenario-specific logic has been validated. <b>Watch</b> records the exercise with collision alerts only. <b>Exam</b> is intended for debrief-led assessment.</p>
     <button class="big" onclick="startWatch()">TAKE THE WATCH</button>
-    <button class="big alt" onclick="armAudio(); collisionSound(); speakMarine('Collision alert. Starboard bough.')">TEST AUDIO — “COLLISION ALERT, STARBOARD BOW”</button>
-    <p class="note">On iPad, tap TEST AUDIO once if you do not hear alerts. This user action unlocks browser audio and speech. The spoken alert deliberately uses the nautical pronunciation of “bow” (/baʊ/).</p>
+    <button class="big alt" onclick="armAudio(); collisionSound(); speakMarine('Collision alert. Starboard bough.')">TEST AUDIO</button>
   </div>
 </section>
 
@@ -223,23 +244,42 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div></div>
 <script>
 const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180, norm=x=>(x%360+360)%360;
-let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided';
+let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided',scenarioId='cross_stbd';
 let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0,lastQuality='',qualityEvents=[],spokenWarnings=new Set(),minSepTime=0,autoEnding=false;
 
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0)}
 function vel(o){return{x:o.s*Math.sin(rad(o.h)),y:o.s*Math.cos(rad(o.h))}}
+const SCENARIOS={
+ cross_stbd:{name:'Crossing — target starboard',ownH:0,ownS:7,tgtH:270,tgtS:10,kind:'cross_giveway',offset:0},
+ cross_port:{name:'Crossing — target port',ownH:0,ownS:7,tgtH:90,tgtS:10,kind:'cross_standon',offset:0},
+ head_on:{name:'Head-on',ownH:0,ownS:7,tgtH:180,tgtS:9,kind:'head_on',offset:0},
+ overtake:{name:'Overtaking',ownH:0,ownS:9,tgtH:0,tgtS:5,kind:'overtaking',offset:0},
+ overtaken:{name:'Being overtaken',ownH:0,ownS:6,tgtH:0,tgtS:10,kind:'overtaken',offset:0},
+ cross_stbd_offset:{name:'Crossing — deceptive CPA',ownH:0,ownS:7,tgtH:270,tgtS:10,kind:'cross_giveway',offset:.12},
+ head_on_offset:{name:'Near head-on',ownH:0,ownS:7,tgtH:182,tgtS:9,kind:'head_on',offset:.10},
+ overtake_port:{name:'Overtake — port quarter',ownH:0,ownS:9,tgtH:350,tgtS:5,kind:'overtaking',offset:-.12}
+};
+function selectScenario(id,el){
+ scenarioId=id;
+ document.querySelectorAll('.scenarioBtn').forEach(b=>b.classList.remove('active'));
+ if(el)el.classList.add('active');
+}
 function initScenario(){
-  own={x:0,y:0,h:0,s:7};
-  // 1.1.1: exact 1.00 NM initial separation on an unaltered crossing collision course.
-  // Relative closing speed for 7 kn northbound vs 10 kn westbound is sqrt(7^2+10^2).
-  const relativeClosing=Math.hypot(7,10);
-  const T=2/relativeClosing; // hours to collision from exactly 2.00 NM separation
-  const intersection={x:0,y:7*T};
-  const tv=vel({h:270,s:10});
-  tgt={x:intersection.x-tv.x*T,y:intersection.y-tv.y*T,h:270,s:10};
-  running=false;lastTs=0;elapsed=0;mult=1;rudder=0;actualRudder=0;rotRate=0;cmdSpeed=7;ownHist=[];tgtHist=[];events=[];
+  const s=SCENARIOS[scenarioId];
+  own={x:0,y:0,h:s.ownH,s:s.ownS};
+  cmdSpeed=s.ownS;
+  // Construct target at exactly 2 NM initial range using relative-motion geometry.
+  let vo=vel(own), vt=vel({h:s.tgtH,s:s.tgtS});
+  let rv={x:vt.x-vo.x,y:vt.y-vo.y}, rvm=Math.hypot(rv.x,rv.y);
+  let ux=-rv.x/rvm, uy=-rv.y/rvm; // collision-course relative-position unit vector
+  // Add a perpendicular offset for selected near-miss variants, then renormalise to 2 NM.
+  let px=ux*2 + (-uy)*s.offset, py=uy*2 + ux*s.offset;
+  let pm=Math.hypot(px,py); px=px*2/pm;py=py*2/pm;
+  tgt={x:px,y:py,h:s.tgtH,s:s.tgtS};
+  running=false;lastTs=0;elapsed=0;mult=1;rudder=0;actualRudder=0;rotRate=0;cmdSpeed=s.ownS;ownHist=[];tgtHist=[];events=[];
   minSep=999;crashed=false;lastAlarm='';firstAction=null;lastQuality='';qualityEvents=[];spokenWarnings=new Set();minSepTime=0;autoEnding=false;
   let d=enc();initialCPA=d.cpa;initialTCPA=d.H;
+  $('cmdSpeedText').textContent=cmdSpeed.toFixed(1)+' kn';
 }
 function enc(){
   let p={x:tgt.x-own.x,y:tgt.y-own.y},a=vel(own),b=vel(tgt),rv={x:b.x-a.x,y:b.y-a.y};
@@ -260,6 +300,11 @@ function projectedLineIntersection(){
   return {tOwn,tTgt,deltaMin:(tTgt-tOwn)*60};
 }
 function manoeuvreQuality(d){
+  const s=SCENARIOS[scenarioId];
+  // For now, immediate rule-specific coaching is intentionally limited to the
+  // validated power/power give-way crossing family. Other scenarios retain
+  // geometry/collision alerts and are assessed conservatively in debrief.
+  if(s.kind!=='cross_giveway') return {code:'',title:'',detail:'',unsafe:false};
   let ix=projectedLineIntersection();
   let result={code:'',title:'',detail:'',unsafe:false};
   if(!ix || ix.tOwn<=0 || ix.tTgt<=0)return result;
@@ -541,8 +586,17 @@ function calculateTrainingScore(){
   return {score:4,label:'Good outcome'};
 }
 
+function scenarioRuleSummary(){
+ const k=SCENARIOS[scenarioId].kind;
+ if(k==='head_on') return 'Head-on power-driven encounter — Rule 14 family. Each vessel should alter course to starboard so each passes on the port side of the other.';
+ if(k==='overtaking') return 'Overtaking encounter — Rule 13 family. Suilven is the overtaking vessel and must keep out of the way of the vessel being overtaken.';
+ if(k==='overtaken') return 'Being overtaken — Rule 13 family. The overtaking vessel remains responsible for keeping out of the way.';
+ if(k==='cross_standon') return 'Crossing encounter — Rules 15 and 17 family. The other vessel is on Suilven’s port side; Suilven is the stand-on vessel in this constructed power/power encounter.';
+ return 'Crossing encounter — Rules 15 and 16 family. The other vessel is on Suilven’s starboard side; Suilven is the give-way vessel in this constructed power/power encounter.';
+}
 function buildDebrief(d){
   let sc=calculateTrainingScore();
+  $('mathSummary').dataset.scenario=SCENARIOS[scenarioId].name;
   $('scoreValue').textContent=sc.score+' / 5';
   $('scoreLabel').textContent=sc.label+' — based on collision outcome, closest approach, manoeuvre-quality flags and action timing.';
   $('dInitCPA').textContent=initialCPA.toFixed(2)+' NM';
@@ -554,6 +608,7 @@ function buildDebrief(d){
   $('outcome').className='status '+(collided?'bad':minSep<.1?'warn':'ok');
   $('mathSummary').textContent=`At handover, the unaltered constant-course/constant-speed vectors produced a predicted CPA of ${initialCPA.toFixed(2)} NM in ${(initialTCPA*60).toFixed(1)} minutes. The closest centre-to-centre separation actually reached during your watch was ${minSep.toFixed(2)} NM.`;
   $('decisionSummary').innerHTML=firstAction===null?'<p>No helm or engine manoeuvre was recorded.</p>':`<p>Your first recorded manoeuvre was at <b>T+${fmt(firstAction)}</b>.</p>`;
+  $('decisionSummary').innerHTML='<p><b>Scenario:</b> '+SCENARIOS[scenarioId].name+'</p><p>'+scenarioRuleSummary()+'</p>'+$('decisionSummary').innerHTML;
   if(qualityEvents.length){
     $('decisionSummary').innerHTML += `<p><b>Manoeuvre-quality flags:</b> ${qualityEvents.length}</p>` +
       qualityEvents.map(q=>`<p><b>T+${fmt(q.t)}</b> — ${q.title}<br><span style="color:#566">${q.detail}</span></p>`).join('');
