@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.1 — Real-Time 1 NM Encounter</title>
+<title>Project Watch 1.1.1 — Hotfix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -63,7 +63,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.1 • REAL-TIME ENCOUNTER</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.1.1 • REAL-TIME HOTFIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="handover" class="screen active">
@@ -223,17 +223,21 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div></div>
 <script>
 const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180, norm=x=>(x%360+360)%360;
-let own,tgt,running=false,lastTs=0,elapsed=0,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided';
+let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided';
 let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0,lastQuality='',qualityEvents=[],spokenWarnings=new Set(),prevRange=null,cpaPassedAt=null,autoEnding=false;
 
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0)}
 function vel(o){return{x:o.s*Math.sin(rad(o.h)),y:o.s*Math.cos(rad(o.h))}}
 function initScenario(){
   own={x:0,y:0,h:0,s:7};
-  // Constructed collision course: both vessels arrive at the same point in 15 minutes.
-  const T=.25, intersection={x:0,y:7*T}, tv=vel({h:270,s:10});
+  // 1.1.1: exact 1.00 NM initial separation on an unaltered crossing collision course.
+  // Relative closing speed for 7 kn northbound vs 10 kn westbound is sqrt(7^2+10^2).
+  const relativeClosing=Math.hypot(7,10);
+  const T=1/relativeClosing; // hours to collision from 1.00 NM separation
+  const intersection={x:0,y:7*T};
+  const tv=vel({h:270,s:10});
   tgt={x:intersection.x-tv.x*T,y:intersection.y-tv.y*T,h:270,s:10};
-  running=false;lastTs=0;elapsed=0;rudder=0;actualRudder=0;rotRate=0;cmdSpeed=7;ownHist=[];tgtHist=[];events=[];
+  running=false;lastTs=0;elapsed=0;mult=1;rudder=0;actualRudder=0;rotRate=0;cmdSpeed=7;ownHist=[];tgtHist=[];events=[];
   minSep=999;crashed=false;lastAlarm='';firstAction=null;lastQuality='';qualityEvents=[];spokenWarnings=new Set();prevRange=null;cpaPassedAt=null;autoEnding=false;
   let d=enc();initialCPA=d.cpa;initialTCPA=d.H;
 }
@@ -296,14 +300,11 @@ function handleQuality(d){
     lastQuality='';
     return;
   }
-
-  // Always record the event once when the state changes.
   if(q.code!==lastQuality){
     qualityEvents.push({t:elapsed,code:q.code,title:q.title,detail:q.detail,cpa:d.cpa});
     addEvent('quality',q.title);
     lastQuality=q.code;
   }
-
   if(trainingMode==='guided'){
     box.style.display='block';
     box.innerHTML=q.title+`<div class="qualityDetail">${q.detail}</div>`;
@@ -393,7 +394,7 @@ function setThrottle(v){cmdSpeed=v;$('cmdSpeedText').textContent=v.toFixed(1)+' 
 function tick(ts){
   if(!running)return;
   if(!lastTs)lastTs=ts;
-  let ds=(ts-lastTs)/1000*mult*60;lastTs=ts;elapsed+=ds;
+  let ds=(ts-lastTs)/1000;lastTs=ts;elapsed+=ds;
   // 0.7 generic displacement-vessel training dynamics.
   // Rudder actuator moves toward the ordered angle rather than jumping there.
   let rudderRate=2.5; // deg/sec of simulated time
@@ -433,15 +434,31 @@ function alarms(d){
     return;
   }
   let level='';
-  if(d.r<=.02)level='COLLISION';
-  else if(d.H>0&&d.cpa<.05&&d.H*60<2.5)level='COLLISION ALERT';
-  else if(d.H>0&&d.cpa<.15&&d.H*60<5)level='WARNING';
-  else if(d.H>0&&d.cpa<.4&&d.H*60<10)level='CAUTION';
+  if(d.r<=.02) level='COLLISION';
+  else if(d.H>0&&d.cpa<.05&&d.H*60<2.5) level='COLLISION ALERT';
+  else if(d.H>0&&d.cpa<.15&&d.H*60<5) level='WARNING';
+  else if(d.H>0&&d.cpa<.4&&d.H*60<10) level='CAUTION';
   if(level){
-    box.style.display='block';box.textContent=level+' — '+sector(d.rel);
-    if(level!==lastAlarm){addEvent('alert',level+' — '+sector(d.rel));if(level==='COLLISION ALERT'||level==='COLLISION')speakWarningOnce(level, level.toLowerCase()+'. '+spokenSector(sector(d.rel)));lastAlarm=level}
-  } else {box.style.display='none';lastAlarm=''}
-  if(level==='COLLISION'&&!crashed){crashed=true;running=false;$('play').textContent='▶ PLAY';addEvent('outcome','Collision');setTimeout(()=>endWatch('collision'),350)}
+    box.style.display='block';
+    box.textContent=level+' — '+sector(d.rel);
+    if(level!==lastAlarm){
+      addEvent('alert',level+' — '+sector(d.rel));
+      if(level==='COLLISION ALERT'||level==='COLLISION'){
+        speakWarningOnce(level, level.toLowerCase()+'. '+spokenSector(sector(d.rel)));
+      }
+      lastAlarm=level;
+    }
+  } else {
+    box.style.display='none';
+    lastAlarm='';
+  }
+  if(level==='COLLISION'&&!crashed){
+    crashed=true;
+    running=false;
+    $('play').textContent='▶ PLAY';
+    addEvent('outcome','Collision');
+    setTimeout(()=>endWatch('collision'),350);
+  }
 }
 function rot(x,y,a){let r=rad(a),c=Math.cos(r),s=Math.sin(r);return[x*c-y*s,x*s+y*c]}
 function draw(){
