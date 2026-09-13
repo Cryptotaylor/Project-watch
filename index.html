@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.5 — Buoyage Trainer</title>
+<title>Project Watch 1.6 — COLREGS Hub</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -72,15 +72,76 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .markCard b{display:block}.markCard small{color:#a8bec9}.markIcon{font-size:27px;line-height:1.2;margin-bottom:5px}
 .quizQ{background:#041f2d;border-radius:12px;padding:12px;margin-top:8px}.quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}.quizOpts button{font-size:12px}.quizResult{margin-top:8px;font-weight:800}
 
+
+.appMenu{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0}
+.appMenu button{min-height:58px;background:#06334a}.appMenu button.active{background:#168bcf}
+.appPage{display:none}.appPage.active{display:block}
+.ruleParts{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin:10px 0}
+.rulePart{background:#052a3c;border-radius:12px;padding:11px;cursor:pointer;border:1px solid #ffffff18}
+.rulePart b{display:block}.rulePart small{color:#a8bec9}
+.ruleList{display:grid;gap:6px}.ruleRow{background:#041f2d;border-radius:10px;padding:10px;border-left:3px solid #168bcf}
+.ruleRow b{display:block}.ruleRow small{color:#b8ced8}
+.moduleCards{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.moduleCard{background:#052a3c;border-radius:14px;padding:13px;min-height:110px}
+.moduleCard h4{margin:0 0 6px}.tag{display:inline-block;background:#0b4059;border-radius:20px;padding:3px 7px;font-size:9px;margin:2px}
+@media(min-width:850px){.appMenu{grid-template-columns:repeat(6,1fr)}.ruleParts{grid-template-columns:repeat(3,1fr)}.moduleCards{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.5 • BUOYAGE TRAINER</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.6 • COLREGS HUB</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
-<section id="handover" class="screen active">
+<section id="colregsPage" class="appPage">
+<div class="panel"><div class="ver">COLREGS • COMPLETE MAP</div><h2>Rules 1–41</h2>
+<p class="note">A structured learning map of all 41 COLREG rules. The wording shown here is a training descriptor, not a substitute for the official Convention text.</p>
+<div class="ruleParts">
+<div class="rulePart" onclick="filterRules('all')"><b>ALL RULES</b><small>1–41</small></div>
+<div class="rulePart" onclick="filterRules('Part A')"><b>PART A</b><small>General • 1–3</small></div>
+<div class="rulePart" onclick="filterRules('Part B')"><b>PART B</b><small>Steering & Sailing • 4–19</small></div>
+<div class="rulePart" onclick="filterRules('Part C')"><b>PART C</b><small>Lights & Shapes • 20–31</small></div>
+<div class="rulePart" onclick="filterRules('Part D')"><b>PART D</b><small>Sound & Light Signals • 32–37</small></div>
+<div class="rulePart" onclick="filterRules('Part E')"><b>PART E / F</b><small>38–41</small></div>
+</div><div id="ruleList" class="ruleList"><div class="ruleRow" data-part="Part A"><b>Rule 1 • Application</b><small>Part A</small></div><div class="ruleRow" data-part="Part A"><b>Rule 2 • Responsibility</b><small>Part A</small></div><div class="ruleRow" data-part="Part A"><b>Rule 3 • General definitions</b><small>Part A</small></div><div class="ruleRow" data-part="Part B"><b>Rule 4 • Application</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B"><b>Rule 5 • Look-out</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B"><b>Rule 6 • Safe speed</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B"><b>Rule 7 • Risk of collision</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B"><b>Rule 8 • Action to avoid collision</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B"><b>Rule 9 • Narrow channels</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B"><b>Rule 10 • Traffic separation schemes</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B"><b>Rule 11 • Application</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B"><b>Rule 12 • Sailing vessels</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B"><b>Rule 13 • Overtaking</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B"><b>Rule 14 • Head-on situation</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B"><b>Rule 15 • Crossing situation</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B"><b>Rule 16 • Action by give-way vessel</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B"><b>Rule 17 • Action by stand-on vessel</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B"><b>Rule 18 • Responsibilities between vessels</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B"><b>Rule 19 • Conduct in restricted visibility</b><small>Part B • Restricted visibility</small></div><div class="ruleRow" data-part="Part C"><b>Rule 20 • Application</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 21 • Definitions</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 22 • Visibility of lights</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 23 • Power-driven vessels underway</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 24 • Towing and pushing</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 25 • Sailing vessels underway and vessels under oars</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 26 • Fishing vessels</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 27 • NUC and RAM vessels</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 28 • Vessels constrained by draught</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 29 • Pilot vessels</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 30 • Anchored vessels and vessels aground</b><small>Part C</small></div><div class="ruleRow" data-part="Part C"><b>Rule 31 • Seaplanes</b><small>Part C</small></div><div class="ruleRow" data-part="Part D"><b>Rule 32 • Definitions</b><small>Part D</small></div><div class="ruleRow" data-part="Part D"><b>Rule 33 • Equipment for sound signals</b><small>Part D</small></div><div class="ruleRow" data-part="Part D"><b>Rule 34 • Manoeuvring and warning signals</b><small>Part D</small></div><div class="ruleRow" data-part="Part D"><b>Rule 35 • Sound signals in restricted visibility</b><small>Part D</small></div><div class="ruleRow" data-part="Part D"><b>Rule 36 • Signals to attract attention</b><small>Part D</small></div><div class="ruleRow" data-part="Part D"><b>Rule 37 • Distress signals</b><small>Part D</small></div><div class="ruleRow" data-part="Part E"><b>Rule 38 • Exemptions</b><small>Part E</small></div><div class="ruleRow" data-part="Part F"><b>Rule 39 • Definitions</b><small>Part F</small></div><div class="ruleRow" data-part="Part F"><b>Rule 40 • Application</b><small>Part F</small></div><div class="ruleRow" data-part="Part F"><b>Rule 41 • Verification of compliance</b><small>Part F</small></div></div></div>
+<div class="panel"><h3>Four Annexes</h3><div class="moduleCards">
+<div class="moduleCard"><h4>Annex I</h4><span class="tag">Lights</span><span class="tag">Shapes</span><p class="note">Positioning and technical details.</p></div>
+<div class="moduleCard"><h4>Annex II</h4><span class="tag">Fishing</span><p class="note">Additional signals for fishing vessels operating in close proximity.</p></div>
+<div class="moduleCard"><h4>Annex III</h4><span class="tag">Sound</span><p class="note">Technical details of sound signal appliances.</p></div>
+<div class="moduleCard"><h4>Annex IV</h4><span class="tag">Distress</span><p class="note">International distress signals.</p></div>
+</div></div></section>
+
+<section id="lightsPage" class="appPage"><div class="panel"><div class="ver">COLREGS PART C • RULES 20–31</div><h2>Lights & Shapes</h2><div class="moduleCards">
+<div class="moduleCard"><h4>Power-driven</h4><p class="note">Rule 23 recognition training.</p></div><div class="moduleCard"><h4>Towing / Pushing</h4><p class="note">Rule 24 visual configurations.</p></div>
+<div class="moduleCard"><h4>Sailing / Oars</h4><p class="note">Rule 25.</p></div><div class="moduleCard"><h4>Fishing</h4><p class="note">Rule 26.</p></div>
+<div class="moduleCard"><h4>NUC / RAM</h4><p class="note">Rule 27.</p></div><div class="moduleCard"><h4>CBD</h4><p class="note">Rule 28.</p></div>
+<div class="moduleCard"><h4>Pilot</h4><p class="note">Rule 29.</p></div><div class="moduleCard"><h4>Anchor / Aground</h4><p class="note">Rule 30.</p></div>
+</div><p class="note"><b>Next visual build:</b> these become day/night vessel cards with correct light arcs, shapes and recognition challenges.</p></div></section>
+
+<section id="signalsPage" class="appPage"><div class="panel"><div class="ver">COLREGS PART D • RULES 32–37</div><h2>Sound & Light Signals</h2><div class="moduleCards">
+<div class="moduleCard"><h4>Manoeuvring</h4><p class="note">Rule 34 whistle/light training.</p></div><div class="moduleCard"><h4>Restricted visibility</h4><p class="note">Rule 35 fog-signal recognition.</p></div>
+<div class="moduleCard"><h4>Attracting attention</h4><p class="note">Rule 36.</p></div><div class="moduleCard"><h4>Distress</h4><p class="note">Rule 37 + Annex IV.</p></div>
+</div></div></section>
+
+<section id="tssPage" class="appPage"><div class="panel"><div class="ver">RULE 10 • TRAFFIC SEPARATION</div><h2>TSS Training</h2><div class="moduleCards">
+<div class="moduleCard"><h4>Cross the scheme</h4><p class="note">Plan and execute a crossing while managing lane traffic.</p></div>
+<div class="moduleCard"><h4>Join / leave</h4><p class="note">Entry and exit geometry.</p></div><div class="moduleCard"><h4>Inshore traffic zone</h4><p class="note">Recognition and scenario training.</p></div>
+<div class="moduleCard"><h4>Multiple targets</h4><p class="note">Prioritise collision risk while complying with the scheme.</p></div>
+</div><p class="note">TSS scoring will be scenario-specific and will not be activated until its Rule 10 logic has been validated.</p></div></section>
+<div class="panel">
+<div class="ver">PROJECT WATCH • TRAINING HUB</div>
+<div class="appMenu">
+<button class="active" onclick="showModule('scenarios',this)">⚓<br>SCENARIOS</button>
+<button onclick="showModule('colregs',this)">📘<br>COLREGS</button>
+<button onclick="showModule('lights',this)">💡<br>LIGHTS & SHAPES</button>
+<button onclick="showModule('signals',this)">📣<br>SIGNALS</button>
+<button onclick="showModule('buoyage',this)">▲<br>BUOYAGE</button>
+<button onclick="showModule('tss',this)">⇄<br>TSS</button>
+</div>
+<p class="note">The app is being split into training modules so the watch simulator, rule learning and visual recognition do not all live on one page.</p>
+</div>
+<section id="handover" class="appPage active" class="screen active">
   <div class="hero">
     <div>
       <div class="ver">WATCH HANDOVER</div>
@@ -121,7 +182,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <button class="big" onclick="startWatch()">TAKE THE WATCH</button>
     <button class="big alt" onclick="armAudio(); collisionSound(); speakMarine('Collision alert. Starboard bough.')">TEST AUDIO</button>
   </div>
-<div class="trainingDeck">
+<div id="buoyagePage" class="trainingDeck appPage">
 <div class="ver">IALA REGION A • UK TRAINING</div><h3>Buoyage & Marks Trainer</h3>
 <p class="note">Learn the mark, safe-water implication and standard light characteristic, then test yourself.</p>
 <div class="markGrid">
@@ -284,6 +345,22 @@ function selectScenario(id,el){
  document.querySelectorAll('.scenarioBtn').forEach(b=>b.classList.remove('active'));
  if(el)el.classList.add('active');
 }
+
+function showModule(name,btn){
+ document.querySelectorAll('.appPage').forEach(p=>p.classList.remove('active'));
+ let id=name==='scenarios'?'handover':name+'Page';
+ let page=document.getElementById(id);if(page)page.classList.add('active');
+ document.querySelectorAll('.appMenu button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function filterRules(part){
+ document.querySelectorAll('#ruleList .ruleRow').forEach(r=>{
+  let t=r.querySelector('small').textContent;
+  r.style.display=(part==='all'||t.startsWith(part)||(part==='Part E'&&(t.startsWith('Part E')||t.startsWith('Part F'))))?'block':'none';
+ });
+}
+
 const BUOY_QUESTIONS=[
 {q:'North Cardinal: on which side is safe water?',a:'North',o:['North','East','South','West'],x:'Pass to the north of the mark.'},
 {q:'East Cardinal: what is the grouped quick characteristic?',a:'3 flashes',o:['2 flashes','3 flashes','6 flashes + long flash','9 flashes'],x:'East uses 3: VQ(3)5s or Q(3)10s.'},
