@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.14 — Bridge View Lights & Shapes</title>
+<title>Project Watch 1.15 — Safe-Skipper Method</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -433,7 +433,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.14 • BRIDGE VIEW LIGHTS & SHAPES</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.15 • SAFE-SKIPPER METHOD</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -458,10 +458,10 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 <div class="panel">
 <div class="ver">COLREGS PART C • SINGLE-VESSEL BRIDGE TRAINER</div>
 <h2>Lights & Shapes</h2>
-<p class="note">One situation at a time. Learn the vessel, then remove the answer and identify what a watchkeeper would actually see.</p>
-<div class="bridgeNav"><button id="bvLearn" class="active" onclick="bvModeSet('learn')">LEARN</button><button id="bvTest" onclick="bvModeSet('test')">TEST ME</button><button id="bvDay" onclick="bvLightSet('day')">☀ DAY</button><button id="bvNight" class="active" onclick="bvLightSet('night')">☾ NIGHT</button></div>
+<p class="note">Quick-reference first, then recognition testing. Each scene identifies the vessel, its activity, viewing aspect and applicable COLREG Rule. Fore-and-aft lights are projected by viewing aspect so dead-ahead lights stay on the visual centreline.</p>
+<div class="bridgeNav"><button id="bvLearn" class="active" onclick="bvModeSet('learn')">REFERENCE</button><button id="bvTest" onclick="bvModeSet('test')">TEST YOURSELF</button><button id="bvDay" onclick="bvLightSet('day')">☀ DAY SHAPES</button><button id="bvNight" class="active" onclick="bvLightSet('night')">☾ NAV LIGHTS</button></div>
 <div id="bvAspectWrap"><div class="ver">VIEWING ASPECT</div><div id="bvAspects" class="bridgeControls"></div></div>
-<div class="bridgeStage"><div id="bvScene" class="bridgeScene"></div><div class="bridgeHud"><div id="bvIdentity"></div><div id="bvQuiz" class="bridgeQuiz"></div></div></div>
+<div class="bridgeStage"><div id="bvScene" class="bridgeScene"></div><div class="bridgeHud"><div id="bvProgress" class="ver"></div><div id="bvIdentity"></div><div id="bvQuiz" class="bridgeQuiz"></div></div></div>
 <div class="bridgeNav"><button onclick="bvPrev()">← PREVIOUS</button><button onclick="bvNext()">NEXT VESSEL →</button></div>
 </div>
 </section>
@@ -926,21 +926,81 @@ function bvShape(s){
  if(s==='threeBalls')return ball(58)+ball(100)+ball(142);
  return '';
 }
-function bvNav(c){
- let a=bvAspect,o=[],stern=a==='astern';
- if((c.nav==='pd'||c.nav==='pd2')&&!stern){o.push(['W',270,160]);if(c.nav==='pd2')o.push(['W',330,125])}
- if(['pd','pd2','sail','move'].includes(c.nav)){
-  if(a==='ahead')o.push(['R',225,238],['G',315,238]);
-  if(a==='stbd')o.push(['G',375,235]);
-  if(a==='port')o.push(['R',165,235]);
-  if(a==='astern')o.push(['W',270,245]);
- }
- return o;
+function bvProjectedNavPoint(role){
+  // Vessel-relative longitudinal positions projected into the current viewing aspect.
+  // At AHEAD/STERN, fore-and-aft lights sit on the same visual centreline.
+  // At PORT/STBD side views, their fore/aft separation becomes horizontal.
+  const side = bvAspect==='stbd' || bvAspect==='port';
+  const reverse = bvAspect==='port';
+
+  const pts={
+    mastF:{fore:0.25,z:155},
+    mastA:{fore:-0.28,z:128},
+    portSide:{fore:0.08,z:236},
+    stbdSide:{fore:0.08,z:236},
+    stern:{fore:-0.48,z:246}
+  };
+  const p=pts[role];
+  if(!p)return [270,200];
+
+  if(!side){
+    return [270,p.z];
+  }
+  // map longitudinal fore/aft into screen x on a side view
+  let x=270 + (reverse?-1:1) * p.fore * 250;
+  return [x,p.z];
 }
+
+function bvNav(c){
+  let a=bvAspect,o=[],stern=a==='astern';
+  let pf=bvProjectedNavPoint('mastF'), pa=bvProjectedNavPoint('mastA');
+  let pp=bvProjectedNavPoint('portSide'), ps=bvProjectedNavPoint('stbdSide');
+  let pst=bvProjectedNavPoint('stern');
+
+  // Masthead lights: visible from ahead and both sides, not directly astern.
+  if((c.nav==='pd'||c.nav==='pd2')&&!stern){
+    o.push(['W',pf[0],pf[1]]);
+    if(c.nav==='pd2')o.push(['W',pa[0],pa[1]]);
+  }
+
+  // Sidelights / sternlight according to observer aspect.
+  if(['pd','pd2','sail','move'].includes(c.nav)){
+    if(a==='ahead'){
+      // head-on perspective: port and starboard sidelights symmetrically placed
+      o.push(['R',238,236],['G',302,236]);
+    }
+    if(a==='stbd') o.push(['G',ps[0],ps[1]]);
+    if(a==='port') o.push(['R',pp[0],pp[1]]);
+    if(a==='astern') o.push(['W',pst[0],pst[1]]);
+  }
+  return o;
+}
+
+function bvStatusPoint(role){
+  const side=bvAspect==='stbd'||bvAspect==='port';
+  const reverse=bvAspect==='port';
+  const map={
+    statusTop:{fore:0,z:70}, statusMid:{fore:0,z:106}, statusLow:{fore:0,z:142},
+    anchorF:{fore:0.34,z:92}, anchorA:{fore:-0.38,z:126}
+  };
+  let p=map[role]; if(!p)return [270,100];
+  if(!side)return [270,p.z];
+  return [270+(reverse?-1:1)*p.fore*250,p.z];
+}
+
 function bvGraphic(){
  let c=BV[bvI],day=bvLight==='day',body=bvHull(c.kind,bvAspect,day);
  if(day)body+=bvShape(c.shape);
- else {c.status.forEach(x=>body+=bvLamp(...x));bvNav(c).forEach(x=>body+=bvLamp(...x))}
+ else {
+   c.status.forEach(x=>{
+     let col=x[0], sx=x[1], sy=x[2];
+     // Re-project key white/status roles for realistic aspect.
+     if(c.id==='anchor' && col==='W'){let q=bvStatusPoint('anchorF'); body+=bvLamp(col,q[0],q[1]);}
+     else if(c.id==='aground' && col==='W'){let q=bvStatusPoint('anchorF'); body+=bvLamp(col,q[0],q[1]);}
+     else body+=bvLamp(col,sx,sy);
+   });
+   bvNav(c).forEach(x=>body+=bvLamp(...x))
+ }
  let horizon=day?`<line x1="0" y1="235" x2="540" y2="235" stroke="#ffffff55" stroke-width="2"/>`:`<line x1="0" y1="235" x2="540" y2="235" stroke="#7890a51b" stroke-width="2"/>`;
  return `<svg viewBox="0 0 540 380">${horizon}${body}</svg>`;
 }
@@ -950,8 +1010,15 @@ function bvRender(){
  $('bvAspectWrap').style.display=bvLight==='night'?'block':'none';
  $('bvAspects').innerHTML=BV_ASPECTS.map(a=>`<button class="${a[0]===bvAspect?'active':''}" onclick="bvAspectSet('${a[0]}')">${a[1]}</button>`).join('');
  $('bvScene').className='bridgeScene '+(bvLight==='day'?'day':'');$('bvScene').innerHTML=bvGraphic();
- if(bvMode==='learn'){$('bvIdentity').innerHTML=`<h3>${c.name}</h3><p>${c.memory}</p><span class="bridgeBadge">Rule ${c.rule}</span>${bvLight==='night'?`<span class="bridgeBadge">${BV_ASPECTS.find(a=>a[0]===bvAspect)[1]} VIEW</span>`:''}`;$('bvQuiz').innerHTML=''}
- else { $('bvIdentity').innerHTML=`<h3>IDENTIFY THIS DISPLAY</h3><p>${bvLight==='night'?'What vessel or status are you observing?':'What does this day shape indicate?'}</p>`;bvQuizChoices(); }
+ $('bvProgress').textContent=`${bvI+1} / ${BV.length} • ${bvLight==='night'?'NAV LIGHTS':'DAY SHAPES'}`;
+ if(bvMode==='learn'){
+   let aspect=bvLight==='night'?BV_ASPECTS.find(a=>a[0]===bvAspect)[1]+' VIEW':'DAYLIGHT';
+   $('bvIdentity').innerHTML=`<h3>${c.name}</h3><p><b>WHAT YOU SEE:</b> ${c.memory}</p><p style="margin-top:8px"><b>WHAT IT MEANS:</b> ${c.name}.</p><span class="bridgeBadge">COLREG RULE ${c.rule}</span><span class="bridgeBadge">${aspect}</span>`;
+   $('bvQuiz').innerHTML=''
+ } else {
+   $('bvIdentity').innerHTML=`<h3>${bvLight==='night'?'IDENTIFY THESE LIGHTS':'IDENTIFY THIS SHAPE'}</h3><p>${bvLight==='night'?'Identify the vessel/status from the lights and viewing aspect.':'Identify the vessel/status from the day shape.'}</p>`;
+   bvQuizChoices();
+ }
 }
 function bvQuizChoices(){let c=BV[bvI],pool=BV.filter(x=>x.id!==c.id),wrong=[pool[(bvI*2)%pool.length],pool[(bvI*2+3)%pool.length],pool[(bvI*2+6)%pool.length]],opts=[c,...wrong].sort((a,b)=>a.name.localeCompare(b.name));$('bvQuiz').innerHTML=`<div class="quizOpts">${opts.map(x=>`<button onclick="bvAnswer('${x.id}')">${x.name}</button>`).join('')}</div><div id="bvResult" class="quizResult"></div>`}
 function bvAnswer(id){let c=BV[bvI],ok=id===c.id;$('bvResult').textContent=(ok?'✓ Correct — ':'✗ Correct answer: '+c.name+' — ')+c.memory;$('bvResult').className='quizResult '+(ok?'ok':'warn')}
