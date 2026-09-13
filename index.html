@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.11 — Buoyage Night Mode</title>
+<title>Project Watch 1.11.1 — Night Challenge Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -265,7 +265,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.11 • BUOYAGE NIGHT MODE</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.11.1 • NIGHT CHALLENGE FIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -606,7 +606,7 @@ function setBuoyMode(mode){
  $('buoyDayBtn').classList.toggle('active',mode==='day');
  $('buoyNightBtn').classList.toggle('active',mode==='night');
  renderBuoys();
- if(buoyIndex>=0) renderBuoyChallenge();
+ if(buoyIndex>=0){ renderBuoyChallenge(); $('buoyQ').textContent=mode==='night'?'Identify this mark from its night light':'Identify this mark'; }
  if(mode==='night') startBuoyAnimation(); else stopBuoyAnimation();
 }
 function stopBuoyAnimation(){if(buoyAnimHandle){cancelAnimationFrame(buoyAnimHandle);buoyAnimHandle=null}}
@@ -637,9 +637,11 @@ function animateBuoys(ts){
 function startBuoyAnimation(){stopBuoyAnimation();buoyAnimStart=0;buoyAnimHandle=requestAnimationFrame(animateBuoys)}
 function renderBuoyChallenge(){
  let b=BUOY_DATA[buoyIndex];if(!b)return;
- $('buoyChallengeVisual').classList.toggle('night',buoyMode==='night');
- $('buoyChallengeVisual').dataset.buoyId=b.id;
- renderBuoyChallenge();
+ let el=$('buoyChallengeVisual');
+ el.classList.toggle('night',buoyMode==='night');
+ el.dataset.buoyId=b.id;
+ el.innerHTML=buoySVG(b);
+ if(buoyMode==='night' && !buoyAnimHandle) startBuoyAnimation();
 }
 
 function renderBuoys(){
@@ -659,7 +661,7 @@ let buoyIndex=-1;
 function nextBuoyQuestion(){
  buoyIndex=(buoyIndex+1)%BUOY_DATA.length;
  let b=BUOY_DATA[buoyIndex];
- $('buoyQ').textContent='Identify this mark';
+ $('buoyQ').textContent=buoyMode==='night'?'Identify this mark from its night light':'Identify this mark';
  renderBuoyChallenge();
  let wrong=BUOY_DATA.filter(x=>x.id!==b.id).slice((buoyIndex*3)%8,((buoyIndex*3)%8)+3);
  if(wrong.length<3) wrong=BUOY_DATA.filter(x=>x.id!==b.id).slice(0,3);
