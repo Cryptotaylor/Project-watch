@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 0.8 — Alert & Timing</title>
+<title>Project Watch 0.9 — Manoeuvre Quality</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -51,12 +51,19 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bigread{font-size:23px;font-weight:900;margin-top:4px}
 .subread{font-size:10px;color:#a8bec9;letter-spacing:.08em}
 
+
+.modebar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}
+.modebar button{width:100%;background:#16475e}
+.modebar button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.qualityAlert{display:none;position:absolute;z-index:6;left:10px;right:10px;bottom:10px;padding:13px;border-radius:11px;background:#7f3d05ee;border:2px solid #ffc857;color:#fff;font-weight:900;text-align:center;font-size:16px}
+.qualityDetail{font-weight:600;font-size:12px;margin-top:4px;color:#ffe9bd}
+
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">0.8 • ALERT & TIMING</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">0.9 • MANOEUVRE QUALITY</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="handover" class="screen active">
@@ -76,7 +83,13 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   <div class="panel">
     <h3>Watch brief</h3>
     <p class="note">Navigation equipment operational. One power-driven vessel is in sight. Maintain a proper lookout, assess the developing situation and navigate Suilven as you judge appropriate.</p>
-    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p><p class="note">0.8 starts this test encounter one minute before the unaltered collision point and runs 1× in real time, giving you a full minute to observe and act. Rudder-angle and rate-of-turn dynamics remain a generic displacement motor-vessel training model, not yet measured Nordhavn N43 manoeuvring data.</p>
+    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p><p class="note">0.9 starts this test encounter one minute before the unaltered collision point and runs 1× in real time. Guided mode now evaluates whether your present manoeuvre projects a close crossing ahead of the stand-on vessel. Rudder-angle and rate-of-turn dynamics remain a generic displacement motor-vessel training model, not yet measured Nordhavn N43 manoeuvring data.</p>
+    <div class="modebar">
+      <button id="guidedMode" class="active" onclick="setTrainingMode('guided')">GUIDED</button>
+      <button id="watchMode" onclick="setTrainingMode('watch')">WATCH</button>
+      <button id="examMode" onclick="setTrainingMode('exam')">EXAM</button>
+    </div>
+    <p class="note"><b>Guided</b> gives immediate manoeuvre-quality coaching. <b>Watch</b> records poor decisions but only gives collision alerts. <b>Exam</b> suppresses coaching until debrief.</p>
     <button class="big" onclick="startWatch()">TAKE THE WATCH</button>
     <button class="big alt" onclick="armAudio(); collisionSound(); speakMarine('Collision alert. Starboard bough.')">TEST AUDIO — “COLLISION ALERT, STARBOARD BOW”</button>
     <p class="note">On iPad, tap TEST AUDIO once if you do not hear alerts. This user action unlocks browser audio and speech. The spoken alert deliberately uses the nautical pronunciation of “bow” (/baʊ/).</p>
@@ -93,7 +106,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <button onclick="orientation='head';draw()">HEAD UP</button>
     </div>
     <div class="sea">
-      <div id="alert" class="alert"></div>
+      <div id="alert" class="alert"></div><div id="qualityAlert" class="qualityAlert"></div>
       <svg viewBox="-4 -4 8 8">
         <circle cx="0" cy="0" r="1" fill="none" stroke="#55dd8a55" stroke-width=".02"/>
         <circle cx="0" cy="0" r="2" fill="none" stroke="#55dd8a55" stroke-width=".02"/>
@@ -182,7 +195,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       Two power-driven vessels, in sight of one another, on unaltered crossing tracks that intersect. At handover the target is on Suilven's starboard side.
     </div>
     <div class="rulebox"><b>Rule 15 — crossing situation</b>
-      In this constructed encounter, Suilven is the vessel that has the other power-driven vessel on her starboard side and is therefore the vessel required to keep out of the way.
+      In this constructed encounter, Suilven is the vessel that has the other power-driven vessel on her starboard side and is therefore the vessel required to keep out of the way. Where circumstances admit, she should avoid crossing ahead.
     </div>
     <div class="rulebox"><b>Rule 16 — give-way vessel</b>
       The give-way vessel must take early and substantial action to keep well clear.
@@ -197,7 +210,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <h3>3. Your watch</h3>
     <div id="decisionSummary"></div>
     <div class="timeline" id="timeline"></div>
-    <p class="note"><b>0.6 deliberately does not issue a final “COLREG compliant / non-compliant” grade.</b> It reports the geometry and the applicable-rule framework. Automated compliance grading will only be added after the decision logic and review criteria are validated.</p>
+    <p class="note"><b>0.9 still does not issue a final “COLREG compliant / non-compliant” grade.</b> It now flags close projected crossings ahead in Guided mode. The CPA/time-gap thresholds are training parameters, not statutory COLREG limits, and remain subject to maritime review.</p>
   </div>
 
   <div class="panel"><button class="big" onclick="restart()">TAKE THE WATCH AGAIN</button></div>
@@ -206,8 +219,8 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div></div>
 <script>
 const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180, norm=x=>(x%360+360)%360;
-let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north';
-let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0;
+let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided';
+let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0,lastQuality='',qualityEvents=[];
 
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0)}
 function vel(o){return{x:o.s*Math.sin(rad(o.h)),y:o.s*Math.cos(rad(o.h))}}
@@ -217,7 +230,7 @@ function initScenario(){
   const T=.25, intersection={x:0,y:7*T}, tv=vel({h:270,s:10});
   tgt={x:intersection.x-tv.x*T,y:intersection.y-tv.y*T,h:270,s:10};
   running=false;lastTs=0;elapsed=0;mult=1;rudder=0;actualRudder=0;rotRate=0;cmdSpeed=7;ownHist=[];tgtHist=[];events=[];
-  minSep=999;crashed=false;lastAlarm='';firstAction=null;
+  minSep=999;crashed=false;lastAlarm='';firstAction=null;lastQuality='';qualityEvents=[];
   let d=enc();initialCPA=d.cpa;initialTCPA=d.H;
 }
 function enc(){
@@ -226,6 +239,73 @@ function enc(){
   let fx=p.x+rv.x*q,fy=p.y+rv.y*q,B=norm(Math.atan2(p.x,p.y)*180/Math.PI);
   return{r:Math.hypot(p.x,p.y),b:B,rel:norm(B-own.h),H,cpa:Math.hypot(fx,fy)}
 }
+
+function cross2(a,b){return a.x*b.y-a.y*b.x}
+function projectedLineIntersection(){
+  // Current straight-line projection only. Positive times mean the intersection lies ahead of both vessels.
+  let vo=vel(own), vt=vel(tgt), r={x:tgt.x-own.x,y:tgt.y-own.y};
+  let den=cross2(vo,vt);
+  if(Math.abs(den)<1e-8)return null;
+  let tOwn=cross2(r,vt)/den;
+  let tTgt=cross2(r,vo)/den;
+  // velocities are knots and positions NM, so times are hours.
+  return {tOwn,tTgt,deltaMin:(tTgt-tOwn)*60};
+}
+function manoeuvreQuality(d){
+  let ix=projectedLineIntersection();
+  let result={code:'',title:'',detail:'',unsafe:false};
+  if(!ix || ix.tOwn<=0 || ix.tTgt<=0)return result;
+
+  // Suilven reaches the crossing point first => projected crossing ahead of target.
+  let crossesAhead = ix.tOwn < ix.tTgt;
+  let gap = Math.abs(ix.deltaMin);
+
+  // Contextual training threshold, not a COLREG legal limit.
+  // Only warn immediately where "ahead" is combined with a close projected encounter.
+  if(crossesAhead && d.H>0 && d.cpa<0.25 && gap<3.0){
+    result={
+      code:'close_cross_ahead',
+      title:'UNSAFE ACTION — CLOSE CROSSING AHEAD',
+      detail:`Present projection takes Suilven ahead of the stand-on vessel with CPA ${d.cpa.toFixed(2)} NM. Reassess course and/or speed.`,
+      unsafe:true
+    };
+  } else if(crossesAhead && d.H>0 && d.cpa<0.5 && gap<5.0){
+    result={
+      code:'cross_ahead',
+      title:'CAUTION — CROSSING AHEAD',
+      detail:`Suilven is projected to cross ahead. Rule 15 says the give-way vessel should, if circumstances admit, avoid crossing ahead.`,
+      unsafe:true
+    };
+  }
+  return result;
+}
+function handleQuality(d){
+  let q=manoeuvreQuality(d), box=$('qualityAlert');
+  if(!q.unsafe){
+    box.style.display='none';
+    lastQuality='';
+    return;
+  }
+
+  // Always record the event once when the state changes.
+  if(q.code!==lastQuality){
+    qualityEvents.push({t:elapsed,code:q.code,title:q.title,detail:q.detail,cpa:d.cpa});
+    addEvent('quality',q.title);
+    lastQuality=q.code;
+  }
+
+  if(trainingMode==='guided'){
+    box.style.display='block';
+    box.innerHTML=q.title+`<div class="qualityDetail">${q.detail}</div>`;
+    if(q.code==='close_cross_ahead'){
+      collisionSound();
+      speakMarine('Unsafe action. Close crossing ahead of stand-on vessel.');
+    }
+  } else {
+    box.style.display='none';
+  }
+}
+
 function sector(r){
   let a=((r+180)%360)-180;
   if(Math.abs(a)<=10)return'AHEAD';
@@ -281,6 +361,15 @@ function speakMarine(text){
 function collisionSound(){
   beep(880,.16,0);beep(880,.16,.25);beep(660,.28,.5);
 }
+
+function setTrainingMode(m){
+  trainingMode=m;
+  ['guided','watch','exam'].forEach(x=>{
+    let el=$(x+'Mode');
+    if(el) el.className=(x===m?'active':'');
+  });
+}
+
 function startWatch(){armAudio();initScenario();go('watch');update();addEvent('handover','Watch accepted');toggle()}
 
 function toggle(){if(crashed)return;running=!running;$('play').textContent=running?'❚❚ PAUSE':'▶ PLAY';lastTs=0;if(running)requestAnimationFrame(tick)}
@@ -356,9 +445,9 @@ function update(){
   $('rotRead').textContent=rotTxt;
   $('rotPointer').style.transform=`rotate(${Math.max(-50,Math.min(50,rotRate*3.2))}deg)`;
 
-  if(d.H>0&&d.cpa<.5){$('state').textContent='Close approach developing';$('state').className='status warn';$('stateNote').textContent='Continue systematic observation and navigate as you judge appropriate.'}
-  else{$('state').textContent='Monitor the situation';$('state').className='status ok';$('stateNote').textContent='Maintain a proper lookout and continue assessment.'}
-  alarms(d);draw()
+  if(d.H>0&&d.cpa<.5){$('state').textContent='Close approach developing';$('state').className='status warn';$('stateNote').textContent=(trainingMode==='guided'?'Guided coaching is active.':'No manoeuvre coaching is being shown during this watch.')}
+  else{$('state').textContent='Monitor the situation';$('state').className='status ok';$('stateNote').textContent=(trainingMode==='guided'?'Guided coaching is active.':'Maintain a proper lookout and continue assessment.')}
+  handleQuality(d);alarms(d);draw()
 }
 function endWatch(){
   running=false;$('play').textContent='▶ PLAY';
@@ -376,6 +465,13 @@ function buildDebrief(d){
   $('outcome').className='status '+(collided?'bad':minSep<.1?'warn':'ok');
   $('mathSummary').textContent=`At handover, the unaltered constant-course/constant-speed vectors produced a predicted CPA of ${initialCPA.toFixed(2)} NM in ${(initialTCPA*60).toFixed(1)} minutes. The closest centre-to-centre separation actually reached during your watch was ${minSep.toFixed(2)} NM.`;
   $('decisionSummary').innerHTML=firstAction===null?'<p>No helm or engine manoeuvre was recorded.</p>':`<p>Your first recorded manoeuvre was at <b>T+${fmt(firstAction)}</b>.</p>`;
+  if(qualityEvents.length){
+    $('decisionSummary').innerHTML += `<p><b>Manoeuvre-quality flags:</b> ${qualityEvents.length}</p>` +
+      qualityEvents.map(q=>`<p><b>T+${fmt(q.t)}</b> — ${q.title}<br><span style="color:#566">${q.detail}</span></p>`).join('');
+  } else {
+    $('decisionSummary').innerHTML += '<p>No close-crossing-ahead quality flag was triggered.</p>';
+  }
+
   $('timeline').innerHTML=events.map(e=>`<div class="event"><b>T+${fmt(e.t)}</b><br><span>${e.text}</span></div>`).join('');
 }
 function restart(){go('handover')}
