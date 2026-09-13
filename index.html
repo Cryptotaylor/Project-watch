@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 0.9 — Manoeuvre Quality</title>
+<title>Project Watch 1.0 — Automatic Debrief</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -63,7 +63,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">0.9 • MANOEUVRE QUALITY</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.0 • AUTO DEBRIEF</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="handover" class="screen active">
@@ -83,7 +83,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   <div class="panel">
     <h3>Watch brief</h3>
     <p class="note">Navigation equipment operational. One power-driven vessel is in sight. Maintain a proper lookout, assess the developing situation and navigate Suilven as you judge appropriate.</p>
-    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p><p class="note">0.9 starts this test encounter one minute before the unaltered collision point and runs 1× in real time. Guided mode now evaluates whether your present manoeuvre projects a close crossing ahead of the stand-on vessel. Rudder-angle and rate-of-turn dynamics remain a generic displacement motor-vessel training model, not yet measured Nordhavn N43 manoeuvring data.</p>
+    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p><p class="note">1.0 starts this test encounter one minute before the unaltered collision point and runs 1× in real time. Guided mode evaluates close crossings ahead. The scenario now ends automatically on collision or 10 seconds after the actual closest point of approach. Rudder-angle and rate-of-turn dynamics remain a generic displacement motor-vessel training model, not yet measured Nordhavn N43 manoeuvring data.</p>
     <div class="modebar">
       <button id="guidedMode" class="active" onclick="setTrainingMode('guided')">GUIDED</button>
       <button id="watchMode" onclick="setTrainingMode('watch')">WATCH</button>
@@ -175,7 +175,13 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </section>
 
 <section id="debrief" class="screen">
-  <div class="panel"><div class="ver">POST-WATCH DEBRIEF</div><h1 style="margin:.2em 0">What happened?</h1><div id="outcome" class="status"></div></div>
+  <div class="panel"><div class="ver">POST-WATCH DEBRIEF</div><h1 style="margin:.2em 0">What happened?</h1><div id="outcome" class="status"></div>
+  <div style="margin-top:14px;background:#052a3c;border-radius:14px;padding:14px">
+    <div class="ver">PROVISIONAL TRAINING SCORE</div>
+    <div id="scoreValue" style="font-size:48px;font-weight:900;line-height:1">— / 5</div>
+    <div id="scoreLabel" class="note"></div>
+  </div>
+</div>
 
   <div class="debriefCard">
     <h3>1. Mathematical reconstruction</h3>
@@ -210,7 +216,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <h3>3. Your watch</h3>
     <div id="decisionSummary"></div>
     <div class="timeline" id="timeline"></div>
-    <p class="note"><b>0.9 still does not issue a final “COLREG compliant / non-compliant” grade.</b> It now flags close projected crossings ahead in Guided mode. The CPA/time-gap thresholds are training parameters, not statutory COLREG limits, and remain subject to maritime review.</p>
+    <p class="note"><b>The 1–5 score is a provisional simulator training score, not a legal finding or professional COLREGS certification.</b> It uses collision outcome, closest approach, timing and manoeuvre-quality flags. The thresholds are training parameters, not statutory COLREG limits, and remain subject to maritime review.</p>
   </div>
 
   <div class="panel"><button class="big" onclick="restart()">TAKE THE WATCH AGAIN</button></div>
@@ -220,7 +226,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 <script>
 const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180, norm=x=>(x%360+360)%360;
 let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided';
-let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0,lastQuality='',qualityEvents=[];
+let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0,lastQuality='',qualityEvents=[],spokenWarnings=new Set(),prevRange=null,cpaPassedAt=null,autoEnding=false;
 
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0)}
 function vel(o){return{x:o.s*Math.sin(rad(o.h)),y:o.s*Math.cos(rad(o.h))}}
@@ -230,7 +236,7 @@ function initScenario(){
   const T=.25, intersection={x:0,y:7*T}, tv=vel({h:270,s:10});
   tgt={x:intersection.x-tv.x*T,y:intersection.y-tv.y*T,h:270,s:10};
   running=false;lastTs=0;elapsed=0;mult=1;rudder=0;actualRudder=0;rotRate=0;cmdSpeed=7;ownHist=[];tgtHist=[];events=[];
-  minSep=999;crashed=false;lastAlarm='';firstAction=null;lastQuality='';qualityEvents=[];
+  minSep=999;crashed=false;lastAlarm='';firstAction=null;lastQuality='';qualityEvents=[];spokenWarnings=new Set();prevRange=null;cpaPassedAt=null;autoEnding=false;
   let d=enc();initialCPA=d.cpa;initialTCPA=d.H;
 }
 function enc(){
@@ -298,8 +304,7 @@ function handleQuality(d){
     box.style.display='block';
     box.innerHTML=q.title+`<div class="qualityDetail">${q.detail}</div>`;
     if(q.code==='close_cross_ahead'){
-      collisionSound();
-      speakMarine('Unsafe action. Close crossing ahead of stand-on vessel.');
+      speakWarningOnce('close_cross_ahead','Unsafe action. Close crossing ahead of stand-on vessel.');
     }
   } else {
     box.style.display='none';
@@ -361,6 +366,12 @@ function speakMarine(text){
 function collisionSound(){
   beep(880,.16,0);beep(880,.16,.25);beep(660,.28,.5);
 }
+function speakWarningOnce(key,text,withAlarm=true){
+  if(spokenWarnings.has(key)) return;
+  spokenWarnings.add(key);
+  if(withAlarm) collisionSound();
+  speakMarine(text);
+}
 
 function setTrainingMode(m){
   trainingMode=m;
@@ -419,9 +430,9 @@ function alarms(d){
   let box=$('alert');
   if(level){
     box.style.display='block';box.textContent=level+' — '+sector(d.rel);
-    if(level!==lastAlarm){addEvent('alert',level+' — '+sector(d.rel));if(level==='COLLISION ALERT'||level==='COLLISION')collisionSound(); speakMarine(level.toLowerCase()+'. '+spokenSector(sector(d.rel)));lastAlarm=level}
+    if(level!==lastAlarm){addEvent('alert',level+' — '+sector(d.rel));if(level==='COLLISION ALERT'||level==='COLLISION')speakWarningOnce(level, level.toLowerCase()+'. '+spokenSector(sector(d.rel)));lastAlarm=level}
   } else {box.style.display='none';lastAlarm=''}
-  if(level==='COLLISION'&&!crashed){crashed=true;running=false;$('play').textContent='▶ PLAY';addEvent('outcome','Collision');setTimeout(endWatch,450)}
+  if(level==='COLLISION'&&!crashed){crashed=true;running=false;$('play').textContent='▶ PLAY';addEvent('outcome','Collision');setTimeout(()=>endWatch('collision'),350)}
 }
 function rot(x,y,a){let r=rad(a),c=Math.cos(r),s=Math.sin(r);return[x*c-y*s,x*s+y*c]}
 function draw(){
@@ -435,7 +446,25 @@ function draw(){
   $('northMark').setAttribute('transform',`rotate(${-A} 0 -3.6)`);
 }
 function update(){
-  let d=enc();minSep=Math.min(minSep,d.r);
+  let d=enc();
+  minSep=Math.min(minSep,d.r);
+
+  // Detect actual closest approach from live range: once range has begun increasing
+  // after the recorded minimum, mark CPA as passed. End automatically 10 simulated
+  // seconds later.
+  if(prevRange!==null && d.r>prevRange+0.00015 && cpaPassedAt===null && minSep<999){
+    cpaPassedAt=elapsed;
+    addEvent('cpa','Closest point of approach passed');
+  }
+  prevRange=d.r;
+  if(!crashed && !autoEnding && cpaPassedAt!==null && elapsed-cpaPassedAt>=10){
+    autoEnding=true;
+    running=false;
+    $('play').textContent='▶ PLAY';
+    addEvent('outcome','Scenario ended automatically 10 seconds after CPA');
+    setTimeout(()=>endWatch('postCPA'),250);
+    return;
+  }
   $('hdg').textContent=own.h.toFixed(0)+'°';$('spd').textContent=own.s.toFixed(1)+' kn';$('rng').textContent=d.r.toFixed(2)+' NM';
   $('sector').textContent=sector(d.rel);$('cpa').textContent=d.cpa.toFixed(2)+' NM';$('tcpa').textContent=d.H>0?(d.H*60).toFixed(1)+' min':'past';
   let rTxt=Math.abs(actualRudder)<.5?'0°':(actualRudder<0?'P ':'S ')+Math.abs(actualRudder).toFixed(0)+'°';
@@ -449,13 +478,35 @@ function update(){
   else{$('state').textContent='Monitor the situation';$('state').className='status ok';$('stateNote').textContent=(trainingMode==='guided'?'Guided coaching is active.':'Maintain a proper lookout and continue assessment.')}
   handleQuality(d);alarms(d);draw()
 }
-function endWatch(){
+function endWatch(reason='manual'){
   running=false;$('play').textContent='▶ PLAY';
   let d=enc();
-  if(!crashed)addEvent('outcome','Watch ended by user');
+  if(!crashed && reason==='manual')addEvent('outcome','Watch ended by user');
   buildDebrief(d);go('debrief')
 }
+
+function calculateTrainingScore(){
+  // Provisional training score, 1–5. It evaluates this simulator scenario only.
+  // It is NOT a legal or professional COLREGS certification.
+  if(crashed || minSep<=0.02) return {score:1,label:'Collision / unacceptable outcome'};
+
+  let closeAhead = qualityEvents.some(q=>q.code==='close_cross_ahead');
+  let crossedAhead = qualityEvents.some(q=>q.code==='cross_ahead');
+
+  // Timing ratio: how much of initial TCPA remained at first action.
+  let actionRatio = firstAction===null || initialTCPA<=0 ? 0 : Math.max(0,1-(firstAction/60)/(initialTCPA*60));
+  // actionRatio near 1 = acted very early; near 0 = acted very late.
+
+  if(closeAhead || minSep<0.08) return {score:2,label:'Unsafe / very close manoeuvre'};
+  if(crossedAhead || minSep<0.20 || firstAction===null) return {score:3,label:'Collision avoided, but improvement needed'};
+  if(minSep>=0.20 && actionRatio>=0.45) return {score:5,label:'Strong early avoiding action'};
+  return {score:4,label:'Good outcome'};
+}
+
 function buildDebrief(d){
+  let sc=calculateTrainingScore();
+  $('scoreValue').textContent=sc.score+' / 5';
+  $('scoreLabel').textContent=sc.label+' — based on collision outcome, closest approach, manoeuvre-quality flags and action timing.';
   $('dInitCPA').textContent=initialCPA.toFixed(2)+' NM';
   $('dInitTCPA').textContent=(initialTCPA*60).toFixed(1)+' min';
   $('dMinSep').textContent=minSep.toFixed(2)+' NM';
