@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 0.7 — Vessel Dynamics</title>
+<title>Project Watch 0.8 — Alert & Timing</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -56,7 +56,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">0.7 • VESSEL DYNAMICS</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">0.8 • ALERT & TIMING</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="handover" class="screen active">
@@ -76,8 +76,10 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   <div class="panel">
     <h3>Watch brief</h3>
     <p class="note">Navigation equipment operational. One power-driven vessel is in sight. Maintain a proper lookout, assess the developing situation and navigate Suilven as you judge appropriate.</p>
-    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p><p class="note">0.7 adds rudder-angle and rate-of-turn dynamics. This is a generic displacement motor-vessel training model, not yet measured Nordhavn N43 manoeuvring data.</p>
+    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p><p class="note">0.8 starts this test encounter one minute before the unaltered collision point and runs 1× in real time, giving you a full minute to observe and act. Rudder-angle and rate-of-turn dynamics remain a generic displacement motor-vessel training model, not yet measured Nordhavn N43 manoeuvring data.</p>
     <button class="big" onclick="startWatch()">TAKE THE WATCH</button>
+    <button class="big alt" onclick="armAudio(); collisionSound(); speakMarine('Collision alert. Starboard bough.')">TEST AUDIO — “COLLISION ALERT, STARBOARD BOW”</button>
+    <p class="note">On iPad, tap TEST AUDIO once if you do not hear alerts. This user action unlocks browser audio and speech. The spoken alert deliberately uses the nautical pronunciation of “bow” (/baʊ/).</p>
   </div>
 </section>
 
@@ -227,15 +229,60 @@ function enc(){
 function sector(r){
   let a=((r+180)%360)-180;
   if(Math.abs(a)<=10)return'AHEAD';
-  if(a>10&&a<=80)return'STBD BOW'; if(a>80&&a<100)return'STBD BEAM'; if(a>=100&&a<170)return'STBD QTR';
+  if(a>10&&a<=80)return'STARBOARD BOW';
+  if(a>80&&a<100)return'STARBOARD BEAM';
+  if(a>=100&&a<170)return'STARBOARD QUARTER';
   if(Math.abs(a)>=170)return'ASTERN';
-  if(a<-10&&a>=-80)return'PORT BOW'; if(a<-80&&a>-100)return'PORT BEAM'; return'PORT QTR';
+  if(a<-10&&a>=-80)return'PORT BOW';
+  if(a<-80&&a>-100)return'PORT BEAM';
+  return'PORT QUARTER';
 }
 function fmt(x){let m=Math.floor(x/60),s=Math.floor(x%60);return m+':'+String(s).padStart(2,'0')}
 function addEvent(type,text){events.push({t:elapsed,type,text});$('log').innerHTML='T+'+fmt(elapsed)+' — '+text+'<br>'+$('log').innerHTML}
-function say(text){if('speechSynthesis'in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.rate=.9;speechSynthesis.speak(u)}}
 
-function startWatch(){initScenario();go('watch');update();addEvent('handover','Watch accepted');toggle()}
+
+let audioCtx=null;
+function armAudio(){
+  try{
+    const AC=window.AudioContext||window.webkitAudioContext;
+    if(AC && !audioCtx) audioCtx=new AC();
+    if(audioCtx && audioCtx.state==='suspended') audioCtx.resume();
+    beep(660,.08,.05);
+    // Direct user gesture primes iPad speech where supported.
+    speakMarine('Audio alerts armed');
+  }catch(e){}
+}
+function beep(freq=880,duration=.18,delay=0){
+  if(!audioCtx)return;
+  let o=audioCtx.createOscillator(),g=audioCtx.createGain();
+  o.type='sine';o.frequency.value=freq;g.gain.value=.0001;
+  o.connect(g);g.connect(audioCtx.destination);
+  let st=audioCtx.currentTime+delay;
+  g.gain.exponentialRampToValueAtTime(.22,st+.01);
+  g.gain.exponentialRampToValueAtTime(.0001,st+duration);
+  o.start(st);o.stop(st+duration+.02);
+}
+function spokenSector(s){
+  // "bow" is intentionally rendered as "bough" to force the nautical /baʊ/ pronunciation in TTS.
+  return s.toLowerCase().replace('bow','bough');
+}
+function speakMarine(text){
+  if(!('speechSynthesis' in window))return;
+  try{
+    speechSynthesis.cancel();
+    let u=new SpeechSynthesisUtterance(text);
+    u.lang='en-GB';u.rate=.84;u.pitch=.88;u.volume=1;
+    let voices=speechSynthesis.getVoices();
+    let gb=voices.find(v=>/^en-GB/i.test(v.lang)) || voices.find(v=>/^en/i.test(v.lang));
+    if(gb)u.voice=gb;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function collisionSound(){
+  beep(880,.16,0);beep(880,.16,.25);beep(660,.28,.5);
+}
+function startWatch(){armAudio();initScenario();go('watch');update();addEvent('handover','Watch accepted');toggle()}
+
 function toggle(){if(crashed)return;running=!running;$('play').textContent=running?'❚❚ PAUSE':'▶ PLAY';lastTs=0;if(running)requestAnimationFrame(tick)}
 function setRudder(v){rudder=v;$('rudderText').textContent=v===0?'MIDSHIPS':(v<0?'PORT ':'STARBOARD ')+Math.abs(v);if(!firstAction&&v!==0)firstAction=elapsed;addEvent('helm','Rudder '+$('rudderText').textContent)}
 function setThrottle(v){cmdSpeed=v;$('cmdSpeedText').textContent=v.toFixed(1)+' kn';if(!firstAction&&Math.abs(v-own.s)>.2)firstAction=elapsed;addEvent('engine','Engine command '+v.toFixed(1)+' kn')}
@@ -283,7 +330,7 @@ function alarms(d){
   let box=$('alert');
   if(level){
     box.style.display='block';box.textContent=level+' — '+sector(d.rel);
-    if(level!==lastAlarm){addEvent('alert',level+' — '+sector(d.rel));if(level==='COLLISION ALERT'||level==='COLLISION')say(level+'. '+sector(d.rel));lastAlarm=level}
+    if(level!==lastAlarm){addEvent('alert',level+' — '+sector(d.rel));if(level==='COLLISION ALERT'||level==='COLLISION')collisionSound(); speakMarine(level.toLowerCase()+'. '+spokenSector(sector(d.rel)));lastAlarm=level}
   } else {box.style.display='none';lastAlarm=''}
   if(level==='COLLISION'&&!crashed){crashed=true;running=false;$('play').textContent='▶ PLAY';addEvent('outcome','Collision');setTimeout(endWatch,450)}
 }
