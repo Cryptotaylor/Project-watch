@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 0.6 — You Have the Watch</title>
+<title>Project Watch 0.7 — Vessel Dynamics</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -40,12 +40,23 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .debriefCard{background:#f6f8f9;color:#102a36;border-radius:16px;padding:16px;margin-top:12px}.debriefCard h3{margin-top:0}.tag{display:inline-block;background:#d7edf8;color:#0b4660;padding:5px 8px;border-radius:99px;font-size:11px;font-weight:800;margin:2px}
 .rulebox{border-left:4px solid var(--blue);padding-left:12px;margin:12px 0}.rulebox b{display:block}
 .score{font-size:42px;font-weight:900}.hidden{display:none}
+
+.instrumentRow{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.instrument{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:10px;text-align:center}
+.dial{width:150px;height:76px;margin:2px auto 0;position:relative;overflow:hidden}
+.arc{position:absolute;left:8px;right:8px;bottom:-67px;height:134px;border:12px solid #294e5f;border-top-color:#5bcdf5;border-radius:50%}
+.pointer{position:absolute;left:50%;bottom:0;width:3px;height:66px;background:#fff;transform-origin:50% 100%;transform:rotate(0deg);transition:transform .12s linear}
+.centerDot{position:absolute;left:calc(50% - 6px);bottom:0;width:12px;height:12px;border-radius:50%;background:#fff}
+.scale{display:flex;justify-content:space-between;color:#a8bec9;font-size:10px;margin-top:-3px}
+.bigread{font-size:23px;font-weight:900;margin-top:4px}
+.subread{font-size:10px;color:#a8bec9;letter-spacing:.08em}
+
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">0.6 • YOU HAVE THE WATCH</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">0.7 • VESSEL DYNAMICS</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="handover" class="screen active">
@@ -65,7 +76,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   <div class="panel">
     <h3>Watch brief</h3>
     <p class="note">Navigation equipment operational. One power-driven vessel is in sight. Maintain a proper lookout, assess the developing situation and navigate Suilven as you judge appropriate.</p>
-    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p>
+    <p class="note"><b>No rule number or encounter type is disclosed before the exercise.</b></p><p class="note">0.7 adds rudder-angle and rate-of-turn dynamics. This is a generic displacement motor-vessel training model, not yet measured Nordhavn N43 manoeuvring data.</p>
     <button class="big" onclick="startWatch()">TAKE THE WATCH</button>
   </div>
 </section>
@@ -113,13 +124,29 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <div class="metric"><small>TCPA</small><b id="tcpa"></b></div>
     </div>
   </div>
+  <div class="panel"><h3>Helm instruments</h3>
+    <div class="instrumentRow">
+      <div class="instrument">
+        <div class="subread">RUDDER ANGLE</div>
+        <div class="dial"><div class="arc"></div><div id="rudderPointer" class="pointer"></div><div class="centerDot"></div></div>
+        <div class="scale"><span>P35</span><span>0</span><span>S35</span></div>
+        <div id="rudderRead" class="bigread">0°</div>
+      </div>
+      <div class="instrument">
+        <div class="subread">RATE OF TURN</div>
+        <div class="dial"><div class="arc"></div><div id="rotPointer" class="pointer"></div><div class="centerDot"></div></div>
+        <div class="scale"><span>P</span><span>0</span><span>S</span></div>
+        <div id="rotRead" class="bigread">0.0°/min</div>
+      </div>
+    </div>
+  </div>
   <div class="panel"><h3>Helm</h3>
     <div class="helm">
       <button onclick="setRudder(-30)">P30</button><button onclick="setRudder(-20)">P20</button><button onclick="setRudder(-10)">P10</button>
       <button class="alt" onclick="setRudder(0)">MID</button>
       <button onclick="setRudder(10)">S10</button><button onclick="setRudder(20)">S20</button><button onclick="setRudder(30)">S30</button>
     </div>
-    <p class="note">Current rudder order: <b id="rudderText">MIDSHIPS</b></p>
+    <p class="note">Ordered rudder: <b id="rudderText">MIDSHIPS</b>. The rudder now moves progressively and the vessel develops/loses rate of turn with inertia.</p>
   </div>
   <div class="panel"><h3>Engine</h3>
     <div class="throttle">
@@ -177,7 +204,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div></div>
 <script>
 const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180, norm=x=>(x%360+360)%360;
-let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,cmdSpeed=7,orientation='north';
+let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north';
 let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0;
 
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0)}
@@ -187,7 +214,7 @@ function initScenario(){
   // Constructed collision course: both vessels arrive at the same point in 15 minutes.
   const T=.25, intersection={x:0,y:7*T}, tv=vel({h:270,s:10});
   tgt={x:intersection.x-tv.x*T,y:intersection.y-tv.y*T,h:270,s:10};
-  running=false;lastTs=0;elapsed=0;mult=1;rudder=0;cmdSpeed=7;ownHist=[];tgtHist=[];events=[];
+  running=false;lastTs=0;elapsed=0;mult=1;rudder=0;actualRudder=0;rotRate=0;cmdSpeed=7;ownHist=[];tgtHist=[];events=[];
   minSep=999;crashed=false;lastAlarm='';firstAction=null;
   let d=enc();initialCPA=d.cpa;initialTCPA=d.H;
 }
@@ -216,10 +243,31 @@ function tick(ts){
   if(!running)return;
   if(!lastTs)lastTs=ts;
   let ds=(ts-lastTs)/1000*mult*60;lastTs=ts;elapsed+=ds;
-  // simple training dynamics, not yet vessel-specific hydro model
-  own.h=norm(own.h+rudder*.018*ds);
-  let accel=.035*ds;
+  // 0.7 generic displacement-vessel training dynamics.
+  // Rudder actuator moves toward the ordered angle rather than jumping there.
+  let rudderRate=2.5; // deg/sec of simulated time
+  let rd=rudder-actualRudder;
+  actualRudder += Math.sign(rd)*Math.min(Math.abs(rd),rudderRate*ds);
+
+  // Engine response remains progressive.
+  let accel=.018*ds;
   if(own.s<cmdSpeed)own.s=Math.min(cmdSpeed,own.s+accel); else own.s=Math.max(cmdSpeed,own.s-accel);
+
+  // Rudder + speed create a target rate of turn. ROT builds/decays with inertia.
+  let speedFactor=Math.max(0,own.s/7);
+  let targetROT=(actualRudder/30)*12*speedFactor; // deg/min; intentionally conservative generic model
+  let tau=24; // sec time constant
+  rotRate += (targetROT-rotRate)*Math.min(1,ds/tau);
+
+  // With rudder returned near midships, residual yaw decays rather than stopping instantly.
+  if(Math.abs(actualRudder)<1) rotRate *= Math.pow(.988,ds);
+
+  // Modest turn-induced speed loss.
+  own.s=Math.max(0,own.s*(1-Math.min(.004*Math.abs(actualRudder)/30*ds,.06)));
+
+  // Heading changes from current ROT.
+  own.h=norm(own.h + rotRate*(ds/60));
+
   let a=vel(own),b=vel(tgt),hr=ds/3600;
   own.x+=a.x*hr;own.y+=a.y*hr;tgt.x+=b.x*hr;tgt.y+=b.y*hr;
   ownHist.push([own.x,own.y]);tgtHist.push([tgt.x,tgt.y]);
@@ -254,6 +302,13 @@ function update(){
   let d=enc();minSep=Math.min(minSep,d.r);
   $('hdg').textContent=own.h.toFixed(0)+'°';$('spd').textContent=own.s.toFixed(1)+' kn';$('rng').textContent=d.r.toFixed(2)+' NM';
   $('sector').textContent=sector(d.rel);$('cpa').textContent=d.cpa.toFixed(2)+' NM';$('tcpa').textContent=d.H>0?(d.H*60).toFixed(1)+' min':'past';
+  let rTxt=Math.abs(actualRudder)<.5?'0°':(actualRudder<0?'P ':'S ')+Math.abs(actualRudder).toFixed(0)+'°';
+  $('rudderRead').textContent=rTxt;
+  $('rudderPointer').style.transform=`rotate(${actualRudder*1.8}deg)`;
+  let rotTxt=Math.abs(rotRate)<.05?'0.0°/min':(rotRate<0?'P ':'S ')+Math.abs(rotRate).toFixed(1)+'°/min';
+  $('rotRead').textContent=rotTxt;
+  $('rotPointer').style.transform=`rotate(${Math.max(-50,Math.min(50,rotRate*3.2))}deg)`;
+
   if(d.H>0&&d.cpa<.5){$('state').textContent='Close approach developing';$('state').className='status warn';$('stateNote').textContent='Continue systematic observation and navigate as you judge appropriate.'}
   else{$('state').textContent='Monitor the situation';$('state').className='status ok';$('stateNote').textContent='Maintain a proper lookout and continue assessment.'}
   alarms(d);draw()
