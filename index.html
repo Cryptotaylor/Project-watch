@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.4.1 — Overtaking Fix</title>
+<title>Project Watch 1.5 — Buoyage Trainer</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -66,12 +66,18 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .scenarioMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
 .scenarioMeta div{background:#052a3c;border-radius:9px;padding:8px}.scenarioMeta small{display:block;color:#a8bec9;font-size:9px}.scenarioMeta b{font-size:12px}
 
+
+.trainingDeck{margin-top:12px;background:#052a3c;border-radius:15px;padding:13px}
+.markGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.markCard{background:#041f2d;border:1px solid #ffffff18;border-radius:11px;padding:10px;min-height:112px}
+.markCard b{display:block}.markCard small{color:#a8bec9}.markIcon{font-size:27px;line-height:1.2;margin-bottom:5px}
+.quizQ{background:#041f2d;border-radius:12px;padding:12px;margin-top:8px}.quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}.quizOpts button{font-size:12px}.quizResult{margin-top:8px;font-weight:800}
+
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.4.1 • OVERTAKING FIX</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.5 • BUOYAGE TRAINER</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="handover" class="screen active">
@@ -115,7 +121,21 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <button class="big" onclick="startWatch()">TAKE THE WATCH</button>
     <button class="big alt" onclick="armAudio(); collisionSound(); speakMarine('Collision alert. Starboard bough.')">TEST AUDIO</button>
   </div>
-</section>
+<div class="trainingDeck">
+<div class="ver">IALA REGION A • UK TRAINING</div><h3>Buoyage & Marks Trainer</h3>
+<p class="note">Learn the mark, safe-water implication and standard light characteristic, then test yourself.</p>
+<div class="markGrid">
+<div class="markCard"><div class="markIcon">▲▲</div><b>North Cardinal</b><small>Safe water: north<br>Light: VQ or Q</small></div>
+<div class="markCard"><div class="markIcon">▲▼</div><b>East Cardinal</b><small>Safe water: east<br>Light: VQ(3)5s or Q(3)10s</small></div>
+<div class="markCard"><div class="markIcon">▼▼</div><b>South Cardinal</b><small>Safe water: south<br>Light: VQ(6)+LFl 10s or Q(6)+LFl 15s</small></div>
+<div class="markCard"><div class="markIcon">▼▲</div><b>West Cardinal</b><small>Safe water: west<br>Light: VQ(9)10s or Q(9)15s</small></div>
+<div class="markCard"><div class="markIcon">● ●</div><b>Isolated Danger</b><small>Danger at/under mark; navigable water around<br>Light: white Fl(2)</small></div>
+<div class="markCard"><div class="markIcon">●</div><b>Safe Water</b><small>Navigable water around mark<br>White: Iso / Oc / LFl.10s / Mo(A)</small></div>
+<div class="markCard"><div class="markIcon">✚</div><b>Special Mark</b><small>Special area/feature; consult chart<br>Yellow light</small></div>
+<div class="markCard"><div class="markIcon">＋</div><b>Emergency Wreck</b><small>New wreck/hazard marking<br>Alternating blue/yellow</small></div>
+</div>
+<div class="quizQ"><b id="buoyQ">Buoyage challenge</b><div id="buoyOpts" class="quizOpts"></div><div id="buoyResult" class="quizResult"></div><button class="big alt" onclick="nextBuoyQuestion()">NEXT MARK</button></div>
+</div></section>
 
 <section id="watch" class="screen">
 <div class="layout">
@@ -264,6 +284,19 @@ function selectScenario(id,el){
  document.querySelectorAll('.scenarioBtn').forEach(b=>b.classList.remove('active'));
  if(el)el.classList.add('active');
 }
+const BUOY_QUESTIONS=[
+{q:'North Cardinal: on which side is safe water?',a:'North',o:['North','East','South','West'],x:'Pass to the north of the mark.'},
+{q:'East Cardinal: what is the grouped quick characteristic?',a:'3 flashes',o:['2 flashes','3 flashes','6 flashes + long flash','9 flashes'],x:'East uses 3: VQ(3)5s or Q(3)10s.'},
+{q:'South Cardinal: what follows the group of six flashes?',a:'A long flash',o:['A long flash','Two red flashes','Morse A','Nothing'],x:'South is VQ(6)+LFl 10s or Q(6)+LFl 15s.'},
+{q:'West Cardinal: how many flashes are grouped?',a:'9 flashes',o:['3 flashes','6 flashes','9 flashes','12 flashes'],x:'West uses 9: VQ(9)10s or Q(9)15s.'},
+{q:'An Isolated Danger mark tells you…',a:'Danger is at or near the mark',o:['Safe water is north','Danger is at or near the mark','Preferred channel','Always pass to port'],x:'Navigable water exists around an isolated danger; consult the chart for safe passing distance.'},
+{q:'What is the standard Isolated Danger light grouping?',a:'White Fl(2)',o:['White Fl(2)','Yellow Fl(5)','White Q(9)','Red Oc(2)'],x:'The distinctive light is group flashing two, white.'},
+{q:'A Safe Water mark can show which Morse character?',a:'A',o:['A','U','S','W'],x:'Morse A is one permitted white-light characteristic.'},
+{q:'A Special Mark light is normally what colour?',a:'Yellow',o:['White','Red','Green','Yellow'],x:'Special marks use yellow lights.'}
+];let buoyIndex=-1;
+function nextBuoyQuestion(){buoyIndex=(buoyIndex+1)%BUOY_QUESTIONS.length;let q=BUOY_QUESTIONS[buoyIndex];$('buoyQ').textContent=q.q;$('buoyResult').textContent='';$('buoyOpts').innerHTML=q.o.map((v,i)=>`<button onclick="answerBuoy(${i})">${v}</button>`).join('');}
+function answerBuoy(i){let q=BUOY_QUESTIONS[buoyIndex],v=q.o[i];$('buoyResult').textContent=(v===q.a?'✓ Correct — ':'✗ Not quite — ')+q.x;$('buoyResult').className='quizResult '+(v===q.a?'ok':'warn');}
+
 function initScenario(){
   const s=SCENARIOS[scenarioId];
   own={x:0,y:0,h:s.ownH,s:s.ownS};
@@ -658,6 +691,6 @@ function buildDebrief(d){
   $('timeline').innerHTML=events.map(e=>`<div class="event"><b>T+${fmt(e.t)}</b><br><span>${e.text}</span></div>`).join('');
 }
 function restart(){go('handover')}
-initScenario();
+initScenario();nextBuoyQuestion();
 </script>
 </body></html>
