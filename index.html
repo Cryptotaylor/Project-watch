@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.10 — Buoyage Visuals</title>
+<title>Project Watch 1.11 — Buoyage Night Mode</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -118,7 +118,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .buoyInfo{padding:10px}.buoyInfo b{display:block}.buoyInfo small{display:block;color:#a8bec9;margin-top:3px;line-height:1.35}
 .buoySvg{width:130px;height:170px;overflow:visible;filter:drop-shadow(0 7px 4px #0005)}
 .buoyPills{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.buoyPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+
+.buoyModeBar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.buoyModeBar button{flex:1;min-width:110px;background:#16475e}
+.buoyModeBar button.active{background:#168bcf}
+.buoyVisual.night{background:radial-gradient(circle at 50% 30%,#12243a 0,#06101b 58%,#01050a 100%)}
+.buoyLamp{opacity:0;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor)}
+.buoyVisual.night .buoySvg .dayBody{opacity:.20}
+.buoyVisual.night .buoySvg .dayTop{opacity:.25}
+.buoyVisual.night .buoySvg .waterShadow{opacity:.2}
+
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.buoyModeBar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.buoyModeBar button{flex:1;min-width:110px;background:#16475e}
+.buoyModeBar button.active{background:#168bcf}
+.buoyVisual.night{background:radial-gradient(circle at 50% 30%,#12243a 0,#06101b 58%,#01050a 100%)}
+.buoyLamp{opacity:0;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor)}
+.buoyVisual.night .buoySvg .dayBody{opacity:.20}
+.buoyVisual.night .buoySvg .dayTop{opacity:.25}
+.buoyVisual.night .buoySvg .waterShadow{opacity:.2}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -129,7 +149,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .buoyInfo{padding:10px}.buoyInfo b{display:block}.buoyInfo small{display:block;color:#a8bec9;margin-top:3px;line-height:1.35}
 .buoySvg{width:130px;height:170px;overflow:visible;filter:drop-shadow(0 7px 4px #0005)}
 .buoyPills{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.buoyPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+
+.buoyModeBar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.buoyModeBar button{flex:1;min-width:110px;background:#16475e}
+.buoyModeBar button.active{background:#168bcf}
+.buoyVisual.night{background:radial-gradient(circle at 50% 30%,#12243a 0,#06101b 58%,#01050a 100%)}
+.buoyLamp{opacity:0;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor)}
+.buoyVisual.night .buoySvg .dayBody{opacity:.20}
+.buoyVisual.night .buoySvg .dayTop{opacity:.25}
+.buoyVisual.night .buoySvg .waterShadow{opacity:.2}
+
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.buoyModeBar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.buoyModeBar button{flex:1;min-width:110px;background:#16475e}
+.buoyModeBar button.active{background:#168bcf}
+.buoyVisual.night{background:radial-gradient(circle at 50% 30%,#12243a 0,#06101b 58%,#01050a 100%)}
+.buoyLamp{opacity:0;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor)}
+.buoyVisual.night .buoySvg .dayBody{opacity:.20}
+.buoyVisual.night .buoySvg .dayTop{opacity:.25}
+.buoyVisual.night .buoySvg .waterShadow{opacity:.2}
 
 @media(min-width:850px){.appMenu{grid-template-columns:repeat(6,1fr)}.ruleParts{grid-template-columns:repeat(3,1fr)}.moduleCards{grid-template-columns:repeat(3,1fr)}}
 
@@ -167,7 +207,27 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .buoyInfo{padding:10px}.buoyInfo b{display:block}.buoyInfo small{display:block;color:#a8bec9;margin-top:3px;line-height:1.35}
 .buoySvg{width:130px;height:170px;overflow:visible;filter:drop-shadow(0 7px 4px #0005)}
 .buoyPills{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.buoyPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+
+.buoyModeBar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.buoyModeBar button{flex:1;min-width:110px;background:#16475e}
+.buoyModeBar button.active{background:#168bcf}
+.buoyVisual.night{background:radial-gradient(circle at 50% 30%,#12243a 0,#06101b 58%,#01050a 100%)}
+.buoyLamp{opacity:0;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor)}
+.buoyVisual.night .buoySvg .dayBody{opacity:.20}
+.buoyVisual.night .buoySvg .dayTop{opacity:.25}
+.buoyVisual.night .buoySvg .waterShadow{opacity:.2}
+
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.buoyModeBar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.buoyModeBar button{flex:1;min-width:110px;background:#16475e}
+.buoyModeBar button.active{background:#168bcf}
+.buoyVisual.night{background:radial-gradient(circle at 50% 30%,#12243a 0,#06101b 58%,#01050a 100%)}
+.buoyLamp{opacity:0;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor)}
+.buoyVisual.night .buoySvg .dayBody{opacity:.20}
+.buoyVisual.night .buoySvg .dayTop{opacity:.25}
+.buoyVisual.night .buoySvg .waterShadow{opacity:.2}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -178,14 +238,34 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .buoyInfo{padding:10px}.buoyInfo b{display:block}.buoyInfo small{display:block;color:#a8bec9;margin-top:3px;line-height:1.35}
 .buoySvg{width:130px;height:170px;overflow:visible;filter:drop-shadow(0 7px 4px #0005)}
 .buoyPills{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.buoyPill{font-size:9px;background:#0b4059;border-radius:20px;padding:3px 7px}
+
+.buoyModeBar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.buoyModeBar button{flex:1;min-width:110px;background:#16475e}
+.buoyModeBar button.active{background:#168bcf}
+.buoyVisual.night{background:radial-gradient(circle at 50% 30%,#12243a 0,#06101b 58%,#01050a 100%)}
+.buoyLamp{opacity:0;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor)}
+.buoyVisual.night .buoySvg .dayBody{opacity:.20}
+.buoyVisual.night .buoySvg .dayTop{opacity:.25}
+.buoyVisual.night .buoySvg .waterShadow{opacity:.2}
+
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.buoyModeBar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.buoyModeBar button{flex:1;min-width:110px;background:#16475e}
+.buoyModeBar button.active{background:#168bcf}
+.buoyVisual.night{background:radial-gradient(circle at 50% 30%,#12243a 0,#06101b 58%,#01050a 100%)}
+.buoyLamp{opacity:0;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor)}
+.buoyVisual.night .buoySvg .dayBody{opacity:.20}
+.buoyVisual.night .buoySvg .dayTop{opacity:.25}
+.buoyVisual.night .buoySvg .waterShadow{opacity:.2}
 
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.10 • BUOYAGE VISUALS</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.11 • BUOYAGE NIGHT MODE</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -296,6 +376,11 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   <div class="ver">IALA REGION A • UK TRAINING • VISUAL SET</div>
   <h2>Buoyage & Marks</h2>
   <p class="note">Tap any mark for its meaning, topmark and standard light information. The diagrams use clean vector artwork so the colour bands and topmarks stay consistent with the training data.</p>
+  <div class="buoyModeBar">
+    <button id="buoyDayBtn" class="active" onclick="setBuoyMode('day')">☀️ DAY</button>
+    <button id="buoyNightBtn" onclick="setBuoyMode('night')">🌙 NIGHT • LIVE FLASHES</button>
+  </div>
+  <p class="note">Night mode keeps the same cards but dims the mark and animates the prescribed light colour/rhythm. Lateral marks use a representative 4 s flash for training unless a specific charted characteristic is stated.</p>
   <div id="buoyVisualGrid" class="buoyGrid"></div>
 </div>
 <div class="panel">
@@ -461,18 +546,18 @@ function selectScenario(id,el){
 
 
 const BUOY_DATA=[
- {id:'port',name:'Port-hand lateral',family:'Lateral • Region A',body:'red',top:'can',light:'Red; any rhythm except the reserved composite group (2+1)',meaning:'Marks the port-hand side of a channel or fairway when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.3'},
- {id:'starboard',name:'Starboard-hand lateral',family:'Lateral • Region A',body:'green',top:'coneUp',light:'Green; any rhythm except the reserved composite group (2+1)',meaning:'Marks the starboard-hand side of a channel or fairway when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.3'},
- {id:'prefStbd',name:'Preferred channel to starboard',family:'Modified lateral • Region A',body:'redGreenRed',top:'canRed',light:'Red; composite group flashing (2+1)',meaning:'At a channel division, the preferred channel is to starboard when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.5'},
- {id:'prefPort',name:'Preferred channel to port',family:'Modified lateral • Region A',body:'greenRedGreen',top:'coneGreen',light:'Green; composite group flashing (2+1)',meaning:'At a channel division, the preferred channel is to port when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.5'},
- {id:'north',name:'North Cardinal',family:'Cardinal',body:'blackYellow',top:'conesUp',light:'White: VQ or Q',meaning:'Safe water lies to the north of the mark.',source:'IALA R1001 §2.2'},
- {id:'east',name:'East Cardinal',family:'Cardinal',body:'blackYellowBlack',top:'conesBase',light:'White: VQ(3)5s or Q(3)10s',meaning:'Safe water lies to the east of the mark.',source:'IALA R1001 §2.2'},
- {id:'south',name:'South Cardinal',family:'Cardinal',body:'yellowBlack',top:'conesDown',light:'White: VQ(6)+LFl 10s or Q(6)+LFl 15s',meaning:'Safe water lies to the south of the mark.',source:'IALA R1001 §2.2'},
- {id:'west',name:'West Cardinal',family:'Cardinal',body:'yellowBlackYellow',top:'conesPoint',light:'White: VQ(9)10s or Q(9)15s',meaning:'Safe water lies to the west of the mark.',source:'IALA R1001 §2.2'},
- {id:'isolated',name:'Isolated Danger',family:'General mark',body:'blackRedBlack',top:'twoBalls',light:'White: Fl(2)',meaning:'The mark is on or near an isolated danger with navigable water all around. Consult the chart for safe passing distance.',source:'IALA R1001 §2.3'},
- {id:'safe',name:'Safe Water',family:'General mark',body:'redWhiteVertical',top:'redBall',light:'White: Iso, Oc, LFl 10s or Mo(A)',meaning:'Navigable water exists all around the mark; used for centreline, mid-channel, entrance, approach or landfall purposes.',source:'IALA R1001 §2.4'},
- {id:'special',name:'Special Mark',family:'General mark',body:'yellow',top:'xYellow',light:'Yellow; rhythm not reserved for another mark',meaning:'Marks a special area or feature whose nature is identified from the chart or nautical publication.',source:'IALA R1001 §2.5'},
- {id:'wreck',name:'Emergency Wreck Mark',family:'New danger',body:'blueYellowVertical',top:'crossYellow',light:'Alternating blue and yellow',meaning:'Used to mark a new wreck or newly discovered danger while information is being promulgated and other marking is established.',source:'IALA R1001 new-danger provisions'}
+ {id:'port',name:'Port-hand lateral',family:'Lateral • Region A',body:'red',top:'can',light:'Red; any rhythm except the reserved composite group (2+1)',meaning:'Marks the port-hand side of a channel or fairway when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.3',lamp:'red',pattern:[[0,.55]],period:4,patternLabel:'Representative Fl R 4s training rhythm'},
+ {id:'starboard',name:'Starboard-hand lateral',family:'Lateral • Region A',body:'green',top:'coneUp',light:'Green; any rhythm except the reserved composite group (2+1)',meaning:'Marks the starboard-hand side of a channel or fairway when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.3',lamp:'green',pattern:[[0,.55]],period:4,patternLabel:'Representative Fl G 4s training rhythm'},
+ {id:'prefStbd',name:'Preferred channel to starboard',family:'Modified lateral • Region A',body:'redGreenRed',top:'canRed',light:'Red; composite group flashing (2+1)',meaning:'At a channel division, the preferred channel is to starboard when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.5',lamp:'red',pattern:[[0,.35],[.75,1.10],[2.0,2.35]],period:4,patternLabel:'Fl(2+1) R'},
+ {id:'prefPort',name:'Preferred channel to port',family:'Modified lateral • Region A',body:'greenRedGreen',top:'coneGreen',light:'Green; composite group flashing (2+1)',meaning:'At a channel division, the preferred channel is to port when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.5',lamp:'green',pattern:[[0,.35],[.75,1.10],[2.0,2.35]],period:4,patternLabel:'Fl(2+1) G'},
+ {id:'north',name:'North Cardinal',family:'Cardinal',body:'blackYellow',top:'conesUp',light:'White: VQ or Q',meaning:'Safe water lies to the north of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.20]],period:.5,patternLabel:'Q (continuous quick)'},
+ {id:'east',name:'East Cardinal',family:'Cardinal',body:'blackYellowBlack',top:'conesBase',light:'White: VQ(3)5s or Q(3)10s',meaning:'Safe water lies to the east of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.25],[.75,1.0],[1.5,1.75]],period:5,patternLabel:'VQ(3) 5s'},
+ {id:'south',name:'South Cardinal',family:'Cardinal',body:'yellowBlack',top:'conesDown',light:'White: VQ(6)+LFl 10s or Q(6)+LFl 15s',meaning:'Safe water lies to the south of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.20],[.55,.75],[1.10,1.30],[1.65,1.85],[2.20,2.40],[2.75,2.95],[4.2,6.2]],period:10,patternLabel:'VQ(6)+LFl 10s'},
+ {id:'west',name:'West Cardinal',family:'Cardinal',body:'yellowBlackYellow',top:'conesPoint',light:'White: VQ(9)10s or Q(9)15s',meaning:'Safe water lies to the west of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.20],[.55,.75],[1.10,1.30],[1.65,1.85],[2.20,2.40],[2.75,2.95],[3.30,3.50],[3.85,4.05],[4.40,4.60]],period:10,patternLabel:'VQ(9) 10s'},
+ {id:'isolated',name:'Isolated Danger',family:'General mark',body:'blackRedBlack',top:'twoBalls',light:'White: Fl(2)',meaning:'The mark is on or near an isolated danger with navigable water all around. Consult the chart for safe passing distance.',source:'IALA R1001 §2.3',lamp:'white',pattern:[[0,.45],[1.0,1.45]],period:5,patternLabel:'Fl(2) W'},
+ {id:'safe',name:'Safe Water',family:'General mark',body:'redWhiteVertical',top:'redBall',light:'White: Iso, Oc, LFl 10s or Mo(A)',meaning:'Navigable water exists all around the mark; used for centreline, mid-channel, entrance, approach or landfall purposes.',source:'IALA R1001 §2.4',lamp:'white',pattern:[[0,2.0]],period:4,patternLabel:'Iso W (representative permitted characteristic)'},
+ {id:'special',name:'Special Mark',family:'General mark',body:'yellow',top:'xYellow',light:'Yellow; rhythm not reserved for another mark',meaning:'Marks a special area or feature whose nature is identified from the chart or nautical publication.',source:'IALA R1001 §2.5',lamp:'yellow',pattern:[[0,.55]],period:4,patternLabel:'Representative Fl Y 4s training rhythm'},
+ {id:'wreck',name:'Emergency Wreck Mark',family:'New danger',body:'blueYellowVertical',top:'crossYellow',light:'Alternating blue and yellow',meaning:'Used to mark a new wreck or newly discovered danger while information is being promulgated and other marking is established.',source:'IALA R1001 new-danger provisions',lamp:'alternate',pattern:[[0,.5,'blue'],[.75,1.25,'yellow']],period:1.5,patternLabel:'Alternating blue / yellow'}
 ];
 
 function buoySVG(item){
@@ -510,18 +595,62 @@ function buoySVG(item){
 
  return `<svg class="buoySvg" viewBox="0 0 130 170" aria-label="${item.name}">
    <line x1="65" y1="51" x2="65" y2="64" stroke="#222" stroke-width="3"/>
-   ${top}${body}
-   <ellipse cx="65" cy="145" rx="31" ry="7" fill="#072b3d" opacity=".55"/>
+   <g class="dayTop">${top}</g><g class="dayBody">${body}</g>
+   <ellipse class="waterShadow" cx="65" cy="145" rx="31" ry="7" fill="#072b3d" opacity=".55"/><circle class="buoyLamp" data-lamp="${item.lamp}" cx="65" cy="57" r="6" fill="#fff"/>
   </svg>`;
 }
+
+let buoyMode='day',buoyAnimHandle=null,buoyAnimStart=0;
+function setBuoyMode(mode){
+ buoyMode=mode;
+ $('buoyDayBtn').classList.toggle('active',mode==='day');
+ $('buoyNightBtn').classList.toggle('active',mode==='night');
+ renderBuoys();
+ if(buoyIndex>=0) renderBuoyChallenge();
+ if(mode==='night') startBuoyAnimation(); else stopBuoyAnimation();
+}
+function stopBuoyAnimation(){if(buoyAnimHandle){cancelAnimationFrame(buoyAnimHandle);buoyAnimHandle=null}}
+function isLampOn(item,t){
+ let phase=t%item.period;
+ for(let seg of item.pattern){
+  if(phase>=seg[0]&&phase<seg[1]) return seg[2]||item.lamp;
+ }
+ return null;
+}
+function animateBuoys(ts){
+ if(buoyMode!=='night'){stopBuoyAnimation();return}
+ if(!buoyAnimStart)buoyAnimStart=ts;
+ let t=(ts-buoyAnimStart)/1000;
+ document.querySelectorAll('.buoyLamp').forEach(el=>{
+  let card=el.closest('[data-buoy-id]');
+  let id=card?card.dataset.buoyId:null;
+  let item=BUOY_DATA.find(x=>x.id===id);
+  if(!item)return;
+  let on=isLampOn(item,t);
+  if(!on){el.style.opacity='0';return}
+  el.style.opacity='1';
+  let c=on==='red'?'#ff3434':on==='green'?'#23e36e':on==='yellow'?'#ffd231':on==='blue'?'#2f74ff':'#ffffff';
+  el.setAttribute('fill',c);el.style.color=c;
+ });
+ buoyAnimHandle=requestAnimationFrame(animateBuoys);
+}
+function startBuoyAnimation(){stopBuoyAnimation();buoyAnimStart=0;buoyAnimHandle=requestAnimationFrame(animateBuoys)}
+function renderBuoyChallenge(){
+ let b=BUOY_DATA[buoyIndex];if(!b)return;
+ $('buoyChallengeVisual').classList.toggle('night',buoyMode==='night');
+ $('buoyChallengeVisual').dataset.buoyId=b.id;
+ renderBuoyChallenge();
+}
+
 function renderBuoys(){
- $('buoyVisualGrid').innerHTML=BUOY_DATA.map(b=>`<button class="buoyBtn" onclick="openBuoy('${b.id}')"><div class="buoyVisual">${buoySVG(b)}</div><div class="buoyInfo"><b>${b.name}</b><small>${b.family}</small><div class="buoyPills"><span class="buoyPill">${b.light}</span></div></div></button>`).join('');
+ $('buoyVisualGrid').innerHTML=BUOY_DATA.map(b=>`<button class="buoyBtn" data-buoy-id="${b.id}" onclick="openBuoy('${b.id}')"><div class="buoyVisual ${buoyMode==='night'?'night':''}">${buoySVG(b)}</div><div class="buoyInfo"><b>${b.name}</b><small>${b.family}</small><div class="buoyPills"><span class="buoyPill">${buoyMode==='night'?b.patternLabel:b.light}</span></div></div></button>`).join('');
+ if(buoyMode==='night')startBuoyAnimation();
 }
 function openBuoy(id){
  let b=BUOY_DATA.find(x=>x.id===id);if(!b)return;
  $('detailTitle').textContent=b.name;
  $('detailSummary').textContent=b.meaning;
- $('detailTraining').textContent='Topmark and body colours are shown in the vector diagram. Light: '+b.light;
+ $('detailTraining').textContent='Topmark and body colours are shown in the vector diagram. Light: '+b.light+'. Night animation: '+b.patternLabel+'.';
  $('detailProject').textContent='Project Watch will next use this exact mark data inside the live navigation/buoy-field trainer.';
  $('detailSource').textContent=b.source;
  $('detailSheet').classList.add('open');
@@ -531,7 +660,7 @@ function nextBuoyQuestion(){
  buoyIndex=(buoyIndex+1)%BUOY_DATA.length;
  let b=BUOY_DATA[buoyIndex];
  $('buoyQ').textContent='Identify this mark';
- $('buoyChallengeVisual').innerHTML=buoySVG(b);
+ renderBuoyChallenge();
  let wrong=BUOY_DATA.filter(x=>x.id!==b.id).slice((buoyIndex*3)%8,((buoyIndex*3)%8)+3);
  if(wrong.length<3) wrong=BUOY_DATA.filter(x=>x.id!==b.id).slice(0,3);
  let opts=[b,...wrong].sort((a,c)=>a.name.localeCompare(c.name));
@@ -566,7 +695,7 @@ function openModule(title,summary,training){
 }
 
 function showModule(name,btn){
- if(name==='buoyage') setTimeout(()=>{renderBuoys(); if(buoyIndex<0)nextBuoyQuestion();},0);
+ if(name==='buoyage') setTimeout(()=>{renderBuoys(); if(buoyIndex<0)nextBuoyQuestion(); else renderBuoyChallenge();},0);
  
  document.querySelectorAll('.appPage').forEach(p=>p.classList.remove('active'));
  let id=name==='scenarios'?'handover':name+'Page';
