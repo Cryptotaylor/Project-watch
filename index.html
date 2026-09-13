@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.4 — Scenario Library</title>
+<title>Project Watch 1.4.1 — Overtaking Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -71,7 +71,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.4 • SCENARIO LIBRARY</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.4.1 • OVERTAKING FIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="handover" class="screen active">
@@ -244,7 +244,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div></div>
 <script>
 const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180, norm=x=>(x%360+360)%360;
-let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided',scenarioId='cross_stbd';
+let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided',scenarioId='cross_stbd',targetAvoiding=false,targetRudder=0,targetROT=0;
 let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0,lastQuality='',qualityEvents=[],spokenWarnings=new Set(),minSepTime=0,autoEnding=false;
 
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0)}
@@ -277,7 +277,7 @@ function initScenario(){
   let pm=Math.hypot(px,py); px=px*2/pm;py=py*2/pm;
   tgt={x:px,y:py,h:s.tgtH,s:s.tgtS};
   running=false;lastTs=0;elapsed=0;mult=1;rudder=0;actualRudder=0;rotRate=0;cmdSpeed=s.ownS;ownHist=[];tgtHist=[];events=[];
-  minSep=999;crashed=false;lastAlarm='';firstAction=null;lastQuality='';qualityEvents=[];spokenWarnings=new Set();minSepTime=0;autoEnding=false;
+  minSep=999;crashed=false;lastAlarm='';firstAction=null;lastQuality='';qualityEvents=[];spokenWarnings=new Set();minSepTime=0;autoEnding=false;targetAvoiding=false;targetRudder=0;targetROT=0;
   let d=enc();initialCPA=d.cpa;initialTCPA=d.H;
   $('cmdSpeedText').textContent=cmdSpeed.toFixed(1)+' kn';
 }
@@ -436,6 +436,33 @@ function startWatch(){armAudio();initScenario();go('watch');update();addEvent('h
 function toggle(){if(crashed)return;running=!running;$('play').textContent=running?'❚❚ PAUSE':'▶ PLAY';lastTs=0;if(running)requestAnimationFrame(tick)}
 function setRudder(v){rudder=v;$('rudderText').textContent=v===0?'MIDSHIPS':(v<0?'PORT ':'STARBOARD ')+Math.abs(v);if(!firstAction&&v!==0)firstAction=elapsed;addEvent('helm','Rudder '+$('rudderText').textContent)}
 function setThrottle(v){cmdSpeed=v;$('cmdSpeedText').textContent=v.toFixed(1)+' kn';if(!firstAction&&Math.abs(v-own.s)>.2)firstAction=elapsed;addEvent('engine','Engine command '+v.toFixed(1)+' kn')}
+function updateTargetBehaviour(ds){
+  const s=SCENARIOS[scenarioId];
+  if(s.kind!=='overtaken') return;
+
+  // Rule 13 training behaviour: the overtaking target is the give-way vessel.
+  // It must not simply continue into Suilven. This is a deterministic training
+  // manoeuvre, not a claim about what every real vessel would do.
+  let d=enc();
+  if(!targetAvoiding && d.H>0 && d.r<=1.20){
+    targetAvoiding=true;
+    targetRudder=20; // target alters to starboard to establish a clear passing track
+    addEvent('target','Overtaking vessel takes avoiding action');
+  }
+  if(targetAvoiding){
+    let targetTargetROT=(targetRudder/20)*22*(tgt.s/10);
+    targetROT += (targetTargetROT-targetROT)*Math.min(1,ds/10);
+    tgt.h=norm(tgt.h+targetROT*(ds/60));
+
+    // Once projected CPA is comfortably open, steady the target.
+    let nd=enc();
+    if(nd.cpa>=0.35 && d.r<1.0){
+      targetRudder=0;
+      targetROT*=Math.pow(.975,ds);
+    }
+  }
+}
+
 function tick(ts){
   if(!running)return;
   if(!lastTs)lastTs=ts;
@@ -465,6 +492,7 @@ function tick(ts){
   // Heading changes from current ROT.
   own.h=norm(own.h + rotRate*(ds/60));
 
+  updateTargetBehaviour(ds);
   let a=vel(own),b=vel(tgt),hr=ds/3600;
   own.x+=a.x*hr;own.y+=a.y*hr;tgt.x+=b.x*hr;tgt.y+=b.y*hr;
   ownHist.push([own.x,own.y]);tgtHist.push([tgt.x,tgt.y]);
@@ -581,6 +609,17 @@ function calculateTrainingScore(){
   // actionRatio near 1 = acted very early; near 0 = acted very late.
 
   if(closeAhead || minSep<0.08) return {score:2,label:'Unsafe / very close manoeuvre'};
+  const kind=SCENARIOS[scenarioId].kind;
+  if(kind==='overtaken'){
+    if(minSep<0.20) return {score:3,label:'Stand-on passage completed, but passing distance was close'};
+    if(firstAction===null && minSep>=0.30) return {score:5,label:'Correct stand-on behaviour; overtaking vessel kept clear'};
+    return {score:4,label:'Safe stand-on outcome'};
+  }
+  if(kind==='cross_standon'){
+    if(minSep<0.20) return {score:3,label:'Stand-on passage completed, but passing distance was close'};
+    if(firstAction===null && minSep>=0.30) return {score:5,label:'Strong stand-on outcome'};
+    return {score:4,label:'Safe stand-on outcome'};
+  }
   if(crossedAhead || minSep<0.20 || firstAction===null) return {score:3,label:'Collision avoided, but improvement needed'};
   if(minSep>=0.20 && actionRatio>=0.45) return {score:5,label:'Strong early avoiding action'};
   return {score:4,label:'Good outcome'};
@@ -590,7 +629,7 @@ function scenarioRuleSummary(){
  const k=SCENARIOS[scenarioId].kind;
  if(k==='head_on') return 'Head-on power-driven encounter — Rule 14 family. Each vessel should alter course to starboard so each passes on the port side of the other.';
  if(k==='overtaking') return 'Overtaking encounter — Rule 13 family. Suilven is the overtaking vessel and must keep out of the way of the vessel being overtaken.';
- if(k==='overtaken') return 'Being overtaken — Rule 13 family. The overtaking vessel remains responsible for keeping out of the way.';
+ if(k==='overtaken') return 'Being overtaken — Rule 13 family. The overtaking vessel remains responsible for keeping out of the way until finally past and clear. Suilven is not scored as though she were the give-way vessel.';
  if(k==='cross_standon') return 'Crossing encounter — Rules 15 and 17 family. The other vessel is on Suilven’s port side; Suilven is the stand-on vessel in this constructed power/power encounter.';
  return 'Crossing encounter — Rules 15 and 16 family. The other vessel is on Suilven’s starboard side; Suilven is the give-way vessel in this constructed power/power encounter.';
 }
