@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.30.2 — COLREG Visual Verification</title>
+<title>Project Watch 1.31 — Buoyage Tutorial & Passage Simulators</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -577,6 +577,19 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .lsQuizWrap{margin-top:9px}.lsQuizCard{background:#031d29;border:1px solid #6ee0ff35;border-radius:10px;padding:10px}.lsQuizCard h3{margin:3px 0 7px;font-size:12px}.lsQuizPrompt{display:inline-block;margin-top:5px;padding:4px 6px;border-radius:5px;background:#0b5d7d;color:#dff8ff;font-size:7px;font-weight:900;letter-spacing:.55px}.lsQuizChoices{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.lsQuizChoices button{font-size:8px}.lsQuizResult{min-height:22px;margin-top:7px;font-size:9px;font-weight:800}.lsQuizResult.ok{color:#72e4ad}.lsQuizResult.warn{color:#ffbd72}
 @media(max-width:900px){.lsCourseGrid{grid-template-columns:1fr}.lsLessonList{display:grid;grid-template-columns:repeat(3,1fr)}.lsHero{grid-template-columns:1fr}.lsHeroBadge{text-align:left}}
 @media(max-width:650px){.lsLessonList{grid-template-columns:1fr}.lsLessonFacts,.lsQuizChoices{grid-template-columns:1fr}.lsLessonFooter{grid-template-columns:1fr 1fr}.lsPatternBoard{grid-template-columns:1fr 1fr}.lsHero h1{font-size:23px}}
+
+
+/* 1.31 Buoyage tutorial + wooden-ship passage */
+.buoyStartGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:9px 0 12px}.buoyStartCard{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto auto;gap:2px 8px;text-align:left;padding:10px;border-radius:11px;border:1px solid #ffffff15;background:#05283a;color:#fff}.buoyStartCard span{grid-row:1/4;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#031b27;color:#72ddfb;font-size:9px;font-weight:900}.buoyStartCard b{font-size:9px}.buoyStartCard small{font-size:7px;color:#9fb7c2;line-height:1.35}.buoyStartCard em{font-style:normal;font-size:7px;font-weight:900;color:#74e1ff;margin-top:4px}.buoyStartCard:hover{border-color:#72ddfb66;background:#07364b}
+.buoyTutorialHero,.buoyPassageHead{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:24px;border-radius:18px;background:linear-gradient(135deg,#052b3d,#073e57);border:1px solid #ffffff18;box-shadow:0 12px 32px #0004}.buoyTutorialHero h1,.buoyPassageHead h1{margin:3px 0 6px;font-size:27px}.buoyTutorialHero p,.buoyPassageHead p{margin:0;max-width:740px;color:#b7ced8;font-size:10px;line-height:1.5}.buoyCourseBadge,.bpScore{padding:10px 12px;border-radius:10px;background:#031b27;border:1px solid #6ee0ff42;text-align:right}.buoyCourseBadge small,.buoyCourseBadge span,.bpScore small,.bpScore span{display:block;font-size:7px;color:#8fb5c4}.buoyCourseBadge b,.bpScore b{display:block;font-size:16px;margin:2px 0}
+.buoyTutorialProgress{margin:10px 0 12px;padding:9px 11px;background:#041e2b;border:1px solid #ffffff13;border-radius:10px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;font-size:7px;color:#91adba}.buoyTutorialProgress i{height:7px;background:#02141d;border-radius:8px;overflow:hidden}.buoyTutorialProgress em{display:block;height:100%;background:#44d09a;width:8.33%}
+.buoyTutorialLayout{display:grid;grid-template-columns:280px 1fr;gap:11px}.btList{background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:8px;align-self:start}.btList button{width:100%;display:grid;grid-template-columns:28px 1fr;gap:7px;align-items:center;text-align:left;background:transparent;border:0;color:#d9edf4;border-radius:8px;padding:7px;margin:1px 0}.btList button.active{background:#0c5e82}.btList button span{width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:#031b27;border-radius:7px;font-size:8px;color:#79ddfa;font-weight:900}.btList button b{display:block;font-size:8px}.btList button small{display:block;font-size:6.5px;color:#8eabb7;margin-top:2px}.btMain{background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:14px}.btHead{display:grid;grid-template-columns:1fr auto;gap:10px}.btHead h2{margin:2px 0 4px}.btHead p{margin:0;color:#9fb7c2;font-size:9px;line-height:1.4}.btHead button{width:auto;background:#123f55;font-size:8px}.btVisualWrap{position:relative;margin:11px 0;border-radius:14px;overflow:hidden;background:linear-gradient(#9bd7e7 0 54%,#3e91ad 55%,#12637e 100%);min-height:270px;border:1px solid #ffffff18}.btVisual{height:270px;display:flex;align-items:center;justify-content:center}.btVisual .buoySvg{height:230px;width:180px}.btPassBadge{position:absolute;right:12px;top:12px;max-width:260px;padding:8px 10px;border-radius:8px;background:#031b27e8;border:1px solid #78e2ff66;color:#e7f9ff;font-size:8px;font-weight:900;line-height:1.35}.btVisualWrap.night{background:linear-gradient(#020b14 0 55%,#061e2c 56%,#092838 100%)}.btVisualWrap.night .dayBody,.btVisualWrap.night .dayTop{opacity:.16}
+.btFacts{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.btFacts div,.btExplain{background:#031d29;border:1px solid #ffffff10;border-radius:9px;padding:9px}.btFacts small{display:block;font-size:7px;color:#7f9daa;letter-spacing:.45px}.btFacts b{display:block;font-size:9px;line-height:1.4;margin-top:2px}.btExplain{margin-top:7px}.btExplain p{font-size:8.5px;line-height:1.45;color:#b3cbd5;margin:3px 0 0}.btActions{display:grid;grid-template-columns:1fr 1fr 1.15fr 1fr;gap:6px;margin-top:9px}.btActions button{min-height:38px;font-size:8px}.btActions .primary{background:#168bcf}
+.bpSea{height:590px;margin-top:11px;position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(#95cee0 0 19%,#267c9d 20%,#0f5874 100%);border:1px solid #ffffff18;box-shadow:0 12px 32px #0004}.bpWaterGrid{position:absolute;inset:20% 0 0;background:repeating-linear-gradient(0deg,transparent 0,transparent 39px,#ffffff0b 40px),repeating-linear-gradient(90deg,transparent 0,transparent 79px,#ffffff0a 80px)}.bpLane{position:absolute;inset:0}.bpLaneMark{position:absolute;width:105px;text-align:center;transform:translate(-50%,-50%)}.bpLaneMark .buoySvg{width:82px;height:106px;filter:drop-shadow(0 8px 6px #00344688)}.bpLaneMark b{display:block;margin-top:-3px;font-size:6.5px;color:#e7f9ff;text-shadow:0 1px 3px #00131c}.bpLaneMark.current{filter:drop-shadow(0 0 10px #7eeaff)}.bpLaneMark.passed{opacity:.42}
+.bpBoat{position:absolute;left:50%;top:79%;width:70px;transform:translate(-50%,-50%);z-index:5;transition:left .65s ease,top .65s ease,transform .65s ease;filter:drop-shadow(0 10px 7px #00324788)}.bpBoat svg{display:block;width:70px;height:119px}.bpBoat span{display:block;text-align:center;margin-top:-7px;font-size:7px;font-weight:900;color:#fff;text-shadow:0 1px 3px #000}
+.bpDecisionOverlay{position:absolute;right:14px;bottom:14px;width:min(360px,42%);padding:13px;border-radius:13px;background:#031b27ee;border:1px solid #78e2ff66;z-index:10;box-shadow:0 12px 30px #0006}.bpDecisionOverlay h2{font-size:17px;margin:2px 0 5px}.bpDecisionOverlay p{font-size:9px;line-height:1.45;color:#bfd4dc;margin:0 0 8px}.bpChoices{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}.bpChoices button{font-size:8px;min-height:38px}.bpFeedback{min-height:32px;margin-top:7px;font-size:8px;line-height:1.4;font-weight:800}.bpFeedback.ok{color:#70e3ad}.bpFeedback.warn{color:#ffb77e}.bpConsole{display:grid;grid-template-columns:1fr 1.2fr 1.4fr auto auto;gap:7px;margin-top:9px}.bpConsole>div,.bpConsole>button{background:#041e2b;border:1px solid #ffffff13;border-radius:9px;padding:8px}.bpConsole small{display:block;font-size:6.5px;color:#7f9daa}.bpConsole b{display:block;font-size:8px;margin-top:2px;line-height:1.3}.bpConsole button{color:#fff;font-size:8px;font-weight:900}
+@media(max-width:900px){.buoyStartGrid{grid-template-columns:1fr}.buoyTutorialLayout{grid-template-columns:1fr}.btList{display:grid;grid-template-columns:repeat(3,1fr)}.bpSea{height:650px}.bpDecisionOverlay{width:calc(100% - 28px)}.bpConsole{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.buoyTutorialHero,.buoyPassageHead{grid-template-columns:1fr}.buoyCourseBadge,.bpScore{text-align:left}.btList{grid-template-columns:1fr}.btFacts,.btActions{grid-template-columns:1fr}.bpSea{height:700px}.bpConsole{grid-template-columns:1fr 1fr}.bpChoices{grid-template-columns:1fr}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17716,6 +17729,11 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 <div class="panel">
   <div class="ver">IALA REGION A • UK TRAINING • VISUAL SET</div>
   <h2>Buoyage & Marks</h2>
+  <div class="buoyStartGrid">
+    <button class="buoyStartCard learn" onclick="showBuoyTutorial()"><span>01</span><b>NEW TO BUOYAGE?</b><small>Learn one mark at a time • day shape • light • safe side</small><em>START TUTORIAL →</em></button>
+    <button class="buoyStartCard guided" onclick="showBuoyPassage('guided')"><span>02</span><b>GUIDED BUOY PASSAGE</b><small>Take the wooden training vessel through the complete buoy lane</small><em>START GUIDED RUN →</em></button>
+    <button class="buoyStartCard challenge" onclick="showBuoyPassage('challenge')"><span>03</span><b>BUOYAGE CHALLENGE</b><small>All marks • make the passing decision yourself • score the run</small><em>START CHALLENGE →</em></button>
+  </div>
   <p class="note">Tap any mark for its meaning, topmark and standard light information. The diagrams use clean vector artwork so the colour bands and topmarks stay consistent with the training data.</p>
   <div class="buoyModeBar">
     <button id="buoyDayBtn" class="active" onclick="setBuoyMode('day')">☀️ DAY</button>
@@ -17734,6 +17752,88 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 </section>
 
+
+<section id="buoyTutorialPage" class="appPage">
+  <div class="buoyTutorialHero">
+    <div>
+      <div class="ver">BEGINNER COURSE • IALA REGION A</div>
+      <h1>Learn every mark one at a time.</h1>
+      <p>Start with the daytime appearance, then learn the light, what the mark means and—where the buoyage system actually specifies one—the side on which to pass.</p>
+    </div>
+    <div class="buoyCourseBadge"><small>TRAINING SET</small><b>12 MARKS</b><span>DAY • NIGHT • PASSAGE</span></div>
+  </div>
+  <div class="buoyTutorialProgress"><span>MARK <b id="btIndex">1 / 12</b></span><i><em id="btProgress"></em></i></div>
+  <div class="buoyTutorialLayout">
+    <aside id="btList" class="btList"></aside>
+    <main class="btMain">
+      <div class="btHead">
+        <div><div class="ver" id="btFamily"></div><h2 id="btTitle"></h2><p id="btMeaning"></p></div>
+        <button onclick="showModule('buoyage')">← BUOYAGE</button>
+      </div>
+      <div class="btVisualWrap">
+        <div id="btVisual" class="btVisual"></div>
+        <div id="btPassBadge" class="btPassBadge"></div>
+      </div>
+      <div class="btFacts">
+        <div><small>BODY / TOPMARK</small><b id="btDay"></b></div>
+        <div><small>LIGHT</small><b id="btLight"></b></div>
+        <div><small>FLASH / RHYTHM</small><b id="btPattern"></b></div>
+        <div><small>HOW TO PASS</small><b id="btPass"></b></div>
+      </div>
+      <div class="btExplain"><div class="ver">WHY IT MATTERS</div><p id="btExplain"></p></div>
+      <div class="btActions">
+        <button onclick="btPrev()">← PREVIOUS</button>
+        <button onclick="btHear()">🔊 HEAR</button>
+        <button class="primary" onclick="btNightToggle()">DAY / NIGHT</button>
+        <button onclick="btNext()">NEXT MARK →</button>
+      </div>
+    </main>
+  </div>
+</section>
+
+<section id="buoyPassagePage" class="appPage">
+  <div class="buoyPassageHead">
+    <div>
+      <div class="ver" id="bpKicker">GUIDED PASSAGE • IALA REGION A</div>
+      <h1 id="bpTitle">The Buoy Lane</h1>
+      <p id="bpIntro">Take the wooden training vessel through every mark. Guided mode explains each decision before you make it.</p>
+    </div>
+    <div class="bpScore"><small>PROGRESS</small><b id="bpProgress">1 / 12</b><span id="bpScoreText">GUIDED</span></div>
+  </div>
+
+  <div class="bpSea">
+    <div class="bpWaterGrid"></div>
+    <div id="bpLane" class="bpLane"></div>
+    <div id="bpBoat" class="bpBoat" aria-label="Wooden training vessel">
+      <svg viewBox="0 0 100 170">
+        <path d="M50 5 L82 48 L78 144 Q50 165 22 144 L18 48 Z" fill="#8b5a2b" stroke="#4b2c15" stroke-width="4"/>
+        <path d="M50 13 L70 50 L67 137 Q50 149 33 137 L30 50 Z" fill="#b57a3d" opacity=".85"/>
+        <rect x="37" y="60" width="26" height="40" rx="5" fill="#ead9b8" stroke="#4b2c15" stroke-width="3"/>
+        <rect x="42" y="68" width="16" height="12" fill="#7fc7df"/>
+        <line x1="50" y1="60" x2="50" y2="32" stroke="#3d2b1f" stroke-width="4"/>
+        <circle cx="50" cy="110" r="10" fill="none" stroke="#3d2b1f" stroke-width="4"/>
+        <line x1="50" y1="100" x2="50" y2="120" stroke="#3d2b1f" stroke-width="3"/>
+        <line x1="40" y1="110" x2="60" y2="110" stroke="#3d2b1f" stroke-width="3"/>
+      </svg>
+      <span>YOU</span>
+    </div>
+    <div id="bpDecisionOverlay" class="bpDecisionOverlay">
+      <div class="ver" id="bpMarkFamily">MARK</div>
+      <h2 id="bpMarkName"></h2>
+      <p id="bpPrompt"></p>
+      <div id="bpChoices" class="bpChoices"></div>
+      <div id="bpFeedback" class="bpFeedback"></div>
+    </div>
+  </div>
+
+  <div class="bpConsole">
+    <div><small>MARK</small><b id="bpConsoleMark"></b></div>
+    <div><small>LIGHT</small><b id="bpConsoleLight"></b></div>
+    <div><small>SAFE / RECOMMENDED PASS</small><b id="bpConsolePass"></b></div>
+    <button onclick="bpHear()">🔊 HEAR</button>
+    <button onclick="showModule('buoyage')">END RUN</button>
+  </div>
+</section>
 <section id="watch" class="screen appPage">
 <div class="layout">
 <div>
@@ -18145,6 +18245,121 @@ function initScenario(){
 
 
 
+
+
+const BUOY_TRAINING={
+ port:{day:'Red body; cylindrical / can shape or red can topmark where fitted.',pass:'LEAVE TO PORT',choice:'port',explain:'In IALA Region A, when proceeding in the conventional direction of buoyage, a port-hand lateral mark identifies the port side of the channel. Keep the red mark on your port side.',flash:'Red light when fitted. Any rhythm except composite group flashing (2+1). The 4-second flash shown in Project Watch is a representative training rhythm, not a universal characteristic.'},
+ starboard:{day:'Green body; conical shape or single green cone point upward where fitted.',pass:'LEAVE TO STARBOARD',choice:'starboard',explain:'In IALA Region A, when proceeding in the conventional direction of buoyage, a starboard-hand lateral mark identifies the starboard side of the channel. Keep the green mark on your starboard side.',flash:'Green light when fitted. Any rhythm except composite group flashing (2+1). The 4-second flash shown here is representative only.'},
+ prefStbd:{day:'Red with one broad green horizontal band; red can topmark where fitted.',pass:'PREFERRED CHANNEL IS TO STARBOARD • LEAVE MARK TO PORT',choice:'port',explain:'This is a modified port-hand lateral mark used at a channel division. Treat it as the port-hand boundary of the preferred channel to starboard.',flash:'Red composite group flashing (2+1). Count two flashes, a pause, then one.'},
+ prefPort:{day:'Green with one broad red horizontal band; green cone point upward where fitted.',pass:'PREFERRED CHANNEL IS TO PORT • LEAVE MARK TO STARBOARD',choice:'starboard',explain:'This is a modified starboard-hand lateral mark used at a channel division. Treat it as the starboard-hand boundary of the preferred channel to port.',flash:'Green composite group flashing (2+1). Count two flashes, a pause, then one.'},
+ north:{day:'Black above yellow. Two black cones, both points upward.',pass:'PASS NORTH OF THE MARK',choice:'north',explain:'A North Cardinal tells you that the best navigable water is to the north of the mark.',flash:'White continuous quick or very quick flashing. North has no numbered clock-face group.'},
+ east:{day:'Black with one broad yellow band. Two black cones base-to-base.',pass:'PASS EAST OF THE MARK',choice:'east',explain:'An East Cardinal tells you the best navigable water is to the east. Think of the clock face: east is 3 o’clock.',flash:'White VQ(3) every 5 seconds or Q(3) every 10 seconds. Count THREE.'},
+ south:{day:'Yellow above black. Two black cones, both points downward.',pass:'PASS SOUTH OF THE MARK',choice:'south',explain:'A South Cardinal tells you the best navigable water is to the south. Six on the clock face is followed by a long flash to distinguish it clearly.',flash:'White VQ(6) + long flash every 10 seconds, or Q(6) + long flash every 15 seconds. Count SIX, then ONE LONG.'},
+ west:{day:'Yellow with one broad black band. Two black cones point-to-point.',pass:'PASS WEST OF THE MARK',choice:'west',explain:'A West Cardinal tells you the best navigable water is to the west. Think of 9 o’clock.',flash:'White VQ(9) every 10 seconds or Q(9) every 15 seconds. Count NINE.'},
+ isolated:{day:'Black with one or more broad red horizontal bands. Two black spheres.',pass:'NO FIXED SIDE • PASS AT THE SAFE DISTANCE SHOWN BY CHART / PUBLICATION',choice:'either',explain:'The mark is on or near an isolated danger with navigable water around it. The buoyage system does not give one universal passing side or distance.',flash:'White group flashing two. Count TWO flashes.'},
+ safe:{day:'Red and white vertical stripes. Single red spherical topmark where fitted.',pass:'SAFE WATER ALL AROUND • NO FIXED SIDE',choice:'either',explain:'A Safe Water Mark does not mark a danger. It may identify a centreline, fairway, mid-channel, entrance, approach or landfall.',flash:'White light: isophase, occulting, one long flash every 10 seconds, or Morse A. Project Watch shows one permitted representative characteristic.'},
+ special:{day:'Yellow. Yellow X topmark where fitted.',pass:'NO GENERIC PASSING SIDE • CHECK THE CHART',choice:'chart',explain:'A Special Mark identifies a special area or feature. Its meaning comes from the chart or nautical publication, so do not invent a passing side from the colour alone.',flash:'Yellow light when fitted, using a rhythm not reserved for another mark.'},
+ wreck:{day:'Equal blue and yellow vertical stripes. Upright yellow cross topmark.',pass:'NEW DANGER • KEEP CLEAR AS DIRECTED BY CHART / WARNINGS',choice:'chart',explain:'The Emergency Wreck Marking Buoy is a temporary mark for a new wreck or newly discovered danger while information is being promulgated and other marking is established.',flash:'Alternating blue and yellow light: 1 second blue, 0.5 second eclipse, 1 second yellow, 0.5 second eclipse.'}
+};
+
+const BUOY_ORDER=['port','starboard','prefStbd','prefPort','north','east','south','west','isolated','safe','special','wreck'];
+let btI=0,btNight=false,btAnim=null;
+
+function showBuoyTutorial(){
+ document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
+ updateHeaderNav('buoyage');updateModuleContext('buoyage');
+ $('buoyTutorialPage').classList.add('active');renderBuoyTutorial();window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderBuoyTutorial(){
+ let id=BUOY_ORDER[btI],b=BUOY_DATA.find(x=>x.id===id),t=BUOY_TRAINING[id];
+ $('btIndex').textContent=`${btI+1} / ${BUOY_ORDER.length}`;$('btProgress').style.width=((btI+1)/BUOY_ORDER.length*100)+'%';
+ $('btList').innerHTML=BUOY_ORDER.map((x,i)=>{let d=BUOY_DATA.find(b=>b.id===x);return `<button class="${i===btI?'active':''}" onclick="btSelect(${i})"><span>${String(i+1).padStart(2,'0')}</span><div><b>${d.name}</b><small>${d.family}</small></div></button>`}).join('');
+ $('btFamily').textContent=b.family;$('btTitle').textContent=b.name;$('btMeaning').textContent=b.meaning;
+ $('btDay').textContent=t.day;$('btLight').textContent=b.light;$('btPattern').textContent=t.flash;$('btPass').textContent=t.pass;$('btExplain').textContent=t.explain;
+ $('btPassBadge').textContent=t.pass;
+ let w=$('btVisual').parentElement;w.classList.toggle('night',btNight);$('btVisual').innerHTML=buoySVG(b);
+ let lamp=$('btVisual').querySelector('.buoyLamp');
+ if(!btNight){if(lamp)lamp.style.opacity='0';stopBtAnim()}else{startBtAnim(b,lamp)}
+}
+function stopBtAnim(){if(btAnim){cancelAnimationFrame(btAnim);btAnim=null}}
+function startBtAnim(b,lamp){stopBtAnim();let start=null;function frame(ts){if(!start)start=ts;if(!btNight||!lamp){stopBtAnim();return}let on=isLampOn(b,(ts-start)/1000);if(!on)lamp.style.opacity='0';else{lamp.style.opacity='1';let c=on==='red'?'#ff3434':on==='green'?'#23e36e':on==='yellow'?'#ffd231':on==='blue'?'#2f74ff':'#fff';lamp.setAttribute('fill',c);lamp.style.color=c}btAnim=requestAnimationFrame(frame)}btAnim=requestAnimationFrame(frame)}
+function btSelect(i){btI=Math.max(0,Math.min(BUOY_ORDER.length-1,i));renderBuoyTutorial()}
+function btPrev(){btSelect(btI-1)}function btNext(){btSelect(btI+1)}
+function btNightToggle(){btNight=!btNight;renderBuoyTutorial()}
+function btHear(){let id=BUOY_ORDER[btI],b=BUOY_DATA.find(x=>x.id===id),t=BUOY_TRAINING[id];speakMarine(`${b.name}. ${b.meaning}. How to pass: ${t.pass}. Day identification: ${t.day}. Light characteristic: ${t.flash}. ${t.explain}`,'instruction')}
+
+let bpMode='guided',bpI=0,bpScore=0,bpAnswered=false;
+function showBuoyPassage(mode){
+ bpMode=mode;bpI=0;bpScore=0;bpAnswered=false;
+ document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
+ updateHeaderNav('buoyage');updateModuleContext('buoyage');
+ $('buoyPassagePage').classList.add('active');
+ $('bpKicker').textContent=mode==='guided'?'GUIDED PASSAGE • IALA REGION A':'CHALLENGE PASSAGE • IALA REGION A';
+ $('bpIntro').textContent=mode==='guided'?'Take the wooden training vessel through every mark. Read the explanation, make the passing decision, then continue.':'No coaching before the answer. Decide how you would pass each mark and complete all 12 for a final score.';
+ renderBuoyLane();renderBuoyPassageStep();window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderBuoyLane(){
+ const lane=$('bpLane');
+ lane.innerHTML=BUOY_ORDER.map((id,i)=>{
+   let b=BUOY_DATA.find(x=>x.id===id);
+   // serpentine training lane with all marks visible
+   let col=i%4,row=Math.floor(i/4),x=16+col*22.5,y=30+row*22;
+   return `<div id="bpMark_${id}" class="bpLaneMark" style="left:${x}%;top:${y}%">${buoySVG(b)}<b>${i+1}. ${b.name}</b></div>`;
+ }).join('');
+}
+function bpExpectedChoices(t){
+ if(t.choice==='port')return [['port','LEAVE MARK TO PORT'],['starboard','LEAVE MARK TO STARBOARD'],['other','OTHER / CHECK CHART']];
+ if(t.choice==='starboard')return [['port','LEAVE MARK TO PORT'],['starboard','LEAVE MARK TO STARBOARD'],['other','OTHER / CHECK CHART']];
+ if(t.choice==='north'||t.choice==='east'||t.choice==='south'||t.choice==='west')return [['north','PASS NORTH'],['east','PASS EAST'],['south','PASS SOUTH'],['west','PASS WEST']];
+ if(t.choice==='either')return [['either','NO FIXED SIDE / WATER AROUND'],['port','PORT ONLY'],['starboard','STARBOARD ONLY']];
+ return [['chart','CHECK CHART / KEEP CLEAR AS DIRECTED'],['port','ALWAYS PORT'],['starboard','ALWAYS STARBOARD']];
+}
+function renderBuoyPassageStep(){
+ let id=BUOY_ORDER[bpI],b=BUOY_DATA.find(x=>x.id===id),t=BUOY_TRAINING[id];
+ document.querySelectorAll('.bpLaneMark').forEach((e,i)=>{e.classList.toggle('current',i===bpI);e.classList.toggle('passed',i<bpI)});
+ $('bpProgress').textContent=`${bpI+1} / ${BUOY_ORDER.length}`;$('bpScoreText').textContent=bpMode==='guided'?'GUIDED':`${bpScore} CORRECT`;
+ $('bpMarkFamily').textContent=b.family;$('bpMarkName').textContent=b.name;
+ $('bpPrompt').textContent=bpMode==='guided'?`${b.meaning} ${t.flash} What is the correct passage decision?`:'What is the correct passage decision for this mark?';
+ $('bpChoices').innerHTML=bpExpectedChoices(t).map(c=>`<button onclick="bpAnswer('${c[0]}')">${c[1]}</button>`).join('');
+ $('bpFeedback').textContent='';$('bpFeedback').className='bpFeedback';
+ $('bpConsoleMark').textContent=b.name;$('bpConsoleLight').textContent=bpMode==='guided'?t.flash:'HIDDEN UNTIL ANSWER';$('bpConsolePass').textContent=bpMode==='guided'?t.pass:'MAKE YOUR DECISION';
+ bpAnswered=false;
+ positionBuoyBoat(bpI,'center');
+ if(bpMode==='guided')setTimeout(()=>speakMarine(`${b.name}. ${b.meaning}. ${t.flash}`,'instruction'),180);
+}
+function positionBuoyBoat(i,decision){
+ let col=i%4,row=Math.floor(i/4),mx=16+col*22.5,my=30+row*22;
+ let x=mx,y=Math.min(88,my+13);
+ if(decision==='port')x=mx+7;       // mark left/port of vessel
+ if(decision==='starboard')x=mx-7;  // mark right/starboard of vessel
+ if(decision==='north')y=my-10;
+ if(decision==='south')y=my+10;
+ if(decision==='east')x=mx+9;
+ if(decision==='west')x=mx-9;
+ if(decision==='either'||decision==='chart')x=mx+8;
+ $('bpBoat').style.left=x+'%';$('bpBoat').style.top=y+'%';
+}
+function bpAnswer(choice){
+ if(bpAnswered)return;bpAnswered=true;
+ let id=BUOY_ORDER[bpI],b=BUOY_DATA.find(x=>x.id===id),t=BUOY_TRAINING[id],ok=choice===t.choice;
+ if(ok)bpScore++;
+ $('bpFeedback').textContent=(ok?'✓ Correct. ':'✗ Not quite. ')+t.pass+'. '+t.explain;
+ $('bpFeedback').className='bpFeedback '+(ok?'ok':'warn');
+ $('bpConsoleLight').textContent=t.flash;$('bpConsolePass').textContent=t.pass;$('bpScoreText').textContent=bpMode==='guided'?'GUIDED':`${bpScore} CORRECT`;
+ positionBuoyBoat(bpI,ok?choice:t.choice);
+ speakMarine((ok?'Correct. ':'Not quite. ')+t.pass+'. '+t.explain,'confirmation');
+ setTimeout(()=>{
+   if(bpI<BUOY_ORDER.length-1){bpI++;renderBuoyPassageStep()}
+   else bpFinish();
+ },bpMode==='guided'?2200:1700);
+}
+function bpHear(){let id=BUOY_ORDER[bpI],b=BUOY_DATA.find(x=>x.id===id),t=BUOY_TRAINING[id];speakMarine(`${b.name}. ${b.meaning}. ${t.flash}. ${t.pass}. ${t.explain}`,'instruction')}
+function bpFinish(){
+ $('bpMarkFamily').textContent='PASSAGE COMPLETE';$('bpMarkName').textContent=bpMode==='guided'?'All 12 marks completed':`${bpScore} / ${BUOY_ORDER.length}`;
+ $('bpPrompt').textContent=bpMode==='guided'?'You have completed the complete guided buoy lane. Run the Challenge next without pre-answer coaching.':`Final score: ${bpScore} out of ${BUOY_ORDER.length}. Review individual marks in the tutorial, then run the challenge again.`;
+ $('bpChoices').innerHTML=`<button onclick="showBuoyPassage('${bpMode}')">RUN AGAIN</button><button onclick="showModule('buoyage')">RETURN TO BUOYAGE</button>`;
+ $('bpFeedback').textContent='';$('bpProgress').textContent='COMPLETE';
+}
 
 const BUOY_DATA=[
  {id:'port',name:'Port-hand lateral',family:'Lateral • Region A',body:'red',top:'can',light:'Red; any rhythm except the reserved composite group (2+1)',meaning:'Marks the port-hand side of a channel or fairway when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.3',lamp:'red',pattern:[[0,.55]],period:4,patternLabel:'Representative Fl R 4s training rhythm'},
