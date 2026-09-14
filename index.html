@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.24.2 — Suilven Vessel Selector</title>
+<title>Project Watch 1.24.4 — Audited Scenario Geometry</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -63,10 +63,34 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .qualityDetail{font-weight:600;font-size:12px;margin-top:4px;color:#ffe9bd}
 
 
-.scenarios{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
-.scenarioBtn{background:#0b4059;text-align:left;padding:12px;min-height:76px}
-.scenarioBtn.active{background:#168bcf;box-shadow:0 0 0 2px #8ee7ff66 inset}
-.scenarioBtn b{display:block;font-size:13px}.scenarioBtn span{display:block;font-size:10px;color:#c6dce6;margin-top:4px}
+.scenarios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+.scenarioBtn{
+ background:#07344a;text-align:left;padding:0;min-height:92px;overflow:hidden;
+ display:grid;grid-template-columns:46% 54%;align-items:stretch;border:1px solid #ffffff12;
+ border-radius:12px;position:relative
+}
+.scenarioBtn.active{background:#0b5274;box-shadow:0 0 0 2px #8ee7ff77 inset;border-color:#67dcff}
+.scenarioBtn.active .scenarioPhoto img{filter:saturate(1.05) brightness(.93) contrast(1.05)}
+.scenarioBtn:hover{border-color:#6ee0ff66}
+.scenarioPhoto{position:relative;display:block;min-height:92px;overflow:hidden;background:#03131d}
+.scenarioPhoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.96) brightness(.82) contrast(1.07)}
+.scenarioBtn:hover .scenarioPhoto img{transform:scale(1.025);transition:.16s}
+.scenarioPhotoShade{position:absolute;inset:0;background:linear-gradient(90deg,#00111a08,#00111a00 52%,#00111a9c)}
+.scenarioCopy{padding:11px 12px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.scenarioBtn b{display:block;font-size:13px;line-height:1.25}.scenarioBtn .scenarioCopy span{display:block;font-size:10px;color:#c6dce6;margin-top:5px;line-height:1.28}
+.scenarioVisualTag{position:absolute;left:7px;bottom:6px;padding:3px 6px;border-radius:5px;background:#001722d9;border:1px solid #7be5ff55;color:#dff8ff;font-size:6.5px;font-weight:900;letter-spacing:.45px;z-index:4}
+.scenarioVector{position:absolute;z-index:4;left:12%;right:12%;top:50%;height:2px;background:#ff5b5b;box-shadow:0 0 5px #0008;transform-origin:center}
+.scenarioVector:after{content:"";position:absolute;right:-1px;top:-4px;border-left:8px solid #ff5b5b;border-top:5px solid transparent;border-bottom:5px solid transparent}
+.scenarioVector.green{background:#2ce07c}.scenarioVector.green:after{border-left-color:#2ce07c}
+.scenarioVector.crossA{transform:rotate(0deg)}.scenarioVector.crossB{transform:rotate(180deg)}
+.scenarioVector.headA{left:8%;right:48%;transform:rotate(0)}.scenarioVector.headB{left:52%;right:8%;transform:rotate(180deg)}
+.scenarioVector.overtake{top:68%;transform:rotate(-7deg)}.scenarioVector.deceptive{top:36%;transform:rotate(14deg)}
+.scenarioVector.sailCross{top:62%;transform:rotate(-15deg)}
+@media(max-width:760px){
+ .scenarios{grid-template-columns:1fr}
+ .scenarioBtn{grid-template-columns:42% 58%;min-height:88px}
+ .scenarioPhoto{min-height:88px}
+}
 .scenarioMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
 .scenarioMeta div{background:#052a3c;border-radius:9px;padding:8px}.scenarioMeta small{display:block;color:#a8bec9;font-size:9px}.scenarioMeta b{font-size:12px}
 
@@ -200,6 +224,32 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 #sailModeBtn .userVesselPhoto img{object-position:center 52%}
 .photographicVesselMode button{min-height:102px}
 @media(max-width:760px){.userVesselPhoto{width:116px;height:72px;flex-basis:116px}.photographicVesselMode button{min-height:86px}}
+
+
+/* 1.24.4 — scenario thumbnails use the SAME initial geometry as the simulator.
+   Own vessel is fixed lower-centre, heading-up reference; target position and
+   heading are derived from SCENARIOS + the collision engine's initial-position maths. */
+.scenarioVector{display:none!important}
+.scenarioGeometry{
+ position:absolute;inset:5px 5px 5px 5px;z-index:4;pointer-events:none;
+}
+.scenarioGeometry svg{width:100%;height:100%;display:block;overflow:visible}
+.sgOwn,.sgTarget{stroke:#00141d;stroke-width:1.4}
+.sgOwn{fill:#e63d3d}.sgTarget{fill:#43d5c0}
+.sgCourseOwn{stroke:#ff6262;stroke-width:1.8;stroke-dasharray:3 2}
+.sgCourseTarget{stroke:#63ead7;stroke-width:1.8;stroke-dasharray:3 2}
+.sgBearing{stroke:#dff8ff;stroke-width:.8;stroke-dasharray:2 2;opacity:.65}
+.sgLabel{
+ font:900 6.2px Arial,sans-serif;letter-spacing:.35px;
+ paint-order:stroke;stroke:#001722;stroke-width:2px;stroke-linejoin:round;fill:#fff
+}
+.sgSide{
+ font:900 6px Arial,sans-serif;letter-spacing:.4px;
+ paint-order:stroke;stroke:#001722;stroke-width:2px;fill:#8cecff
+}
+.sgRuleBadge{fill:#001722dd;stroke:#7be5ff99;stroke-width:.7}
+.sgRuleText{font:900 5.8px Arial,sans-serif;fill:#e8fbff;letter-spacing:.25px}
+.scenarioVisualTag{left:7px;bottom:6px}
 
 /* 1.24 photographic home / training hub */
 .homeHubMenu{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -16718,7 +16768,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.24.2 • SUILVEN VESSEL SELECTOR</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.24.4 • AUDITED SCENARIO GEOMETRY</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -17394,6 +17444,96 @@ const SCENARIOS={
 const POWER_SCENARIO_ORDER=['cross_stbd','cross_port','rule17_fail','head_on','overtake','overtaken','cross_stbd_offset','head_on_offset','overtake_port','power_vs_sail'];
 const SAIL_SCENARIO_ORDER=['sail_vs_power','sail_port_tack','sail_starboard_tack','sail_windward','sail_leeward','sail_overtaking'];
 
+
+const SCENARIO_VISUALS={
+ cross_stbd:['suilven','CROSSING • TARGET STBD'],
+ cross_port:['cargo','CROSSING • TARGET PORT'],
+ rule17_fail:['mixed','RULE 17 • TARGET FAILS'],
+ head_on:['navlights','HEAD-ON'],
+ overtake:['channel_ship','OVERTAKING'],
+ overtaken:['bridge','BEING OVERTAKEN'],
+ cross_stbd_offset:['fishing','DECEPTIVE CPA'],
+ head_on_offset:['navlights','NEAR HEAD-ON'],
+ overtake_port:['cargo','PORT-QUARTER OVERTAKE'],
+ power_vs_sail:['userSail','POWER MEETS SAIL'],
+ sail_vs_power:['userSail','SAIL VS POWER'],
+ sail_port_tack:['userSail','PORT TACK'],
+ sail_starboard_tack:['userSail','STARBOARD TACK'],
+ sail_windward:['userSail','WINDWARD'],
+ sail_leeward:['userSail','LEEWARD'],
+ sail_overtaking:['userSail','SAILING OVERTAKING']
+};
+
+function scenarioImageSrc(key){
+ if(key==='suilven'){
+   const i=document.querySelector('#powerModeBtn .userVesselPhoto img');
+   return i?i.src:'';
+ }
+ if(key==='userSail'){
+   const i=document.querySelector('#sailModeBtn .userVesselPhoto img');
+   return i?i.src:'';
+ }
+ return licensedImageSrc(key);
+}
+function scenarioInitialRelative(s){
+  // Exact copy of initScenario() initial target geometry, before own/target are assigned.
+  const vo={x:s.ownS*Math.sin(rad(s.ownH)),y:s.ownS*Math.cos(rad(s.ownH))};
+  const vt={x:s.tgtS*Math.sin(rad(s.tgtH)),y:s.tgtS*Math.cos(rad(s.tgtH))};
+  let rv={x:vt.x-vo.x,y:vt.y-vo.y},rvm=Math.hypot(rv.x,rv.y);
+  if(rvm<1e-9)rvm=1e-9;
+  let ux=-rv.x/rvm,uy=-rv.y/rvm;
+  let px=ux*2+(-uy)*(s.offset||0),py=uy*2+ux*(s.offset||0);
+  const pm=Math.hypot(px,py)||1;
+  return{x:px*2/pm,y:py*2/pm};
+}
+function scenarioGeometryHTML(id){
+  const s=SCENARIOS[id],r=scenarioInitialRelative(s);
+
+  // Display is own-heading-up. Rotate world relative vector by -own heading.
+  const a=-rad(s.ownH);
+  const rx=r.x*Math.cos(a)+r.y*Math.sin(a);
+  const ry=-r.x*Math.sin(a)+r.y*Math.cos(a);
+
+  // Scale 2 NM initial range to a 30-unit radius. SVG y is down.
+  const ownX=50,ownY=73,scale=29/2;
+  const tx=ownX+rx*scale,ty=ownY-ry*scale;
+  const tgtRelH=((s.tgtH-s.ownH)%360+360)%360;
+
+  const boat=(x,y,h,cls)=>`
+    <g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${h.toFixed(1)})">
+      <line class="${cls==='sgOwn'?'sgCourseOwn':'sgCourseTarget'}" x1="0" y1="8" x2="0" y2="-16"/>
+      <path class="${cls}" d="M 0,-8 L 5,6 L 0,4 L -5,6 Z"/>
+    </g>`;
+
+  let side='AHEAD';
+  if(rx>.18)side='TARGET • STARBOARD';
+  else if(rx<-.18)side='TARGET • PORT';
+  else if(ry<-.15)side='TARGET • ASTERN';
+
+  let badge='';
+  if(s.ownType==='sail'){
+    badge=`OWN ${String(s.ownTack||'').toUpperCase()} TACK`;
+    if(s.ownWindward===true)badge+=' • WINDWARD';
+    if(s.ownWindward===false)badge+=' • LEEWARD';
+  }else if(s.tgtType==='sail'){
+    badge='TARGET • SAILING';
+  }else if(s.kind==='overtaking')badge='OWN • OVERTAKING';
+  else if(s.kind==='overtaken')badge='TARGET • OVERTAKING';
+  else if(s.kind==='head_on')badge='RECIPROCAL / NEAR RECIPROCAL';
+
+  return `<span class="scenarioGeometry">
+   <svg viewBox="0 0 100 82" preserveAspectRatio="none" aria-hidden="true">
+    <line class="sgBearing" x1="${ownX}" y1="${ownY}" x2="${tx.toFixed(1)}" y2="${ty.toFixed(1)}"/>
+    ${boat(ownX,ownY,0,'sgOwn')}
+    ${boat(tx,ty,tgtRelH,'sgTarget')}
+    <text class="sgLabel" x="${ownX+6}" y="${ownY+5}">OWN</text>
+    <text class="sgLabel" x="${Math.min(80,Math.max(4,tx+5)).toFixed(1)}" y="${Math.min(76,Math.max(8,ty+2)).toFixed(1)}">TARGET</text>
+    <text class="sgSide" x="4" y="9">${side}</text>
+    ${badge?`<rect class="sgRuleBadge" x="4" y="65" width="${Math.min(90,Math.max(42,badge.length*3.25))}" height="10" rx="3"/><text class="sgRuleText" x="7" y="72">${badge}</text>`:''}
+   </svg>
+  </span>`;
+}
+
 function scenarioSubtitle(id){
   const s=SCENARIOS[id];
   if(id==='power_vs_sail') return 'Rule 18 • own power vessel normally keeps clear of sailing vessel';
@@ -17415,9 +17555,24 @@ function renderScenarioList(){
   const ids=ownVesselMode==='sail'?SAIL_SCENARIO_ORDER:POWER_SCENARIO_ORDER;
   const box=$('scenarioList');
   box.innerHTML=ids.map((id,i)=>{
-    const s=SCENARIOS[id];
-    return `<button class="scenarioBtn ${id===scenarioId?'active':''}" data-sid="${id}" onclick="selectScenario('${id}',this)"><b>${String(i+1).padStart(2,'0')} • ${s.name}</b><span>${scenarioSubtitle(id)}</span></button>`;
+    const s=SCENARIOS[id],v=SCENARIO_VISUALS[id]||['cargo','COLREG SCENARIO','crossA'];
+    const src=scenarioImageSrc(v[0]);
+    return `<button class="scenarioBtn ${id===scenarioId?'active':''}" data-sid="${id}" onclick="selectScenario('${id}',this)">
+      <span class="scenarioPhoto">
+        <img src="${src}" alt="" loading="lazy">
+        <span class="scenarioPhotoShade"></span>
+        ${scenarioGeometryHTML(id)}
+        <span class="scenarioVisualTag">${v[1]}</span>
+      </span>
+      <span class="scenarioCopy"><b>${String(i+1).padStart(2,'0')} • ${s.name}</b><span>${scenarioSubtitle(id)}</span></span>
+    </button>`;
   }).join('');
+
+  // Cache only library-backed images; Suilven and sailing selector photos are already embedded.
+  ids.forEach(id=>{
+    const v=SCENARIO_VISUALS[id];
+    if(v && !['suilven','userSail'].includes(v[0])) cacheLicensedImage(v[0]);
+  });
 }
 
 function setOwnVesselMode(mode){
