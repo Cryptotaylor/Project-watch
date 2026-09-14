@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.18 — Signal Audio Lab</title>
+<title>Project Watch 1.18.1 — Harbour & Marina Signals</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -168,7 +168,83 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .profileBar button{background:#16475e}.profileBar button.active{background:#168bcf}
 .audioMeter{height:10px;background:#02141d;border-radius:10px;overflow:hidden;margin-top:8px}
 .audioMeter span{display:block;height:100%;width:0;background:#6ee0ff;transition:width .08s linear}
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
+
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -222,7 +298,83 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .profileBar button{background:#16475e}.profileBar button.active{background:#168bcf}
 .audioMeter{height:10px;background:#02141d;border-radius:10px;overflow:hidden;margin-top:8px}
 .audioMeter span{display:block;height:100%;width:0;background:#6ee0ff;transition:width .08s linear}
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
+
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -283,7 +435,83 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .profileBar button{background:#16475e}.profileBar button.active{background:#168bcf}
 .audioMeter{height:10px;background:#02141d;border-radius:10px;overflow:hidden;margin-top:8px}
 .audioMeter span{display:block;height:100%;width:0;background:#6ee0ff;transition:width .08s linear}
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
+
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -337,7 +565,83 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .profileBar button{background:#16475e}.profileBar button.active{background:#168bcf}
 .audioMeter{height:10px;background:#02141d;border-radius:10px;overflow:hidden;margin-top:8px}
 .audioMeter span{display:block;height:100%;width:0;background:#6ee0ff;transition:width .08s linear}
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
+
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.appMenu{grid-template-columns:repeat(6,1fr)}.ruleParts{grid-template-columns:repeat(3,1fr)}.moduleCards{grid-template-columns:repeat(3,1fr)}}
 
@@ -425,7 +729,83 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .profileBar button{background:#16475e}.profileBar button.active{background:#168bcf}
 .audioMeter{height:10px;background:#02141d;border-radius:10px;overflow:hidden;margin-top:8px}
 .audioMeter span{display:block;height:100%;width:0;background:#6ee0ff;transition:width .08s linear}
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
+
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -479,7 +859,83 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .profileBar button{background:#16475e}.profileBar button.active{background:#168bcf}
 .audioMeter{height:10px;background:#02141d;border-radius:10px;overflow:hidden;margin-top:8px}
 .audioMeter span{display:block;height:100%;width:0;background:#6ee0ff;transition:width .08s linear}
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
+
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -540,7 +996,83 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .profileBar button{background:#16475e}.profileBar button.active{background:#168bcf}
 .audioMeter{height:10px;background:#02141d;border-radius:10px;overflow:hidden;margin-top:8px}
 .audioMeter span{display:block;height:100%;width:0;background:#6ee0ff;transition:width .08s linear}
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
+
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -594,14 +1126,90 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .profileBar button{background:#16475e}.profileBar button.active{background:#168bcf}
 .audioMeter{height:10px;background:#02141d;border-radius:10px;overflow:hidden;margin-top:8px}
 .audioMeter span{display:block;height:100%;width:0;background:#6ee0ff;transition:width .08s linear}
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
+
+
+.signalTabs{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.signalTabs button{min-width:125px;background:#16475e;white-space:nowrap}
+.signalTabs button.active{background:#168bcf}
+.signalSection{display:none}.signalSection.active{display:block}
+.sigGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sigCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.sigCard h4{margin:0 0 5px}.sigPattern{font-size:20px;font-weight:900;letter-spacing:.14em;margin:7px 0;color:#8fe8ff}
+.sigCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.sigCard button{margin-top:9px;width:100%;background:#174a61}
+.sigQuiz{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.distressGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.distressCard{background:#041f2d;border-radius:13px;padding:11px;min-height:110px}
+.distressIcon{font-size:28px;margin-bottom:5px}.distressCard b{display:block}.distressCard small{color:#a8bec9;line-height:1.35}
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+@media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
+
+
+.harbourGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.harbourCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.harbourCard h4{margin:0 0 5px}.harbourCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.ruleFlag{display:inline-block;font-size:9px;border-radius:20px;padding:3px 7px;margin-top:7px;background:#0b4059}
+.ruleFlag.local{background:#6a4a13}
+.marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
+.marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
+.berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+@media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.18 • SIGNAL AUDIO LAB</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.18.1 • HARBOUR & MARINA SIGNALS</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -636,32 +1244,65 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 <section id="signalsPage" class="appPage">
 <div class="panel">
-  <div class="ver">COLREGS PART D • AUDIO QUALITY GATE</div>
-  <h2>Signal Audio Lab</h2>
-  <p class="note">Before we build the full Signals trainer, this page lets us approve the actual whistle, bell and gong sounds. Signal timing is rule-driven; the sound character is generated in-browser so the app remains a single GitHub-friendly HTML file.</p>
+<div class="ver">COLREGS PART D • RULES 32–37</div>
+<h2>Signals Trainer</h2>
+<p class="note">The approved whistle, bell and gong engine now drives the complete training module. Learn the signal, hear it, then switch to Test Yourself.</p>
 
-  <div class="ver">WHISTLE PROFILE</div>
-  <div class="profileBar">
-    <button id="hornLarge" class="active" onclick="setHornProfile('large')">LARGE SHIP</button>
-    <button id="hornMedium" onclick="setHornProfile('medium')">MEDIUM SHIP</button>
-    <button id="hornSmall" onclick="setHornProfile('small')">SMALL VESSEL</button>
-  </div>
-  <p id="hornProfileText" class="note">Large ship profile • deep fundamental within the Annex III range for vessels 200 m or more.</p>
+<div class="signalTabs">
+  <button id="sigTabMan" class="active" onclick="showSignalSection('man')">MANOEUVRING</button>
+  <button id="sigTabFog" onclick="showSignalSection('fog')">RESTRICTED VISIBILITY</button>
+  <button id="sigTabDistress" onclick="showSignalSection('distress')">DISTRESS</button>
+  <button id="sigTabHarbour" onclick="showSignalSection('harbour')">HARBOUR / MARINA</button>
+  <button id="sigTabQuiz" onclick="showSignalSection('quiz')">TEST YOURSELF</button>
+</div>
 
-  <div class="signalLab">
-    <div class="signalCard"><h4>One short blast</h4><p>About 1 second. Core building block for Rule 34 manoeuvring signals.</p><button onclick="audioShort(this)">▶ PLAY SHORT</button></div>
-    <div class="signalCard"><h4>One prolonged blast</h4><p>4.5 seconds in this trainer, within the COLREG 4–6 second definition.</p><button onclick="audioProlonged(this)">▶ PLAY PROLONGED</button></div>
-    <div class="signalCard"><h4>Short • Prolonged • Short</h4><p>Useful Rule 35 anchor warning sequence. Plays with clear training spacing.</p><button onclick="audioSPS(this)">▶ PLAY SEQUENCE</button></div>
-    <div class="signalCard"><h4>Single bell strike</h4><p>Test the metallic bell tone before we build anchor/aground sequences.</p><button onclick="audioBellStrike(this)">▶ PLAY BELL</button></div>
-    <div class="signalCard"><h4>Rapid bell • about 5 s</h4><p>Training reproduction of the rapid bell period used for Rule 35 anchor/aground signals.</p><button onclick="audioRapidBell(this)">▶ PLAY RAPID BELL</button></div>
-    <div class="signalCard"><h4>Rapid gong • about 5 s</h4><p>Lower, broader tone so it cannot be confused with the bell in the trainer.</p><button onclick="audioRapidGong(this)">▶ PLAY RAPID GONG</button></div>
-  </div>
+<div id="sigMan" class="signalSection active">
+  <div class="sigGrid" id="manSignalGrid"></div>
+</div>
 
-  <div class="panel" style="margin-top:12px">
-    <div class="ver">AUDIO STATUS</div>
-    <div id="audioStatus">Tap any sound to unlock audio on iPad/Safari.</div>
-    <div class="audioMeter"><span id="audioMeterBar"></span></div>
+<div id="sigFog" class="signalSection">
+  <div class="sigGrid" id="fogSignalGrid"></div>
+</div>
+
+<div id="sigDistress" class="signalSection">
+  <div class="distressGrid" id="distressGrid"></div>
+  <p class="note" style="margin-top:10px">Annex IV signals indicate distress and need of assistance. This module is for recognition training; operational distress procedures should always follow current equipment, radio and emergency guidance.</p>
+</div>
+
+
+<div id="sigHarbour" class="signalSection">
+  <div class="harbourGrid" id="harbourSignalGrid"></div>
+
+  <div class="marinaSim">
+    <div class="ver">PRACTICAL MARINA SCENARIO</div>
+    <h3>Reverse out of the berth</h3>
+    <p class="note">Select the signal you would make while operating astern propulsion. This exercise teaches the COLREG signal itself; actual berth/departure requirements can be supplemented by local harbour rules.</p>
+    <div class="marinaScene">
+      <div class="berth" style="left:15%;top:12%;width:16px;height:76%"></div>
+      <div class="berth" style="left:15%;top:22%;width:34%;height:12px"></div>
+      <div class="berth" style="left:15%;top:63%;width:34%;height:12px"></div>
+      <div class="boatMini" style="left:27%;top:39%;transform:rotate(90deg)"></div>
+    </div>
+    <div class="quizOpts" style="margin-top:10px">
+      <button onclick="answerMarinaSignal('one')">• ONE SHORT</button>
+      <button onclick="answerMarinaSignal('two')">•• TWO SHORT</button>
+      <button onclick="answerMarinaSignal('three')">••• THREE SHORT</button>
+      <button onclick="answerMarinaSignal('long')">— ONE PROLONGED</button>
+    </div>
+    <div id="marinaResult" class="quizResult"></div>
   </div>
+</div>
+
+<div id="sigQuiz" class="signalSection">
+  <div class="sigQuiz">
+    <div class="ver">AUDIO RECOGNITION</div>
+    <h3 id="sigQuizQ">What signal did you hear?</h3>
+    <button class="big" onclick="playSignalQuiz()">🔊 PLAY SIGNAL</button>
+    <div id="sigQuizChoices" class="quizOpts"></div>
+    <div id="sigQuizResult" class="quizResult"></div>
+    <button class="big alt" onclick="nextSignalQuiz()">NEXT SIGNAL</button>
+  </div>
+</div>
 </div>
 </section>
 
@@ -1470,6 +2111,139 @@ function audioRapidGong(btn){
   for(let i=0;i<8;i++)bellStrike(i*.63,'gong');audioMeterRun(5.1);
 }
 
+
+const MAN_SIGNALS=[
+{id:'stbd',title:'Alter course to starboard',pattern:'•',meaning:'One short blast',rule:'34(a)',seq:[['short']]},
+{id:'port',title:'Alter course to port',pattern:'••',meaning:'Two short blasts',rule:'34(a)',seq:[['short'],['short']]},
+{id:'astern',title:'Operating astern propulsion',pattern:'•••',meaning:'Three short blasts',rule:'34(a)',seq:[['short'],['short'],['short']]},
+{id:'overtakeStbd',title:'Intend to overtake on your starboard side',pattern:'— — •',meaning:'Two prolonged, one short',rule:'34(c)',seq:[['long'],['long'],['short']]},
+{id:'overtakePort',title:'Intend to overtake on your port side',pattern:'— — ••',meaning:'Two prolonged, two short',rule:'34(c)',seq:[['long'],['long'],['short'],['short']]},
+{id:'agreeOvertake',title:'Agreement to overtaking',pattern:'— • — •',meaning:'One prolonged, one short, one prolonged, one short',rule:'34(c)',seq:[['long'],['short'],['long'],['short']]},
+{id:'doubt',title:'Danger / doubt signal',pattern:'•••••+',meaning:'At least five short and rapid blasts',rule:'34(d)',seq:[['rapid5']]},
+{id:'bend',title:'Approaching obscured bend',pattern:'—',meaning:'One prolonged blast',rule:'34(e)',seq:[['long']]}
+];
+
+const FOG_SIGNALS=[
+{id:'pdMakingWay',title:'Power-driven vessel making way',pattern:'—',meaning:'One prolonged blast at intervals of not more than 2 minutes',rule:'35(a)',seq:[['long']]},
+{id:'pdStopped',title:'Power-driven vessel underway but stopped',pattern:'— —',meaning:'Two prolonged blasts with about 2 seconds between them',rule:'35(b)',seq:[['long'],['pause2'],['long']]},
+{id:'specialFog',title:'NUC / RAM / sailing / fishing / towing or pushing',pattern:'— ••',meaning:'One prolonged followed by two short blasts',rule:'35(c)',seq:[['long'],['short'],['short']]},
+{id:'towLast',title:'Last vessel of a manned tow',pattern:'— •••',meaning:'One prolonged followed by three short blasts',rule:'35(e)',seq:[['long'],['short'],['short'],['short']]},
+{id:'anchor',title:'Vessel at anchor',pattern:'🔔 ≈5s',meaning:'Rapid bell for about 5 seconds, at intervals of not more than 1 minute',rule:'35(g)',seq:[['rapidBell']]},
+{id:'anchorWarn',title:'Anchor vessel warning approaching vessel',pattern:'• — •',meaning:'Optional one short, one prolonged, one short',rule:'35(g)',seq:[['short'],['long'],['short']]},
+{id:'aground',title:'Vessel aground',pattern:'3 🔔 + rapid 🔔 + 3 🔔',meaning:'Three distinct bell strokes, rapid bell about 5 seconds, then three distinct strokes',rule:'35(h)',seq:[['threeBell'],['rapidBell'],['threeBell']]},
+{id:'pilot',title:'Pilot vessel identity addition',pattern:'••••',meaning:'Four short blasts may be added to the applicable Rule 35 signal',rule:'35(k)',seq:[['short'],['short'],['short'],['short']]}
+];
+
+const DISTRESS_SIGNALS=[
+['💥','Explosive signal','Gun or other explosive signal at about one-minute intervals'],
+['📣','Continuous fog signal','Continuous sounding with any fog-signalling apparatus'],
+['🔴','Red star rockets / shells','Red stars fired one at a time at short intervals'],
+['··· ——— ···','SOS','SOS by any signalling method'],
+['📻','MAYDAY','Radiotelephony spoken distress word'],
+['🚩','NC flags','International Code Signal N.C.'],
+['⚫⬜','Square flag and ball','Square flag with ball above or below'],
+['🔥','Flames','Flames on the vessel'],
+['🧨','Red flare','Rocket parachute flare or hand flare showing red'],
+['🟧','Orange smoke','Smoke signal giving off orange-coloured smoke'],
+['🙆','Arm signal','Slowly and repeatedly raise/lower outstretched arms'],
+['📡','DSC distress alert','Digital selective calling distress alert'],
+['🛰️','Satellite distress alert','Ship-to-shore distress alert via satellite service'],
+['📍','EPIRB','Emergency position-indicating radio beacon'],
+['📶','Approved radio distress signal','Approved radiocommunication distress signals, including survival-craft radar transponders']
+];
+
+
+const HARBOUR_SIGNALS=[
+{id:'harbourStbd',title:'Alter course to starboard',pattern:'•',meaning:'One short blast.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short']]},
+{id:'harbourPort',title:'Alter course to port',pattern:'••',meaning:'Two short blasts.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short'],['short']]},
+{id:'harbourAstern',title:'Operating astern propulsion',pattern:'•••',meaning:'Three short blasts. This indicates astern propulsion is being operated; it does not by itself prove the vessel is already moving astern.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short'],['short'],['short']]},
+{id:'harbourDoubt',title:'Danger / doubt',pattern:'•••••+',meaning:'At least five short and rapid blasts when in doubt about another vessel’s intentions/actions or whether sufficient action is being taken.',basis:'International COLREG Rule 34(d)',flag:'COLREG',seq:[['rapid5']]},
+{id:'harbourBend',title:'Obscured bend / channel obstruction',pattern:'—',meaning:'One prolonged blast when nearing a bend or area of a channel/fairway where other vessels may be obscured.',basis:'International COLREG Rule 34(e)',flag:'COLREG',seq:[['long']]},
+{id:'localBerth',title:'Leaving berth / dock — local rule example',pattern:'LOCAL',meaning:'Some jurisdictions prescribe additional departure signals. These are not universal International COLREG signals and must be checked against local harbour/byelaw requirements.',basis:'Local / jurisdiction-specific',flag:'LOCAL',seq:[]}
+];
+
+function harbourCardHTML(s){
+ return `<div class="harbourCard"><h4>${s.title}</h4><div class="sigPattern">${s.pattern}</div><p>${s.meaning}</p><span class="ruleFlag ${s.flag==='LOCAL'?'local':''}">${s.basis}</span>${s.seq.length?`<button onclick="playHarbourSignal('${s.id}')">🔊 PLAY</button>`:''}</div>`;
+}
+function renderHarbourSignals(){
+ $('harbourSignalGrid').innerHTML=HARBOUR_SIGNALS.map(harbourCardHTML).join('');
+}
+function playHarbourSignal(id){
+ let s=HARBOUR_SIGNALS.find(x=>x.id===id);if(!s||!s.seq.length)return;
+ setAudioStatus('Playing: '+s.title);playSeq(s.seq);
+}
+function answerMarinaSignal(id){
+ const ok=id==='three';
+ if(ok){
+   $('marinaResult').textContent='✓ Correct — three short blasts: operating astern propulsion.';
+   $('marinaResult').className='quizResult ok';
+   playHarbourSignal('harbourAstern');
+ }else{
+   $('marinaResult').textContent='✗ Not quite — for this exercise the correct COLREG signal is three short blasts for operating astern propulsion.';
+   $('marinaResult').className='quizResult warn';
+ }
+}
+
+let sigQuizPool=[...MAN_SIGNALS,...FOG_SIGNALS],sigQuizIndex=-1,sigQuizCurrent=null;
+
+function showSignalSection(name){
+  const ids={man:'Man',fog:'Fog',distress:'Distress',harbour:'Harbour',quiz:'Quiz'};
+  Object.keys(ids).forEach(x=>{
+    $('sig'+ids[x]).classList.toggle('active',x===name);
+    $('sigTab'+ids[x]).classList.toggle('active',x===name);
+  });
+  if(name==='quiz'&&sigQuizIndex<0)nextSignalQuiz();
+}
+
+function renderSignalCards(){
+  $('manSignalGrid').innerHTML=MAN_SIGNALS.map(s=>signalCardHTML(s)).join('');
+  $('fogSignalGrid').innerHTML=FOG_SIGNALS.map(s=>signalCardHTML(s)).join('');
+  $('distressGrid').innerHTML=DISTRESS_SIGNALS.map(d=>`<div class="distressCard"><div class="distressIcon">${d[0]}</div><b>${d[1]}</b><small>${d[2]}</small></div>`).join('');
+}
+
+function signalCardHTML(s){
+ return `<div class="sigCard"><h4>${s.title}</h4><div class="sigPattern">${s.pattern}</div><p>${s.meaning}</p><span class="bridgeBadge">Rule ${s.rule}</span><button onclick="playDefinedSignal('${s.id}')">🔊 PLAY</button></div>`;
+}
+
+function playDefinedSignal(id){
+  let s=[...MAN_SIGNALS,...FOG_SIGNALS].find(x=>x.id===id);if(!s)return;
+  setAudioStatus('Playing: '+s.title);playSeq(s.seq);
+}
+
+function playSeq(seq){
+  getSignalAudio();
+  let t=0;
+  seq.forEach(([kind])=>{
+    if(kind==='short'){hornBlast(1.0,t);t+=1.65}
+    else if(kind==='long'){hornBlast(4.5,t);t+=5.2}
+    else if(kind==='pause2'){t+=2}
+    else if(kind==='rapid5'){for(let i=0;i<5;i++)hornBlast(.55,t+i*.8);t+=4.2}
+    else if(kind==='rapidBell'){for(let i=0;i<12;i++)bellStrike(t+i*.42,'bell');t+=5.2}
+    else if(kind==='threeBell'){for(let i=0;i<3;i++)bellStrike(t+i*.75,'bell');t+=2.6}
+  });
+  audioMeterRun(Math.max(1,t));
+}
+
+function nextSignalQuiz(){
+  sigQuizIndex=(sigQuizIndex+1)%sigQuizPool.length;
+  sigQuizCurrent=sigQuizPool[sigQuizIndex];
+  $('sigQuizQ').textContent='What signal did you hear?';
+  let pool=sigQuizPool.filter(x=>x.id!==sigQuizCurrent.id),wrong=[];
+  for(let i=0;wrong.length<3;i++){
+    let x=pool[(sigQuizIndex*3+i)%pool.length];
+    if(!wrong.some(w=>w.id===x.id))wrong.push(x);
+  }
+  let opts=[sigQuizCurrent,...wrong].sort((a,b)=>a.title.localeCompare(b.title));
+  $('sigQuizChoices').innerHTML=opts.map(o=>`<button type="button" onclick="answerSignalQuiz('${o.id}')">${o.title}</button>`).join('');
+  $('sigQuizResult').textContent='';
+}
+function playSignalQuiz(){if(sigQuizCurrent)playSeq(sigQuizCurrent.seq)}
+function answerSignalQuiz(id){
+  let ok=id===sigQuizCurrent.id;
+  $('sigQuizResult').textContent=(ok?'✓ Correct — ':'✗ Correct answer: '+sigQuizCurrent.title+' — ')+sigQuizCurrent.meaning;
+  $('sigQuizResult').className='quizResult '+(ok?'ok':'warn');
+}
+
 const RULE_DATA={"1": {"title": "Application", "summary": "Defines where COLREGS apply and recognises compatible local/special rules.", "training": "Know whether COLREGS, local harbour rules, or both govern the water you are navigating.", "project": "General application; local rules can supplement but should conform closely to COLREGS."}, "2": {"title": "Responsibility", "summary": "No vessel, owner, master or crew is relieved from consequences of neglecting the Rules, required precautions, or ordinary seamanlike practice.", "training": "The Rules are not a substitute for judgement. Departure from a Rule can be required by immediate danger.", "project": "Use all circumstances, limitations and dangers when deciding what safe action requires."}, "3": {"title": "General definitions", "summary": "Defines core terms used throughout COLREGS, including vessel, power-driven vessel, sailing vessel, fishing, NUC, RAM, CBD, underway and restricted visibility.", "training": "Correct classification is essential before deciding which steering rule or light/shape rule applies.", "project": "Project Watch should classify vessel status before applying encounter logic."}, "4": {"title": "Application", "summary": "Rules 4\u201310 apply in any condition of visibility.", "training": "Do not switch off lookout, safe speed or risk-assessment duties simply because visibility is good.", "project": "Forms the baseline conduct layer for all scenarios."}, "5": {"title": "Look-out", "summary": "Requires a proper lookout by sight, hearing and all available appropriate means.", "training": "Radar/AIS do not replace visual and auditory lookout; they supplement it.", "project": "Project Watch can test whether the learner notices developing risks before alarms."}, "6": {"title": "Safe speed", "summary": "Requires proceeding at a safe speed so proper effective action can be taken and the vessel stopped within an appropriate distance.", "training": "Safe speed depends on visibility, traffic, manoeuvrability, background lights, weather, draught and radar factors where fitted.", "project": "Scenario difficulty can vary by visibility, traffic and vessel response."}, "7": {"title": "Risk of collision", "summary": "Requires use of all available means to determine risk; if in doubt, assume risk exists.", "training": "A steady or nearly steady compass bearing with decreasing range is a classic warning, but large vessels/tows can still create risk even with bearing change.", "project": "CPA/TCPA support, but do not replace, proper assessment."}, "8": {"title": "Action to avoid collision", "summary": "Avoiding action should be positive, made in ample time, and large enough to be readily apparent; effectiveness must be checked until finally past and clear.", "training": "Small successive alterations are poor practice where a substantial alteration is available. Passing distance must be safe in the circumstances.", "project": "Project Watch scores timing, clarity of action and outcome separately."}, "9": {"title": "Narrow channels", "summary": "Sets conduct for vessels in narrow channels/fairways, including keeping near the starboard outer limit where safe/practicable and rules on impeding certain vessels.", "training": "Channel constraints can change what manoeuvres are practical and create additional duties.", "project": "Needs dedicated narrow-channel scenarios rather than open-water logic."}, "10": {"title": "Traffic separation schemes", "summary": "Sets conduct in IMO-adopted TSS, including lane use, joining/leaving, crossing, separation zones and inshore traffic zones.", "training": "When obliged to cross a lane, cross on a heading as nearly as practicable at right angles to the general direction of traffic flow.", "project": "TSS training must combine Rule 10 with the ordinary collision-avoidance Rules."}, "11": {"title": "Application", "summary": "Rules 11\u201318 apply to vessels in sight of one another.", "training": "These encounter rules are not the basis for restricted-visibility encounters where vessels are not in sight.", "project": "Simulator must separate in-sight logic from Rule 19 radar-only logic."}, "12": {"title": "Sailing vessels", "summary": "Sets which sailing vessel keeps out of the way based on tack and windward/leeward relationships.", "training": "Learners must first identify tack and relative wind position correctly.", "project": "Requires sailing-specific scenarios and wind display."}, "13": {"title": "Overtaking", "summary": "The overtaking vessel keeps out of the way until finally past and clear; doubt about whether overtaking means treat it as overtaking.", "training": "Responsibility does not transfer merely because bearing changes during the manoeuvre.", "project": "Project Watch target AI must keep this responsibility throughout the pass."}, "14": {"title": "Head-on situation", "summary": "When two power-driven vessels meet on reciprocal or nearly reciprocal courses with risk of collision, each alters course to starboard so they pass port-to-port.", "training": "If in doubt whether a head-on situation exists, treat it as such.", "project": "Near-reciprocal geometry needs a tolerance/uncertainty model, not a single exact heading."}, "15": {"title": "Crossing situation", "summary": "For two power-driven vessels crossing with risk of collision, the vessel that has the other on her starboard side keeps out of the way and, if circumstances admit, avoids crossing ahead.", "training": "The rule determines give-way/stand-on roles; it does not prescribe one universal manoeuvre for every case.", "project": "Project Watch must combine Rule 15 role assignment with Rules 8, 16 and 17."}, "16": {"title": "Action by give-way vessel", "summary": "The give-way vessel takes early and substantial action to keep well clear.", "training": "Timing and decisiveness matter as well as final CPA.", "project": "A late but successful near-miss should not score like an early clear manoeuvre."}, "17": {"title": "Action by stand-on vessel", "summary": "The stand-on vessel normally keeps course and speed, may act when it becomes apparent the give-way vessel is not acting appropriately, and must act when collision cannot be avoided by give-way action alone.", "training": "Stand-on does not mean 'do nothing whatever happens'.", "project": "Project Watch needs escalation logic so stand-on action becomes appropriate when the other vessel fails."}, "18": {"title": "Responsibilities between vessels", "summary": "Sets responsibilities between categories such as power-driven, sailing, fishing, NUC, RAM and CBD, subject to the detailed Rule.", "training": "Vessel status can override ordinary power-vs-power crossing logic.", "project": "Status recognition must be tied to lights/shapes and scenario logic."}, "19": {"title": "Conduct in restricted visibility", "summary": "Applies when vessels are not in sight in or near restricted visibility and sets safe speed, engine readiness, radar-based avoiding-action cautions and response to fog signals.", "training": "Do not apply Rules 11\u201318 as though the vessels were in sight.", "project": "Requires a dedicated radar/restricted-visibility simulation family."}, "20": {"title": "Application", "summary": "Introduces the lights-and-shapes section and when those displays are required.", "training": "Night/day display requirements are part of vessel recognition.", "project": "Training should switch between daylight shapes and night lights."}, "21": {"title": "Definitions", "summary": "Defines masthead, sidelights, sternlight, towing light, all-round light and flashing light.", "training": "Light identity, arc and colour underpin night recognition.", "project": "Project Watch visual assets must respect arcs and positions."}, "22": {"title": "Visibility of lights", "summary": "Specifies minimum ranges at which prescribed lights must be visible, depending on vessel size and light type.", "training": "Recognition distance changes by vessel length and light category.", "project": "Useful later for night scenario detection range."}, "23": {"title": "Power-driven vessels underway", "summary": "Sets the standard lights for power-driven vessels underway, with variations for vessel size and air-cushion craft.", "training": "Core night-recognition pattern: masthead light(s), sidelights and sternlight.", "project": "One of the first Lights & Shapes practical modules."}, "24": {"title": "Towing and pushing", "summary": "Sets lights/shapes for towing, pushing and composite units, including additional displays for long tows.", "training": "Tows can radically change collision risk and apparent vessel footprint.", "project": "Scenarios need tow length and restricted manoeuvrability considerations where applicable."}, "25": {"title": "Sailing vessels and vessels under oars", "summary": "Sets lights/shapes for sailing vessels and permitted alternatives/additional displays.", "training": "A sailing vessel using machinery is treated/displayed differently from pure sail.", "project": "Day-shape and propulsion-status recognition should be tested."}, "26": {"title": "Fishing vessels", "summary": "Sets lights/shapes for trawling and fishing other than trawling, including gear extending more than 150 m.", "training": "'Fishing' under COLREGS is a defined operational status, not simply anyone with a fishing rod.", "project": "Status determines Rule 18 responsibilities."}, "27": {"title": "NUC and RAM vessels", "summary": "Sets lights/shapes for vessels not under command and restricted in ability to manoeuvre, including specific operations.", "training": "These are high-priority status-recognition patterns.", "project": "Simulator must distinguish status from merely slow or stopped vessels."}, "28": {"title": "Vessels constrained by draught", "summary": "Sets additional lights/shape a power-driven vessel constrained by draught may exhibit.", "training": "CBD is specifically defined and applies only in qualifying circumstances.", "project": "Do not treat every deep-draught ship as automatically CBD."}, "29": {"title": "Pilot vessels", "summary": "Sets identification lights/shapes for vessels engaged on pilotage duty.", "training": "Recognition helps explain otherwise unusual manoeuvres near approaches and ports.", "project": "Useful harbour-approach scenario family."}, "30": {"title": "Anchored vessels and vessels aground", "summary": "Sets lights/shapes for vessels at anchor and aground, with size-related variations.", "training": "An anchored target is not an ordinary crossing vessel.", "project": "Collision logic must recognise zero-speed navigational status."}, "31": {"title": "Seaplanes", "summary": "Provides for displays as closely similar as possible when normal lights/shapes cannot be shown.", "training": "Rare but part of the complete COLREG framework.", "project": "Reference module rather than priority simulation content."}, "32": {"title": "Definitions", "summary": "Defines whistle and related terminology for Part D.", "training": "Foundation for sound-signal training.", "project": "Audio training should use correct signal patterns."}, "33": {"title": "Equipment for sound signals", "summary": "Specifies whistle/bell/gong carriage requirements by vessel length.", "training": "Equipment requirements vary with vessel size.", "project": "Reference data can be linked to custom vessel profiles."}, "34": {"title": "Manoeuvring and warning signals", "summary": "Specifies whistle and light signals used by vessels in sight, including course alterations, astern propulsion, doubt/warning and narrow-channel overtaking agreements.", "training": "Signals communicate manoeuvre/intention; they do not themselves replace collision-avoidance duties.", "project": "Project Watch can play a signal and ask the learner to interpret it."}, "35": {"title": "Sound signals in restricted visibility", "summary": "Specifies fog signals for vessel status and activity in or near restricted visibility.", "training": "Signal pattern depends on whether the vessel is making way, stopped, sailing, fishing, towing, anchored, aground, etc.", "project": "Ideal for audio recognition drills."}, "36": {"title": "Signals to attract attention", "summary": "Allows attention-attracting signals that cannot be mistaken for authorised signals and restricts problematic high-intensity/intermittent lights.", "training": "Attention signals should not create confusion with navigation signals.", "project": "Useful reference/safety content."}, "37": {"title": "Distress signals", "summary": "Directs use of the distress signals listed in Annex IV when a vessel is in distress and requires assistance.", "training": "Distress signals are separate from routine collision-avoidance communication.", "project": "Should link to an emergency-signals module."}, "38": {"title": "Exemptions", "summary": "Provides limited exemptions for qualifying vessels built/converted around implementation dates, subject to the Rule.", "training": "Primarily technical/historical application material.", "project": "Reference module rather than encounter scenario."}, "39": {"title": "Definitions", "summary": "Defines terms used in Part F concerning IMO verification.", "training": "Administrative convention-compliance material, not ship-handling conduct.", "project": "Reference-only content for most learners."}, "40": {"title": "Application", "summary": "Sets application of Part F verification provisions.", "training": "Concerns verification of Contracting Parties rather than navigational decisions on the bridge.", "project": "Reference-only content."}, "41": {"title": "Verification of compliance", "summary": "Provides for IMO audit/verification of Contracting Parties' compliance with convention obligations.", "training": "Important at convention/governance level, not a watchkeeping manoeuvre rule.", "project": "Reference-only content."}};
 
 function openRule(n){
@@ -1977,7 +2751,7 @@ function buildDebrief(d){
   $('timeline').innerHTML=events.map(e=>`<div class="event"><b>T+${fmt(e.t)}</b><br><span>${e.text}</span></div>`).join('');
 }
 function restart(){go('handover')}
-renderScenarioList();setOwnVesselMode('power');initScenario();renderBuoys();nextBuoyQuestion();bvRender();setHornProfile('large');
+renderScenarioList();setOwnVesselMode('power');initScenario();renderBuoys();nextBuoyQuestion();bvRender();setHornProfile('large');renderSignalCards();renderHarbourSignals();
 </script>
 
 <div id="detailSheet" class="detailSheet" onclick="if(event.target===this)closeDetail()">
