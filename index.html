@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.20.3 — TSS Visual Audit</title>
+<title>Project Watch 1.20.4 — TSS Termination Audit</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -12985,7 +12985,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.20.3 • TSS VISUAL AUDIT</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.20.4 • TSS TERMINATION AUDIT</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -14391,7 +14391,7 @@ function setTSSGeometry(mode){
   join:{hdg:'075°',cog:'075°',angle:'SHALLOW ✓',mode:'JOIN',v:'✓ CORRECT — joining from side at a small angle',cls:'goodV',note:'When joining from the side, use as small an angle to the general direction of traffic flow as practicable.'},
   leave:{hdg:'105°',cog:'105°',angle:'SHALLOW ✓',mode:'LEAVE',v:'✓ CORRECT — leaving to side at a small angle',cls:'goodV',note:'When leaving to the side, peel away at as small an angle to the general traffic flow as practicable.'},
   badjoin:{hdg:'010°',cog:'010°',angle:'STEEP ✕',mode:'INCORRECT',v:'✕ INCORRECT — steep side entry',cls:'badV',note:'This deliberately steep entry is not the small-angle side joining geometry Rule 10 calls for.'},
-  termination:{hdg:'090°',cog:'090°',angle:'TERMINAL',mode:'PREFERRED',v:'★ NORMAL METHOD — join or leave at lane termination',cls:'infoV',note:'Rule 10 says a vessel should normally join or leave a traffic lane at the termination of the lane.'}
+  termination:{hdg:'LANE',cog:'LANE',angle:'END',mode:'PREFERRED',v:'★ NORMAL METHOD — join or leave through the lane termination',cls:'infoV',note:'The lane now visibly ends in the graphic. Rule 10 says vessels should normally join or leave at the termination, and Rule 10(f) calls for particular caution near terminations.'}
  }[mode];
  ['tssBridgeHdg','tssBridgeCog','tssCrossAngle','tssBridgeMode'].forEach((id,i)=>{if($(id))$(id).textContent=[meta.hdg,meta.cog,meta.angle,meta.mode][i]});
  if($('tssGeometryNote'))$('tssGeometryNote').textContent=meta.note;
@@ -14445,9 +14445,33 @@ function tssEcdisSVG(live=false,mode=tssGeometryMode){
    ownShip=`<g transform="translate(390 120) rotate(140)"><path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/></g>`;
    angleMark=`<g fill="#c92f38" font-weight="900"><text x="350" y="105" font-size="42">✕</text><text x="445" y="175" font-size="14">STEEP SIDE ENTRY ✕</text></g>`;
  } else {
-   ownTrack=`<path d="M35 130 C115 135 190 140 270 150" stroke="#18815b" stroke-width="5" stroke-dasharray="9 7"/>`;
-   ownShip=`<g transform="translate(270 150) rotate(98)"><path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/></g>`;
-   angleMark=`<text x="55" y="105" fill="#245b70" font-size="14" font-weight="900">★ NORMAL: JOIN / LEAVE AT LANE TERMINATION</text>`;
+   // Lane termination teaching graphic: show the actual open end of the lane,
+   // with one vessel joining through the end and one leaving through the end.
+   ownTrack=`
+     <path d="M85 125 C145 128 205 132 275 140" stroke="#18815b" stroke-width="5" stroke-dasharray="9 7"/>
+     <path d="M275 140 C335 148 385 155 430 162" stroke="#18815b" stroke-width="5"/>
+     <path d="M430 162 C485 170 535 178 585 185" stroke="#18815b" stroke-width="5" stroke-dasharray="9 7"/>
+   `;
+   ownShip=`
+     <g transform="translate(430 162) rotate(98)">
+       <path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/>
+     </g>
+   `;
+   angleMark=`
+     <g font-weight="900">
+       <text x="65" y="92" fill="#16744e" font-size="14">✓ JOIN THROUGH LANE TERMINATION</text>
+       <text x="495" y="135" fill="#16744e" font-size="14">✓ LEAVE THROUGH LANE TERMINATION</text>
+       <text x="255" y="245" fill="#245b70" font-size="13">⚠ PARTICULAR CAUTION NEAR TERMINATION — RULE 10(f)</text>
+     </g>
+     <!-- mask the lane beyond the termination so the end is visually obvious -->
+     <rect x="0" y="0" width="115" height="220" fill="#eee4cc" opacity="0.98"/>
+     <rect x="785" y="270" width="115" height="250" fill="#eee4cc" opacity="0.98"/>
+     <!-- termination end-caps -->
+     <line x1="115" y1="112" x2="115" y2="192" stroke="#9f5353" stroke-width="4"/>
+     <line x1="785" y1="372" x2="785" y2="455" stroke="#9f5353" stroke-width="4"/>
+     <text x="122" y="105" fill="#7a4a4a" font-size="12" font-weight="800">LANE TERMINATION</text>
+     <text x="665" y="470" fill="#7a4a4a" font-size="12" font-weight="800">LANE TERMINATION</text>
+   `;
  }
 
  return `<svg viewBox="0 0 900 520" aria-label="Project Watch ECDIS-style TSS crossing display">
