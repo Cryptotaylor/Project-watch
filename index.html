@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.34 — Collision Examination Suite</title>
+<title>Project Watch 1.34.1 — Lights & Shapes Examination Suite</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -639,6 +639,24 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .practicalExamDeck{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.practicalExamCard{background:#05283a;border:1px solid #ffffff15;border-radius:11px;padding:11px}.practicalExamCard .ver{font-size:6.5px}.practicalExamCard h4{margin:3px 0}.practicalExamCard p{font-size:8px;line-height:1.4;color:#9db6c1;min-height:34px}.practicalExamCard button{width:100%;font-size:8px;background:#166d91}.examSourceNote{margin-top:11px;padding:10px;border-radius:9px;background:#041e2b;border:1px solid #ffffff13;color:#90abb7;font-size:7.5px;line-height:1.45}
 @media(max-width:900px){.examBasis{grid-template-columns:1fr 1fr}.examModeTabs{grid-template-columns:1fr 1fr}.examIntroGrid{grid-template-columns:1fr}.practicalExamDeck{grid-template-columns:1fr}.examHero{grid-template-columns:1fr}.examHeroBadge{text-align:left}}
 @media(max-width:650px){.examBasis,.examModeTabs{grid-template-columns:1fr}.examToolbar{grid-template-columns:1fr}.examProgressText{text-align:left}.examNav{grid-template-columns:1fr}.practicalExamDeck{grid-template-columns:1fr}}
+
+
+/* 1.34.1 Lights & Shapes Full Mock Exam */
+.lsLaunchRow{display:flex;gap:7px;flex-wrap:wrap;margin:4px 0 10px}
+.lsLaunchRow .lsBeginnerLaunch{margin:0}
+.lsExamLaunch{padding:9px 12px;width:auto;border:1px solid #6ee6ad66;background:#0b6649;color:#fff;border-radius:9px;font-size:9px;font-weight:900;letter-spacing:.65px}
+.lsExamHero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:24px;border-radius:18px;background:linear-gradient(135deg,#052b3d,#073e57);border:1px solid #ffffff18;box-shadow:0 12px 32px #0004}
+.lsExamHero h1{font-size:27px;margin:3px 0 7px}.lsExamHero p{max-width:760px;margin:0;color:#b7ced8;font-size:10px;line-height:1.5}
+.lsExamBadge{padding:11px 13px;border-radius:10px;background:#031b27;border:1px solid #6ee6ad42;text-align:right}.lsExamBadge small,.lsExamBadge span{display:block;font-size:7px;color:#8fb5c4}.lsExamBadge b{display:block;font-size:16px;margin:2px 0;color:#72e4aa}
+.lsExamBasis{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}.lsExamBasis div{background:#041e2b;border:1px solid #ffffff13;border-radius:9px;padding:9px}.lsExamBasis small{display:block;font-size:6.5px;color:#7895a2;letter-spacing:.4px}.lsExamBasis b{display:block;font-size:8px;line-height:1.35;margin-top:2px}
+.lsExamToolbar{display:grid;grid-template-columns:auto auto 1fr;gap:7px;align-items:center;margin:10px 0}.lsExamToolbar button{width:auto}.lsExamToolbar .big{background:#157b55}
+.lsExamQuestionArea{background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:14px;min-height:520px}
+.lxLayout{display:grid;grid-template-columns:minmax(360px,1.15fr) minmax(340px,.85fr);gap:12px}.lxVisualCard{background:#031b27;border:1px solid #ffffff15;border-radius:12px;overflow:hidden}.lxVisualHead{display:flex;justify-content:space-between;gap:8px;padding:9px 10px;background:#041e2b}.lxVisualHead span{font-size:7px;font-weight:900;color:#8fb5c4}.lxVisual{height:390px;background:#02111a}.lxVisual.day{background:linear-gradient(#9dcfdd,#e9f4f7 62%,#4c91a8 63%,#225c74 100%)}.lxVisual svg{display:block;width:100%;height:100%}
+.lxQuestionCard{display:flex;flex-direction:column;min-height:390px}.lxQuestionCard .examQuestion{margin:10px 0}.lxKnowledgeOnly{min-height:245px;display:flex;align-items:center;justify-content:center;padding:24px;border-radius:12px;background:radial-gradient(circle at 50% 50%,#0b4560,#031923 72%);border:1px solid #ffffff12;text-align:center}.lxKnowledgeOnly div{max-width:500px}.lxKnowledgeOnly b{display:block;font-size:18px}.lxKnowledgeOnly span{display:block;margin-top:8px;font-size:9px;color:#a9c4cf;line-height:1.45}
+.lxResultsSummary{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:15px;border-radius:12px;background:#031d29}.lxResultsSummary.pass{border:1px solid #55dc9a66}.lxResultsSummary.fail{border:1px solid #f06e6e66}.lxResultsSummary h2{margin:2px 0}.lxScore{font-size:28px;font-weight:1000}
+.lxReviewVisual{height:250px;background:#02111a;border-radius:10px;overflow:hidden;margin:7px 0}.lxReviewVisual.day{background:linear-gradient(#9dcfdd,#e9f4f7 62%,#4c91a8 63%,#225c74 100%)}.lxReviewVisual svg{width:100%;height:100%;display:block}
+@media(max-width:900px){.lsExamBasis{grid-template-columns:1fr 1fr}.lxLayout{grid-template-columns:1fr}.lsExamToolbar{grid-template-columns:1fr 1fr}.lsExamToolbar .examProgressText{grid-column:1/-1}.lxVisual{height:350px}}
+@media(max-width:650px){.lsExamHero{grid-template-columns:1fr}.lsExamBadge{text-align:left}.lsExamBasis,.lsExamToolbar{grid-template-columns:1fr}.lxVisual{height:310px}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17124,7 +17142,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.34 • COLLISION EXAMINATION SUITE</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.34.1 • LIGHTS & SHAPES EXAM</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -17251,7 +17269,10 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 <div class="panel">
 <div class="ver">COLREGS PART C • SINGLE-VESSEL BRIDGE TRAINER</div>
 <h2>Lights & Shapes</h2>
+<div class="lsLaunchRow">
 <button class="lsBeginnerLaunch" onclick="showLightsTutorial()">NEW TO LIGHTS & SHAPES? • START HERE →</button>
+<button class="lsExamLaunch" onclick="showLightsExam()">PROJECT WATCH FULL MOCK EXAM →</button>
+</div>
 <p class="note">Quick-reference first, then recognition testing. 1.16 expands the verified set to towing, pushing, composite units, outlying fishing gear, dredging/underwater operations, diving and mine-clearance displays. Fore-and-aft lights remain projected by viewing aspect so dead-ahead lights stay on the visual centreline.</p>
 <div class="bridgeNav"><button id="bvLearn" class="active" onclick="bvModeSet('learn')">REFERENCE</button><button id="bvTest" onclick="bvModeSet('test')">TEST YOURSELF</button><button id="bvDay" onclick="bvLightSet('day')">☀ DAY SHAPES</button><button id="bvNight" class="active" onclick="bvLightSet('night')">☾ NAV LIGHTS</button></div>
 <div id="bvAspectWrap"><div class="ver">VIEWING ASPECT</div><div id="bvAspects" class="bridgeControls"></div></div>
@@ -17290,6 +17311,41 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
         <button onclick="lsNext()">NEXT →</button>
       </div>
     </main>
+  </div>
+</section>
+
+<section id="lightsExamPage" class="appPage">
+  <div class="lsExamHero">
+    <div>
+      <div class="ver">PROJECT WATCH • COLREG PART C • RULES 20–31</div>
+      <h1>Lights & Shapes Full Mock Examination</h1>
+      <p>Original Project Watch assessment built around the exact vessel displays taught by this platform. It tests night-light recognition, viewing aspect, day shapes and the underlying Rule 20–31 knowledge. No RYA examination material is reproduced.</p>
+    </div>
+    <div class="lsExamBadge"><small>FULL MOCK</small><b>45 QUESTIONS</b><span>VISUAL + KNOWLEDGE</span></div>
+  </div>
+
+  <div class="lsExamBasis">
+    <div><small>SCOPE</small><b>Every vessel/display family in the Project Watch Lights & Shapes trainer</b></div>
+    <div><small>VISUAL ENGINE</small><b>Uses the same bridge-view renderer as the training module</b></div>
+    <div><small>STANDARD</small><b>Project Watch mock assessment • 90% pass • no critical error</b></div>
+    <div><small>STATUS</small><b>Independent training assessment • not RYA/MCA certification</b></div>
+  </div>
+
+  <div class="lsExamToolbar">
+    <button class="big" onclick="startLightsFullExam()">START NEW 45-QUESTION MOCK</button>
+    <button onclick="showModule('lights')">← LIGHTS & SHAPES</button>
+    <div id="lxProgress" class="examProgressText">Ready</div>
+  </div>
+
+  <div id="lxQuestionArea" class="lsExamQuestionArea">
+    <div class="examEmpty">
+      <b>Full Lights & Shapes Mock</b>
+      <span>The exam includes night displays from different aspects, daytime shapes, towing/pushing, fishing, NUC, RAM, constrained-by-draught, pilot, anchor/aground, dredging/diving and mine-clearance recognition.</span>
+    </div>
+  </div>
+
+  <div class="examSourceNote">
+    <b>Assessment basis:</b> COLREG Part C Rules 20–31 and the vessel/display set already taught in Project Watch. Current MCA oral-examination guidance requires candidates to recognise lights and shapes for all classes of vessel. The questions, answer choices and diagrams in this exam are original Project Watch material.
   </div>
 </section>
 <section id="signalsPage" class="appPage">
@@ -18936,6 +18992,123 @@ function answerBuoy(id){
 }
 
 
+
+const LIGHTS_EXAM_BANK=[
+{cat:"Application",rule:"Rule 20",critical:false,visual:null,q:"When must the prescribed navigation lights be exhibited?",a:["Only when another vessel is within 2 NM", "From sunset to sunrise, and also from sunrise to sunset in restricted visibility when the Rule requires", "Only in darkness with visibility below 5 NM", "Only while the vessel is making way"],correct:1,why:"Rule 20 requires the prescribed lights from sunset to sunrise and also in restricted visibility by day."},
+{cat:"Definitions",rule:"Rule 21",critical:false,visual:null,q:"What colour is the port sidelight?",a:["Green", "Red", "White", "Yellow"],correct:1,why:"The port sidelight is red; the starboard sidelight is green."},
+{cat:"Definitions",rule:"Rule 21",critical:false,visual:null,q:"What colour is a sternlight?",a:["Red", "Green", "White", "Yellow"],correct:2,why:"A sternlight is white and shows over its prescribed after sector."},
+{cat:"Definitions",rule:"Rule 21",critical:false,visual:null,q:"What does an all-round light mean?",a:["A light visible only from ahead", "A light showing an unbroken arc of 360 degrees", "A light visible only from astern", "A masthead light fitted above 50 m"],correct:1,why:"An all-round light shows through 360 degrees."},
+{cat:"Aspect",rule:"Rule 21",critical:true,visual:{"id": "pd", "light": "night", "aspect": "stbd"},q:"From this viewing aspect, which sidelight should be visible on the ordinary power-driven vessel?",a:["Red port sidelight", "Green starboard sidelight", "Both red and green sidelights", "No sidelight"],correct:1,why:"From the vessel's starboard side, the green starboard sidelight is visible."},
+{cat:"Aspect",rule:"Rule 21",critical:true,visual:{"id": "pd", "light": "night", "aspect": "port"},q:"From this viewing aspect, which sidelight should be visible?",a:["Red port sidelight", "Green starboard sidelight", "Both sidelights", "Yellow towing light"],correct:0,why:"From the vessel's port side, the red port sidelight is visible."},
+{cat:"Aspect",rule:"Rule 21",critical:false,visual:{"id": "pd", "light": "night", "aspect": "astern"},q:"What ordinary navigation light is the key light seen directly astern?",a:["Masthead white", "Sternlight white", "Both sidelights", "All-round red"],correct:1,why:"Directly astern, the sternlight is the ordinary navigation light whose sector faces the observer."},
+{cat:"Power-driven",rule:"Rule 23",critical:true,visual:{"id": "pd", "light": "night", "aspect": "ahead"},q:"Identify this ordinary power-driven vessel display.",a:["Power-driven vessel under 50 m, underway", "Sailing vessel underway", "Pilot vessel on duty", "Vessel at anchor"],correct:0,why:"This is the Project Watch Rule 23 display for a power-driven vessel under 50 m underway."},
+{cat:"Power-driven",rule:"Rule 23",critical:true,visual:{"id": "pd50", "light": "night", "aspect": "stbd"},q:"What does the second masthead white indicate in this Project Watch display?",a:["The vessel is towing", "The vessel is 50 m or more in length", "The vessel is aground", "The vessel is a pilot boat"],correct:1,why:"A power-driven vessel 50 m or more carries a second masthead light abaft and higher than the forward one."},
+{cat:"Power-driven",rule:"Rule 23",critical:false,visual:null,q:"At night, a sailing vessel proceeding under machinery is treated for lights as:",a:["A sailing vessel only", "A power-driven vessel", "A vessel constrained by draught", "A pilot vessel"],correct:1,why:"A vessel proceeding under sail while also being propelled by machinery shows the lights prescribed for a power-driven vessel of her size."},
+{cat:"Sailing",rule:"Rule 25",critical:true,visual:{"id": "sail", "light": "night", "aspect": "ahead"},q:"Identify this basic night display.",a:["Sailing vessel underway", "Power-driven vessel under 50 m", "Trawler making way", "Vessel at anchor"],correct:0,why:"The Project Watch core sailing display shows sidelights and a sternlight, without a masthead light."},
+{cat:"Sailing",rule:"Rule 25",critical:true,visual:{"id": "motor", "light": "day", "aspect": "ahead"},q:"What does this cone, apex downward, mean on a sailing vessel?",a:["The vessel is fishing", "The vessel is proceeding under sail and machinery", "The vessel is not under command", "The vessel is at anchor"],correct:1,why:"A sailing vessel proceeding under machinery exhibits a cone, apex downward, forward where it can best be seen."},
+{cat:"Sailing",rule:"Rule 25",critical:false,visual:null,q:"Why should the night lights alone not be used to distinguish a motor-sailing vessel from an ordinary power-driven vessel of the same size?",a:["Because the motor-sailing vessel shows the power-driven lights at night", "Because motor-sailing vessels show no lights", "Because the cone is illuminated at night", "Because a sailing vessel always shows red over green"],correct:0,why:"The identifying cone is a day shape; at night the machinery-driven vessel displays the applicable power-driven lights."},
+{cat:"Fishing",rule:"Rule 26",critical:true,visual:{"id": "trawl", "light": "night", "aspect": "ahead"},q:"Green over white identifies a vessel:",a:["Engaged in trawling", "Fishing other than trawling", "On pilotage duty", "Restricted in ability to manoeuvre"],correct:0,why:"Green over white is the identifying all-round light combination for trawling."},
+{cat:"Fishing",rule:"Rule 26",critical:true,visual:{"id": "fish", "light": "night", "aspect": "ahead"},q:"Red over white identifies a vessel:",a:["Engaged in trawling", "Fishing other than trawling", "Not under command", "At anchor"],correct:1,why:"Red over white identifies fishing other than trawling."},
+{cat:"Fishing",rule:"Rule 26",critical:false,visual:{"id": "fish", "light": "day", "aspect": "ahead"},q:"Two cones with apexes together are the basic day shape for:",a:["A vessel engaged in fishing", "A vessel at anchor", "A vessel constrained by draught", "A pilot vessel"],correct:0,why:"Fishing vessels use the two-cones-apexes-together day shape."},
+{cat:"Fishing",rule:"Rule 26",critical:true,visual:{"id": "gear150", "light": "night", "aspect": "stbd"},q:"This additional all-round white light is shown toward:",a:["The vessel's anchor", "Outlying fishing gear extending more than 150 m", "The pilot ladder", "A tow over 200 m"],correct:1,why:"Where outlying fishing gear extends more than 150 m horizontally, an additional all-round white light is shown in the direction of the gear."},
+{cat:"Fishing",rule:"Rule 26",critical:true,visual:{"id": "gear150", "light": "day", "aspect": "stbd"},q:"The extra cone in this day display points toward:",a:["The outlying fishing gear", "The safe side to pass", "The vessel's stern", "The separation zone"],correct:0,why:"The additional cone, apex upward, is displayed in the direction of outlying gear extending more than 150 m."},
+{cat:"NUC",rule:"Rule 27",critical:true,visual:{"id": "nuc", "light": "night", "aspect": "ahead"},q:"Two all-round red lights in a vertical line identify:",a:["Not under command", "Restricted in ability to manoeuvre", "Constrained by draught", "Aground"],correct:0,why:"Two all-round red lights are the identifying night signal for a vessel not under command."},
+{cat:"NUC",rule:"Rule 27",critical:true,visual:{"id": "nuc", "light": "day", "aspect": "ahead"},q:"Two black balls in a vertical line identify:",a:["Not under command", "At anchor", "Aground", "Mine clearance"],correct:0,why:"Two black balls identify a vessel not under command by day."},
+{cat:"NUC",rule:"Rule 27",critical:false,visual:null,q:"A vessel not under command that is making way through the water additionally shows:",a:["Masthead light only", "Sidelights and sternlight", "Yellow towing light", "Three all-round green lights"],correct:1,why:"When making way, a NUC vessel also exhibits sidelights and sternlight; she does not add a masthead light merely because she is making way."},
+{cat:"RAM",rule:"Rule 27",critical:true,visual:{"id": "ram", "light": "night", "aspect": "ahead"},q:"Red-white-red all-round lights identify:",a:["Restricted in ability to manoeuvre", "Fishing other than trawling", "Pilot vessel", "Power-driven vessel over 50 m"],correct:0,why:"Red-white-red is the identifying night signal for restricted ability to manoeuvre."},
+{cat:"RAM",rule:"Rule 27",critical:true,visual:{"id": "ram", "light": "day", "aspect": "ahead"},q:"Ball-diamond-ball identifies:",a:["Restricted in ability to manoeuvre", "Not under command", "Aground", "Constrained by draught"],correct:0,why:"Ball-diamond-ball is the day shape for restricted ability to manoeuvre."},
+{cat:"Dredging",rule:"Rule 27",critical:true,visual:{"id": "dredge", "light": "night", "aspect": "ahead"},q:"On this dredging/underwater-operations display, which side is the obstruction side?",a:["The side showing two red lights", "The side showing two green lights", "The side showing the sternlight", "Neither side"],correct:0,why:"Two all-round red lights indicate the side on which the obstruction exists; two all-round green lights indicate the side on which another vessel may pass."},
+{cat:"Dredging",rule:"Rule 27",critical:true,visual:{"id": "dredge", "light": "day", "aspect": "ahead"},q:"On a dredger, two diamonds mark:",a:["The obstruction side", "The side on which another vessel may pass", "The anchor position", "The vessel's bow"],correct:1,why:"Two diamonds indicate the side on which another vessel may pass; two balls indicate the obstruction side."},
+{cat:"Diving",rule:"Rule 27",critical:true,visual:{"id": "diving", "light": "day", "aspect": "ahead"},q:"This blue-and-white flag used in the reduced diving-operations display is:",a:["International Code flag A", "International Code flag B", "A pilot flag", "A distress flag"],correct:0,why:"Where the reduced Rule 27 display is used for diving operations, a rigid replica of International Code flag A is displayed."},
+{cat:"Mine clearance",rule:"Rule 27",critical:true,visual:{"id": "mine", "light": "night", "aspect": "ahead"},q:"Three all-round green lights in this arrangement identify:",a:["Mine-clearance operations", "Trawling", "Pilotage duty", "A vessel constrained by draught"],correct:0,why:"A vessel engaged in mine-clearance operations shows three all-round green lights in the prescribed arrangement."},
+{cat:"Mine clearance",rule:"Rule 27",critical:true,visual:{"id": "mine", "light": "day", "aspect": "ahead"},q:"What important warning is associated with this mine-clearance display?",a:["Do not approach within 1000 m", "Pass only on the green-light side", "The vessel is aground", "The vessel has outlying fishing gear"],correct:0,why:"The Rule 27 mine-clearance display indicates that it is dangerous to approach within 1000 m."},
+{cat:"Constrained by draught",rule:"Rule 28",critical:true,visual:{"id": "cbd", "light": "night", "aspect": "ahead"},q:"Three all-round red lights in a vertical line may identify:",a:["A vessel constrained by her draught", "A vessel not under command", "A vessel aground", "A vessel engaged in fishing"],correct:0,why:"A vessel constrained by her draught may exhibit three all-round red lights in a vertical line in addition to her power-driven lights."},
+{cat:"Constrained by draught",rule:"Rule 28",critical:true,visual:{"id": "cbd", "light": "day", "aspect": "ahead"},q:"Which day shape may a vessel constrained by her draught exhibit?",a:["Cylinder", "Ball", "Diamond", "Cone apex downward"],correct:0,why:"The optional Rule 28 day shape is a cylinder."},
+{cat:"Pilot",rule:"Rule 29",critical:true,visual:{"id": "pilot", "light": "night", "aspect": "ahead"},q:"White over red identifies:",a:["Pilot vessel engaged on pilotage duty", "Fishing vessel", "Vessel not under command", "Safe-water mark"],correct:0,why:"A pilot vessel engaged on pilotage duty shows white over red all-round lights."},
+{cat:"Pilot",rule:"Rule 29",critical:false,visual:null,q:"A pilot vessel engaged on pilotage duty and underway additionally shows:",a:["Sidelights and sternlight", "A yellow towing light only", "Two black balls", "Three masthead lights"],correct:0,why:"When underway, the pilot vessel also exhibits sidelights and a sternlight."},
+{cat:"Anchor",rule:"Rule 30",critical:true,visual:{"id": "anchorU50", "light": "night", "aspect": "ahead"},q:"Identify this basic under-50-metre anchored-vessel display.",a:["One all-round white anchor light", "Two all-round red lights", "White over red", "Masthead white and sidelights"],correct:0,why:"A vessel under 50 m at anchor may show one all-round white where it can best be seen."},
+{cat:"Anchor",rule:"Rule 30",critical:true,visual:{"id": "anchor50", "light": "night", "aspect": "stbd"},q:"Why are two white anchor lights shown on this vessel?",a:["It is 50 m or more in length", "It is towing", "It is aground", "It is constrained by draught"],correct:0,why:"A vessel 50 m or more at anchor shows a forward all-round white and another all-round white at or near the stern at a lower level."},
+{cat:"Anchor",rule:"Rule 30",critical:true,visual:{"id": "anchorU50", "light": "day", "aspect": "ahead"},q:"What does one black ball indicate in this context?",a:["Vessel at anchor", "Vessel not under command", "Vessel aground", "Towing vessel"],correct:0,why:"The basic day shape for a vessel at anchor is one black ball."},
+{cat:"Aground",rule:"Rule 30",critical:true,visual:{"id": "agroundU50", "light": "night", "aspect": "ahead"},q:"Aground vessels show their anchor light(s) plus which additional lights?",a:["Two all-round red lights", "Two all-round green lights", "White over red", "Green over white"],correct:0,why:"A vessel aground shows the appropriate anchor light(s) plus two all-round red lights."},
+{cat:"Aground",rule:"Rule 30",critical:true,visual:{"id": "aground50", "light": "day", "aspect": "ahead"},q:"Three black balls in a vertical line identify:",a:["A vessel aground", "A vessel not under command", "A towing vessel", "A vessel constrained by draught"],correct:0,why:"Three black balls identify a vessel aground by day."},
+{cat:"Towing",rule:"Rule 24",critical:true,visual:{"id": "towShort", "light": "night", "aspect": "ahead"},q:"Two masthead towing lights in a vertical line indicate this towing vessel's tow is:",a:["200 m or less", "Over 200 m", "A rigid composite unit", "A mine-clearance operation"],correct:0,why:"A towing vessel with a tow not exceeding 200 m shows two masthead towing lights vertically."},
+{cat:"Towing",rule:"Rule 24",critical:true,visual:{"id": "towLong", "light": "night", "aspect": "ahead"},q:"Three masthead towing lights in a vertical line indicate:",a:["A tow over 200 m", "A pilot vessel", "A vessel aground", "A power-driven vessel over 50 m"],correct:0,why:"Where the length of the tow exceeds 200 m, three masthead towing lights are shown vertically."},
+{cat:"Towing",rule:"Rule 24",critical:true,visual:{"id": "towLong", "light": "day", "aspect": "ahead"},q:"What does the diamond in this towing display indicate?",a:["The tow exceeds 200 m", "The tow is less than 50 m", "The vessel is constrained by draught", "The vessel is at anchor"],correct:0,why:"A diamond is displayed where the length of the tow exceeds 200 m."},
+{cat:"Towing",rule:"Rule 24",critical:true,visual:{"id": "towShort", "light": "night", "aspect": "astern"},q:"What is the yellow light above the white sternlight?",a:["Towing light", "Pilot light", "Anchor light", "Special flashing light"],correct:0,why:"A towing light is yellow with the same characteristics as a sternlight and is shown vertically above the sternlight."},
+{cat:"Pushing",rule:"Rule 24",critical:true,visual:{"id": "push", "light": "night", "aspect": "astern"},q:"Which feature distinguishes this pushing-ahead/towing-alongside display from a vessel towing astern when viewed from astern?",a:["There is no yellow towing light above the sternlight", "It shows three red lights", "It shows green over white", "It has no sternlight"],correct:0,why:"A vessel pushing ahead or towing alongside (not a composite unit) shows a sternlight, but the yellow towing light above the sternlight is the towing-astern feature."},
+{cat:"Composite unit",rule:"Rule 24",critical:false,visual:null,q:"A rigidly connected pushing vessel and vessel pushed ahead are treated for lights as:",a:["One power-driven vessel", "A towing vessel with three masthead lights", "A vessel restricted in ability to manoeuvre", "A sailing vessel"],correct:0,why:"A composite unit is treated as a power-driven vessel under Rule 23."},
+{cat:"Recognition",rule:"Rules 20–31",critical:true,visual:null,q:"Why must a candidate consider viewing aspect before identifying a vessel from lights?",a:["Because navigation lights have prescribed sectors and not every fitted light is visible from every direction", "Because all-round lights change colour with aspect", "Because day shapes are only visible from astern", "Because masthead lights are switched off on the vessel's port side"],correct:0,why:"Sidelights, masthead lights and sternlights have prescribed arcs. What you can see depends on where you are relative to the vessel."},
+{cat:"Recognition",rule:"Rules 20–31",critical:false,visual:null,q:"Which statement is safest when learning vessel lights?",a:["Memorise only the colour stack and ignore ordinary navigation lights", "Identify the status lights, then also consider whether the vessel is underway/making way and which navigation lights should be visible from your aspect", "Every red light means the vessel is give-way", "A white light always means the vessel is at anchor"],correct:1,why:"Correct recognition combines vessel-status lights/shapes with ordinary navigation lights, aspect and whether the vessel is making way where relevant."}
+];
+
+let lightsExamSet=[],lightsExamAnswers=[],lightsExamIndex=0,lightsExamSubmitted=false;
+
+function showLightsExam(){
+  document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
+  updateHeaderNav('lights');updateModuleContext('lights');
+  $('lightsExamPage').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function lxShuffle(a){let x=[...a];for(let i=x.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
+function startLightsFullExam(){
+  lightsExamSet=lxShuffle(LIGHTS_EXAM_BANK);
+  lightsExamAnswers=new Array(lightsExamSet.length).fill(null);
+  lightsExamIndex=0;lightsExamSubmitted=false;renderLightsExamQuestion();
+}
+function lxGraphic(v){
+  if(!v)return '';
+  const oldI=bvI,oldLight=bvLight,oldAspect=bvAspect;
+  const idx=BV.findIndex(x=>x.id===v.id);
+  if(idx<0)return '';
+  bvI=idx;bvLight=v.light||'night';bvAspect=v.aspect||'ahead';
+  const g=bvGraphic();
+  bvI=oldI;bvLight=oldLight;bvAspect=oldAspect;
+  return g;
+}
+function lxVisualHTML(q,review=false){
+  if(!q.visual)return `<div class="lxKnowledgeOnly"><div><b>KNOWLEDGE QUESTION</b><span>No picture is required for this item. Apply the COLREG rule and the vessel-display knowledge taught in the module.</span></div></div>`;
+  const aspect=(q.visual.light==='day')?'DAYLIGHT':(BV_ASPECTS.find(a=>a[0]===q.visual.aspect)?.[1]||'AHEAD')+' VIEW';
+  return `<div class="${review?'lxReviewVisual':'lxVisual'} ${q.visual.light==='day'?'day':''}">${lxGraphic(q.visual)}</div>${review?'':`<div class="lxVisualHead"><span>${q.visual.light==='day'?'DAY SHAPE':'NAVIGATION LIGHTS'}</span><span>${aspect}</span></div>`}`;
+}
+function renderLightsExamQuestion(){
+  if(!lightsExamSet.length)return;
+  const q=lightsExamSet[lightsExamIndex],ans=lightsExamAnswers[lightsExamIndex];
+  $('lxProgress').textContent=`Question ${lightsExamIndex+1} of ${lightsExamSet.length} • ${lightsExamAnswers.filter(x=>x!==null).length} answered`;
+  $('lxQuestionArea').innerHTML=`<div class="lxLayout">
+    <div class="lxVisualCard">${lxVisualHTML(q)}</div>
+    <div class="lxQuestionCard">
+      <div class="examQTop"><span class="tag">${q.cat} • ${q.rule}</span>${q.critical?'<span class="tag critical">SAFETY-CRITICAL</span>':''}</div>
+      <div class="examQuestion">${q.q}</div>
+      <div class="examChoices">${q.a.map((a,i)=>`<button class="${ans===i?'selected':''}" onclick="answerLightsExam(${i})"><b>${String.fromCharCode(65+i)}.</b> ${a}</button>`).join('')}</div>
+      <div class="examNav" style="margin-top:auto"><button onclick="lightsExamPrev()">← PREVIOUS</button><button onclick="lightsExamNext()">NEXT →</button><button class="submit" onclick="submitLightsFullExam()">SUBMIT EXAM</button></div>
+    </div></div>`;
+}
+function answerLightsExam(i){if(lightsExamSubmitted)return;lightsExamAnswers[lightsExamIndex]=i;renderLightsExamQuestion()}
+function lightsExamPrev(){if(lightsExamIndex>0){lightsExamIndex--;renderLightsExamQuestion()}}
+function lightsExamNext(){if(lightsExamIndex<lightsExamSet.length-1){lightsExamIndex++;renderLightsExamQuestion()}}
+function submitLightsFullExam(){
+  if(!lightsExamSet.length||lightsExamSubmitted)return;
+  const unanswered=lightsExamAnswers.filter(x=>x===null).length;
+  if(unanswered && !confirm(`${unanswered} question(s) are unanswered. Submit anyway?`))return;
+  lightsExamSubmitted=true;
+  const correct=lightsExamSet.filter((q,i)=>lightsExamAnswers[i]===q.correct).length;
+  const pct=Math.round(correct/lightsExamSet.length*100);
+  const criticalWrong=lightsExamSet.filter((q,i)=>q.critical&&lightsExamAnswers[i]!==q.correct);
+  const pass=pct>=90&&criticalWrong.length===0;
+  $('lxProgress').textContent=`Complete • ${correct}/${lightsExamSet.length} • ${pct}%`;
+  $('lxQuestionArea').innerHTML=`<div class="lxResultsSummary ${pass?'pass':'fail'}">
+      <div><div class="ver">PROJECT WATCH LIGHTS & SHAPES MOCK</div><h2>${pass?'PASS':'NOT YET PASSED'}</h2>
+      <p class="note">${pass?'Full mock standard achieved with no safety-critical error.':'Review every incorrect display below, retrain weak areas, then run the exam again.'}</p></div>
+      <div class="lxScore">${pct}%</div></div>
+    <div class="examStandardNote"><b>Project Watch standard:</b> 90% overall plus no designated safety-critical recognition error. This is an independent training benchmark, not an MCA or RYA certificate.</div>
+    ${criticalWrong.length?`<div class="examStandardNote"><b>Safety-critical recognition errors:</b> ${criticalWrong.length}. One or more designated vessel/status displays were answered incorrectly or left unanswered.</div>`:''}
+    <div class="examResultGrid">${lightsExamSet.map((q,i)=>lxReviewHTML(q,lightsExamAnswers[i],i)).join('')}</div>
+    <div class="examNav"><button onclick="startLightsFullExam()">NEW FULL MOCK</button><button onclick="showModule('lights')">RETURN TO LIGHTS & SHAPES</button><button onclick="showLightsTutorial()">REVIEW BEGINNER COURSE</button></div>`;
+}
+function lxReviewHTML(q,user,i){
+  const ok=user===q.correct,userText=user===null?'No answer':q.a[user];
+  return `<div class="examReview ${ok?'ok':'bad'}"><b>${i+1}. ${q.cat} • ${q.rule} ${q.critical?'• SAFETY-CRITICAL':''}</b>${q.visual?lxVisualHTML(q,true):''}<p>${q.q}</p><p>Your answer: <span class="answerKey">${userText}</span></p><p>Correct answer: <span class="answerKey">${q.a[q.correct]}</span></p><p class="why">${q.why}</p></div>`;
+}
 
 const LS_LESSONS=[
  {title:'Why vessels show lights & shapes',sub:'Read status before manoeuvre',intro:'Part C of the COLREGs is a recognition language. At night you mainly read lights; by day, prescribed black shapes can identify particular status or activity.',
