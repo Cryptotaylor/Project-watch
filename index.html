@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.21.1 — TSS Track & Auto-Finish</title>
+<title>Project Watch 1.21.2 — TSS Track Trail Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -16569,7 +16569,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.21.1 • TSS TRACK & AUTO-FINISH</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.21.2 • TSS TRACK TRAIL FIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -18309,8 +18309,7 @@ function tssSimDraw(){
  const box=$('tssSimDisplay');if(!box||!tssSimOwn)return;
  const lane=(y1,y2)=>{let a=tssMapPt(-3,y1),b=tssMapPt(3,y1),c=tssMapPt(-3,y2),d=tssMapPt(3,y2);return `<path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]} M${c[0]} ${c[1]} L${d[0]} ${d[1]}" stroke="#9f5353" stroke-width="3"/>`};
  let track=tssSimTrack.map((p,i)=>{let q=tssMapPt(p[0],p[1]);return (i?'L':'M')+q[0]+' '+q[1]}).join(' ');
- let startPt=tssSimTrack.length?tssMapPt(tssSimTrack[0][0],tssSimTrack[0][1]):null;
- let endPt=tssSimTrack.length?tssMapPt(tssSimTrack[tssSimTrack.length-1][0],tssSimTrack[tssSimTrack.length-1][1]):null;
+
  let targetSvg=tssSimTargets.map(t=>{let p=tssMapPt(t.x,t.y),v=tssVec(t.h,.65),q=tssMapPt(t.x+v.x,t.y+v.y);return `<g><polygon points="${p[0]},${p[1]-9} ${p[0]+8},${p[1]+8} ${p[0]-8},${p[1]+8}" fill="#77b8a5" stroke="#2e554b" stroke-width="2"/><line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke="#9b4f4f" stroke-width="2"/><text x="${p[0]+10}" y="${p[1]-10}" font-size="9" fill="#25414f" font-weight="700">${t.name}</text></g>`}).join('');
  let o=tssMapPt(tssSimOwn.x,tssSimOwn.y);
  box.innerHTML=`<svg viewBox="0 0 900 520"><rect width="900" height="520" fill="#eee4cc"/>
@@ -18318,9 +18317,7 @@ function tssSimDraw(){
  ${lane(.45,1.25)}${lane(-1.25,-.45)}
  <g stroke="#bd7373" stroke-width="2" stroke-dasharray="10 8">${(()=>{let a=tssMapPt(-3,-.25),b=tssMapPt(3,-.25),c=tssMapPt(-3,.25),d=tssMapPt(3,.25);return `<path d="M${a[0]} ${a[1]}L${b[0]} ${b[1]} M${c[0]} ${c[1]}L${d[0]} ${d[1]}"/>`})()}</g>
  <text x="130" y="150" fill="#8d5151" font-size="13" font-weight="800">TRAFFIC FLOW →</text><text x="620" y="390" fill="#8d5151" font-size="13" font-weight="800">← TRAFFIC FLOW</text>
- <path d="${track}" fill="none" stroke="#16815a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
- ${startPt?`<circle cx="${startPt[0]}" cy="${startPt[1]}" r="7" fill="#16815a"/><text x="${startPt[0]+10}" y="${startPt[1]+4}" font-size="10" fill="#16744e" font-weight="800">START</text>`:''}
- ${endPt?`<circle cx="${endPt[0]}" cy="${endPt[1]}" r="6" fill="#9b2f2f"/><text x="${endPt[0]+10}" y="${endPt[1]+4}" font-size="10" fill="#7a2a2a" font-weight="800">${tssSimFinished?'FINISH':'OWN TRACK'}</text>`:''}
+ <path d="${track}" fill="none" stroke="#16815a" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round" stroke-linejoin="round"/>
  ${targetSvg}
  <g transform="translate(${o[0]} ${o[1]}) rotate(${tssSimOwn.h+8})"><path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/><line x1="0" y1="-25" x2="0" y2="-78" stroke="#9b2f2f" stroke-width="3"/></g>
  </svg>`;
@@ -18339,7 +18336,7 @@ function tssSimEnd(manual=false){
  if(tssSimMinSep<.25){score-=1;reasons.push('very close passing distance')}
  if(tssSimMinSep<.08)score=1;
  score=Math.max(1,Math.min(5,score));
- let box=$('tssScore');if(box){box.classList.add('show');box.innerHTML=`<div class="ver">TSS WATCH DEBRIEF</div><strong>${score} / 5</strong><p>${score===5?'Excellent Rule 10 crossing with safe traffic management.':reasons.length?reasons.join(' • '):'Crossing completed.'}</p><p class="note">Minimum separation: ${tssSimMinSep<90?tssSimMinSep.toFixed(2)+' NM':'--'} • Maximum heading error: ${Math.round(tssSimMaxAngleErr)}°</p><p class="note">Your complete crossing track remains plotted above for debrief.</p>`}
+ let box=$('tssScore');if(box){box.classList.add('show');box.innerHTML=`<div class="ver">TSS WATCH DEBRIEF</div><strong>${score} / 5</strong><p>${score===5?'Excellent Rule 10 crossing with safe traffic management.':reasons.length?reasons.join(' • '):'Crossing completed.'}</p><p class="note">Minimum separation: ${tssSimMinSep<90?tssSimMinSep.toFixed(2)+' NM':'--'} • Maximum heading error: ${Math.round(tssSimMaxAngleErr)}°</p><p class="note">Your complete crossing trail remains plotted above for debrief.</p>`}
  if($('tssStartBtn'))$('tssStartBtn').textContent='↻ START AGAIN';
  tssSimUpdateUI();
 }
