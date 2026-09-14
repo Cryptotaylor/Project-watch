@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.26 — Professional Home</title>
+<title>Project Watch 1.26.1 — Dedicated Module Workspaces</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -408,6 +408,35 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  .professionalHub{grid-template-columns:1fr}.appMenu.professionalHub .homeHubBtn{min-height:202px}
  .professionalHub .homeHubVisual{height:118px}.homeFooterBar{grid-template-columns:1fr}
 }
+
+
+/* 1.26.1 dedicated module workspaces */
+.moduleContext{
+  display:none;grid-template-columns:58px 1fr auto;gap:13px;align-items:center;
+  margin:0 0 12px;padding:11px 13px;border-radius:14px;
+  background:linear-gradient(135deg,#05283a,#07364b);
+  border:1px solid #ffffff18;box-shadow:0 8px 22px #0003
+}
+.moduleContext.show{display:grid}
+.moduleContextNo{
+  width:50px;height:50px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+  background:#031b27;border:1px solid #6ee0ff4d;color:#79e1ff;font-size:18px;font-weight:900;letter-spacing:.5px
+}
+.moduleContextCopy h2{margin:1px 0 2px;font-size:18px;line-height:1.1}
+.moduleContextCopy p{margin:0;color:#a9c1cc;font-size:9px;line-height:1.35}
+.moduleContextState{
+  padding:6px 9px;border-radius:7px;background:#031b27;border:1px solid #ffffff15;
+  color:#a9c7d3;font-size:7px;font-weight:900;letter-spacing:.8px;white-space:nowrap
+}
+@media(max-width:720px){
+ .moduleContext{grid-template-columns:46px 1fr;gap:9px}
+ .moduleContextNo{width:42px;height:42px;font-size:15px}
+ .moduleContextState{display:none}
+}
+
+
+/* Prevent cross-module bleed even if a stale class is left behind by future code. */
+.appPage:not(.active),.screen:not(.active){display:none!important}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -16893,8 +16922,17 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.26 • PROFESSIONAL HOME</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.26.1 • DEDICATED MODULE WORKSPACES</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
+<div id="moduleContext" class="moduleContext" aria-live="polite">
+  <div class="moduleContextNo" id="moduleContextNo">01</div>
+  <div class="moduleContextCopy">
+    <div class="ver" id="moduleContextKicker">TRAINING MODULE</div>
+    <h2 id="moduleContextTitle">Collision Scenarios</h2>
+    <p id="moduleContextDesc">Scenario briefing, guided watch, simulator and debrief.</p>
+  </div>
+  <div class="moduleContextState" id="moduleContextState">MODULE WORKSPACE</div>
+</div>
 
 <section id="colregsPage" class="appPage">
 <div class="panel"><div class="ver">COLREGS • COMPLETE MAP</div><h2>Rules 1–41</h2>
@@ -17434,7 +17472,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 </section>
 
-<section id="watch" class="screen">
+<section id="watch" class="screen appPage">
 <div class="layout">
 <div>
   <div class="panel">
@@ -17515,7 +17553,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 </section>
 
-<section id="debrief" class="screen">
+<section id="debrief" class="screen appPage">
   <div class="panel"><div class="ver">POST-WATCH DEBRIEF</div><h1 style="margin:.2em 0">What happened?</h1><div id="outcome" class="status"></div>
   <div style="margin-top:14px;background:#052a3c;border-radius:14px;padding:14px">
     <div class="ver">PROVISIONAL TRAINING SCORE</div>
@@ -17570,9 +17608,11 @@ let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotR
 let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0,lastQuality='',qualityEvents=[],spokenWarnings=new Set(),minSepTime=0,autoEnding=false;
 
 function go(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.appPage.active,.screen.active').forEach(s=>s.classList.remove('active'));
   const target=$(id);
-  if(!target) return;
+  if(!target)return;
+  updateHeaderNav('scenarios');
+  updateModuleContext('scenarios');
   target.classList.add('active');
   window.scrollTo(0,0);
 }
@@ -19424,6 +19464,31 @@ function openModule(title,summary,training){
  $('detailSheet').classList.add('open');
 }
 
+
+const MODULE_META={
+ home:{no:'',title:'',desc:'',state:''},
+ scenarios:{no:'01',title:'Collision Scenarios',desc:'Scenario briefing, guided watch, simulator and debrief.',state:'SIMULATOR MODULE'},
+ colregs:{no:'02',title:'COLREGS',desc:'Rules 1–41, technical Annexes and licensed reference imagery.',state:'RULES MODULE'},
+ lights:{no:'03',title:'Lights & Shapes',desc:'Bridge-view recognition of navigation lights and day shapes.',state:'RECOGNITION MODULE'},
+ signals:{no:'04',title:'Signals',desc:'Sound signals, restricted visibility, distress and harbour practice.',state:'SIGNALS MODULE'},
+ buoyage:{no:'05',title:'Buoyage',desc:'IALA Region A marks, lights and recognition challenges.',state:'BUOYAGE MODULE'},
+ tss:{no:'06',title:'Traffic Separation',desc:'Rule 10 learning, crossing geometry, bridge display and live TSS watch.',state:'TSS MODULE'}
+};
+function updateModuleContext(name){
+ const box=$('moduleContext'),m=MODULE_META[name]||MODULE_META.home;
+ if(!box)return;
+ if(name==='home'){
+   box.classList.remove('show');
+   return;
+ }
+ $('moduleContextNo').textContent=m.no;
+ $('moduleContextKicker').textContent='PROJECT WATCH • TRAINING MODULE';
+ $('moduleContextTitle').textContent=m.title;
+ $('moduleContextDesc').textContent=m.desc;
+ $('moduleContextState').textContent=m.state;
+ box.classList.add('show');
+}
+
 function updateHeaderNav(name){
  const h=$('hdrMode'); if(!h)return;
  if(name==='home'){
@@ -19463,13 +19528,18 @@ function enhanceHomeHub(){
 
 function showModule(name,btn){
  updateHeaderNav(name);
+ updateModuleContext(name);
+
  if(name==='home')setTimeout(enhanceHomeHub,0);
  if(name==='lights')setTimeout(bvRender,0);
  if(name==='buoyage')setTimeout(()=>{renderBuoys();if(buoyIndex<0)nextBuoyQuestion();else renderBuoyChallenge();},0);
 
- document.querySelectorAll('.appPage').forEach(p=>p.classList.remove('active'));
+ // Hard isolation: no previous module, simulator or debrief screen may remain active.
+ document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
+
  let id=name==='home'?'homePage':(name==='scenarios'?'handover':name+'Page');
- let page=document.getElementById(id);if(page)page.classList.add('active');
+ let page=document.getElementById(id);
+ if(page)page.classList.add('active');
 
  document.querySelectorAll('#homePage .homeHubBtn').forEach(b=>b.classList.remove('active'));
  if(btn&&name!=='home')btn.classList.add('active');
@@ -19956,12 +20026,12 @@ function buildDebrief(d){
 
   $('timeline').innerHTML=events.map(e=>`<div class="event"><b>T+${fmt(e.t)}</b><br><span>${e.text}</span></div>`).join('');
 }
-function restart(){go('handover')}
+function restart(){showModule('scenarios')}
 renderScenarioList();setOwnVesselMode('power');initScenario();renderBuoys();nextBuoyQuestion();bvRender();setHornProfile('large');renderSignalCards();renderHarbourSignals();showSignalSection('audio');renderTSS();tssSimReset();
 
 try{enhanceColregRuleVisuals();}catch(e){}
 
-try{enhanceHomeHub();updateHeaderNav('home');}catch(e){}
+try{enhanceHomeHub();updateHeaderNav('home');updateModuleContext('home');}catch(e){}
 </script>
 
 <div id="detailSheet" class="detailSheet" onclick="if(event.target===this)closeDetail()">
