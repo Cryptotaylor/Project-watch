@@ -21810,4 +21810,143 @@ svg text.guideLabel, svg text.warnLabel {
   }
 }
 
+
+
+/* ============================================================
+   PROJECT WATCH — FULL ADAPTIVE TYPOGRAPHY
+   Final cascade layer. All text classes scale with viewport size.
+   Existing layout/logic is untouched.
+   ============================================================ */
+
+:root{
+  --pw-fs-xxs: clamp(11px, 0.70vw + 5px, 14px);
+  --pw-fs-xs:  clamp(12px, 0.78vw + 5px, 15px);
+  --pw-fs-sm:  clamp(14px, 0.88vw + 5px, 17px);
+  --pw-fs-md:  clamp(16px, 1.00vw + 5px, 19px);
+  --pw-fs-lg:  clamp(18px, 1.18vw + 5px, 22px);
+  --pw-fs-xl:  clamp(21px, 1.45vw + 5px, 27px);
+  --pw-fs-2xl: clamp(25px, 1.85vw + 5px, 34px);
+  --pw-fs-3xl: clamp(30px, 2.35vw + 5px, 44px);
+}
+
+/* Global text baseline */
+html{font-size:clamp(15px, 0.95vw + 5px, 18px)}
+body{font-size:var(--pw-fs-md);line-height:1.5}
+
+/* Main written content */
+p, li, dd, dt, blockquote,
+.note, .hint, .help, .why, .answerKey,
+.examSourceNote, .examStandardNote,
+.examScenarioStem {
+  font-size:var(--pw-fs-md) !important;
+  line-height:1.5 !important;
+}
+
+/* Secondary / supporting copy */
+small, .meta, .sub, .caption, .description,
+.guideLabel, .examRuleRef {
+  font-size:var(--pw-fs-sm) !important;
+  line-height:1.42 !important;
+}
+
+/* Eyebrows, versions and compact labels */
+.ver, .eyebrow, .kicker,
+.examQTop .tag {
+  font-size:var(--pw-fs-xs) !important;
+  line-height:1.3 !important;
+}
+
+/* Headings */
+h1{font-size:var(--pw-fs-3xl) !important;line-height:1.12 !important}
+h2{font-size:var(--pw-fs-2xl) !important;line-height:1.18 !important}
+h3{font-size:var(--pw-fs-xl) !important;line-height:1.22 !important}
+h4,h5,h6{font-size:var(--pw-fs-lg) !important;line-height:1.26 !important}
+
+/* Cards / lessons / tutorials / debrief text */
+.card, .panel, .lessonCard, .tutorialCard, .scenarioCard,
+.briefCard, .watchCard, .debriefCard, .detailSheet,
+.examIntroCard, .examReview, .practicalExamCard {
+  font-size:var(--pw-fs-md);
+}
+.examReview b, .examBasis b, .examIntroCard b,
+.practicalExamCard h4 {
+  font-size:var(--pw-fs-lg) !important;
+}
+
+/* Exam questions deliberately remain one step larger */
+.examQuestion {
+  font-size:var(--pw-fs-xl) !important;
+  line-height:1.38 !important;
+}
+
+/* Buttons and navigation are adaptive too, but constrained so layouts remain stable */
+button, .btn, [role="button"],
+nav, nav a, nav span,
+.topNav, .topNav *,
+.modeTabs button, .examModeTabs button,
+.examChoices button, .examNav button {
+  font-size:clamp(11px, 0.72vw + 4px, 15px) !important;
+  line-height:1.25 !important;
+}
+
+/* Form controls */
+input, select, textarea, label {
+  font-size:var(--pw-fs-sm) !important;
+}
+
+/* Tables */
+table, th, td {
+  font-size:var(--pw-fs-sm) !important;
+  line-height:1.4 !important;
+}
+
+/* SVG/chart labels require explicit adaptive rules */
+svg text,
+.ttDemo text {
+  font-size:clamp(12px, 0.82vw + 4px, 16px) !important;
+}
+svg text.ruleLabel, .ttDemo text.ruleLabel,
+svg text.angleText, .ttDemo text.angleText {
+  font-size:clamp(13px, 0.92vw + 4px, 18px) !important;
+}
+svg text.guideLabel, .ttDemo text.guideLabel,
+svg text.warnLabel, .ttDemo text.warnLabel {
+  font-size:clamp(12px, 0.84vw + 4px, 17px) !important;
+}
+
+/* Tablet tuning */
+@media (max-width:1180px){
+  :root{
+    --pw-fs-xxs: clamp(11px,1.15vw,13px);
+    --pw-fs-xs:  clamp(12px,1.3vw,14px);
+    --pw-fs-sm:  clamp(14px,1.55vw,16px);
+    --pw-fs-md:  clamp(16px,1.8vw,19px);
+    --pw-fs-lg:  clamp(18px,2.05vw,22px);
+    --pw-fs-xl:  clamp(21px,2.45vw,27px);
+    --pw-fs-2xl: clamp(25px,3vw,33px);
+    --pw-fs-3xl: clamp(29px,3.7vw,42px);
+  }
+}
+
+/* Phone tuning — readable without uncontrolled growth */
+@media (max-width:700px){
+  :root{
+    --pw-fs-xxs: clamp(11px,3vw,13px);
+    --pw-fs-xs:  clamp(12px,3.25vw,14px);
+    --pw-fs-sm:  clamp(14px,3.7vw,16px);
+    --pw-fs-md:  clamp(16px,4.25vw,18px);
+    --pw-fs-lg:  clamp(18px,4.8vw,21px);
+    --pw-fs-xl:  clamp(21px,5.6vw,25px);
+    --pw-fs-2xl: clamp(24px,6.5vw,30px);
+    --pw-fs-3xl: clamp(28px,7.5vw,36px);
+  }
+  button, .btn, [role="button"],
+  nav, nav a, nav span,
+  .topNav, .topNav *,
+  .modeTabs button, .examModeTabs button,
+  .examChoices button, .examNav button {
+    font-size:clamp(11px,3.2vw,14px) !important;
+  }
+}
+
 </style>
