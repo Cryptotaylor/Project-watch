@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.28 — Beginner Tutorial</title>
+<title>Project Watch 1.28.2 — Clear Live Voice</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17036,7 +17036,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.28 • BEGINNER TUTORIAL</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.28.2 • CLEAR LIVE VOICE</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -19688,9 +19688,9 @@ const COLLISION_TUTORIAL_LESSONS=[
   summary:'Learn what you are looking at before you touch any controls.',
   points:[['Own vessel','The red vessel symbol represents you.'],['Target','The teal vessel symbol is the other vessel.'],['Range','Distance to the target is shown in nautical miles.'],['Target sector','A plain-language position such as starboard bow or port bow.']],
   steps:[
-   ['radarDisplay','This is your radar-style display. The centre reference is your own ship and the other vessel is the target.'],
-   ['og','The red vessel is your own vessel. In this lesson, think of it as Suilven.'],
-   ['tg','The teal vessel is the target vessel. Its position changes as the encounter develops.'],
+   ['radarDisplay','At the start of every tutorial scenario, the red vessel in the centre of the display is your own vessel. The teal vessel is the target.'],
+   ['og','The red vessel starting in the centre is always your own vessel. In the power-driven lessons, that vessel represents Suilven.'],
+   ['tg','The teal vessel is the target vessel. At the start, it is positioned around your own vessel according to the encounter being taught.'],
    ['rangeMetric','Range is the distance between you and the target. NM means nautical miles.'],
    ['sectorMetric','Target sector tells you where the vessel is relative to your bow: ahead, port, starboard, beam, quarter or astern.']
   ]},
@@ -19698,16 +19698,16 @@ const COLLISION_TUTORIAL_LESSONS=[
   summary:'Learn the two numbers used constantly when assessing another vessel.',
   points:[['CPA','Closest Point of Approach: predicted minimum passing distance if courses and speeds remain unchanged.'],['TCPA','Time to CPA: how long until that closest point occurs.'],['Trend','A low CPA with positive TCPA deserves attention.'],['Reassess','CPA/TCPA change when either vessel manoeuvres.']],
   steps:[
-   ['cpaMetric','CPA means Closest Point of Approach. It predicts the minimum passing distance if both vessels continue as they are.'],
-   ['tcpaMetric','TCPA means Time to CPA. A positive value means the predicted closest point is still ahead in time.'],
+   ['cpaMetric','CPA means Closest Point of Approach. It predicts the minimum passing distance if both vessels maintain their present courses and speeds.'],
+   ['tcpaMetric','TCPA means Time to Closest Point of Approach. A positive value means that predicted closest point is still ahead in time.'],
    ['radarDisplay','Never use one number in isolation. Keep watching the target, the trend, the bearing and the developing situation.']
   ]},
  {id:'sides',title:'Port & starboard',sub:'Know which side the target is on',scenario:'cross_stbd',mode:'power',
   summary:'Build the basic language used throughout COLREG collision avoidance.',
   points:[['Port','Left side of the vessel when facing forward.'],['Starboard','Right side of the vessel when facing forward.'],['Bow','Front of the vessel.'],['Quarter','Rear side area, between beam and stern.']],
   steps:[
-   ['sectorMetric','This encounter starts with the target on your STARBOARD side — your right-hand side when looking forward.'],
-   ['radarDisplay','The words port and starboard always refer to the vessel, not the left or right edge of the tablet.']
+   ['sectorMetric','This encounter starts with the target on your STARBOARD side — the right-hand side of your own vessel when you are facing forward.'],
+   ['radarDisplay','Port and starboard are always relative to your own vessel and its heading, not simply the left or right edge of the tablet.']
   ]},
  {id:'helm',title:'Using the helm',sub:'Order rudder and read the response',scenario:'cross_stbd',mode:'power',
   summary:'Learn the difference between ordered rudder, actual rudder and rate of turn.',
@@ -19719,39 +19719,39 @@ const COLLISION_TUTORIAL_LESSONS=[
   ]},
  {id:'crossing',title:'Crossing situation',sub:'Rules 15–17',scenario:'cross_stbd',mode:'power',
   summary:'Recognise a power-driven crossing encounter and understand give-way / stand-on roles.',
-  points:[['Rule 15','If the other power-driven vessel is on your starboard side, you are normally the give-way vessel.'],['Rule 16','The give-way vessel should take early and substantial action to keep well clear.'],['Rule 17','The stand-on vessel initially keeps course and speed, while continuing to monitor.'],['Avoid ahead','Where circumstances admit, the give-way vessel should avoid crossing ahead.']],
+  points:[['Rule 15','When two power-driven vessels are crossing so as to involve risk of collision, the vessel which has the other on her starboard side shall keep out of the way.'],['Rule 16','The give-way vessel should take early and substantial action to keep well clear.'],['Rule 17','The stand-on vessel initially keeps course and speed, while continuing to monitor.'],['Avoid ahead','Where circumstances admit, the give-way vessel should avoid crossing ahead.']],
   steps:[
-   ['sectorMetric','The target is on your starboard side. In this constructed power-versus-power crossing encounter, you are the give-way vessel.'],
-   ['cpaMetric','Use CPA and TCPA to understand how the encounter is developing, but keep a proper lookout and assess the whole situation.'],
-   ['helmControlPanel','A training response may involve an early, obvious course and/or speed change. Project Watch will show how your manoeuvre changes the geometry.']
+   ['sectorMetric','In this lesson, two power-driven vessels are in sight of one another, crossing so as to involve risk of collision. The target is on your starboard side, so your own vessel is the give-way vessel under Rule 15.'],
+   ['cpaMetric','Use CPA and TCPA as part of the assessment, but keep a proper lookout and use all available means to judge risk of collision.'],
+   ['helmControlPanel','Under Rules 15 and 16, the give-way vessel must keep out of the way and take early and substantial action. Where circumstances admit, avoid crossing ahead of the vessel on your starboard side.']
   ]},
  {id:'headon',title:'Head-on situation',sub:'Rule 14',scenario:'head_on',mode:'power',
   summary:'Recognise reciprocal or nearly reciprocal courses.',
-  points:[['Recognise','Two power-driven vessels meeting on reciprocal or nearly reciprocal courses.'],['Action','Each alters course to starboard.'],['Passing','The intended result is a port-to-port pass.'],['Monitor','Continue checking the other vessel is also acting.']],
+  points:[['Recognise','Two power-driven vessels meeting on reciprocal or nearly reciprocal courses.'],['Action','Each power-driven vessel shall alter course to starboard.'],['Passing','Each vessel passes on the port side of the other.'],['Monitor','Continue checking the other vessel is also acting.']],
   steps:[
-   ['radarDisplay','The target is essentially ahead on a reciprocal course. This is the classic head-on geometry.'],
-   ['helmControlPanel','Under Rule 14, each power-driven vessel alters course to starboard so they pass port-to-port.']
+   ['radarDisplay','Two power-driven vessels are meeting on reciprocal or nearly reciprocal courses so as to involve risk of collision. The target is essentially ahead.'],
+   ['helmControlPanel','Under Rule 14, each vessel shall alter course to starboard so that each passes on the port side of the other.']
   ]},
  {id:'overtaking',title:'Overtaking',sub:'Rule 13',scenario:'overtake',mode:'power',
   summary:'Learn why the overtaking vessel carries the responsibility.',
   points:[['Overtaking vessel','A vessel coming up from more than 22.5° abaft the beam is overtaking.'],['Give-way','The overtaking vessel keeps out of the way.'],['Until clear','Responsibility continues until finally past and clear.'],['Doubt','If in doubt whether you are overtaking, assume that you are.']],
   steps:[
-   ['radarDisplay','In this scenario, your vessel is faster and is approaching from astern of the target.'],
-   ['sectorMetric','Overtaking is not turned into a crossing situation simply because the bearing later changes. The overtaking responsibility continues until finally past and clear.']
+   ['radarDisplay','In this scenario, your own vessel is coming up from astern of the target in the Rule 13 overtaking sector — more than 22.5 degrees abaft the target vessel’s beam.'],
+   ['sectorMetric','Under Rule 13, the overtaking vessel shall keep out of the way. A later change of bearing does not turn it into a crossing situation or remove that duty until finally past and clear.']
   ]},
  {id:'sail',title:'Power meets sail',sub:'Rule 18 basics',scenario:'power_vs_sail',mode:'power',
   summary:'Understand the normal power-versus-sail relationship — and that other rules can override it.',
-  points:[['Normal hierarchy','A power-driven vessel normally keeps out of the way of a sailing vessel.'],['Not absolute','Overtaking, narrow channels, TSS and special vessel status can change the analysis.'],['Sailing means sailing','If propulsion machinery is being used, the vessel is treated as power-driven.'],['Look first','Always identify the actual situation before applying a simple hierarchy.']],
+  points:[['Rule 18','Except where Rules 9, 10 and 13 otherwise require, a power-driven vessel underway shall keep out of the way of a sailing vessel.'],['Not absolute','Overtaking, narrow channels, TSS and special vessel status can change the analysis.'],['Sailing means sailing','If propulsion machinery is being used, the vessel is treated as power-driven.'],['Look first','Always identify the actual situation before applying a simple hierarchy.']],
   steps:[
-   ['radarDisplay','The target in this training encounter is a sailing vessel under sail with machinery not being used.'],
-   ['sectorMetric','The simple power-versus-sail hierarchy is only the starting point. First check whether another rule — such as overtaking — applies.']
+   ['radarDisplay','The target in this training encounter is a sailing vessel under sail, with propelling machinery not being used.'],
+   ['sectorMetric','Under Rule 18, except where Rules 9, 10 and 13 otherwise require, a power-driven vessel underway shall keep out of the way of a sailing vessel. Always identify the actual situation before applying that hierarchy.']
   ]},
  {id:'firstwatch',title:'Your first coached watch',sub:'Put everything together',scenario:'cross_stbd',mode:'power',
   summary:'Run a complete collision encounter with beginner coaching and spoken warnings.',
   points:[['Observe','Identify target side, range, CPA and TCPA.'],['Decide','Work out whether you are give-way or stand-on.'],['Act','Make any avoiding action early and obvious enough to be understood.'],['Check','Keep monitoring until the vessels are past and clear.']],
   steps:[
-   ['radarDisplay','This is your first complete coached watch. Start by identifying where the target is and whether risk of collision is developing.'],
-   ['sectorMetric','The target begins on your starboard side. In this power-driven crossing exercise, you are the give-way vessel.'],
+   ['radarDisplay','This is your first complete coached watch. At the start, the red vessel in the centre is your own vessel and the teal vessel is the target. Begin by identifying the target’s position and whether risk of collision is developing.'],
+   ['sectorMetric','In this constructed power-driven crossing exercise, the target begins on your starboard side, so your own vessel is the give-way vessel under Rule 15.'],
    ['helmControlPanel','Use the helm and, if useful, engine controls. Watch how your decisions change CPA and the target geometry.'],
    ['alert','Guided mode gives visual and spoken warnings as the situation becomes close. Continue monitoring until the exercise ends.']
   ]}
@@ -19818,7 +19818,7 @@ function showTutorialStep(i,speak=true){
  $('tutorialCoachProgressFill').style.width=((tutorialStepIndex+1)/steps.length*100)+'%';
  $('tutorialStepNext').textContent=tutorialStepIndex===steps.length-1?'FINISH LESSON ✓':'NEXT →';
  $('tutorialCoach').classList.add('show');
- if(speak)setTimeout(()=>speakMarine(step[1]),120);
+ if(speak)setTimeout(()=>speakMarine(step[1],'instruction'),120);
 }
 function tutorialStepNext(){
  const lesson=COLLISION_TUTORIAL_LESSONS[tutorialLessonIndex];
@@ -19829,7 +19829,7 @@ function tutorialStepNext(){
  tutorialActive=false;
  if(lesson.id==='firstwatch'){
    running=true;lastTs=0;requestAnimationFrame(tick);
-   speakMarine('Coached watch started. Maintain a proper lookout and assess the developing situation.');
+   speakMarine('Coached watch started. Maintain a proper lookout and assess the developing situation.','confirmation');
  }else{
    running=false;
    showCollisionTutorial();
@@ -19838,7 +19838,7 @@ function tutorialStepNext(){
 function tutorialStepBack(){if(tutorialStepIndex>0)showTutorialStep(tutorialStepIndex-1,false)}
 function tutorialSpeakCurrent(){
  const lesson=COLLISION_TUTORIAL_LESSONS[tutorialLessonIndex];
- if(lesson&&lesson.steps[tutorialStepIndex])speakMarine(lesson.steps[tutorialStepIndex][1]);
+ if(lesson&&lesson.steps[tutorialStepIndex])speakMarine(lesson.steps[tutorialStepIndex][1],'instruction');
 }
 function exitTutorialWatch(){
  tutorialActive=false;running=false;clearTutorialFocus();
@@ -20058,17 +20058,70 @@ function spokenSector(s){
   // "bow" is intentionally rendered as "bough" to force the nautical /baʊ/ pronunciation in TTS.
   return s.toLowerCase().replace('bow','bough');
 }
-function speakMarine(text){
+let marineVoices=[],marineVoice=null,marineVoiceReady=false;
+
+function scoreMarineVoice(v){
+  const name=(v.name||'').toLowerCase(),lang=(v.lang||'').toLowerCase();
+  let s=0;
+  // British English first. The browser can only expose voices installed/available on the device.
+  if(lang==='en-gb')s+=120;
+  else if(lang.startsWith('en-gb'))s+=115;
+  else if(lang.startsWith('en-'))s+=55;
+  else if(lang.startsWith('en'))s+=35;
+  // Prefer commonly higher-quality/natural system voice names when exposed.
+  const preferred=[
+    ['serena',60],['daniel',58],['malcolm',56],['stephanie',54],
+    ['oliver',52],['arthur',50],['martha',48],['kate',46],
+    ['siri',44],['premium',42],['enhanced',40],['natural',38],
+    ['neural',36],['google uk english',34],['microsoft',22]
+  ];
+  preferred.forEach(([n,w])=>{if(name.includes(n))s+=w});
+  // Avoid novelty/effect voices if a conventional speech voice is available.
+  ['whisper','bells','bad news','good news','boing','bubbles','cellos',
+   'deranged','hysterical','organ','trinoids','zarvox','wobble'].forEach(n=>{
+    if(name.includes(n))s-=150;
+  });
+  if(v.default)s+=4;
+  if(v.localService)s+=3;
+  return s;
+}
+function loadMarineVoices(){
   if(!('speechSynthesis' in window))return;
-  try{
-    speechSynthesis.cancel();
-    let u=new SpeechSynthesisUtterance(text);
-    u.lang='en-GB';u.rate=.84;u.pitch=.88;u.volume=1;
-    let voices=speechSynthesis.getVoices();
-    let gb=voices.find(v=>/^en-GB/i.test(v.lang)) || voices.find(v=>/^en/i.test(v.lang));
-    if(gb)u.voice=gb;
-    speechSynthesis.speak(u);
-  }catch(e){}
+  marineVoices=window.speechSynthesis.getVoices()||[];
+  if(!marineVoices.length)return;
+  marineVoice=[...marineVoices].sort((a,b)=>scoreMarineVoice(b)-scoreMarineVoice(a))[0]||null;
+  marineVoiceReady=!!marineVoice;
+}
+if('speechSynthesis' in window){
+  loadMarineVoices();
+  window.speechSynthesis.addEventListener?.('voiceschanged',loadMarineVoices);
+  if(window.speechSynthesis.onvoiceschanged===null)window.speechSynthesis.onvoiceschanged=loadMarineVoices;
+}
+function prepareMarineSpeech(text){
+  return String(text||'')
+    .replace(/\bCPA\b/g,'C P A')
+    .replace(/\bTCPA\b/g,'T C P A')
+    .replace(/\bCOLREGS?\b/gi,'collision regulations')
+    .replace(/\bNM\b/g,'nautical miles')
+    .replace(/\bRule\s+(\d+)\b/gi,'Rule $1')
+    .replace(/\s*•\s*/g,'. ')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+function speakMarine(text,kind='instruction'){
+  if(!('speechSynthesis' in window)||!text)return;
+  loadMarineVoices();
+  const synth=window.speechSynthesis;
+  synth.cancel();
+  const u=new SpeechSynthesisUtterance(prepareMarineSpeech(text));
+  if(marineVoice)u.voice=marineVoice;
+  u.lang=(marineVoice&&marineVoice.lang)||'en-GB';
+  u.volume=1;
+  // Tutorial narration: calm, measured instructor. Warnings: firmer and quicker.
+  if(kind==='warning'){u.rate=0.96;u.pitch=0.98}
+  else if(kind==='confirmation'){u.rate=0.91;u.pitch=1.0}
+  else{u.rate=0.88;u.pitch=1.0}
+  synth.speak(u);
 }
 function collisionSound(){
   beep(880,.16,0);beep(880,.16,.25);beep(660,.28,.5);
@@ -20097,7 +20150,7 @@ function startWatch(){
     update();
     addEvent('handover','Watch accepted — '+(ownVesselMode==='sail'?'sailing vessel, machinery off':'power-driven vessel'));
     if(trainingMode==='guided'){
-      setTimeout(()=>speakMarine('Guided watch active. Voice collision warnings armed.'),180);
+      setTimeout(()=>speakMarine('Guided watch active. Voice collision warnings armed.','confirmation'),180);
     }
     requestAnimationFrame(()=>{draw(); if(!running) toggle();});
   }catch(err){
