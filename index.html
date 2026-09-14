@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.35 — Readability Upgrade</title>
+<title>Project Watch 1.34.1 — Large Text</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17124,7 +17124,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.35 • READABILITY UPGRADE</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.34.1 • LARGE TEXT</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -21661,144 +21661,131 @@ try{enhanceHomeHub();updateHeaderNav('home');updateModuleContext('home');}catch(
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}
 
 /* ============================================================
-   PROJECT WATCH 1.35 — GLOBAL READABILITY UPGRADE
-   Training/content typography only. Buttons and controls retain
-   their existing sizes. Final cascade layer intentionally wins
-   over earlier module-specific small-text declarations.
+   PROJECT WATCH 1.34.1 — LARGE CONTENT TEXT
+   Built directly from locked 1.34.
+   Buttons/navigation/control labels are intentionally untouched.
    ============================================================ */
 
-:root{
-  --pw-body-text: clamp(14px, 1.12vw, 17px);
-  --pw-small-text: clamp(12px, .96vw, 15px);
-  --pw-meta-text: clamp(11px, .86vw, 13px);
-  --pw-card-title: clamp(15px, 1.22vw, 19px);
-  --pw-section-title: clamp(20px, 1.7vw, 28px);
-  --pw-question-text: clamp(18px, 1.65vw, 25px);
-  --pw-readable-leading: 1.48;
+/* Core readable content — intentionally large enough for iPad use. */
+.appPage p, .appPage li, .appPage dd,
+.screen p, .screen li, .screen dd,
+.panel p, .panel li,
+.card p, .card li,
+.detailSheet p, .detailSheet li,
+.tutorialCard p, .tutorialCard li,
+.lessonCard p, .lessonCard li,
+.scenarioCard p, .scenarioCard li,
+.briefCard p, .briefCard li,
+.watchCard p, .watchCard li,
+.debriefCard p, .debriefCard li,
+.examHero p, .oralHeader p, .practicalHeader p,
+.examReview p, .practicalExamCard p,
+.examSourceNote, .examStandardNote {
+  font-size: 18px !important;
+  line-height: 1.55 !important;
 }
 
-/* General readable copy throughout pages, modules, cards, panels,
-   tutorials, debriefs, help, notes and assessments. */
-body :where(
-  .appPage,.screen,.panel,.card,.homeCard,.moduleCard,.lessonCard,
-  .tutorialCard,.detailSheet,.scenarioCard,.scenarioDeck,.briefCard,
-  .watchCard,.debriefCard,.examHero,.examBasis,.collisionExamSection,
-  .examIntroCard,.examQuestionArea,.examReview,.oralHeader,.practicalHeader,
-  .practicalExamCard,.examSourceNote,.examStandardNote,
-  .ttDemo,.ttLesson,.bpLesson,.buoyLesson,.lightsLesson,.colregsLesson
-) :where(p,li,dd,blockquote){
-  font-size:var(--pw-body-text) !important;
-  line-height:var(--pw-readable-leading) !important;
+/* Text that was previously deliberately tiny. */
+.appPage small, .screen small, .panel small, .card small,
+.detailSheet small, .tutorialCard small, .lessonCard small,
+.scenarioCard small, .briefCard small, .watchCard small,
+.debriefCard small, .examIntroCard small,
+.note, .hint, .help, .why, .answerKey {
+  font-size: 16px !important;
+  line-height: 1.48 !important;
 }
 
-/* Explanatory spans/small print inside content — but not button/control text. */
-body :where(
-  .appPage,.screen,.panel,.card,.homeCard,.moduleCard,.lessonCard,
-  .tutorialCard,.detailSheet,.scenarioCard,.briefCard,.watchCard,
-  .debriefCard,.examHero,.examBasis,.collisionExamSection,.examIntroCard,
-  .examQuestionArea,.examReview,.oralHeader,.practicalHeader,
-  .practicalExamCard,.examSourceNote,.examStandardNote
-) :where(small,.note,.hint,.help,.guideLabel,.answerKey,.why){
-  font-size:var(--pw-small-text) !important;
-  line-height:1.42 !important;
+/* Card / lesson / content headings. */
+.appPage h4, .screen h4, .panel h4, .card h4,
+.detailSheet h4, .tutorialCard h4, .lessonCard h4,
+.scenarioCard h4, .briefCard h4, .watchCard h4,
+.debriefCard h4, .practicalExamCard h4 {
+  font-size: 21px !important;
+  line-height: 1.28 !important;
+}
+.appPage h3, .screen h3, .detailSheet h3,
+.tutorialCard h3, .lessonCard h3, .collisionExamSection h3 {
+  font-size: 24px !important;
+  line-height: 1.25 !important;
+}
+.appPage h2, .screen h2, .detailSheet h2,
+.tutorialCard h2, .collisionExamSection h2 {
+  font-size: 29px !important;
+  line-height: 1.2 !important;
 }
 
-/* Labels / metadata remain visually secondary, but no longer microscopic. */
-body :where(
-  .appPage,.screen,.panel,.card,.lessonCard,.tutorialCard,.detailSheet,
-  .scenarioCard,.briefCard,.watchCard,.debriefCard,.collisionExamSection
-) :where(.ver,.eyebrow,.kicker,.meta,.ruleRef,.examRuleRef){
-  font-size:var(--pw-meta-text) !important;
-  line-height:1.3 !important;
+/* Training/tutorial copy often lives in spans rather than paragraphs. */
+[class*="tutorial"] span:not(.icon):not(.dot):not(.statusDot),
+[class*="Tutorial"] span:not(.icon):not(.dot):not(.statusDot),
+[class*="lesson"] span:not(.icon):not(.dot):not(.statusDot),
+[class*="Lesson"] span:not(.icon):not(.dot):not(.statusDot),
+[class*="training"] span:not(.icon):not(.dot):not(.statusDot),
+[class*="Training"] span:not(.icon):not(.dot):not(.statusDot),
+[class*="debrief"] span:not(.icon):not(.dot):not(.statusDot),
+[class*="Debrief"] span:not(.icon):not(.dot):not(.statusDot) {
+  font-size: 17px !important;
+  line-height: 1.48 !important;
 }
 
-/* Content headings. */
-body :where(
-  .appPage,.screen,.panel,.card,.lessonCard,.tutorialCard,.detailSheet,
-  .scenarioCard,.briefCard,.watchCard,.debriefCard,.collisionExamSection
-) :where(h3,h4){
-  font-size:var(--pw-card-title) !important;
-  line-height:1.25 !important;
+/* Exam content gets an additional step up. */
+.examQuestion {
+  font-size: 26px !important;
+  line-height: 1.4 !important;
 }
-body :where(
-  .appPage,.screen,.tutorialCard,.detailSheet,.collisionExamSection
-) :where(h2){
-  font-size:var(--pw-section-title) !important;
-  line-height:1.18 !important;
+.examScenarioStem {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
 }
-
-/* Examination text: intentionally larger than ordinary body copy. */
-.examQuestion{
-  font-size:var(--pw-question-text) !important;
-  line-height:1.38 !important;
+.examReview b, .examBasis b, .examIntroCard b {
+  font-size: 18px !important;
+  line-height: 1.35 !important;
 }
-.examScenarioStem{
-  font-size:var(--pw-body-text) !important;
-  line-height:1.48 !important;
-}
-.examReview b,
-.examBasis b,
-.examIntroCard b,
-.practicalExamCard h4{
-  font-size:var(--pw-card-title) !important;
-  line-height:1.3 !important;
-}
-.examReview p,
-.examIntroCard small,
-.examHero p,
-.oralHeader p,
-.practicalHeader p,
-.practicalExamCard p,
-.examSourceNote,
-.examStandardNote{
-  font-size:var(--pw-body-text) !important;
-  line-height:1.5 !important;
+.examRuleRef, .examQTop .tag, .ver, .eyebrow, .kicker {
+  font-size: 14px !important;
+  line-height: 1.35 !important;
 }
 
-/* Tutorial/training prose that historically used compact labels. */
-body :where(
-  [class*="tutorial"],[class*="Tutorial"],[class*="lesson"],[class*="Lesson"],
-  [class*="training"],[class*="Training"],[class*="brief"],[class*="Brief"],
-  [class*="debrief"],[class*="Debrief"]
-) :where(p,li,span:not(.icon):not(.dot):not(.statusDot),small){
-  font-size:var(--pw-body-text) !important;
-  line-height:1.48 !important;
+/* SVG/chart instructional labels need their own rules; normal CSS font
+   overrides do not enlarge text attributes embedded in diagrams. */
+.ttDemo text.ruleLabel, .ttDemo text.angleText,
+.ttDemo text.guideLabel, .ttDemo text.warnLabel,
+svg text.ruleLabel, svg text.angleText,
+svg text.guideLabel, svg text.warnLabel {
+  font-size: 16px !important;
 }
 
-/* Do not resize button/control/navigation text. */
-button, .btn, [role="button"], input, select, textarea,
-nav, nav *, .topNav, .topNav *, .modeTabs, .modeTabs *,
-.examModeTabs button, .examChoices button, .examNav button{
-  /* existing component typography intentionally retained */
-}
-
-/* iPad / tablet: establish a comfortable minimum independent of viewport width. */
-@media (max-width:1180px){
-  :root{
-    --pw-body-text:15px;
-    --pw-small-text:13px;
-    --pw-meta-text:12px;
-    --pw-card-title:17px;
-    --pw-section-title:23px;
-    --pw-question-text:21px;
+/* iPad/tablet: keep the same large baseline instead of shrinking it. */
+@media (max-width:1180px) {
+  .appPage p, .appPage li, .screen p, .screen li,
+  .panel p, .card p, .detailSheet p, .tutorialCard p,
+  .lessonCard p, .scenarioCard p, .briefCard p,
+  .watchCard p, .debriefCard p, .examHero p,
+  .oralHeader p, .practicalHeader p, .examReview p,
+  .practicalExamCard p, .examSourceNote, .examStandardNote {
+    font-size: 18px !important;
   }
+  .examQuestion { font-size: 25px !important; }
 }
 
-/* Phone: readable copy without changing the existing button system/layout. */
-@media (max-width:700px){
-  :root{
-    --pw-body-text:15px;
-    --pw-small-text:13px;
-    --pw-meta-text:12px;
-    --pw-card-title:17px;
-    --pw-section-title:22px;
-    --pw-question-text:20px;
+/* Phone: still readable; layout can wrap vertically rather than shrinking copy. */
+@media (max-width:700px) {
+  .appPage p, .appPage li, .screen p, .screen li,
+  .panel p, .card p, .detailSheet p, .tutorialCard p,
+  .lessonCard p, .scenarioCard p, .briefCard p,
+  .watchCard p, .debriefCard p, .examHero p,
+  .oralHeader p, .practicalHeader p, .examReview p,
+  .practicalExamCard p, .examSourceNote, .examStandardNote {
+    font-size: 17px !important;
   }
-  body :where(.appPage,.screen,.panel,.card,.lessonCard,.tutorialCard,
-    .detailSheet,.scenarioCard,.briefCard,.watchCard,.debriefCard,
-    .collisionExamSection){
-    overflow-wrap:anywhere;
+  .appPage small, .screen small, .panel small, .card small,
+  .detailSheet small, .tutorialCard small, .lessonCard small,
+  .scenarioCard small, .briefCard small, .watchCard small,
+  .debriefCard small, .examIntroCard small, .note, .hint, .help {
+    font-size: 15px !important;
   }
+  .examQuestion { font-size: 22px !important; }
 }
+
+/* IMPORTANT: no button, nav, input, select or control font-size rules here. */
 
 </style>
