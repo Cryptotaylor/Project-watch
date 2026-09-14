@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.17.1 — Watch Screen Fix</title>
+<title>Project Watch 1.17.2 — Simulation Runtime Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -505,7 +505,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.17.1 • WATCH SCREEN FIX</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.17.2 • SIMULATION RUNTIME FIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -852,6 +852,46 @@ function selectScenario(id,el){
   if(el)el.classList.add('active');
 }
 
+
+
+function initScenario(){
+  const s=SCENARIOS[scenarioId];
+  ownVesselMode=s.mode;
+  own={x:0,y:0,h:s.ownH,s:s.ownS};
+  cmdSpeed=s.ownS;
+
+  if($('handoverStrap')) $('handoverStrap').textContent=s.ownType==='sail'
+    ?'Training vessel • Sailing vessel • machinery OFF'
+    :'Training vessel • Power-driven vessel';
+  if($('watchVesselStatus')) $('watchVesselStatus').textContent=s.ownType==='sail'
+    ?'OWN VESSEL • SAILING • MACHINERY OFF'
+    :'OWN VESSEL • POWER-DRIVEN';
+
+  // Construct target at exactly 2 NM initial separation using relative-motion geometry.
+  let vo=vel(own), vt=vel({h:s.tgtH,s:s.tgtS});
+  let rv={x:vt.x-vo.x,y:vt.y-vo.y}, rvm=Math.hypot(rv.x,rv.y);
+  if(rvm<1e-9) rvm=1e-9;
+  let ux=-rv.x/rvm, uy=-rv.y/rvm;
+  let px=ux*2 + (-uy)*(s.offset||0), py=uy*2 + ux*(s.offset||0);
+  let pm=Math.hypot(px,py);
+  px=px*2/pm; py=py*2/pm;
+
+  tgt={x:px,y:py,h:s.tgtH,s:s.tgtS};
+
+  running=false;lastTs=0;elapsed=0;mult=1;
+  rudder=0;actualRudder=0;rotRate=0;cmdSpeed=s.ownS;
+  ownHist=[];tgtHist=[];events=[];
+  minSep=999;minSepTime=0;crashed=false;autoEnding=false;
+  lastAlarm='';firstAction=null;lastQuality='';qualityEvents=[];
+  spokenWarnings=new Set();targetAvoiding=false;targetRudder=0;targetROT=0;
+
+  let d=enc();
+  initialCPA=d.cpa;initialTCPA=d.H;
+
+  if($('cmdSpeedText')) $('cmdSpeedText').textContent=cmdSpeed.toFixed(1)+' kn';
+  if($('rudderText')) $('rudderText').textContent='MIDSHIPS';
+  if($('play')) $('play').textContent='▶ PLAY';
+}
 
 
 
@@ -1390,14 +1430,18 @@ function setTrainingMode(m){
 }
 
 function startWatch(){
-  armAudio();
-  initScenario();
-  go('watch');
-  draw();
-  update();
-  addEvent('handover','Watch accepted — '+(ownVesselMode==='sail'?'sailing vessel, machinery off':'power-driven vessel'));
-  requestAnimationFrame(()=>draw());
-  if(!running) toggle();
+  try{
+    armAudio();
+    initScenario();
+    go('watch');
+    draw();
+    update();
+    addEvent('handover','Watch accepted — '+(ownVesselMode==='sail'?'sailing vessel, machinery off':'power-driven vessel'));
+    requestAnimationFrame(()=>{draw(); if(!running) toggle();});
+  }catch(err){
+    console.error('Project Watch start error',err);
+    alert('Project Watch could not start this scenario: '+err.message);
+  }
 }
 
 function toggle(){if(crashed)return;running=!running;$('play').textContent=running?'❚❚ PAUSE':'▶ PLAY';lastTs=0;if(running)requestAnimationFrame(tick)}
