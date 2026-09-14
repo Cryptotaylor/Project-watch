@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.18.1 — Harbour & Marina Signals</title>
+<title>Project Watch 1.18.2 — Signals Module Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -191,7 +191,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -204,7 +228,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
 
@@ -231,7 +279,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -244,7 +316,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -321,7 +417,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -334,7 +454,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
 
@@ -361,7 +505,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -374,7 +542,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -458,7 +650,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -471,7 +687,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
 
@@ -498,7 +738,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -511,7 +775,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -588,7 +876,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -601,7 +913,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
 
@@ -628,7 +964,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -641,7 +1001,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.appMenu{grid-template-columns:repeat(6,1fr)}.ruleParts{grid-template-columns:repeat(3,1fr)}.moduleCards{grid-template-columns:repeat(3,1fr)}}
 
@@ -752,7 +1136,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -765,7 +1173,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
 
@@ -792,7 +1224,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -805,7 +1261,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -882,7 +1362,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -895,7 +1399,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
 
@@ -922,7 +1450,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -935,7 +1487,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -1019,7 +1595,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -1032,7 +1632,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
 
@@ -1059,7 +1683,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -1072,7 +1720,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -1149,7 +1821,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -1162,7 +1858,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.signalLab{grid-template-columns:repeat(3,1fr)}}
 
@@ -1189,7 +1909,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.sigGrid{grid-template-columns:repeat(3,1fr)}.distressGrid{grid-template-columns:repeat(4,1fr)}}
 
@@ -1202,14 +1946,38 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .marinaSim{background:#052a3c;border-radius:15px;padding:13px;margin-top:12px}
 .marinaScene{height:220px;border-radius:14px;background:linear-gradient(#9bdcf4 0 55%,#4187aa 56% 100%);position:relative;overflow:hidden}
 .berth{position:absolute;background:#d8d2c5;border-radius:3px}.boatMini{position:absolute;width:46px;height:18px;background:#f0f4f6;border-radius:50% 50% 35% 35%;transform-origin:center center;box-shadow:0 2px 0 #17313f}
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
+
 @media(min-width:850px){.harbourGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.audioLabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.audioLabCard{background:#041f2d;border:1px solid #ffffff18;border-radius:14px;padding:12px}
+.audioLabCard h4{margin:0 0 5px}.audioLabCard p{margin:0;color:#a8bec9;font-size:12px;line-height:1.4}
+.audioLabCard button{width:100%;margin-top:9px;background:#174a61}
+.marinaDiagram{border-radius:14px;overflow:hidden;background:#4f98ba;margin-top:10px}
+.marinaDiagram svg{display:block;width:100%;height:auto}
+.routeLabel{font-weight:900;font-size:15px;fill:#fff}
+.signalRef{background:#072f43;border:1px solid #6ee0ff55;border-radius:12px;padding:10px;margin-top:10px;text-align:center}
+.signalRef b{font-size:22px;letter-spacing:.14em;color:#8fe8ff}
+@media(min-width:850px){.audioLabGrid{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.18.1 • HARBOUR & MARINA SIGNALS</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.18.2 • SIGNALS MODULE FIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -1249,14 +2017,43 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 <p class="note">The approved whistle, bell and gong engine now drives the complete training module. Learn the signal, hear it, then switch to Test Yourself.</p>
 
 <div class="signalTabs">
-  <button id="sigTabMan" class="active" onclick="showSignalSection('man')">MANOEUVRING</button>
+  <button id="sigTabAudio" class="active" onclick="showSignalSection('audio')">AUDIO LAB</button>
+  <button id="sigTabMan" onclick="showSignalSection('man')">MANOEUVRING</button>
   <button id="sigTabFog" onclick="showSignalSection('fog')">RESTRICTED VISIBILITY</button>
   <button id="sigTabDistress" onclick="showSignalSection('distress')">DISTRESS</button>
   <button id="sigTabHarbour" onclick="showSignalSection('harbour')">HARBOUR / MARINA</button>
   <button id="sigTabQuiz" onclick="showSignalSection('quiz')">TEST YOURSELF</button>
 </div>
 
-<div id="sigMan" class="signalSection active">
+
+<div id="sigAudio" class="signalSection active">
+  <div class="ver">APPROVED SOUND ENGINE</div>
+  <h3>Audio Lab</h3>
+  <p class="note">These are the approved core sounds used everywhere else in the Signals trainer.</p>
+
+  <div class="profileBar">
+    <button id="hornLarge" class="active" onclick="setHornProfile('large')">LARGE SHIP</button>
+    <button id="hornMedium" onclick="setHornProfile('medium')">MEDIUM SHIP</button>
+    <button id="hornSmall" onclick="setHornProfile('small')">SMALL VESSEL</button>
+  </div>
+  <p id="hornProfileText" class="note">Large ship profile • deep marine-whistle training tone.</p>
+
+  <div class="audioLabGrid">
+    <div class="audioLabCard"><h4>One short blast</h4><p>About 1 second.</p><button onclick="audioShort(this)">▶ PLAY SHORT</button></div>
+    <div class="audioLabCard"><h4>One prolonged blast</h4><p>4.5 seconds in this trainer.</p><button onclick="audioProlonged(this)">▶ PLAY PROLONGED</button></div>
+    <div class="audioLabCard"><h4>Short • Prolonged • Short</h4><p>Three-part whistle sequence.</p><button onclick="audioSPS(this)">▶ PLAY SEQUENCE</button></div>
+    <div class="audioLabCard"><h4>Single bell strike</h4><p>Approved bell tone.</p><button onclick="audioBellStrike(this)">▶ PLAY BELL</button></div>
+    <div class="audioLabCard"><h4>Rapid bell • about 5 s</h4><p>Anchor/aground training sound.</p><button onclick="audioRapidBell(this)">▶ PLAY RAPID BELL</button></div>
+    <div class="audioLabCard"><h4>Rapid gong • about 5 s</h4><p>Lower, broader gong tone.</p><button onclick="audioRapidGong(this)">▶ PLAY RAPID GONG</button></div>
+  </div>
+  <div class="panel" style="margin-top:12px">
+    <div class="ver">AUDIO STATUS</div>
+    <div id="audioStatus">Tap any sound to unlock audio on iPad/Safari.</div>
+    <div class="audioMeter"><span id="audioMeterBar"></span></div>
+  </div>
+</div>
+
+<div id="sigMan" class="signalSection">
   <div class="sigGrid" id="manSignalGrid"></div>
 </div>
 
@@ -1277,12 +2074,59 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <div class="ver">PRACTICAL MARINA SCENARIO</div>
     <h3>Reverse out of the berth</h3>
     <p class="note">Select the signal you would make while operating astern propulsion. This exercise teaches the COLREG signal itself; actual berth/departure requirements can be supplemented by local harbour rules.</p>
-    <div class="marinaScene">
-      <div class="berth" style="left:15%;top:12%;width:16px;height:76%"></div>
-      <div class="berth" style="left:15%;top:22%;width:34%;height:12px"></div>
-      <div class="berth" style="left:15%;top:63%;width:34%;height:12px"></div>
-      <div class="boatMini" style="left:27%;top:39%;transform:rotate(90deg)"></div>
+    <div class="marinaDiagram">
+      <svg viewBox="0 0 900 330" aria-label="Top-down marina berth with vessel reversing astern into fairway">
+        <defs>
+          <marker id="arrowWhite" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+            <path d="M0,0 L12,6 L0,12 z" fill="#ffffff"/>
+          </marker>
+          <marker id="arrowCyan" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+            <path d="M0,0 L12,6 L0,12 z" fill="#6ee0ff"/>
+          </marker>
+        </defs>
+
+        <!-- water -->
+        <rect x="0" y="0" width="900" height="330" fill="#4f98ba"/>
+
+        <!-- pontoon / finger berth -->
+        <rect x="90" y="35" width="22" height="260" rx="6" fill="#d8d2c5"/>
+        <rect x="90" y="70" width="300" height="16" rx="5" fill="#d8d2c5"/>
+        <rect x="90" y="238" width="300" height="16" rx="5" fill="#d8d2c5"/>
+
+        <!-- full top-down boat -->
+        <g transform="translate(245 160) rotate(90)">
+          <path d="M-72,0 C-62,-30 -25,-40 38,-34 C58,-30 71,-17 80,0 C71,17 58,30 38,34 C-25,40 -62,30 -72,0 Z"
+                fill="#f7fbfd" stroke="#15394c" stroke-width="4"/>
+          <rect x="-22" y="-21" width="48" height="42" rx="8" fill="#c8d9e1" stroke="#15394c" stroke-width="3"/>
+          <line x1="-48" y1="0" x2="62" y2="0" stroke="#15394c" stroke-width="2" opacity=".5"/>
+          <circle cx="-38" cy="0" r="5" fill="#15394c"/>
+        </g>
+
+        <!-- reverse path: stern first out of berth -->
+        <path d="M245 235 C245 270 290 292 380 292 C500 292 590 250 650 205"
+              fill="none" stroke="#ffffff" stroke-width="9" stroke-dasharray="18 12"
+              marker-end="url(#arrowWhite)"/>
+        <text x="390" y="318" class="routeLabel">PLANNED ASTERN MOVEMENT</text>
+
+        <!-- bow swing reference -->
+        <path d="M245 95 C205 92 178 105 160 132"
+              fill="none" stroke="#6ee0ff" stroke-width="7"
+              marker-end="url(#arrowCyan)"/>
+        <text x="125" y="110" class="routeLabel" fill="#6ee0ff">BOW SWING</text>
+
+        <!-- fairway -->
+        <line x1="500" y1="40" x2="500" y2="285" stroke="#d9f4ff" stroke-width="3" stroke-dasharray="14 12" opacity=".8"/>
+        <text x="522" y="58" class="routeLabel">FAIRWAY</text>
+      </svg>
     </div>
+
+    <div class="signalRef">
+      <div class="ver">CORRECT VISUAL REFERENCE</div>
+      <b>••• THREE SHORT BLASTS</b>
+      <div class="note">Operating astern propulsion</div>
+      <button class="big alt" onclick="playHarbourSignal('harbourAstern')">🔊 HEAR CORRECT SIGNAL</button>
+    </div>
+
     <div class="quizOpts" style="margin-top:10px">
       <button onclick="answerMarinaSignal('one')">• ONE SHORT</button>
       <button onclick="answerMarinaSignal('two')">•• TWO SHORT</button>
@@ -2166,7 +3010,7 @@ function harbourCardHTML(s){
  return `<div class="harbourCard"><h4>${s.title}</h4><div class="sigPattern">${s.pattern}</div><p>${s.meaning}</p><span class="ruleFlag ${s.flag==='LOCAL'?'local':''}">${s.basis}</span>${s.seq.length?`<button onclick="playHarbourSignal('${s.id}')">🔊 PLAY</button>`:''}</div>`;
 }
 function renderHarbourSignals(){
- $('harbourSignalGrid').innerHTML=HARBOUR_SIGNALS.map(harbourCardHTML).join('');
+ if($('harbourSignalGrid')) $('harbourSignalGrid').innerHTML=HARBOUR_SIGNALS.map(harbourCardHTML).join('');
 }
 function playHarbourSignal(id){
  let s=HARBOUR_SIGNALS.find(x=>x.id===id);if(!s||!s.seq.length)return;
@@ -2187,18 +3031,24 @@ function answerMarinaSignal(id){
 let sigQuizPool=[...MAN_SIGNALS,...FOG_SIGNALS],sigQuizIndex=-1,sigQuizCurrent=null;
 
 function showSignalSection(name){
-  const ids={man:'Man',fog:'Fog',distress:'Distress',harbour:'Harbour',quiz:'Quiz'};
+  const ids={audio:'Audio',man:'Man',fog:'Fog',distress:'Distress',harbour:'Harbour',quiz:'Quiz'};
   Object.keys(ids).forEach(x=>{
-    $('sig'+ids[x]).classList.toggle('active',x===name);
-    $('sigTab'+ids[x]).classList.toggle('active',x===name);
+    const panel=$('sig'+ids[x]), tab=$('sigTab'+ids[x]);
+    if(panel)panel.classList.toggle('active',x===name);
+    if(tab)tab.classList.toggle('active',x===name);
   });
-  if(name==='quiz'&&sigQuizIndex<0)nextSignalQuiz();
+
+  // Re-render on every visit so iPad/Safari never shows an uninitialised blank panel.
+  if(name==='man' || name==='fog' || name==='distress') renderSignalCards();
+  if(name==='harbour') renderHarbourSignals();
+  if(name==='audio') setHornProfile(hornProfile||'large');
+  if(name==='quiz'&&sigQuizIndex<0) nextSignalQuiz();
 }
 
 function renderSignalCards(){
-  $('manSignalGrid').innerHTML=MAN_SIGNALS.map(s=>signalCardHTML(s)).join('');
-  $('fogSignalGrid').innerHTML=FOG_SIGNALS.map(s=>signalCardHTML(s)).join('');
-  $('distressGrid').innerHTML=DISTRESS_SIGNALS.map(d=>`<div class="distressCard"><div class="distressIcon">${d[0]}</div><b>${d[1]}</b><small>${d[2]}</small></div>`).join('');
+  if($('manSignalGrid')) $('manSignalGrid').innerHTML=MAN_SIGNALS.map(s=>signalCardHTML(s)).join('');
+  if($('fogSignalGrid')) $('fogSignalGrid').innerHTML=FOG_SIGNALS.map(s=>signalCardHTML(s)).join('');
+  if($('distressGrid')) $('distressGrid').innerHTML=DISTRESS_SIGNALS.map(d=>`<div class="distressCard"><div class="distressIcon">${d[0]}</div><b>${d[1]}</b><small>${d[2]}</small></div>`).join('');
 }
 
 function signalCardHTML(s){
@@ -2751,7 +3601,7 @@ function buildDebrief(d){
   $('timeline').innerHTML=events.map(e=>`<div class="event"><b>T+${fmt(e.t)}</b><br><span>${e.text}</span></div>`).join('');
 }
 function restart(){go('handover')}
-renderScenarioList();setOwnVesselMode('power');initScenario();renderBuoys();nextBuoyQuestion();bvRender();setHornProfile('large');renderSignalCards();renderHarbourSignals();
+renderScenarioList();setOwnVesselMode('power');initScenario();renderBuoys();nextBuoyQuestion();bvRender();setHornProfile('large');renderSignalCards();renderHarbourSignals();showSignalSection('audio');
 </script>
 
 <div id="detailSheet" class="detailSheet" onclick="if(event.target===this)closeDetail()">
