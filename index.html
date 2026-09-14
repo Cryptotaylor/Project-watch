@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.27.1 — Guided Voice Alerts</title>
+<title>Project Watch 1.27.2 — Compact Helm Control</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -496,6 +496,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  .scenarioLibraryPanel .scenarios{grid-template-columns:1fr}
  .scenarioLaunchBar{grid-template-columns:1fr}.scenarioLaunchActions{display:grid;grid-template-columns:1fr 1fr}.scenarioLaunchActions .big{min-width:0}
 }
+
+/* 1.27.2 compact helm */
+.helmScaleLabels{display:grid;grid-template-columns:repeat(7,1fr);font-size:7px;font-weight:900;color:#8daab7;margin:2px 2px 4px}.helmScaleLabels span{text-align:center}.helmScaleLabels span:first-child{text-align:left}.helmScaleLabels span:last-child{text-align:right}
+.helmTrack{position:relative;height:38px;border-radius:10px;background:#062b3d;border:1px solid #ffffff20;touch-action:none;cursor:pointer;overflow:hidden;outline:none}
+.helmTrack:focus{box-shadow:0 0 0 2px #61d8ff55}.helmTicks{position:absolute;inset:8px;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(7.142% - 1px),#a8d0df33 calc(7.142% - 1px),#a8d0df33 7.142%)}
+.helmCentre{position:absolute;left:50%;top:4px;bottom:4px;width:2px;background:#eefcff99}.helmFill{position:absolute;top:17px;height:4px;border-radius:4px;background:#45c9f2;left:50%;width:0}
+.helmThumb{position:absolute;left:50%;top:50%;width:22px;height:22px;border-radius:50%;transform:translate(-50%,-50%);background:#f5fbfd;border:4px solid #31b9e8;box-shadow:0 2px 8px #0008}
+.helmOrder{text-align:center;margin:6px 0}.helmOrder small{display:block;font-size:7px;color:#809eab;letter-spacing:.6px}.helmOrder strong{display:block;font-size:16px;color:#fff;margin-top:1px}
+.helmQuick{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:5px}.helmQuick button{min-height:38px;border:0;border-radius:9px;background:#168fcf;color:#fff;font-size:8px;font-weight:900;padding:5px}.helmQuick .alt{background:#123e54;border:1px solid #6ddfff40}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -16981,7 +16990,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.27.1 • GUIDED VOICE ALERTS</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.27.2 • COMPACT HELM CONTROL</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -17620,12 +17629,19 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     </div>
   </div>
   <div class="panel"><h3>Helm</h3>
-    <div class="helm">
-      <button onclick="setRudder(-30)">P30</button><button onclick="setRudder(-20)">P20</button><button onclick="setRudder(-10)">P10</button>
-      <button class="alt" onclick="setRudder(0)">MID</button>
-      <button onclick="setRudder(10)">S10</button><button onclick="setRudder(20)">S20</button><button onclick="setRudder(30)">S30</button>
+    <div class="compactHelm">
+      <div class="helmScaleLabels"><span>P35</span><span>P20</span><span>P10</span><span>0</span><span>S10</span><span>S20</span><span>S35</span></div>
+      <div id="helmTrack" class="helmTrack" role="slider" aria-label="Ordered rudder angle" aria-valuemin="-35" aria-valuemax="35" aria-valuenow="0" tabindex="0">
+        <div class="helmTicks"></div><div class="helmCentre"></div><div id="helmFill" class="helmFill"></div><div id="helmThumb" class="helmThumb"></div>
+      </div>
+      <div class="helmOrder"><small>ORDERED RUDDER</small><strong id="rudderText">MIDSHIPS</strong></div>
+      <div class="helmQuick">
+        <button onclick="nudgeRudder(-5)">◀ PORT 5°</button>
+        <button class="alt" onclick="setRudder(0)">MIDSHIPS</button>
+        <button onclick="nudgeRudder(5)">STARBOARD 5° ▶</button>
+      </div>
     </div>
-    <p class="note">Ordered rudder: <b id="rudderText">MIDSHIPS</b>. The rudder now moves progressively and the vessel develops/loses rate of turn with inertia.</p>
+    <p class="note">Drag or tap the scale for an exact rudder order. The instrument above shows the actual rudder response.</p>
   </div>
   <div id="enginePanel" class="panel"><h3>Engine</h3>
     <div class="throttle">
@@ -17724,6 +17740,7 @@ function go(id){
   else if(id==='debrief')updateScenarioStage('debrief');
   else updateScenarioStage('brief');
   target.classList.add('active');
+  if(id==='watch')setTimeout(()=>{initHelmControl();updateHelmControl(rudder)},0);
   window.scrollTo(0,0);
 }
 function vel(o){return{x:o.s*Math.sin(rad(o.h)),y:o.s*Math.cos(rad(o.h))}}
@@ -19835,7 +19852,30 @@ function startWatch(){
 }
 
 function toggle(){if(crashed)return;running=!running;$('play').textContent=running?'❚❚ PAUSE':'▶ PLAY';lastTs=0;if(running)requestAnimationFrame(tick)}
-function setRudder(v){rudder=v;$('rudderText').textContent=v===0?'MIDSHIPS':(v<0?'PORT ':'STARBOARD ')+Math.abs(v);if(!firstAction&&v!==0)firstAction=elapsed;addEvent('helm','Rudder '+$('rudderText').textContent)}
+function setRudder(v){
+ v=Math.max(-35,Math.min(35,Math.round(v)));rudder=v;
+ let label=v===0?'MIDSHIPS':(v<0?'PORT ':'STARBOARD ')+Math.abs(v)+'°';
+ if($('rudderText'))$('rudderText').textContent=label;
+ updateHelmControl(v);
+ if(firstAction===null&&v!==0)firstAction=elapsed;
+ addEvent('helm','Rudder '+label)
+}
+function nudgeRudder(d){setRudder(rudder+d)}
+function updateHelmControl(v=rudder){
+ let t=$('helmTrack'),th=$('helmThumb'),f=$('helmFill');if(!t||!th||!f)return;
+ let pct=(v+35)/70*100;th.style.left=pct+'%';
+ if(v<0){f.style.left=pct+'%';f.style.width=(50-pct)+'%'}else{f.style.left='50%';f.style.width=(pct-50)+'%'}
+ t.setAttribute('aria-valuenow',v)
+}
+function initHelmControl(){
+ let t=$('helmTrack');if(!t||t.dataset.ready)return;t.dataset.ready='1';let drag=false;
+ function val(e){let r=t.getBoundingClientRect(),x=Math.max(0,Math.min(r.width,e.clientX-r.left));return -35+x/r.width*70}
+ t.addEventListener('pointerdown',e=>{drag=true;t.setPointerCapture(e.pointerId);setRudder(val(e))});
+ t.addEventListener('pointermove',e=>{if(drag)setRudder(val(e))});
+ t.addEventListener('pointerup',()=>drag=false);t.addEventListener('pointercancel',()=>drag=false);
+ t.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();setRudder(rudder-1)}else if(e.key==='ArrowRight'){e.preventDefault();setRudder(rudder+1)}else if(e.key==='Home'||e.key==='0'){e.preventDefault();setRudder(0)}});
+ updateHelmControl()
+}
 function setThrottle(v){
   if(ownVesselMode==='sail'){
     addEvent('control','Engine command ignored — sailing mode has machinery OFF');
