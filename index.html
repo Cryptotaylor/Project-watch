@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.28.3 — Tutorial Vessel Colour Fix</title>
+<title>Project Watch 1.29 — COLREGS Beginner Course</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -551,6 +551,16 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .tutorialDimmed:before{content:"";position:fixed;inset:0;background:#0010184f;z-index:30;pointer-events:none}
 @media(max-width:900px){.tutorialGrid{grid-template-columns:1fr}.tutorialLessonList{display:grid;grid-template-columns:repeat(3,1fr)}.tutorialLessonBtn{grid-template-columns:30px 1fr}.tutorialLessonCheck{display:none}.tutorialHero{grid-template-columns:1fr}.tutorialHeroBadge{text-align:left}.tutorialLessonPoints{grid-template-columns:1fr 1fr}}
 @media(max-width:650px){.tutorialLessonList{grid-template-columns:1fr}.tutorialLessonPoints{grid-template-columns:1fr}.tutorialLessonActions{grid-template-columns:1fr}.tutorialCoach{left:10px;bottom:10px;width:calc(100vw - 20px)}}
+
+/* 1.29 COLREGS beginner course */
+.colregsBeginnerStrip{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;margin:10px 0 12px;padding:12px 14px;border-radius:12px;background:linear-gradient(135deg,#06364b,#084b64);border:1px solid #73defa55}.colregsBeginnerStrip small{display:block;color:#7ee5ff;font-size:7px;font-weight:900;letter-spacing:.8px}.colregsBeginnerStrip b{display:block;font-size:12px;margin:2px 0}.colregsBeginnerStrip span{display:block;color:#a9c4ce;font-size:8px}.colregsBeginnerStrip button{width:auto;white-space:nowrap;background:#138bc5;font-size:8px;font-weight:900}
+.crTutorHero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:25px;border-radius:18px;background:linear-gradient(135deg,#052b3d,#073f58);border:1px solid #ffffff18}.crTutorHero h1{margin:3px 0 7px;font-size:28px}.crTutorHero p{max-width:690px;margin:0;color:#b4cbd5;font-size:10px;line-height:1.5}.crTutorBadge{padding:11px 13px;border-radius:10px;background:#031b27;border:1px solid #6ee0ff44}.crTutorBadge small{display:block;font-size:7px;color:#78dff9}.crTutorBadge b{display:block;font-size:14px;margin:2px 0}.crTutorBadge span{font-size:8px;color:#91aeb9}
+.crTutorProgress{margin:10px 0;display:grid;grid-template-columns:210px 1fr;gap:12px;align-items:center;padding:9px 11px;border-radius:10px;background:#041e2b;border:1px solid #ffffff12}.crTutorProgress>div{display:flex;justify-content:space-between;font-size:7px;font-weight:900;color:#91adba}.crTutorProgress i{height:7px;background:#02141d;border-radius:8px;overflow:hidden}.crTutorProgress em{display:block;height:100%;width:0;background:#45d09a;border-radius:8px;transition:.2s}
+.crTutorLayout{display:grid;grid-template-columns:270px 1fr;gap:11px}.crLessonList,.crLessonCard{background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:9px}.crLessonBtn{width:100%;display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;padding:8px;border:0;border-radius:9px;background:transparent;color:#dceff5;text-align:left;margin:2px 0}.crLessonBtn.active{background:#0b5e82}.crLessonBtn.done{background:#064132}.crLessonBtn .num{width:30px;height:30px;border-radius:8px;background:#031b27;display:flex;align-items:center;justify-content:center;color:#75dcf9;font-size:9px;font-weight:900}.crLessonBtn b{display:block;font-size:9px}.crLessonBtn small{display:block;font-size:7px;color:#92aeb9;margin-top:2px}.crLessonBtn .tick{color:#69dfa8}
+.crLessonCard{padding:14px}.crLessonHead{display:grid;grid-template-columns:1fr auto;gap:12px}.crLessonHead h2{margin:2px 0 4px;font-size:21px}.crLessonHead p{margin:0;color:#9fb7c2;font-size:9px}.crLessonHead button{width:auto;background:#123f55;font-size:8px}.crLessonVisual{min-height:205px;margin:12px 0;border-radius:13px;background:#031923;border:1px solid #ffffff12;padding:14px;display:flex;align-items:center;justify-content:center}.crLessonBody{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.crFact{background:#031d29;border:1px solid #ffffff10;border-radius:9px;padding:10px}.crFact b{display:block;font-size:10px;color:#fff}.crFact span{display:block;font-size:8px;line-height:1.45;color:#a3bdc7;margin-top:3px}.crLessonFooter{display:grid;grid-template-columns:1fr 1.15fr 1.2fr 1fr;gap:6px;margin-top:10px}.crLessonFooter button{font-size:8px;min-height:38px}.crLessonFooter .primary{background:#168bcf}
+.crPartsVisual{width:100%;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}.crPartBlock{min-height:125px;border-radius:10px;background:#082f41;border:1px solid #ffffff12;padding:9px;display:flex;flex-direction:column;justify-content:space-between}.crPartBlock strong{font-size:22px;color:#6edcf8}.crPartBlock b{font-size:9px}.crPartBlock span{font-size:7px;color:#9db7c2}.crFlow{width:min(680px,100%);display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap}.crFlow .node{padding:10px 12px;border-radius:9px;background:#0a4158;border:1px solid #70ddfb44;text-align:center;min-width:105px}.crFlow .node b{display:block;font-size:9px}.crFlow .node small{font-size:7px;color:#9fc0cc}.crFlow .arrow{color:#68d9f8;font-size:18px;font-weight:900}.crCore{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;width:100%}.crCore div{padding:14px 8px;border-radius:10px;background:#08384d;text-align:center}.crCore strong{display:block;font-size:23px;color:#6ee1fb}.crCore b{font-size:8px}.crRoles{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(620px,100%)}.crRoles div{border-radius:12px;padding:18px;background:#07384c;border:1px solid #ffffff16}.crRoles strong{display:block;font-size:16px}.crRoles span{display:block;font-size:8px;color:#a7c0ca;line-height:1.5;margin-top:5px}.crQuiz{width:min(650px,100%)}.crQuizQ{font-size:15px;font-weight:900;margin-bottom:12px}.crQuizOpts{display:grid;gap:6px}.crQuizOpts button{text-align:left;background:#0a4158}.crQuizResult{margin-top:10px;font-size:9px;line-height:1.5;color:#b9d0d9}.crQuizScore{text-align:center}.crQuizScore strong{display:block;font-size:42px;color:#69dfa8}.crQuizScore b{font-size:14px}.crQuizScore span{display:block;font-size:9px;color:#a7c0ca;margin-top:6px}
+@media(max-width:900px){.crTutorLayout{grid-template-columns:1fr}.crLessonList{display:grid;grid-template-columns:repeat(3,1fr)}.crPartsVisual{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.colregsBeginnerStrip,.crTutorHero,.crTutorProgress{grid-template-columns:1fr}.crLessonList{grid-template-columns:1fr}.crLessonBody{grid-template-columns:1fr}.crLessonFooter{grid-template-columns:1fr 1fr}.crPartsVisual{grid-template-columns:repeat(2,1fr)}.crCore{grid-template-columns:1fr 1fr}.crRoles{grid-template-columns:1fr}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17036,7 +17046,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.28.3 • TUTORIAL VESSEL COLOUR FIX</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.29 • COLREGS BEGINNER COURSE</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -17050,7 +17060,9 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 <section id="colregsPage" class="appPage">
 <div class="panel"><div class="ver">COLREGS • COMPLETE MAP</div><h2>Rules 1–41</h2>
-<p class="note">A structured learning map of all 41 COLREG rules. The wording shown here is a training descriptor, not a substitute for the official Convention text.</p><button class="imageLicenceBtn" onclick="openImageCredits()">📷 IMAGE CREDITS & LICENCES</button>
+<p class="note">A structured learning map of all 41 COLREG rules. The wording shown here is a training descriptor, not a substitute for the official Convention text.</p>
+<div class="colregsBeginnerStrip"><div><small>FIRST TIME USING THE COLREGS?</small><b>Learn how the rulebook works before memorising rule numbers.</b><span>7 short lessons • plain English • spoken guidance • knowledge check</span></div><button onclick="showColregsTutorial()">NEW TO COLREGS? • START HERE →</button></div>
+<button class="imageLicenceBtn" onclick="openImageCredits()">📷 IMAGE CREDITS & LICENCES</button>
 <div class="ruleParts">
 <div class="rulePart" onclick="filterRules('all')"><b>ALL RULES</b><small>1–41</small></div>
 <div class="rulePart" onclick="filterRules('Part A')"><b>PART A</b><small>General • 1–3</small></div>
@@ -17596,6 +17608,19 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 </section>
 
+<section id="colregsTutorialPage" class="appPage">
+  <div class="crTutorHero"><div><div class="ver">COLREGS • BEGINNER COURSE</div><h1>Learn the map before the rules.</h1><p>This course does not try to make you memorise 41 rules at once. It teaches you how the COLREGs are organised, how to identify the situation, and where to look next.</p></div><div class="crTutorBadge"><small>STARTING LEVEL</small><b>ZERO KNOWLEDGE</b><span>7 lessons + knowledge check</span></div></div>
+  <div class="crTutorProgress"><div><span>COURSE PROGRESS</span><b id="crProgressText">0 / 7 COMPLETE</b></div><i><em id="crProgressFill"></em></i></div>
+  <div class="crTutorLayout">
+    <aside id="crLessonList" class="crLessonList"></aside>
+    <main class="crLessonCard">
+      <div class="crLessonHead"><div><div class="ver" id="crLessonNo">LESSON 01</div><h2 id="crLessonTitle"></h2><p id="crLessonIntro"></p></div><button onclick="showModule('colregs')">← RULES 1–41</button></div>
+      <div id="crLessonVisual" class="crLessonVisual"></div>
+      <div id="crLessonBody" class="crLessonBody"></div>
+      <div class="crLessonFooter"><button onclick="crPrev()">← PREVIOUS</button><button onclick="crSpeak()">🔊 HEAR LESSON</button><button class="primary" id="crCompleteBtn" onclick="crComplete()">MARK COMPLETE ✓</button><button onclick="crNext()">NEXT →</button></div>
+    </main>
+  </div>
+</section>
 <section id="collisionTutorialPage" class="appPage">
   <div class="tutorialHero">
     <div>
@@ -19845,6 +19870,48 @@ function exitTutorialWatch(){
  if($('tutorialCoach'))$('tutorialCoach').classList.remove('show');
  showCollisionTutorial();
 }
+
+const COLREGS_BEGINNER=[
+ {title:'What are the COLREGs?',sub:'The rulebook and what it is for',intro:'Start with the purpose: preventing collisions at sea.',visual:'intro',facts:[['International rules','COLREGs are the International Regulations for Preventing Collisions at Sea.'],['Not just right of way','They cover lookout, speed, risk assessment, avoiding action, conduct between vessels, lights, shapes and sound signals.'],['Use the whole situation','A rule number is never a substitute for lookout, judgement and the precautions required by good seamanship.'],['Project Watch','The Rules 1–41 library is a training reference. Official Convention text remains the authority.']]},
+ {title:'How the 41 Rules are organised',sub:'Parts A to F',intro:'You do not need to treat the COLREGs as one block of 41 unrelated rules.',visual:'parts',facts:[['Part A • Rules 1–3','General: application, responsibility and definitions.'],['Part B • Rules 4–19','Steering and Sailing Rules: how vessels assess and avoid collision.'],['Part C • Rules 20–31','Lights and Shapes: how vessels show identity and status.'],['Parts D–F • Rules 32–41','Sound/light signals, exemptions and convention compliance.']]},
+ {title:'The four rules beneath every encounter',sub:'Lookout → speed → risk → action',intro:'Before worrying about crossing, head-on or overtaking, build this habit.',visual:'core',facts:[['Rule 5 • Look-out','Maintain a proper lookout by sight, hearing and all available appropriate means.'],['Rule 6 • Safe speed','Travel at a speed that allows proper and effective action and stopping within an appropriate distance.'],['Rule 7 • Risk of collision','Use all available means. If there is any doubt, risk shall be deemed to exist.'],['Rule 8 • Avoiding action','Action should be positive, in ample time and with due regard to good seamanship; check it works until finally past and clear.']]},
+ {title:'First identify the situation',sub:'Do not jump straight to a give-way rule',intro:'Work out which family of rules applies before deciding what either vessel should do.',visual:'flow',facts:[['Any visibility • Rules 4–10','The baseline Steering and Sailing Rules apply in any condition of visibility.'],['In sight • Rules 11–18','When vessels are in sight of one another, identify sailing, overtaking, head-on, crossing and vessel responsibilities as applicable.'],['Restricted visibility • Rule 19','When vessels are not in sight in or near restricted visibility, Rule 19 governs the encounter rather than pretending Rules 11–18 apply.'],['Rule 13 matters early','Check overtaking before treating geometry as an ordinary crossing encounter.']]},
+ {title:'Give-way and stand-on',sub:'What those words actually mean',intro:'Stand-on does not mean ignore danger, and give-way does not mean make a tiny token alteration.',visual:'roles',facts:[['Give-way • Rule 16','Take early and substantial action to keep well clear.'],['Stand-on • Rule 17','Initially keep course and speed, while continuing to monitor the developing situation.'],['Escalation','The stand-on vessel may act when it becomes apparent the give-way vessel is not taking appropriate action, and must act when collision cannot be avoided by give-way action alone.'],['Always monitor','Responsibilities do not remove the duty to keep a proper lookout and assess risk.']]},
+ {title:'Special environments change the picture',sub:'Channels, TSS and restricted visibility',intro:'The same two vessels can have different obligations when the navigational environment changes.',visual:'special',facts:[['Rule 9 • Narrow channels','Channel constraints and duties can affect what action is safe and practicable.'],['Rule 10 • TSS','Traffic separation schemes have specific lane, crossing, joining, leaving and separation-zone requirements.'],['Rule 19 • Restricted visibility','Radar information, safe speed, engines ready and special avoiding-action cautions become central when vessels are not in sight.'],['Do not use slogans','Simple ideas such as “power gives way to sail” are not a substitute for identifying the applicable rules and circumstances.']]},
+ {title:'How to use Project Watch',sub:'Learn → reference → apply',intro:'Use the library to find a rule, then use the practical modules to see it working.',visual:'quiz',facts:[['Step 1 • Identify','Ask what kind of situation you are actually in.'],['Step 2 • Reference','Open the relevant Rule card and read its purpose, training note and visual.'],['Step 3 • Apply','Use Collision Scenarios, TSS, Lights & Shapes and Signals to practise recognition and decisions.'],['Step 4 • Check yourself','Finish with this short knowledge check. It is reinforcement, not a formal exam.']]}
+];
+const CR_QUIZ=[
+ ['Which Rule requires a proper lookout?',['Rule 5','Rule 10','Rule 15'],0,'Rule 5 is the lookout rule.'],
+ ['If there is doubt about risk of collision, what should you assume?',['There is no risk','Risk exists','Wait for AIS'],1,'Rule 7 says that if there is any doubt, risk shall be deemed to exist.'],
+ ['Which rule should you check before treating a vessel as an ordinary crossing encounter?',['Overtaking • Rule 13','Distress • Rule 37','Pilot vessels • Rule 29'],0,'Overtaking responsibility under Rule 13 continues until finally past and clear.'],
+ ['Rules 11–18 apply when vessels are…',['In sight of one another','Always in fog','Only inside a TSS'],0,'Rule 11 makes Rules 11–18 applicable to vessels in sight of one another.'],
+ ['What should a give-way vessel do under Rule 16?',['Make an early and substantial action','Always turn to port','Keep course and speed regardless'],0,'Rule 16 requires early and substantial action to keep well clear.'],
+ ['Does stand-on mean “do nothing whatever happens”?',['Yes','No'],1,'No. Rule 17 contains stages where the stand-on vessel may and then must act.'],
+ ['Which Rule covers Traffic Separation Schemes?',['Rule 8','Rule 10','Rule 19'],1,'Rule 10 covers Traffic Separation Schemes.'],
+ ['Which Rule covers conduct in restricted visibility when vessels are not in sight?',['Rule 14','Rule 17','Rule 19'],2,'Rule 19 is the restricted-visibility rule.'],
+ ['CPA/TCPA should be used as…',['The only collision test','Part of the overall assessment','A replacement for lookout'],1,'Electronic calculations support, but do not replace, proper lookout and risk assessment.'],
+ ['What is the best first question before applying a simple give-way slogan?',['Which rules and situation actually apply?','Which vessel is bigger?','Which vessel has AIS?'],0,'Identify the situation and applicable rules first.']
+];
+let crLesson=0,crDone=new Set(),crQuizIndex=0,crQuizScore=0,crQuizAnswered=false;
+function showColregsTutorial(){document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));updateHeaderNav('colregs');updateModuleContext('colregs');$('colregsTutorialPage').classList.add('active');renderCrLesson();window.scrollTo({top:0,behavior:'smooth'})}
+function crVisual(l){
+ if(l.visual==='parts')return `<div class="crPartsVisual">${[['A','1–3','GENERAL'],['B','4–19','STEERING & SAILING'],['C','20–31','LIGHTS & SHAPES'],['D','32–37','SOUND & LIGHT'],['E','38','EXEMPTIONS'],['F','39–41','COMPLIANCE']].map(x=>`<div class="crPartBlock"><strong>${x[0]}</strong><b>${x[2]}</b><span>RULES ${x[1]}</span></div>`).join('')}</div>`;
+ if(l.visual==='core')return `<div class="crCore"><div><strong>5</strong><b>LOOK-OUT</b></div><div><strong>6</strong><b>SAFE SPEED</b></div><div><strong>7</strong><b>RISK</b></div><div><strong>8</strong><b>ACTION</b></div></div>`;
+ if(l.visual==='flow')return `<div class="crFlow"><div class="node"><b>WHAT IS THE SITUATION?</b><small>Start here</small></div><span class="arrow">→</span><div class="node"><b>OVERTAKING?</b><small>Rule 13</small></div><span class="arrow">→</span><div class="node"><b>HEAD-ON?</b><small>Rule 14</small></div><span class="arrow">→</span><div class="node"><b>CROSSING?</b><small>Rule 15</small></div><span class="arrow">→</span><div class="node"><b>RESTRICTED VIS?</b><small>Rule 19</small></div></div>`;
+ if(l.visual==='roles')return `<div class="crRoles"><div><strong>GIVE-WAY</strong><span>Act early and substantially to keep well clear.</span></div><div><strong>STAND-ON</strong><span>Initially maintain course and speed, but keep monitoring and understand Rule 17 escalation.</span></div></div>`;
+ if(l.visual==='special')return `<div class="crFlow"><div class="node"><b>RULE 9</b><small>Narrow channels</small></div><div class="node"><b>RULE 10</b><small>Traffic separation</small></div><div class="node"><b>RULE 19</b><small>Restricted visibility</small></div></div>`;
+ if(l.visual==='quiz')return crQuizHTML();
+ return `<div class="crFlow"><div class="node"><b>LOOK OUT</b><small>See • hear • assess</small></div><span class="arrow">→</span><div class="node"><b>UNDERSTAND</b><small>Which rules apply?</small></div><span class="arrow">→</span><div class="node"><b>ACT</b><small>Early • clear • safe</small></div><span class="arrow">→</span><div class="node"><b>CHECK</b><small>Past and clear</small></div></div>`;
+}
+function renderCrLesson(){let l=COLREGS_BEGINNER[crLesson];$('crLessonList').innerHTML=COLREGS_BEGINNER.map((x,i)=>`<button class="crLessonBtn ${i===crLesson?'active':''} ${crDone.has(i)?'done':''}" onclick="crSelect(${i})"><span class="num">${String(i+1).padStart(2,'0')}</span><span><b>${x.title}</b><small>${x.sub}</small></span><span class="tick">${crDone.has(i)?'✓':''}</span></button>`).join('');$('crLessonNo').textContent='LESSON '+String(crLesson+1).padStart(2,'0');$('crLessonTitle').textContent=l.title;$('crLessonIntro').textContent=l.intro;$('crLessonVisual').innerHTML=crVisual(l);$('crLessonBody').innerHTML=l.facts.map(x=>`<div class="crFact"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');$('crCompleteBtn').textContent=crDone.has(crLesson)?'COMPLETED ✓':'MARK COMPLETE ✓';$('crProgressText').textContent=`${crDone.size} / 7 COMPLETE`;$('crProgressFill').style.width=(crDone.size/7*100)+'%'}
+function crSelect(i){crLesson=Math.max(0,Math.min(6,i));renderCrLesson()}
+function crPrev(){crSelect(crLesson-1)}function crNext(){crSelect(crLesson+1)}
+function crComplete(){crDone.add(crLesson);renderCrLesson();if(crLesson<6)setTimeout(()=>crSelect(crLesson+1),180)}
+function crSpeak(){let l=COLREGS_BEGINNER[crLesson],speech=l.title+'. '+l.intro+'. '+l.facts.map(x=>x[0]+'. '+x[1]).join(' ');speakMarine(speech,'instruction')}
+function crQuizHTML(){if(crQuizIndex>=CR_QUIZ.length)return `<div class="crQuizScore"><strong>${crQuizScore} / ${CR_QUIZ.length}</strong><b>KNOWLEDGE CHECK COMPLETE</b><span>${crQuizScore>=8?'Strong start. Now use Rules 1–41 as a reference and apply them in the practical modules.':'Review the lessons you missed, then try the check again.'}</span><button style="margin-top:12px" onclick="crRestartQuiz()">TRY AGAIN</button></div>`;let q=CR_QUIZ[crQuizIndex];return `<div class="crQuiz"><div class="ver">KNOWLEDGE CHECK • ${crQuizIndex+1} / ${CR_QUIZ.length}</div><div class="crQuizQ">${q[0]}</div><div class="crQuizOpts">${q[1].map((o,i)=>`<button onclick="crAnswer(${i})">${o}</button>`).join('')}</div><div id="crQuizResult" class="crQuizResult"></div></div>`}
+function crAnswer(i){if(crQuizAnswered)return;crQuizAnswered=true;let q=CR_QUIZ[crQuizIndex],ok=i===q[2];if(ok)crQuizScore++;$('crQuizResult').innerHTML=`<b>${ok?'CORRECT ✓':'NOT QUITE'}</b><br>${q[3]}<br><button style="margin-top:7px" onclick="crQuizNext()">${crQuizIndex===CR_QUIZ.length-1?'SEE SCORE':'NEXT QUESTION →'}</button>`}
+function crQuizNext(){crQuizIndex++;crQuizAnswered=false;$('crLessonVisual').innerHTML=crQuizHTML();if(crQuizIndex>=CR_QUIZ.length){crDone.add(6);$('crProgressText').textContent=`${crDone.size} / 7 COMPLETE`;$('crProgressFill').style.width=(crDone.size/7*100)+'%'}}
+function crRestartQuiz(){crQuizIndex=0;crQuizScore=0;crQuizAnswered=false;$('crLessonVisual').innerHTML=crQuizHTML()}
 
 const MODULE_META={
  home:{no:'',title:'',desc:'',state:''},
