@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.22 — COLREG Visual Map</title>
+<title>Project Watch 1.22.1 — Interactive Annexes</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -123,6 +123,17 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  .ruleRow{min-height:76px;grid-template-columns:56px 1fr 20px}
  .ruleVisual{width:56px;height:56px}.ruleVisual .rvIcon{font-size:25px}
 }
+
+
+.annexGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.annexCard{background:linear-gradient(145deg,#041f2d,#073248);border:1px solid #ffffff18;border-radius:16px;overflow:hidden;cursor:pointer;transition:.15s}
+.annexCard:hover{border-color:#6ee0ff66;transform:translateY(-1px)}.annexCard:active{transform:scale(.99)}
+.annexVisual{height:120px;position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 30%,#154b63,#061a26 72%);overflow:hidden}
+.annexVisual svg{width:100%;height:100%}.annexBody{padding:12px}.annexBody h4{margin:0 0 6px;font-size:15px}.annexBody p{margin:6px 0 0;color:#b8ced8;font-size:11px;line-height:1.4}
+.annexPills{display:flex;gap:5px;flex-wrap:wrap}.annexPill{font-size:9px;padding:3px 7px;border-radius:20px;background:#0b4059;color:#d7f5ff}
+.annexArrow{float:right;color:#6ee0ff;font-size:20px}
+.annexActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.annexActions button{flex:1;min-width:190px}
+@media(max-width:720px){.annexGrid{grid-template-columns:1fr}.annexVisual{height:105px}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -16608,7 +16619,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.22 • COLREG VISUAL MAP</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.22.1 • INTERACTIVE ANNEXES</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -16622,11 +16633,68 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 <div class="rulePart" onclick="filterRules('Part D')"><b>PART D</b><small>Sound & Light Signals • 32–37</small></div>
 <div class="rulePart" onclick="filterRules('Part E')"><b>PART E / F</b><small>38–41</small></div>
 </div><div id="ruleList" class="ruleList"><div class="ruleRow" data-part="Part A" data-rule="1" onclick="openRule(1)"><b>Rule 1 • Application</b><small>Part A</small></div><div class="ruleRow" data-part="Part A" data-rule="2" onclick="openRule(2)"><b>Rule 2 • Responsibility</b><small>Part A</small></div><div class="ruleRow" data-part="Part A" data-rule="3" onclick="openRule(3)"><b>Rule 3 • General definitions</b><small>Part A</small></div><div class="ruleRow" data-part="Part B" data-rule="4" onclick="openRule(4)"><b>Rule 4 • Application</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B" data-rule="5" onclick="openRule(5)"><b>Rule 5 • Look-out</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B" data-rule="6" onclick="openRule(6)"><b>Rule 6 • Safe speed</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B" data-rule="7" onclick="openRule(7)"><b>Rule 7 • Risk of collision</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B" data-rule="8" onclick="openRule(8)"><b>Rule 8 • Action to avoid collision</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B" data-rule="9" onclick="openRule(9)"><b>Rule 9 • Narrow channels</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B" data-rule="10" onclick="openRule(10)"><b>Rule 10 • Traffic separation schemes</b><small>Part B • Any visibility</small></div><div class="ruleRow" data-part="Part B" data-rule="11" onclick="openRule(11)"><b>Rule 11 • Application</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B" data-rule="12" onclick="openRule(12)"><b>Rule 12 • Sailing vessels</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B" data-rule="13" onclick="openRule(13)"><b>Rule 13 • Overtaking</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B" data-rule="14" onclick="openRule(14)"><b>Rule 14 • Head-on situation</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B" data-rule="15" onclick="openRule(15)"><b>Rule 15 • Crossing situation</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B" data-rule="16" onclick="openRule(16)"><b>Rule 16 • Action by give-way vessel</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B" data-rule="17" onclick="openRule(17)"><b>Rule 17 • Action by stand-on vessel</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B" data-rule="18" onclick="openRule(18)"><b>Rule 18 • Responsibilities between vessels</b><small>Part B • In sight</small></div><div class="ruleRow" data-part="Part B" data-rule="19" onclick="openRule(19)"><b>Rule 19 • Conduct in restricted visibility</b><small>Part B • Restricted visibility</small></div><div class="ruleRow" data-part="Part C" data-rule="20" onclick="openRule(20)"><b>Rule 20 • Application</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="21" onclick="openRule(21)"><b>Rule 21 • Definitions</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="22" onclick="openRule(22)"><b>Rule 22 • Visibility of lights</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="23" onclick="openRule(23)"><b>Rule 23 • Power-driven vessels underway</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="24" onclick="openRule(24)"><b>Rule 24 • Towing and pushing</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="25" onclick="openRule(25)"><b>Rule 25 • Sailing vessels underway and vessels under oars</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="26" onclick="openRule(26)"><b>Rule 26 • Fishing vessels</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="27" onclick="openRule(27)"><b>Rule 27 • NUC and RAM vessels</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="28" onclick="openRule(28)"><b>Rule 28 • Vessels constrained by draught</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="29" onclick="openRule(29)"><b>Rule 29 • Pilot vessels</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="30" onclick="openRule(30)"><b>Rule 30 • Anchored vessels and vessels aground</b><small>Part C</small></div><div class="ruleRow" data-part="Part C" data-rule="31" onclick="openRule(31)"><b>Rule 31 • Seaplanes</b><small>Part C</small></div><div class="ruleRow" data-part="Part D" data-rule="32" onclick="openRule(32)"><b>Rule 32 • Definitions</b><small>Part D</small></div><div class="ruleRow" data-part="Part D" data-rule="33" onclick="openRule(33)"><b>Rule 33 • Equipment for sound signals</b><small>Part D</small></div><div class="ruleRow" data-part="Part D" data-rule="34" onclick="openRule(34)"><b>Rule 34 • Manoeuvring and warning signals</b><small>Part D</small></div><div class="ruleRow" data-part="Part D" data-rule="35" onclick="openRule(35)"><b>Rule 35 • Sound signals in restricted visibility</b><small>Part D</small></div><div class="ruleRow" data-part="Part D" data-rule="36" onclick="openRule(36)"><b>Rule 36 • Signals to attract attention</b><small>Part D</small></div><div class="ruleRow" data-part="Part D" data-rule="37" onclick="openRule(37)"><b>Rule 37 • Distress signals</b><small>Part D</small></div><div class="ruleRow" data-part="Part E" data-rule="38" onclick="openRule(38)"><b>Rule 38 • Exemptions</b><small>Part E</small></div><div class="ruleRow" data-part="Part F" data-rule="39" onclick="openRule(39)"><b>Rule 39 • Definitions</b><small>Part F</small></div><div class="ruleRow" data-part="Part F" data-rule="40" onclick="openRule(40)"><b>Rule 40 • Application</b><small>Part F</small></div><div class="ruleRow" data-part="Part F" data-rule="41" onclick="openRule(41)"><b>Rule 41 • Verification of compliance</b><small>Part F</small></div></div></div>
-<div class="panel"><h3>Four Annexes</h3><div class="moduleCards">
-<div class="moduleCard"><h4>Annex I</h4><span class="tag">Lights</span><span class="tag">Shapes</span><p class="note">Positioning and technical details.</p></div>
-<div class="moduleCard"><h4>Annex II</h4><span class="tag">Fishing</span><p class="note">Additional signals for fishing vessels operating in close proximity.</p></div>
-<div class="moduleCard"><h4>Annex III</h4><span class="tag">Sound</span><p class="note">Technical details of sound signal appliances.</p></div>
-<div class="moduleCard"><h4>Annex IV</h4><span class="tag">Distress</span><p class="note">International distress signals.</p></div>
+<div class="panel">
+<div class="ver">COLREGS • TECHNICAL ANNEXES</div>
+<h3>Four Annexes</h3>
+<p class="note">The Rules tell you what to do; the Annexes provide the technical detail behind lights, shapes, fishing signals, sound appliances and distress signals.</p>
+<div class="annexGrid">
+
+<div class="annexCard" onclick="openAnnex(1)">
+ <div class="annexVisual">
+  <svg viewBox="0 0 420 120" aria-label="Navigation lights and shapes diagram">
+   <rect width="420" height="120" fill="#061724"/>
+   <path d="M92 86 Q195 68 330 82 L312 100 H112 Z" fill="#a9bdc7"/>
+   <line x1="210" y1="30" x2="210" y2="82" stroke="#c7d6dd" stroke-width="4"/>
+   <circle cx="210" cy="30" r="8" fill="#fff"/><circle cx="112" cy="79" r="7" fill="#ff3b3b"/><circle cx="308" cy="79" r="7" fill="#22df71"/>
+   <circle cx="365" cy="35" r="11" fill="#111"/><polygon points="365,57 353,78 377,78" fill="#111"/>
+   <text x="18" y="28" fill="#7de3ff" font-size="13" font-weight="800">POSITION • SPACING • SECTORS</text>
+  </svg>
+ </div>
+ <div class="annexBody"><span class="annexArrow">›</span><h4>Annex I • Lights & Shapes</h4><div class="annexPills"><span class="annexPill">Positioning</span><span class="annexPill">Sectors</span><span class="annexPill">Shapes</span></div><p>Technical positioning, spacing, colour, intensity and screening requirements.</p></div>
+</div>
+
+<div class="annexCard" onclick="openAnnex(2)">
+ <div class="annexVisual">
+  <svg viewBox="0 0 420 120" aria-label="Fishing vessel additional signals">
+   <rect width="420" height="120" fill="#082334"/>
+   <path d="M90 90 Q180 70 280 84 L264 101 H110 Z" fill="#a6bac4"/>
+   <line x1="188" y1="28" x2="188" y2="78" stroke="#c7d6dd" stroke-width="4"/>
+   <circle cx="188" cy="32" r="8" fill="#26e574"/><circle cx="188" cy="55" r="8" fill="#fff"/>
+   <circle cx="318" cy="34" r="8" fill="#ff3b3b"/><circle cx="318" cy="57" r="8" fill="#fff"/>
+   <text x="18" y="23" fill="#7de3ff" font-size="13" font-weight="800">FISHING IN CLOSE PROXIMITY</text>
+  </svg>
+ </div>
+ <div class="annexBody"><span class="annexArrow">›</span><h4>Annex II • Fishing Signals</h4><div class="annexPills"><span class="annexPill">Trawling</span><span class="annexPill">Purse seine</span><span class="annexPill">Close proximity</span></div><p>Additional signals for fishing vessels working close to one another.</p></div>
+</div>
+
+<div class="annexCard" onclick="openAnnex(3)">
+ <div class="annexVisual">
+  <svg viewBox="0 0 420 120" aria-label="Whistle bell and gong">
+   <rect width="420" height="120" fill="#101c29"/>
+   <path d="M70 62 h70 l34 -26 v52 l-34 -26" fill="#c8d4da"/>
+   <path d="M180 44 q28 18 0 36" fill="none" stroke="#6ee0ff" stroke-width="4"/><path d="M194 35 q46 28 0 55" fill="none" stroke="#6ee0ff88" stroke-width="3"/>
+   <path d="M278 78 q0-35 25-35 q25 0 25 35 z" fill="#d9ad45"/><circle cx="303" cy="84" r="6" fill="#f0cd69"/>
+   <circle cx="362" cy="60" r="28" fill="#9c6b2b"/><circle cx="362" cy="60" r="19" fill="#bd8737"/>
+   <text x="18" y="22" fill="#7de3ff" font-size="13" font-weight="800">WHISTLE • BELL • GONG</text>
+  </svg>
+ </div>
+ <div class="annexBody"><span class="annexArrow">›</span><h4>Annex III • Sound Appliances</h4><div class="annexPills"><span class="annexPill">Whistle</span><span class="annexPill">Bell</span><span class="annexPill">Gong</span></div><p>Technical characteristics and installation of sound-signal appliances.</p></div>
+</div>
+
+<div class="annexCard" onclick="openAnnex(4)">
+ <div class="annexVisual">
+  <svg viewBox="0 0 420 120" aria-label="Distress signals">
+   <rect width="420" height="120" fill="#220d12"/>
+   <text x="28" y="48" fill="#fff" font-size="22" font-weight="900">SOS</text>
+   <path d="M145 92 L160 34 L175 92" fill="#ef5757"/><circle cx="160" cy="28" r="10" fill="#ff4747"/>
+   <rect x="225" y="42" width="48" height="60" rx="8" fill="#f59d27"/><circle cx="249" cy="62" r="8" fill="#fff"/>
+   <path d="M323 86 q18-60 44 0" fill="none" stroke="#ff8b2f" stroke-width="12" stroke-linecap="round"/>
+   <text x="18" y="111" fill="#ffb6b6" font-size="13" font-weight="800">DISTRESS • MAYDAY • EPIRB • FLARES</text>
+  </svg>
+ </div>
+ <div class="annexBody"><span class="annexArrow">›</span><h4>Annex IV • Distress Signals</h4><div class="annexPills"><span class="annexPill">MAYDAY</span><span class="annexPill">Flares</span><span class="annexPill">EPIRB</span></div><p>Internationally recognised distress signals and alerts.</p></div>
+</div>
+
 </div></div></section>
 
 <section id="lightsPage" class="appPage">
@@ -18485,8 +18553,69 @@ function enhanceColregRuleVisuals(){
  });
 }
 
+
+const ANNEX_DATA={
+ 1:{
+  title:'Annex I • Positioning & Technical Details of Lights and Shapes',
+  summary:'Sets the technical detail behind the navigation lights and day shapes required by Part C — including vertical and horizontal positioning and spacing, screens for sidelights, positioning of shapes, colour specification, intensity and visibility sectors.',
+  training:'Use Annex I to understand why a correct light pattern must also be placed correctly on the vessel. Recognition depends on both colour/sequence and physical position.',
+  project:'Project Watch already teaches the practical result in Lights & Shapes. This Annex card links the learner from the legal/technical framework directly into the visual bridge trainer.',
+  source:'COLREG Annex I',
+  actions:[['OPEN LIGHTS & SHAPES','lights']]
+ },
+ 2:{
+  title:'Annex II • Additional Signals for Fishing Vessels Fishing in Close Proximity',
+  summary:'Provides additional signals for fishing vessels operating in close proximity, including prescribed signals connected with trawling and purse-seine fishing operations.',
+  training:'These are additional working signals. They do not replace the ordinary Rule 26 lights and shapes for a vessel engaged in fishing.',
+  project:'Project Watch can use Annex II as an advanced fishing-vessel recognition lesson alongside the Rule 26 Lights & Shapes material.',
+  source:'COLREG Annex II',
+  actions:[['OPEN FISHING LIGHTS','lights']]
+ },
+ 3:{
+  title:'Annex III • Technical Details of Sound Signal Appliances',
+  summary:'Provides the technical requirements for whistles, bells and gongs, including acoustic characteristics, audible range and installation requirements.',
+  training:'Part D tells you which sound signal to make. Annex III explains the appliance that must produce it and the technical performance expected.',
+  project:'The Signals trainer already reproduces manoeuvring and restricted-visibility patterns. Annex III connects those practical exercises to the equipment behind the sound.',
+  source:'COLREG Annex III',
+  actions:[['OPEN SIGNALS TRAINING','signals']]
+ },
+ 4:{
+  title:'Annex IV • Distress Signals',
+  summary:'Lists the internationally recognised signals indicating distress and need of assistance, including explosive signals, continuous sounding, red-star rockets, SOS, MAYDAY, visual signals, DSC distress alerts, satellite distress alerts, EPIRB signals and other approved radiocommunication distress signals.',
+  training:'Recognise that these are distress signals, not routine manoeuvring or collision-avoidance signals. Their use for another purpose, or use of confusingly similar signals, is prohibited.',
+  project:'Project Watch already contains the full Distress section, Mayday procedure, Pan-Pan distinction, beacon guidance and spoken training examples. Annex IV links directly to that practical emergency module.',
+  source:'COLREG Annex IV',
+  actions:[['OPEN DISTRESS TRAINING','distress']]
+ }
+};
+
+function openAnnex(n){
+ const a=ANNEX_DATA[n];if(!a)return;
+ $('detailTitle').textContent=a.title;
+ $('detailSummary').textContent=a.summary;
+ $('detailTraining').textContent=a.training;
+ $('detailProject').textContent=a.project;
+ $('detailSource').textContent=a.source;
+ const acts=$('detailActions');
+ if(acts){
+   acts.style.display='flex';
+   acts.innerHTML=a.actions.map(x=>`<button onclick="annexGo('${x[1]}')">${x[0]} →</button>`).join('');
+ }
+ $('detailSheet').classList.add('open');
+}
+function annexGo(target){
+ closeDetail();
+ if(target==='distress'){
+   showModule('signals');
+   setTimeout(()=>showSignalSection('distress'),0);
+ }else{
+   showModule(target);
+ }
+}
+
 function openRule(n){
  const r=RULE_DATA[String(n)];if(!r)return;
+ if($('detailActions')){$('detailActions').style.display='none';$('detailActions').innerHTML='';}
  $('detailTitle').textContent='Rule '+n+' • '+r.title;
  $('detailSummary').textContent=r.summary;
  $('detailTraining').textContent=r.training;
@@ -18496,6 +18625,7 @@ function openRule(n){
 }
 function closeDetail(){$('detailSheet').classList.remove('open')}
 function openModule(title,summary,training){
+ if($('detailActions')){$('detailActions').style.display='none';$('detailActions').innerHTML='';}
  $('detailTitle').textContent=title;
  $('detailSummary').textContent=summary;
  $('detailTraining').textContent=training;
@@ -19027,7 +19157,7 @@ try{enhanceColregRuleVisuals();}catch(e){}
   <div class="detailBlock"><h4>What the rule/module does</h4><p id="detailSummary"></p></div>
   <div class="detailBlock"><h4>What the learner should understand</h4><p id="detailTraining"></p></div>
   <div class="detailBlock"><h4>How Project Watch uses it</h4><p id="detailProject"></p></div>
-  <div style="margin-top:10px"><span id="detailSource" class="sourcePill"></span><span class="sourcePill">Training paraphrase — verify against official text</span></div>
+  <div id="detailActions" class="annexActions" style="display:none"></div><div style="margin-top:10px"><span id="detailSource" class="sourcePill"></span><span class="sourcePill">Training paraphrase — verify against official text</span></div>
  </div>
 </div>
 </body></html>
