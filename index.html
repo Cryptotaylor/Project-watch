@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.24.5 — Clean Scenario Cards</title>
+<title>Project Watch 1.25.1 — COLREG Verified Scenario Deck</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -246,76 +246,68 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .scenarioVisualTag{left:7px;bottom:6px}
 
 
-/* 1.24.5 — clean scenario cards: no stretched SVG text, stronger typography */
+/* 1.25 — chart-style scenario cards */
 .scenarioBtn{
- grid-template-columns:43% 57%;
- min-height:98px;
+  background:#07344a;text-align:left;padding:0;min-height:112px;overflow:hidden;
+  display:grid;grid-template-columns:48% 52%;align-items:stretch;
+  border:1px solid #ffffff16;border-radius:12px;position:relative
 }
-.scenarioPhoto{min-height:98px}
-.scenarioCopy{padding:12px 14px}
-.scenarioBtn b{
- font-size:14.5px;
- line-height:1.18;
- font-weight:900;
- letter-spacing:.05px;
+.scenarioBtn.active{
+  background:#0b5274;box-shadow:0 0 0 2px #8ee7ff77 inset;border-color:#67dcff
 }
-.scenarioBtn .scenarioCopy span{
- font-size:10.5px;
- line-height:1.3;
- font-weight:700;
- color:#cce3ed;
- margin-top:6px;
+.scenarioBtn:hover{border-color:#6ee0ff66}
+.scenarioChart{
+  position:relative;display:block;min-height:112px;overflow:hidden;
+  background:
+    linear-gradient(#6ea7bd22 1px,transparent 1px),
+    linear-gradient(90deg,#6ea7bd22 1px,transparent 1px),
+    linear-gradient(180deg,#e7dfc7,#d9d1b9);
+  background-size:28px 28px,28px 28px,auto;
+  border-right:1px solid #ffffff1c
 }
-.scenarioPhoto img{
- object-fit:cover!important;
- width:100%!important;
- height:100%!important;
- transform:none!important;
+.scenarioChart:before{
+  content:"";position:absolute;left:12px;right:12px;top:50%;height:1px;background:#496c7844
 }
-.scenarioGeometry{inset:5px 6px 5px 6px}
-.scenarioGeometry svg{
- width:100%;
- height:100%;
- display:block;
- overflow:hidden;
+.scenarioChart:after{
+  content:"";position:absolute;top:10px;bottom:10px;left:50%;width:1px;background:#496c7844
 }
-.sgLabel{
- font:900 7px Arial,sans-serif;
- letter-spacing:.2px;
- paint-order:stroke;
- stroke:#001722;
- stroke-width:2.3px;
- fill:#fff;
+.scenarioChart svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scenarioCopy{padding:13px 14px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.scenarioBtn b{display:block;font-size:15px;line-height:1.18;font-weight:900;letter-spacing:.02px}
+.scenarioBtn .scenarioCopy span{display:block;font-size:10.5px;color:#cfe6ef;margin-top:6px;line-height:1.35;font-weight:700}
+.scenarioChartTitle{
+  position:absolute;left:8px;top:7px;z-index:5;padding:4px 7px;border-radius:6px;
+  background:#f6f0dfed;border:1px solid #234a5c55;color:#183f50;font-size:7px;
+  font-weight:900;letter-spacing:.55px
 }
-.scenarioAspectChip{
- position:absolute;
- left:7px;
- top:6px;
- z-index:6;
- padding:4px 7px;
- border-radius:6px;
- background:#001722e8;
- border:1px solid #7be5ff88;
- color:#dff8ff;
- font-size:7px;
- font-weight:900;
- letter-spacing:.55px;
- line-height:1;
- white-space:nowrap;
- box-shadow:0 2px 8px #0006;
+.scenarioChartRule{
+  position:absolute;left:8px;bottom:7px;z-index:5;padding:3px 6px;border-radius:5px;
+  background:#123748e8;color:#e9f9ff;font-size:6.5px;font-weight:900;letter-spacing:.35px
 }
-.scenarioVisualTag{
- left:7px;
- bottom:6px;
- font-size:6.4px;
- letter-spacing:.35px;
- max-width:76%;
- white-space:nowrap;
- overflow:hidden;
- text-overflow:ellipsis;
+.chartOwn{fill:#b72828;stroke:#681616;stroke-width:1.2}
+.chartTarget{fill:#3f968c;stroke:#235d58;stroke-width:1.2}
+.chartCourseOwn{stroke:#b72828;stroke-width:2.2;stroke-dasharray:6 4}
+.chartCourseTarget{stroke:#2f8078;stroke-width:2.2;stroke-dasharray:6 4}
+.chartBearing{stroke:#385c68;stroke-width:1.1;stroke-dasharray:3 3}
+.chartLabel{
+  font:900 7.5px Arial,sans-serif;fill:#173f50;
+  paint-order:stroke;stroke:#f2ead6;stroke-width:2.3px;stroke-linejoin:round
 }
+.chartRole{
+  font:900 6.6px Arial,sans-serif;fill:#173f50;
+  paint-order:stroke;stroke:#f2ead6;stroke-width:2px
+}
+.chartWind{stroke:#256f9a;stroke-width:2.3}
+.chartWindText{font:900 6.5px Arial,sans-serif;fill:#256f9a}
+.chartGive{fill:#a32626}.chartStand{fill:#17674e}
+.chartRolePill{stroke:none;opacity:.95}
+.chartRolePillText{font:900 6.2px Arial,sans-serif;fill:white}
 @media(max-width:760px){
- .scenarioBtn{grid-template-columns:41% 59%;min-height:92px}
+ .scenarioBtn{grid-template-columns:47% 53%;min-height:104px}
+ .scenarioChart{min-height:104px}
+ .scenarioBtn b{font-size:13.8px}
+ .scenarioBtn .scenarioCopy span{font-size:10px}
+}
  .scenarioPhoto{min-height:92px}
  .scenarioBtn b{font-size:13.5px}
  .scenarioBtn .scenarioCopy span{font-size:10px}
@@ -16838,7 +16830,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.24.5 • CLEAN SCENARIO CARDS</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.25.1 • COLREG VERIFIED SCENARIO DECK</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -17502,12 +17494,12 @@ const SCENARIOS={
   power_vs_sail:{name:'Power vessel meeting sailing vessel',mode:'power',ownH:0,ownS:7,tgtH:270,tgtS:6,kind:'power_give_sail',offset:0,ownType:'power',tgtType:'sail'},
 
   // SAILING OWN VESSEL — MACHINERY NOT BEING USED
-  sail_vs_power:{name:'Sailing vessel meeting power-driven vessel',mode:'sail',ownH:0,ownS:6,tgtH:270,tgtS:9,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard'},
-  sail_port_tack:{name:'Sail vs sail — own vessel on port tack',mode:'sail',ownH:0,ownS:6,tgtH:270,tgtS:6,kind:'sail_giveway',offset:0,ownType:'sail',tgtType:'sail',ownTack:'port',tgtTack:'starboard'},
-  sail_starboard_tack:{name:'Sail vs sail — own vessel on starboard tack',mode:'sail',ownH:0,ownS:6,tgtH:270,tgtS:6,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'port'},
-  sail_windward:{name:'Sail vs sail — same tack, own vessel windward',mode:'sail',ownH:0,ownS:6,tgtH:300,tgtS:6,kind:'sail_giveway',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'starboard',ownWindward:true},
-  sail_leeward:{name:'Sail vs sail — same tack, own vessel leeward',mode:'sail',ownH:0,ownS:6,tgtH:300,tgtS:6,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'starboard',ownWindward:false},
-  sail_overtaking:{name:'Sailing vessel overtaking',mode:'sail',ownH:0,ownS:8,tgtH:0,tgtS:5,kind:'overtaking',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard'},
+  sail_vs_power:{name:'Sailing vessel meeting power-driven vessel',mode:'sail',ownH:0,ownS:6,tgtH:270,tgtS:9,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard',windFrom:90},
+  sail_port_tack:{name:'Sail vs sail — own vessel on port tack',mode:'sail',ownH:0,ownS:6,tgtH:180,tgtS:6,kind:'sail_giveway',offset:0,ownType:'sail',tgtType:'sail',ownTack:'port',tgtTack:'starboard',windFrom:270},
+  sail_starboard_tack:{name:'Sail vs sail — own vessel on starboard tack',mode:'sail',ownH:0,ownS:6,tgtH:180,tgtS:6,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'port',windFrom:90},
+  sail_windward:{name:'Sail vs sail — same tack, own vessel windward',mode:'sail',ownH:0,ownS:6,tgtH:60,tgtS:6,kind:'sail_giveway',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'starboard',ownWindward:true,windFrom:90},
+  sail_leeward:{name:'Sail vs sail — same tack, own vessel leeward',mode:'sail',ownH:0,ownS:6,tgtH:300,tgtS:6,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'starboard',ownWindward:false,windFrom:90},
+  sail_overtaking:{name:'Sailing vessel overtaking',mode:'sail',ownH:0,ownS:8,tgtH:0,tgtS:5,kind:'overtaking',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard',windFrom:90},
   rule17_fail:{name:'Rule 17 — give-way vessel fails to act',mode:'power',ownH:0,ownS:7,tgtH:90,tgtS:10,kind:'cross_standon_fail',offset:0,ownType:'power',tgtType:'power'}
 };
 
@@ -17516,37 +17508,25 @@ const SAIL_SCENARIO_ORDER=['sail_vs_power','sail_port_tack','sail_starboard_tack
 
 
 const SCENARIO_VISUALS={
- cross_stbd:['suilven','CROSSING • TARGET STBD'],
- cross_port:['cargo','CROSSING • TARGET PORT'],
- rule17_fail:['mixed','RULE 17 • TARGET FAILS'],
- head_on:['navlights','HEAD-ON'],
- overtake:['channel_ship','OVERTAKING'],
- overtaken:['bridge','BEING OVERTAKEN'],
- cross_stbd_offset:['fishing','DECEPTIVE CPA'],
- head_on_offset:['navlights','NEAR HEAD-ON'],
- overtake_port:['cargo','PORT-QUARTER OVERTAKE'],
- power_vs_sail:['userSail','POWER MEETS SAIL'],
- sail_vs_power:['userSail','SAIL VS POWER'],
- sail_port_tack:['userSail','PORT TACK'],
- sail_starboard_tack:['userSail','STARBOARD TACK'],
- sail_windward:['userSail','WINDWARD'],
- sail_leeward:['userSail','LEEWARD'],
- sail_overtaking:['userSail','SAILING OVERTAKING']
+ cross_stbd:['CROSSING — TARGET STARBOARD','Rule 15 • Own vessel give-way'],
+ cross_port:['CROSSING — TARGET PORT','Rules 15/17 • Own vessel stand-on'],
+ rule17_fail:['RULE 17 — GIVE-WAY VESSEL FAILS','Rule 17 • Stand-on escalation'],
+ head_on:['HEAD-ON','Rule 14 • Both alter to starboard'],
+ overtake:['OVERTAKING','Rule 13 • Own vessel overtaking'],
+ overtaken:['BEING OVERTAKEN','Rule 13 • Target vessel overtaking'],
+ cross_stbd_offset:['CROSSING — DECEPTIVE CPA','Rules 7/8/15 • Assess developing risk'],
+ head_on_offset:['NEAR HEAD-ON','Rule 14 • Nearly reciprocal courses'],
+ overtake_port:['OVERTAKE — PORT QUARTER','Rule 13 • Own vessel overtaking'],
+ power_vs_sail:['POWER MEETS SAIL','Rule 18 • Power normally keeps clear'],
+ sail_vs_power:['SAIL MEETS POWER','Rule 18 • Sailing vessel normally stand-on'],
+ sail_port_tack:['SAIL vs SAIL — PORT TACK','Rule 12 • Port tack gives way'],
+ sail_starboard_tack:['SAIL vs SAIL — STARBOARD TACK','Rule 12 • Target on port tack gives way'],
+ sail_windward:['SAIL vs SAIL — OWN WINDWARD','Rule 12 • Own vessel upwind / gives way'],
+ sail_leeward:['SAIL vs SAIL — OWN LEEWARD','Rule 12 • Own vessel downwind / stand-on'],
+ sail_overtaking:['SAILING OVERTAKING','Rule 13 • Overtaking vessel gives way']
 };
 
-function scenarioImageSrc(key){
- if(key==='suilven'){
-   const i=document.querySelector('#powerModeBtn .userVesselPhoto img');
-   return i?i.src:'';
- }
- if(key==='userSail'){
-   const i=document.querySelector('#sailModeBtn .userVesselPhoto img');
-   return i?i.src:'';
- }
- return licensedImageSrc(key);
-}
 function scenarioInitialRelative(s){
-  // Exact copy of initScenario() initial target geometry, before own/target are assigned.
   const vo={x:s.ownS*Math.sin(rad(s.ownH)),y:s.ownS*Math.cos(rad(s.ownH))};
   const vt={x:s.tgtS*Math.sin(rad(s.tgtH)),y:s.tgtS*Math.cos(rad(s.tgtH))};
   let rv={x:vt.x-vo.x,y:vt.y-vo.y},rvm=Math.hypot(rv.x,rv.y);
@@ -17556,40 +17536,66 @@ function scenarioInitialRelative(s){
   const pm=Math.hypot(px,py)||1;
   return{x:px*2/pm,y:py*2/pm};
 }
-function scenarioGeometryHTML(id){
-  const s=SCENARIOS[id],r=scenarioInitialRelative(s);
-
-  // Heading-up display: rotate the real simulator geometry into own-vessel reference.
+function scenarioRole(id){
+  const s=SCENARIOS[id];
+  if(s.kind==='cross_giveway'||s.kind==='overtaking'||s.kind==='power_give_sail'||s.kind==='sail_giveway')return['GIVE-WAY','chartGive'];
+  if(s.kind==='cross_standon'||s.kind==='cross_standon_fail'||s.kind==='overtaken'||s.kind==='sail_standon')return['STAND-ON','chartStand'];
+  if(s.kind==='head_on')return['BOTH MANOEUVRE','chartGive'];
+  return['ASSESS','chartStand'];
+}
+function scenarioChartHTML(id){
+  const s=SCENARIOS[id],r=scenarioInitialRelative(s),spec=SCENARIO_VISUALS[id]||['COLREG SCENARIO',''];
   const a=-rad(s.ownH);
   const rx=r.x*Math.cos(a)+r.y*Math.sin(a);
   const ry=-r.x*Math.sin(a)+r.y*Math.cos(a);
 
-  // Wide 180×64 plate closely matches the actual photograph box, so boats and labels
-  // retain their proportions instead of being stretched horizontally.
-  const ownX=90,ownY=53,scale=20/2;
+  const ownX=90,ownY=82,scale=27/2;
   const tx=ownX+rx*scale,ty=ownY-ry*scale;
   const tgtRelH=((s.tgtH-s.ownH)%360+360)%360;
 
-  const boat=(x,y,h,cls)=>`
+  const boat=(x,y,h,kind)=>`
     <g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${h.toFixed(1)})">
-      <line class="${cls==='sgOwn'?'sgCourseOwn':'sgCourseTarget'}" x1="0" y1="7" x2="0" y2="-13"/>
-      <path class="${cls}" d="M 0,-7 L 4.5,5 L 0,3.5 L -4.5,5 Z"/>
+      <line class="${kind==='own'?'chartCourseOwn':'chartCourseTarget'}" x1="0" y1="7" x2="0" y2="-29"/>
+      <path class="${kind==='own'?'chartOwn':'chartTarget'}" d="M0,-8 L5,6 L0,4 L-5,6 Z"/>
     </g>`;
 
-  let side='AHEAD';
-  if(rx>.18)side='TARGET • STARBOARD';
-  else if(rx<-.18)side='TARGET • PORT';
-  else if(ry<-.15)side='TARGET • ASTERN';
+  const role=scenarioRole(id);
+  let wind='';
+  if(s.ownType==='sail'){
+    const wf=(typeof s.windFrom==='number'?s.windFrom:(s.ownTack==='port'?270:90));
+    // Convert true wind source direction to heading-up chart coordinates.
+    const rel=((wf-s.ownH)%360+360)%360;
+    const cx=31,cy=27,L=25;
+    const sx=cx+Math.sin(rad(rel))*L/2, sy=cy-Math.cos(rad(rel))*L/2;
+    const ex=cx-Math.sin(rad(rel))*L/2, ey=cy+Math.cos(rad(rel))*L/2;
+    const ah=5, ang=Math.atan2(ey-sy,ex-sx);
+    const p1x=ex-ah*Math.cos(ang-Math.PI/6), p1y=ey-ah*Math.sin(ang-Math.PI/6);
+    const p2x=ex-ah*Math.cos(ang+Math.PI/6), p2y=ey-ah*Math.sin(ang+Math.PI/6);
+    wind=`<g>
+      <line class="chartWind" x1="${sx.toFixed(1)}" y1="${sy.toFixed(1)}" x2="${ex.toFixed(1)}" y2="${ey.toFixed(1)}"/>
+      <path d="M${ex.toFixed(1)},${ey.toFixed(1)} L${p1x.toFixed(1)},${p1y.toFixed(1)} L${p2x.toFixed(1)},${p2y.toFixed(1)} Z" fill="#256f9a"/>
+      <text class="chartWindText" x="8" y="11">WIND FROM ${String(s.ownTack||'').toUpperCase()} SIDE</text>
+    </g>`;
+  }
 
-  return `<span class="scenarioGeometry">
-   <svg viewBox="0 0 180 64" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-    <line class="sgBearing" x1="${ownX}" y1="${ownY}" x2="${tx.toFixed(1)}" y2="${ty.toFixed(1)}"/>
-    ${boat(ownX,ownY,0,'sgOwn')}
-    ${boat(tx,ty,tgtRelH,'sgTarget')}
-    <text class="sgLabel" x="${ownX+6}" y="${ownY+3}">OWN</text>
-    <text class="sgLabel" x="${Math.min(158,Math.max(8,tx+6)).toFixed(1)}" y="${Math.min(58,Math.max(9,ty+2)).toFixed(1)}">TARGET</text>
-   </svg>
-   <span class="scenarioAspectChip">${side}</span>
+  let rel='AHEAD';
+  if(rx>.18)rel='TARGET ON STARBOARD';
+  else if(rx<-.18)rel='TARGET ON PORT';
+  else if(ry<-.15)rel='TARGET ASTERN';
+
+  return `<span class="scenarioChart">
+    <span class="scenarioChartTitle">${rel}</span>
+    <span class="scenarioChartRule">${spec[1]}</span>
+    <svg viewBox="0 0 180 104" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <line class="chartBearing" x1="${ownX}" y1="${ownY}" x2="${tx.toFixed(1)}" y2="${ty.toFixed(1)}"/>
+      ${wind}
+      ${boat(ownX,ownY,0,'own')}
+      ${boat(tx,ty,tgtRelH,'target')}
+      <text class="chartLabel" x="${ownX+7}" y="${ownY+3}">OWN${s.ownType==='sail'&&s.ownTack?' • '+s.ownTack.toUpperCase()+' TACK':''}</text>
+      <text class="chartLabel" x="${Math.min(146,Math.max(8,tx+7)).toFixed(1)}" y="${Math.min(94,Math.max(15,ty+2)).toFixed(1)}">TARGET${s.tgtType==='sail'&&s.tgtTack?' • '+s.tgtTack.toUpperCase()+' TACK':''}</text>
+      <rect class="chartRolePill ${role[1]}" x="114" y="7" width="58" height="12" rx="4"/>
+      <text class="chartRolePillText" x="143" y="15" text-anchor="middle">${role[0]}</text>
+    </svg>
   </span>`;
 }
 
@@ -17614,24 +17620,12 @@ function renderScenarioList(){
   const ids=ownVesselMode==='sail'?SAIL_SCENARIO_ORDER:POWER_SCENARIO_ORDER;
   const box=$('scenarioList');
   box.innerHTML=ids.map((id,i)=>{
-    const s=SCENARIOS[id],v=SCENARIO_VISUALS[id]||['cargo','COLREG SCENARIO','crossA'];
-    const src=scenarioImageSrc(v[0]);
+    const s=SCENARIOS[id];
     return `<button class="scenarioBtn ${id===scenarioId?'active':''}" data-sid="${id}" onclick="selectScenario('${id}',this)">
-      <span class="scenarioPhoto">
-        <img src="${src}" alt="" loading="lazy">
-        <span class="scenarioPhotoShade"></span>
-        ${scenarioGeometryHTML(id)}
-        <span class="scenarioVisualTag">${v[1]}</span>
-      </span>
+      ${scenarioChartHTML(id)}
       <span class="scenarioCopy"><b>${String(i+1).padStart(2,'0')} • ${s.name}</b><span>${scenarioSubtitle(id)}</span></span>
     </button>`;
   }).join('');
-
-  // Cache only library-backed images; Suilven and sailing selector photos are already embedded.
-  ids.forEach(id=>{
-    const v=SCENARIO_VISUALS[id];
-    if(v && !['suilven','userSail'].includes(v[0])) cacheLicensedImage(v[0]);
-  });
 }
 
 function setOwnVesselMode(mode){
@@ -17674,6 +17668,7 @@ function updateWindIndicator(){
   }
   const side=(s.ownTack||'starboard').toLowerCase();
   box.classList.add('show');
+  // Arrow shows the direction the wind is blowing: from the named side toward the opposite side.
   if($('windArrow')) $('windArrow').textContent=side==='port'?'WIND →':'← WIND';
   if($('windText')) $('windText').textContent='WIND FROM '+side.toUpperCase();
   let detail='OWN VESSEL • '+side.toUpperCase()+' TACK';
@@ -19891,3 +19886,4 @@ try{enhanceHomeHub();}catch(e){}
 </div>
 
 </body></html>
+<style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
