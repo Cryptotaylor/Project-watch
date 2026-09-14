@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.18.2 — Signals Module Fix</title>
+<title>Project Watch 1.18.3 — Marina Diagram Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -1977,7 +1977,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.18.2 • SIGNALS MODULE FIX</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.18.3 • MARINA DIAGRAM FIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -2075,7 +2075,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <h3>Reverse out of the berth</h3>
     <p class="note">Select the signal you would make while operating astern propulsion. This exercise teaches the COLREG signal itself; actual berth/departure requirements can be supplemented by local harbour rules.</p>
     <div class="marinaDiagram">
-      <svg viewBox="0 0 900 330" aria-label="Top-down marina berth with vessel reversing astern into fairway">
+      <svg viewBox="0 0 900 330" aria-label="Top-down marina berth showing a vessel lying correctly fore-and-aft between finger pontoons and reversing astern into the fairway">
         <defs>
           <marker id="arrowWhite" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
             <path d="M0,0 L12,6 L0,12 z" fill="#ffffff"/>
@@ -2088,35 +2088,56 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
         <!-- water -->
         <rect x="0" y="0" width="900" height="330" fill="#4f98ba"/>
 
-        <!-- pontoon / finger berth -->
-        <rect x="90" y="35" width="22" height="260" rx="6" fill="#d8d2c5"/>
-        <rect x="90" y="70" width="300" height="16" rx="5" fill="#d8d2c5"/>
-        <rect x="90" y="238" width="300" height="16" rx="5" fill="#d8d2c5"/>
+        <!-- main pontoon and two finger pontoons -->
+        <rect x="82" y="34" width="22" height="262" rx="6" fill="#d8d2c5"/>
+        <rect x="82" y="66" width="360" height="16" rx="5" fill="#d8d2c5"/>
+        <rect x="82" y="246" width="360" height="16" rx="5" fill="#d8d2c5"/>
 
-        <!-- full top-down boat -->
-        <g transform="translate(245 160) rotate(90)">
-          <path d="M-72,0 C-62,-30 -25,-40 38,-34 C58,-30 71,-17 80,0 C71,17 58,30 38,34 C-25,40 -62,30 -72,0 Z"
+        <!-- vessel correctly aligned fore-and-aft in the berth -->
+        <!-- Bow is inboard to the left; stern is outboard toward the fairway -->
+        <g transform="translate(270 164)">
+          <path d="M-105,0
+                   C-92,-28 -55,-39 30,-35
+                   C67,-33 94,-22 112,0
+                   C94,22 67,33 30,35
+                   C-55,39 -92,28 -105,0 Z"
                 fill="#f7fbfd" stroke="#15394c" stroke-width="4"/>
-          <rect x="-22" y="-21" width="48" height="42" rx="8" fill="#c8d9e1" stroke="#15394c" stroke-width="3"/>
-          <line x1="-48" y1="0" x2="62" y2="0" stroke="#15394c" stroke-width="2" opacity=".5"/>
-          <circle cx="-38" cy="0" r="5" fill="#15394c"/>
+          <rect x="-30" y="-22" width="58" height="44" rx="9"
+                fill="#c8d9e1" stroke="#15394c" stroke-width="3"/>
+          <line x1="-74" y1="0" x2="82" y2="0" stroke="#15394c" stroke-width="2" opacity=".45"/>
+          <circle cx="-72" cy="0" r="5" fill="#15394c"/>
+          <!-- bow-point detail -->
+          <path d="M-105,0 L-88,-10 L-88,10 Z" fill="#15394c"/>
+          <!-- stern transom cue -->
+          <line x1="103" y1="-17" x2="103" y2="17" stroke="#15394c" stroke-width="5"/>
         </g>
 
-        <!-- reverse path: stern first out of berth -->
-        <path d="M245 235 C245 270 290 292 380 292 C500 292 590 250 650 205"
-              fill="none" stroke="#ffffff" stroke-width="9" stroke-dasharray="18 12"
-              marker-end="url(#arrowWhite)"/>
-        <text x="390" y="318" class="routeLabel">PLANNED ASTERN MOVEMENT</text>
+        <!-- bow and stern labels -->
+        <text x="126" y="151" class="routeLabel">BOW</text>
+        <line x1="155" y1="156" x2="176" y2="164" stroke="#6ee0ff" stroke-width="4"/>
+        <text x="350" y="151" class="routeLabel">STERN</text>
+        <line x1="405" y1="156" x2="382" y2="164" stroke="#6ee0ff" stroke-width="4"/>
 
-        <!-- bow swing reference -->
-        <path d="M245 95 C205 92 178 105 160 132"
+        <!-- planned astern path from the stern out of the berth, then into fairway -->
+        <path d="M382 164
+                 C470 164 525 174 565 208
+                 C605 242 652 247 713 215"
+              fill="none" stroke="#ffffff" stroke-width="9"
+              stroke-dasharray="18 12" marker-end="url(#arrowWhite)"/>
+
+        <text x="470" y="292" class="routeLabel">PLANNED ASTERN MOVEMENT</text>
+
+        <!-- bow swing -->
+        <path d="M170 164 C150 136 151 112 172 92"
               fill="none" stroke="#6ee0ff" stroke-width="7"
               marker-end="url(#arrowCyan)"/>
-        <text x="125" y="110" class="routeLabel" fill="#6ee0ff">BOW SWING</text>
+        <text x="115" y="83" class="routeLabel" fill="#6ee0ff">BOW SWING</text>
 
-        <!-- fairway -->
-        <line x1="500" y1="40" x2="500" y2="285" stroke="#d9f4ff" stroke-width="3" stroke-dasharray="14 12" opacity=".8"/>
-        <text x="522" y="58" class="routeLabel">FAIRWAY</text>
+        <!-- fairway reference -->
+        <line x1="690" y1="38" x2="690" y2="285"
+              stroke="#d9f4ff" stroke-width="3"
+              stroke-dasharray="14 12" opacity=".8"/>
+        <text x="710" y="58" class="routeLabel">FAIRWAY</text>
       </svg>
     </div>
 
