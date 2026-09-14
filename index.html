@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.21.3 — Persistent TSS Trail</title>
+<title>Project Watch 1.21.4 — Audit Patch</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -16,6 +16,9 @@
 *{box-sizing:border-box}
 body{margin:0;background:#011018;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .app{max-width:1200px;margin:auto;min-height:100vh;background:linear-gradient(#07354d,#02141d)}
+.windIndicator{display:none;position:absolute;left:12px;top:12px;z-index:6;background:#052a3ee8;border:1px solid #6ee0ff66;border-radius:12px;padding:8px 10px;min-width:180px;box-shadow:0 4px 14px #0005}
+.windIndicator.show{display:block}.windArrow{font-size:25px;font-weight:900;color:#6ee0ff;line-height:1}.windText{font-size:10px;color:#d7f5ff;font-weight:800;letter-spacing:.05em;margin-top:3px}.windSub{font-size:9px;color:#a8bec9;margin-top:2px}
+
 header{padding:13px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#052a3eee;backdrop-filter:blur(10px);z-index:20}
 .brand{font-weight:900;letter-spacing:.17em}.ver{font-size:11px;color:var(--cyan)}
 #hdrMode{font-weight:900;letter-spacing:.08em}#hdrMode.backBtn{cursor:pointer;background:#16475e;border:1px solid #6ee0ff55;border-radius:9px;padding:9px 13px;color:#fff;user-select:none}#hdrMode.backBtn:hover{background:#168bcf}#hdrMode.backBtn:active{transform:translateY(1px)}
@@ -16570,7 +16573,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.21.3 • PERSISTENT TSS TRAIL</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.21.4 • AUDIT PATCH</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -16979,6 +16982,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <button onclick="orientation='head';draw()">HEAD UP</button>
     </div>
     <div class="sea">
+      <div id="windIndicator" class="windIndicator"><div id="windArrow" class="windArrow">←</div><div id="windText" class="windText">WIND FROM STARBOARD</div><div id="windSub" class="windSub">OWN VESSEL • STARBOARD TACK</div></div>
       <div id="alert" class="alert"></div><div id="qualityAlert" class="qualityAlert"></div>
       <svg viewBox="-4 -4 8 8">
         <circle cx="0" cy="0" r="1" fill="none" stroke="#55dd8a55" stroke-width=".02"/>
@@ -17129,10 +17133,11 @@ const SCENARIOS={
   sail_starboard_tack:{name:'Sail vs sail — own vessel on starboard tack',mode:'sail',ownH:0,ownS:6,tgtH:270,tgtS:6,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'port'},
   sail_windward:{name:'Sail vs sail — same tack, own vessel windward',mode:'sail',ownH:0,ownS:6,tgtH:300,tgtS:6,kind:'sail_giveway',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'starboard',ownWindward:true},
   sail_leeward:{name:'Sail vs sail — same tack, own vessel leeward',mode:'sail',ownH:0,ownS:6,tgtH:300,tgtS:6,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'starboard',ownWindward:false},
-  sail_overtaking:{name:'Sailing vessel overtaking',mode:'sail',ownH:0,ownS:8,tgtH:0,tgtS:5,kind:'overtaking',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard'}
+  sail_overtaking:{name:'Sailing vessel overtaking',mode:'sail',ownH:0,ownS:8,tgtH:0,tgtS:5,kind:'overtaking',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard'},
+  rule17_fail:{name:'Rule 17 — give-way vessel fails to act',mode:'power',ownH:0,ownS:7,tgtH:90,tgtS:10,kind:'cross_standon_fail',offset:0,ownType:'power',tgtType:'power'}
 };
 
-const POWER_SCENARIO_ORDER=['cross_stbd','cross_port','head_on','overtake','overtaken','cross_stbd_offset','head_on_offset','overtake_port','power_vs_sail'];
+const POWER_SCENARIO_ORDER=['cross_stbd','cross_port','rule17_fail','head_on','overtake','overtaken','cross_stbd_offset','head_on_offset','overtake_port','power_vs_sail'];
 const SAIL_SCENARIO_ORDER=['sail_vs_power','sail_port_tack','sail_starboard_tack','sail_windward','sail_leeward','sail_overtaking'];
 
 function scenarioSubtitle(id){
@@ -17148,6 +17153,7 @@ function scenarioSubtitle(id){
   if(s.kind==='overtaking') return 'Rule 13 • overtaking vessel responsible';
   if(s.kind==='overtaken') return 'Rule 13 • target overtaking vessel responsible';
   if(s.kind==='cross_standon') return 'Power / power • own vessel stand-on';
+  if(s.kind==='cross_standon_fail') return 'Rule 17 • stand-on vessel must monitor and act if the give-way vessel fails';
   return 'Power / power • give-way assessment';
 }
 
@@ -17191,6 +17197,23 @@ function selectScenario(id,el){
 
 
 
+function updateWindIndicator(){
+  const s=SCENARIOS[scenarioId], box=$('windIndicator');
+  if(!box)return;
+  if(s.ownType!=='sail'){
+    box.classList.remove('show');
+    return;
+  }
+  const side=(s.ownTack||'starboard').toLowerCase();
+  box.classList.add('show');
+  if($('windArrow')) $('windArrow').textContent=side==='port'?'WIND →':'← WIND';
+  if($('windText')) $('windText').textContent='WIND FROM '+side.toUpperCase();
+  let detail='OWN VESSEL • '+side.toUpperCase()+' TACK';
+  if(s.tgtType==='sail' && s.tgtTack) detail+=' • TARGET '+s.tgtTack.toUpperCase()+' TACK';
+  if(s.ownWindward===true) detail+=' • OWN WINDWARD';
+  if(s.ownWindward===false) detail+=' • OWN LEEWARD';
+  if($('windSub')) $('windSub').textContent=detail;
+}
 function initScenario(){
   const s=SCENARIOS[scenarioId];
   ownVesselMode=s.mode;
@@ -17203,6 +17226,7 @@ function initScenario(){
   if($('watchVesselStatus')) $('watchVesselStatus').textContent=s.ownType==='sail'
     ?'OWN VESSEL • SAILING • MACHINERY OFF'
     :'OWN VESSEL • POWER-DRIVEN';
+  updateWindIndicator();
 
   // Construct target at exactly 2 NM initial separation using relative-motion geometry.
   let vo=vel(own), vt=vel({h:s.tgtH,s:s.tgtS});
@@ -17238,14 +17262,14 @@ const BUOY_DATA=[
  {id:'starboard',name:'Starboard-hand lateral',family:'Lateral • Region A',body:'green',top:'coneUp',light:'Green; any rhythm except the reserved composite group (2+1)',meaning:'Marks the starboard-hand side of a channel or fairway when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.3',lamp:'green',pattern:[[0,.55]],period:4,patternLabel:'Representative Fl G 4s training rhythm'},
  {id:'prefStbd',name:'Preferred channel to starboard',family:'Modified lateral • Region A',body:'redGreenRed',top:'canRed',light:'Red; composite group flashing (2+1)',meaning:'At a channel division, the preferred channel is to starboard when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.5',lamp:'red',pattern:[[0,.35],[.75,1.10],[2.0,2.35]],period:4,patternLabel:'Fl(2+1) R'},
  {id:'prefPort',name:'Preferred channel to port',family:'Modified lateral • Region A',body:'greenRedGreen',top:'coneGreen',light:'Green; composite group flashing (2+1)',meaning:'At a channel division, the preferred channel is to port when proceeding in the conventional direction of buoyage.',source:'IALA R1001 §2.1.5',lamp:'green',pattern:[[0,.35],[.75,1.10],[2.0,2.35]],period:4,patternLabel:'Fl(2+1) G'},
- {id:'north',name:'North Cardinal',family:'Cardinal',body:'blackYellow',top:'conesUp',light:'White: VQ or Q',meaning:'Safe water lies to the north of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.20]],period:.5,patternLabel:'Q (continuous quick)'},
- {id:'east',name:'East Cardinal',family:'Cardinal',body:'blackYellowBlack',top:'conesBase',light:'White: VQ(3)5s or Q(3)10s',meaning:'Safe water lies to the east of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.25],[.75,1.0],[1.5,1.75]],period:5,patternLabel:'VQ(3) 5s'},
- {id:'south',name:'South Cardinal',family:'Cardinal',body:'yellowBlack',top:'conesDown',light:'White: VQ(6)+LFl 10s or Q(6)+LFl 15s',meaning:'Safe water lies to the south of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.20],[.55,.75],[1.10,1.30],[1.65,1.85],[2.20,2.40],[2.75,2.95],[4.2,6.2]],period:10,patternLabel:'VQ(6)+LFl 10s'},
- {id:'west',name:'West Cardinal',family:'Cardinal',body:'yellowBlackYellow',top:'conesPoint',light:'White: VQ(9)10s or Q(9)15s',meaning:'Safe water lies to the west of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.20],[.55,.75],[1.10,1.30],[1.65,1.85],[2.20,2.40],[2.75,2.95],[3.30,3.50],[3.85,4.05],[4.40,4.60]],period:10,patternLabel:'VQ(9) 10s'},
+ {id:'north',name:'North Cardinal',family:'Cardinal',body:'blackYellow',top:'conesUp',light:'White: VQ or Q',meaning:'Safe water lies to the north of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.25]],period:.5,patternLabel:'VQ (continuous very quick training rhythm)'},
+ {id:'east',name:'East Cardinal',family:'Cardinal',body:'blackYellowBlack',top:'conesBase',light:'White: VQ(3)5s or Q(3)10s',meaning:'Safe water lies to the east of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.25],[.50,.75],[1.00,1.25]],period:5,patternLabel:'VQ(3) 5s'},
+ {id:'south',name:'South Cardinal',family:'Cardinal',body:'yellowBlack',top:'conesDown',light:'White: VQ(6)+LFl 10s or Q(6)+LFl 15s',meaning:'Safe water lies to the south of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.25],[.50,.75],[1.00,1.25],[1.50,1.75],[2.00,2.25],[2.50,2.75],[3.25,5.25]],period:10,patternLabel:'VQ(6)+LFl 10s'},
+ {id:'west',name:'West Cardinal',family:'Cardinal',body:'yellowBlackYellow',top:'conesPoint',light:'White: VQ(9)10s or Q(9)15s',meaning:'Safe water lies to the west of the mark.',source:'IALA R1001 §2.2',lamp:'white',pattern:[[0,.25],[.50,.75],[1.00,1.25],[1.50,1.75],[2.00,2.25],[2.50,2.75],[3.00,3.25],[3.50,3.75],[4.00,4.25]],period:10,patternLabel:'VQ(9) 10s'},
  {id:'isolated',name:'Isolated Danger',family:'General mark',body:'blackRedBlack',top:'twoBalls',light:'White: Fl(2)',meaning:'The mark is on or near an isolated danger with navigable water all around. Consult the chart for safe passing distance.',source:'IALA R1001 §2.3',lamp:'white',pattern:[[0,.45],[1.0,1.45]],period:5,patternLabel:'Fl(2) W'},
  {id:'safe',name:'Safe Water',family:'General mark',body:'redWhiteVertical',top:'redBall',light:'White: Iso, Oc, LFl 10s or Mo(A)',meaning:'Navigable water exists all around the mark; used for centreline, mid-channel, entrance, approach or landfall purposes.',source:'IALA R1001 §2.4',lamp:'white',pattern:[[0,2.0]],period:4,patternLabel:'Iso W (representative permitted characteristic)'},
  {id:'special',name:'Special Mark',family:'General mark',body:'yellow',top:'xYellow',light:'Yellow; rhythm not reserved for another mark',meaning:'Marks a special area or feature whose nature is identified from the chart or nautical publication.',source:'IALA R1001 §2.5',lamp:'yellow',pattern:[[0,.55]],period:4,patternLabel:'Representative Fl Y 4s training rhythm'},
- {id:'wreck',name:'Emergency Wreck Mark',family:'New danger',body:'blueYellowVertical',top:'crossYellow',light:'Alternating blue and yellow',meaning:'Used to mark a new wreck or newly discovered danger while information is being promulgated and other marking is established.',source:'IALA R1001 new-danger provisions',lamp:'alternate',pattern:[[0,.5,'blue'],[.75,1.25,'yellow']],period:1.5,patternLabel:'Alternating blue / yellow'}
+ {id:'wreck',name:'Emergency Wreck Mark',family:'New danger',body:'blueYellowVertical',top:'crossYellow',light:'Alternating blue and yellow: 1 s blue, 0.5 s eclipse, 1 s yellow, 0.5 s eclipse',meaning:'Used to mark a new wreck or newly discovered danger while information is being promulgated and other marking is established.',source:'IALA R1001 new-danger provisions',lamp:'alternate',pattern:[[0,1,'blue'],[1.5,2.5,'yellow']],period:3,patternLabel:'Al.BuY 3s'}
 ];
 
 function buoySVG(item){
@@ -17419,13 +17443,15 @@ const BV=[
 {id:'ram',name:'Restricted in ability to manoeuvre, making way',kind:'work',rule:'27',shape:'ballDiamondBall',status:[['R',270,70],['W',270,106],['R',270,142]],nav:'pd',memory:'Red-white-red all-round plus power-driven lights when making way.'},
 {id:'cbd',name:'Vessel constrained by her draught',kind:'tanker',rule:'28',shape:'cylinder',status:[['R',270,68],['R',270,104],['R',270,140]],nav:'pd2',memory:'May show three all-round reds or a cylinder in addition to Rule 23 lights.'},
 {id:'pilot',name:'Pilot vessel on pilotage duty, underway',kind:'pilot',rule:'29',shape:'',status:[['W',270,88],['R',270,124]],nav:'move',memory:'White over red all-round; when underway, sidelights and sternlight.'},
-{id:'anchor',name:'Vessel at anchor',kind:'ship',rule:'30',shape:'ball',status:[['W',310,95]],nav:'none',memory:'Anchor display. Vessels 50 m or more also show a lower all-round white at or near the stern.'},
-{id:'aground',name:'Vessel aground',kind:'ship',rule:'30',shape:'threeBalls',status:[['R',270,83],['R',270,119],['W',320,100]],nav:'none',memory:'Anchor light(s) plus two all-round reds; three balls by day.'},
+{id:'anchorU50',name:'Vessel at anchor — under 50 m',kind:'ship',rule:'30',shape:'ball',status:[['W',310,95]],nav:'none',memory:'One all-round white anchor light may be shown where it can best be seen; one ball by day.'},
+{id:'anchor50',name:'Vessel at anchor — 50 m or more',kind:'ship',rule:'30',shape:'ball',status:[['W',310,95],['W',230,126]],nav:'none',memory:'Forward all-round white and a second all-round white at or near the stern at a lower level; one ball by day.'},
+{id:'agroundU50',name:'Vessel aground — under 50 m',kind:'ship',rule:'30',shape:'threeBalls',status:[['R',270,83],['R',270,119],['W',320,100]],nav:'none',memory:'Anchor light for a vessel under 50 m plus two all-round reds; three balls by day.'},
+{id:'aground50',name:'Vessel aground — 50 m or more',kind:'ship',rule:'30',shape:'threeBalls',status:[['R',270,83],['R',270,119],['W',320,100],['W',220,132]],nav:'none',memory:'Forward and lower after anchor whites plus two all-round reds; three balls by day.'},
 {id:'towShort',name:'Towing astern — tow 200 m or less',kind:'work',rule:'24',shape:'',status:[],nav:'tow2',memory:'Two masthead towing lights in a vertical line, sidelights, sternlight, and a yellow towing light vertically above the sternlight.'},
 {id:'towLong',name:'Towing astern — tow over 200 m',kind:'work',rule:'24',shape:'diamond',status:[],nav:'tow3',memory:'Three masthead towing lights in a vertical line; a diamond by day; sidelights, sternlight, and a yellow towing light above the sternlight.'},
 {id:'push',name:'Pushing ahead / towing alongside — not a composite unit',kind:'work',rule:'24',shape:'',status:[],nav:'push',memory:'Two masthead lights in a vertical line, sidelights, and a sternlight.'},
 {id:'composite',name:'Rigid composite unit',kind:'work',rule:'24',shape:'',status:[],nav:'pd',memory:'A rigidly connected pushing vessel and vessel pushed ahead are treated as one power-driven vessel under Rule 23.'},
-{id:'gear150',name:'Fishing — outlying gear extends over 150 m',kind:'fisher',rule:'26',shape:'conesGear',status:[['R',270,92],['W',270,126],['W',365,126]],nav:'move',memory:'Red over white, plus an all-round white in the direction of the outlying gear; by day an extra cone apex upward in the direction of the gear.'},
+{id:'gear150',name:'Fishing — outlying gear over 150 m to starboard',kind:'fisher',rule:'26',shape:'conesGear',status:[['R',270,92],['W',270,126],['W',365,126]],nav:'move',memory:'Red over white, plus an all-round white toward the outlying gear; this training example places the gear to starboard. By day an extra cone apex upward is shown toward the gear.'},
 {id:'dredge',name:'Dredging / underwater operations — obstruction to starboard',kind:'work',rule:'27',shape:'dredge',status:[['R',270,58],['W',270,94],['R',270,130],['R',365,82],['R',365,118],['G',175,82],['G',175,118]],nav:'pd',memory:'RAM red-white-red, plus two red on the obstruction side and two green on the side on which another vessel may pass.'},
 {id:'diving',name:'Diving operations — reduced display',kind:'work',rule:'27',shape:'alpha',status:[['R',270,58],['W',270,94],['R',270,130]],nav:'none',memory:'Where the vessel is too small for the full dredging display: red-white-red all-round plus a rigid International Code flag A by day.'},
 {id:'mine',name:'Mine-clearance vessel',kind:'ship',rule:'27',shape:'mineBalls',status:[['G',270,62],['G',195,112],['G',345,112]],nav:'pd',memory:'Three all-round green lights, or three balls by day: one near the foremast head and one at each end of the fore yard. It is dangerous to approach within 1000 m.'}
@@ -17448,6 +17474,13 @@ function bvHull(kind,aspect,day){
  else hull+=`<rect x="185" y="200" width="135" height="70" rx="4" fill="${deck}"/><line x1="270" y1="200" x2="270" y2="105" stroke="${deck}" stroke-width="7"/>`;
  return `<g opacity="${op}">${hull}</g>`;
 }
+function bvSideX(side){
+ const a=bvAspect;
+ if(a==='ahead') return side==='stbd'?190:350;
+ if(a==='astern') return side==='stbd'?350:190;
+ if(a==='stbd') return side==='stbd'?350:190;
+ return side==='stbd'?190:350; // port view
+}
 function bvShape(s){
  let ball=(y)=>`<circle class="bridgeShape" cx="270" cy="${y}" r="14"/>`,dia=(y)=>`<polygon class="bridgeShape" points="270,${y-18} 286,${y} 270,${y+18} 254,${y}"/>`;
  if(s==='coneDown')return `<polygon class="bridgeShape" points="250,80 290,80 270,120"/>`;
@@ -17458,9 +17491,9 @@ function bvShape(s){
  if(s==='ball')return ball(92);
  if(s==='threeBalls')return ball(58)+ball(100)+ball(142);
  if(s==='diamond')return dia(100);
- if(s==='conesGear')return `<polygon class="bridgeShape" points="250,72 290,72 270,108"/><polygon class="bridgeShape" points="270,110 250,146 290,146"/><polygon class="bridgeShape" points="350,115 330,151 370,151"/>`;
+ if(s==='conesGear'){let gx=bvSideX('stbd');return `<polygon class="bridgeShape" points="250,72 290,72 270,108"/><polygon class="bridgeShape" points="270,110 250,146 290,146"/><polygon class="bridgeShape" points="${gx},115 ${gx-20},151 ${gx+20},151"/>`;}
  if(s==='mineBalls')return ball(62)+`<circle class="bridgeShape" cx="205" cy="118" r="14"/><circle class="bridgeShape" cx="335" cy="118" r="14"/>`;
- if(s==='dredge')return ball(50)+dia(92)+ball(134)+`<circle class="bridgeShape" cx="355" cy="82" r="14"/><circle class="bridgeShape" cx="355" cy="124" r="14"/><polygon class="bridgeShape" points="185,64 202,82 185,100 168,82"/><polygon class="bridgeShape" points="185,106 202,124 185,142 168,124"/>`;
+ if(s==='dredge'){let sx=bvSideX('stbd'),px=bvSideX('port');return ball(50)+dia(92)+ball(134)+`<circle class="bridgeShape" cx="${sx}" cy="82" r="14"/><circle class="bridgeShape" cx="${sx}" cy="124" r="14"/><polygon class="bridgeShape" points="${px},64 ${px+17},82 ${px},100 ${px-17},82"/><polygon class="bridgeShape" points="${px},106 ${px+17},124 ${px},142 ${px-17},124"/>`; }
  if(s==='alpha')return `<g transform="translate(330 72)"><rect x="0" y="0" width="42" height="76" fill="#fff"/><path d="M0 0 L42 38 L0 76 Z" fill="#1d62ad"/></g>`;
  return '';
 }
@@ -17543,11 +17576,26 @@ function bvGraphic(){
  let c=BV[bvI],day=bvLight==='day',body=bvHull(c.kind,bvAspect,day);
  if(day)body+=bvShape(c.shape);
  else {
-   c.status.forEach(x=>{
+   let whiteCount=0;
+   c.status.forEach((x,idx)=>{
      let col=x[0], sx=x[1], sy=x[2];
-     // Re-project key white/status roles for realistic aspect.
-     if(c.id==='anchor' && col==='W'){let q=bvStatusPoint('anchorF'); body+=bvLamp(col,q[0],q[1]);}
-     else if(c.id==='aground' && col==='W'){let q=bvStatusPoint('anchorF'); body+=bvLamp(col,q[0],q[1]);}
+
+     // Anchor / aground whites are fore-and-aft physical lights and therefore
+     // project differently with viewing aspect.
+     if(['anchorU50','anchor50','agroundU50','aground50'].includes(c.id) && col==='W'){
+       whiteCount++;
+       let role=(c.id==='anchor50'||c.id==='aground50') && whiteCount===2 ? 'anchorA':'anchorF';
+       let q=bvStatusPoint(role); body+=bvLamp(col,q[0],q[1]);
+     }
+     // Outlying fishing gear in this training example is to starboard.
+     else if(c.id==='gear150' && idx===2){
+       body+=bvLamp(col,bvSideX('stbd'),sy);
+     }
+     // Dredger: red obstruction side = starboard; green safe-passing side = port.
+     else if(c.id==='dredge' && idx>=3){
+       let side=(idx===3||idx===4)?'stbd':'port';
+       body+=bvLamp(col,bvSideX(side),sy);
+     }
      else body+=bvLamp(col,sx,sy);
    });
    bvNav(c).forEach(x=>body+=bvLamp(...x))
@@ -17687,9 +17735,9 @@ function audioRapidGong(btn){
 
 
 const MAN_SIGNALS=[
-{id:'stbd',title:'Alter course to starboard',pattern:'•',meaning:'One short blast',rule:'34(a)',seq:[['short']]},
-{id:'port',title:'Alter course to port',pattern:'••',meaning:'Two short blasts',rule:'34(a)',seq:[['short'],['short']]},
-{id:'astern',title:'Operating astern propulsion',pattern:'•••',meaning:'Three short blasts',rule:'34(a)',seq:[['short'],['short'],['short']]},
+{id:'stbd',title:'I am altering course to starboard',pattern:'•',meaning:'One short blast',rule:'34(a)',seq:[['short']]},
+{id:'port',title:'I am altering course to port',pattern:'••',meaning:'Two short blasts',rule:'34(a)',seq:[['short'],['short']]},
+{id:'astern',title:'I am operating astern propulsion',pattern:'•••',meaning:'Three short blasts',rule:'34(a)',seq:[['short'],['short'],['short']]},
 {id:'overtakeStbd',title:'Intend to overtake on your starboard side',pattern:'— — •',meaning:'Two prolonged, one short',rule:'34(c)',seq:[['long'],['long'],['short']]},
 {id:'overtakePort',title:'Intend to overtake on your port side',pattern:'— — ••',meaning:'Two prolonged, two short',rule:'34(c)',seq:[['long'],['long'],['short'],['short']]},
 {id:'agreeOvertake',title:'Agreement to overtaking',pattern:'— • — •',meaning:'One prolonged, one short, one prolonged, one short',rule:'34(c)',seq:[['long'],['short'],['long'],['short']]},
@@ -17699,13 +17747,19 @@ const MAN_SIGNALS=[
 
 const FOG_SIGNALS=[
 {id:'pdMakingWay',title:'Power-driven vessel making way',pattern:'—',meaning:'One prolonged blast at intervals of not more than 2 minutes',rule:'35(a)',seq:[['long']]},
-{id:'pdStopped',title:'Power-driven vessel underway but stopped',pattern:'— —',meaning:'Two prolonged blasts with about 2 seconds between them',rule:'35(b)',seq:[['long'],['pause2'],['long']]},
-{id:'specialFog',title:'NUC / RAM / sailing / fishing / towing or pushing',pattern:'— ••',meaning:'One prolonged followed by two short blasts',rule:'35(c)',seq:[['long'],['short'],['short']]},
-{id:'towLast',title:'Last vessel of a manned tow',pattern:'— •••',meaning:'One prolonged followed by three short blasts',rule:'35(e)',seq:[['long'],['short'],['short'],['short']]},
-{id:'anchor',title:'Vessel at anchor',pattern:'🔔 ≈5s',meaning:'Rapid bell for about 5 seconds, at intervals of not more than 1 minute',rule:'35(g)',seq:[['rapidBell']]},
+{id:'pdStopped',title:'Power-driven vessel underway but stopped',pattern:'— —',meaning:'Two prolonged blasts, with about 2 seconds between them, at intervals of not more than 2 minutes',rule:'35(b)',seq:[['long'],['pause2'],['long']]},
+{id:'specialFog',title:'NUC / RAM / CBD / sailing / fishing',pattern:'— ••',meaning:'One prolonged followed by two short blasts at intervals of not more than 2 minutes',rule:'35(c)',seq:[['long'],['short'],['short']]},
+{id:'towPush',title:'Towing or pushing vessel',pattern:'— ••',meaning:'One prolonged followed by two short blasts at intervals of not more than 2 minutes',rule:'35(d)',seq:[['long'],['short'],['short']]},
+{id:'towLast',title:'Last vessel of a manned tow',pattern:'— •••',meaning:'One prolonged followed by three short blasts, when practicable immediately after the towing vessel signal',rule:'35(e)',seq:[['long'],['short'],['short'],['short']]},
+{id:'compositeFog',title:'Rigid composite pushing unit making way',pattern:'—',meaning:'Treated as a power-driven vessel: one prolonged blast when making way',rule:'35(f) / 35(a)',seq:[['long']]},
+{id:'anchor',title:'Vessel at anchor — under 100 m',pattern:'🔔 ≈5s',meaning:'Rapid bell for about 5 seconds, at intervals of not more than 1 minute',rule:'35(g)',seq:[['rapidBell']]},
+{id:'anchor100',title:'Vessel at anchor — 100 m or more',pattern:'🔔 ≈5s + GONG ≈5s',meaning:'Rapid bell forward for about 5 seconds, immediately followed by rapid gong aft for about 5 seconds',rule:'35(g)',seq:[['rapidBell'],['rapidGong']]},
 {id:'anchorWarn',title:'Anchor vessel warning approaching vessel',pattern:'• — •',meaning:'Optional one short, one prolonged, one short',rule:'35(g)',seq:[['short'],['long'],['short']]},
-{id:'aground',title:'Vessel aground',pattern:'3 🔔 + rapid 🔔 + 3 🔔',meaning:'Three distinct bell strokes, rapid bell about 5 seconds, then three distinct strokes',rule:'35(h)',seq:[['threeBell'],['rapidBell'],['threeBell']]},
-{id:'pilot',title:'Pilot vessel identity addition',pattern:'••••',meaning:'Four short blasts may be added to the applicable Rule 35 signal',rule:'35(k)',seq:[['short'],['short'],['short'],['short']]}
+{id:'aground',title:'Vessel aground — under 100 m',pattern:'3 🔔 + rapid 🔔 + 3 🔔',meaning:'Three distinct bell strokes, rapid bell about 5 seconds, then three distinct strokes',rule:'35(h)',seq:[['threeBell'],['rapidBell'],['threeBell']]},
+{id:'aground100',title:'Vessel aground — 100 m or more',pattern:'3 🔔 + rapid 🔔 + 3 🔔 + GONG',meaning:'Aground bell signal forward, followed by rapid gong aft for about 5 seconds',rule:'35(h)',seq:[['threeBell'],['rapidBell'],['threeBell'],['rapidGong']]},
+{id:'workAtAnchor',title:'Fishing / RAM carrying out work at anchor',pattern:'— ••',meaning:'Uses the Rule 35(c) one-prolonged-two-short signal instead of the ordinary anchor bell signal',rule:'35(c)',seq:[['long'],['short'],['short']]},
+{id:'pilot',title:'Pilot vessel identity addition',pattern:'••••',meaning:'Four short blasts may be added to the applicable Rule 35 signal',rule:'35(k)',seq:[['short'],['short'],['short'],['short']]},
+{id:'smallFogRef',title:'Small-vessel alternative sound signal',pattern:'REFERENCE',meaning:'Certain vessels under 20 m are not obliged to make some prescribed bell/whistle signals; where exempt, an efficient sound signal is required at intervals of not more than 2 minutes',rule:'35(i) / 35(j)',seq:[]}
 ];
 
 const DISTRESS_SIGNALS=[
@@ -17730,9 +17784,9 @@ const DISTRESS_SIGNALS=[
 
 
 const HARBOUR_SIGNALS=[
-{id:'harbourStbd',title:'Alter course to starboard',pattern:'•',meaning:'One short blast.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short']]},
-{id:'harbourPort',title:'Alter course to port',pattern:'••',meaning:'Two short blasts.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short'],['short']]},
-{id:'harbourAstern',title:'Operating astern propulsion',pattern:'•••',meaning:'Three short blasts. This indicates astern propulsion is being operated; it does not by itself prove the vessel is already moving astern.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short'],['short'],['short']]},
+{id:'harbourStbd',title:'I am altering course to starboard',pattern:'•',meaning:'One short blast.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short']]},
+{id:'harbourPort',title:'I am altering course to port',pattern:'••',meaning:'Two short blasts.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short'],['short']]},
+{id:'harbourAstern',title:'I am operating astern propulsion',pattern:'•••',meaning:'Three short blasts. This indicates astern propulsion is being operated; it does not by itself prove the vessel is already moving astern.',basis:'International COLREG Rule 34(a)',flag:'COLREG',seq:[['short'],['short'],['short']]},
 {id:'harbourDoubt',title:'Danger / doubt',pattern:'•••••+',meaning:'At least five short and rapid blasts when in doubt about another vessel’s intentions/actions or whether sufficient action is being taken.',basis:'International COLREG Rule 34(d)',flag:'COLREG',seq:[['rapid5']]},
 {id:'harbourBend',title:'Obscured bend / channel obstruction',pattern:'—',meaning:'One prolonged blast when nearing a bend or area of a channel/fairway where other vessels may be obscured.',basis:'International COLREG Rule 34(e)',flag:'COLREG',seq:[['long']]},
 {id:'localBerth',title:'Leaving berth / dock — local rule example',pattern:'LOCAL',meaning:'Some jurisdictions prescribe additional departure signals. These are not universal International COLREG signals and must be checked against local harbour/byelaw requirements.',basis:'Local / jurisdiction-specific',flag:'LOCAL',seq:[]}
@@ -17760,7 +17814,7 @@ function answerMarinaSignal(id){
  }
 }
 
-let sigQuizPool=[...MAN_SIGNALS,...FOG_SIGNALS],sigQuizIndex=-1,sigQuizCurrent=null;
+let sigQuizPool=[...MAN_SIGNALS,...FOG_SIGNALS].filter(s=>s.seq&&s.seq.length),sigQuizIndex=-1,sigQuizCurrent=null;
 
 function showSignalSection(name){
   const ids={audio:'Audio',man:'Man',fog:'Fog',distress:'Distress',harbour:'Harbour',quiz:'Quiz'};
@@ -17921,7 +17975,7 @@ function beaconHTML(kind){
 }
 
 function signalCardHTML(s){
- return `<div class="sigCard"><h4>${s.title}</h4><div class="sigPattern">${s.pattern}</div><p>${s.meaning}</p><span class="bridgeBadge">Rule ${s.rule}</span><button onclick="playDefinedSignal('${s.id}')">🔊 PLAY</button></div>`;
+ return `<div class="sigCard"><h4>${s.title}</h4><div class="sigPattern">${s.pattern}</div><p>${s.meaning}</p><span class="bridgeBadge">Rule ${s.rule}</span>${s.seq&&s.seq.length?`<button onclick="playDefinedSignal('${s.id}')">🔊 PLAY</button>`:''}</div>`;
 }
 
 function playDefinedSignal(id){
@@ -17935,9 +17989,10 @@ function playSeq(seq){
   seq.forEach(([kind])=>{
     if(kind==='short'){hornBlast(1.0,t);t+=1.65}
     else if(kind==='long'){hornBlast(4.5,t);t+=5.2}
-    else if(kind==='pause2'){t+=2}
+    else if(kind==='pause2'){t+=1.3}
     else if(kind==='rapid5'){for(let i=0;i<5;i++)hornBlast(.55,t+i*.8);t+=4.2}
     else if(kind==='rapidBell'){for(let i=0;i<12;i++)bellStrike(t+i*.42,'bell');t+=5.2}
+    else if(kind==='rapidGong'){for(let i=0;i<8;i++)bellStrike(t+i*.63,'gong');t+=5.2}
     else if(kind==='threeBell'){for(let i=0;i<3;i++)bellStrike(t+i*.75,'bell');t+=2.6}
   });
   audioMeterRun(Math.max(1,t));
@@ -18820,6 +18875,12 @@ function calculateTrainingScore(){
     if(firstAction===null && minSep>=0.30) return {score:5,label:'Strong stand-on outcome; give-way vessel kept clear'};
     return {score:4,label:'Safe stand-on outcome'};
   }
+  if(kind==='cross_standon_fail'){
+    if(minSep<0.08) return {score:2,label:'Rule 17 escalation was too late / passing distance unsafe'};
+    if(firstAction===null) return {score:2,label:'Give-way vessel failed to act and stand-on vessel took no avoiding action'};
+    if(minSep>=0.30 && actionRatio>=0.20) return {score:5,label:'Good Rule 17 escalation — monitored, then acted to avoid collision'};
+    return {score:4,label:'Rule 17 avoiding action achieved a safe outcome'};
+  }
 
   if(kind==='head_on'){
     if(minSep<0.15) return {score:2,label:'Head-on encounter resolved too closely'};
@@ -18854,6 +18915,7 @@ function scenarioRuleSummary(){
  if(k==='overtaking') return 'Overtaking encounter — Rule 13 applies regardless of vessel type. The overtaking vessel must keep out of the way until finally past and clear.';
  if(k==='overtaken') return 'Being overtaken — Rule 13 family. The overtaking vessel remains responsible for keeping out of the way until finally past and clear.';
  if(k==='cross_standon') return 'Crossing encounter — Rules 15 and 17 family. The other power-driven vessel is on Suilven’s port side; own vessel is stand-on.';
+ if(k==='cross_standon_fail') return 'Rule 17 escalation exercise — own vessel begins as stand-on, but the give-way vessel deliberately fails to act. The learner must monitor the developing risk and take action when required to avoid collision.';
  return 'Crossing encounter — Rules 15 and 16 family. The other power-driven vessel is on own vessel’s starboard side; own vessel is give-way.';
 }
 function buildDebrief(d){
