@@ -121,6 +121,14 @@
       "license": "Public Domain — U.S. Navy federal work",
       "source": "https://commons.wikimedia.org/wiki/File:XJR2F-1_NATC_NAN1-50.jpg",
       "use": "Rule 31 seaplanes"
+    },
+    "buoy": {
+      "file": "Red and green light navigation buoys.webp",
+      "title": "Red and green light navigation buoys",
+      "creator": "Wikideas1",
+      "license": "CC0 1.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Red_and_green_light_navigation_buoys.webp",
+      "use": "Project Watch home hub — Buoyage & Marks"
     }
   },
   "rule_mapping": {
@@ -288,5 +296,15 @@
       "asset": "bridge",
       "label": "VERIFICATION"
     }
+  },
+  "homepage_mapping": {
+    "SCENARIOS": "bridge",
+    "COLREGS": "cargo",
+    "LIGHTS & SHAPES": "navlights",
+    "SIGNALS": "bell",
+    "BUOYAGE": "buoy",
+    "TSS": "channel_ship",
+    "POWER-DRIVEN SELECTOR": "cargo",
+    "SAILING SELECTOR": "sail"
   }
 }

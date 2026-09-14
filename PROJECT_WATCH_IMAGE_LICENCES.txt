@@ -91,3 +91,9 @@ Creator: U.S. Navy
 Licence: Public Domain — U.S. Navy federal work
 Source: https://commons.wikimedia.org/wiki/File:XJR2F-1_NATC_NAN1-50.jpg
 Use: Rule 31 seaplanes
+
+[buoy] Red and green light navigation buoys
+Creator: Wikideas1
+Licence: CC0 1.0
+Source: https://commons.wikimedia.org/wiki/File:Red_and_green_light_navigation_buoys.webp
+Use: Project Watch home hub — Buoyage & Marks

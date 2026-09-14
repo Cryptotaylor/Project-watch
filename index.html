@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.23.1 — Licensed COLREG Library</title>
+<title>Project Watch 1.24 — Photographic Home Hub</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -191,6 +191,36 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .creditRow b{display:block}.creditRow small{display:block;color:#a8bec9;margin-top:3px}.creditRow div:last-child{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap;font-size:9px}
 .creditRow span,.creditRow a{padding:3px 6px;border-radius:12px;background:#0b4059;color:#d7f5ff;text-decoration:none}
 @media(max-width:720px){.creditRow{grid-template-columns:1fr}.creditRow div:last-child{justify-content:flex-start}}
+
+
+/* 1.24 photographic home / training hub */
+.homeHubMenu{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.appMenu .homeHubBtn{
+ padding:0;min-height:138px;overflow:hidden;border-radius:15px;border:1px solid #ffffff1c;
+ background:#041f2d;text-align:left;display:flex;flex-direction:column;position:relative
+}
+.appMenu .homeHubBtn.active{background:#041f2d;border-color:#54cffc;box-shadow:0 0 0 1px #54cffc33,0 10px 28px #0004}
+.homeHubVisual{display:block;height:88px;position:relative;overflow:hidden;background:#061722}
+.homeHubVisual img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:saturate(.88) brightness(.72) contrast(1.09);transition:.18s}
+.homeHubBtn:hover .homeHubVisual img{transform:scale(1.025);filter:saturate(.98) brightness(.82) contrast(1.08)}
+.homeHubShade{position:absolute;inset:0;background:linear-gradient(180deg,#00131c0a,#00131c15 45%,#00131cbd)}
+.homeHubCopy{padding:9px 11px 10px;display:block;position:relative}
+.homeHubCopy b{display:block;font-size:12px;letter-spacing:.35px;color:#fff}.homeHubCopy small{display:block;font-size:9px;color:#a9c1cc;margin-top:3px}
+.homeRuleOverlay{position:absolute;right:9px;top:9px;padding:5px 7px;border-radius:7px;background:#001722dc;border:1px solid #74e3ff77;color:#dffaff;font-size:11px;font-weight:900;letter-spacing:1px}
+.homeRadarOverlay{position:absolute;width:62px;height:62px;border:1px solid #8de9ff99;border-radius:50%;right:9px;top:10px;box-shadow:inset 0 0 12px #0006}
+.homeRadarOverlay:before,.homeRadarOverlay:after{content:"";position:absolute;background:#8de9ff88}.homeRadarOverlay:before{width:1px;height:56px;left:30px;top:2px}.homeRadarOverlay:after{height:1px;width:56px;left:2px;top:30px}
+.homeLightsOverlay{position:absolute;right:10px;top:13px;display:flex;gap:6px;align-items:center;padding:6px 8px;border-radius:9px;background:#001722c9}
+.homeLightsOverlay i{display:block;width:9px;height:9px;border-radius:50%;box-shadow:0 0 9px currentColor}.homeLightsOverlay i:nth-child(1){background:#f33;color:#f33}.homeLightsOverlay i:nth-child(2){background:#fff;color:#fff}.homeLightsOverlay i:nth-child(3){background:#2be47b;color:#2be47b}
+.homeSoundOverlay{position:absolute;right:10px;top:14px;width:54px;height:44px}
+.homeSoundOverlay i{position:absolute;left:3px;top:19px;width:9px;height:9px;border:2px solid #8de9ff;border-left:0;border-bottom:0;transform:rotate(45deg);border-radius:50%}
+.homeSoundOverlay i:nth-child(2){left:14px;top:13px;width:20px;height:20px;opacity:.7}.homeSoundOverlay i:nth-child(3){left:23px;top:7px;width:31px;height:31px;opacity:.4}
+.homeTssOverlay{position:absolute;right:7px;top:13px;width:76px;height:48px;transform:rotate(-8deg)}
+.homeTssOverlay i{position:absolute;left:0;right:0;height:2px;background:#f09b9b;box-shadow:0 0 5px #000}
+.homeTssOverlay i:nth-child(1){top:4px}.homeTssOverlay i:nth-child(2){top:23px;border-top:1px dashed #f09b9b;background:transparent}.homeTssOverlay i:nth-child(3){top:42px}
+.photographicVesselMode button{display:flex;align-items:center;gap:8px;text-align:left;padding:6px 10px;overflow:hidden}
+.vesselModeThumb{width:58px;height:38px;flex:0 0 58px;border-radius:7px;overflow:hidden;border:1px solid #ffffff26;background:#041722}
+.vesselModeThumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.78) contrast(1.08)}
+@media(max-width:760px){.homeHubMenu{grid-template-columns:repeat(2,minmax(0,1fr))}.appMenu .homeHubBtn{min-height:128px}.homeHubVisual{height:78px}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -16676,7 +16706,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.23.1 • LICENSED COLREG LIBRARY</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.24 • PHOTOGRAPHIC HOME HUB</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -17084,13 +17114,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </section>
 <div class="panel">
 <div class="ver">PROJECT WATCH • TRAINING HUB</div>
-<div class="appMenu">
-<button class="active" onclick="showModule('scenarios',this)">⚓<br>SCENARIOS</button>
-<button onclick="showModule('colregs',this)">📘<br>COLREGS</button>
-<button onclick="showModule('lights',this)">💡<br>LIGHTS & SHAPES</button>
-<button onclick="showModule('signals',this)">📣<br>SIGNALS</button>
-<button onclick="showModule('buoyage',this)">▲<br>BUOYAGE</button>
-<button onclick="showModule('tss',this)">⇄<br>TSS</button>
+<div class="appMenu homeHubMenu">
+<button class="active homeHubBtn" data-home-img="bridge" onclick="showModule('scenarios',this)">
+ <span class="homeHubVisual"><img alt="" loading="lazy"><span class="homeHubShade"></span><span class="homeRadarOverlay"></span></span>
+ <span class="homeHubCopy"><b>SCENARIOS</b><small>Live collision training</small></span>
+</button>
+<button class="homeHubBtn" data-home-img="cargo" onclick="showModule('colregs',this)">
+ <span class="homeHubVisual"><img alt="" loading="lazy"><span class="homeHubShade"></span><span class="homeRuleOverlay">R1–41</span></span>
+ <span class="homeHubCopy"><b>COLREGS</b><small>Rules & Annexes</small></span>
+</button>
+<button class="homeHubBtn" data-home-img="navlights" onclick="showModule('lights',this)">
+ <span class="homeHubVisual"><img alt="" loading="lazy"><span class="homeHubShade"></span><span class="homeLightsOverlay"><i></i><i></i><i></i></span></span>
+ <span class="homeHubCopy"><b>LIGHTS &amp; SHAPES</b><small>Day & night recognition</small></span>
+</button>
+<button class="homeHubBtn" data-home-img="bell" onclick="showModule('signals',this)">
+ <span class="homeHubVisual"><img alt="" loading="lazy"><span class="homeHubShade"></span><span class="homeSoundOverlay"><i></i><i></i><i></i></span></span>
+ <span class="homeHubCopy"><b>SIGNALS</b><small>Whistle, bell & distress</small></span>
+</button>
+<button class="homeHubBtn" data-home-img="buoy" onclick="showModule('buoyage',this)">
+ <span class="homeHubVisual"><img alt="" loading="lazy"><span class="homeHubShade"></span></span>
+ <span class="homeHubCopy"><b>BUOYAGE</b><small>IALA Region A marks</small></span>
+</button>
+<button class="homeHubBtn" data-home-img="channel_ship" onclick="showModule('tss',this)">
+ <span class="homeHubVisual"><img alt="" loading="lazy"><span class="homeHubShade"></span><span class="homeTssOverlay"><i></i><i></i><i></i></span></span>
+ <span class="homeHubCopy"><b>TSS</b><small>Rule 10 live crossing</small></span>
+</button>
 </div>
 <p class="note">1.9 is the audited baseline. Scenario families are being validated separately; any visual module that has not passed review is withheld rather than guessed.</p>
 </div>
@@ -17113,9 +17161,9 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <p class="note">Choose what your own training vessel is doing first. The scenario list then changes so the applicable COLREG family is not mixed up.</p>
 
     <div class="ver">OWN VESSEL PROPULSION / STATUS</div>
-    <div class="vesselMode">
-      <button id="powerModeBtn" class="active" onclick="setOwnVesselMode('power')">⚙ POWER-DRIVEN</button>
-      <button id="sailModeBtn" onclick="setOwnVesselMode('sail')">⛵ SAILING • ENGINE OFF</button>
+    <div class="vesselMode photographicVesselMode">
+      <button id="powerModeBtn" class="active" onclick="setOwnVesselMode('power')"><span class="vesselModeThumb" data-mode-img="cargo"><img alt=""></span><span>POWER-DRIVEN</span></button>
+      <button id="sailModeBtn" onclick="setOwnVesselMode('sail')"><span class="vesselModeThumb" data-mode-img="sail"><img alt=""></span><span>SAILING • ENGINE OFF</span></button>
     </div>
     <div id="ownModeExplainer" class="modeExplainer">
       Machinery is propelling the vessel, so she is treated as a power-driven vessel.
@@ -18729,6 +18777,14 @@ const COLREG_IMAGE_LIBRARY={
     "license": "Public Domain — U.S. Navy federal work",
     "source": "https://commons.wikimedia.org/wiki/File:XJR2F-1_NATC_NAN1-50.jpg",
     "use": "Rule 31 seaplanes"
+  },
+  "buoy": {
+    "file": "Red and green light navigation buoys.webp",
+    "title": "Red and green light navigation buoys",
+    "creator": "Wikideas1",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Red_and_green_light_navigation_buoys.webp",
+    "use": "Project Watch home hub — Buoyage & Marks"
   }
 };
 const COLREG_RULE_PHOTOS={
@@ -19070,8 +19126,27 @@ function updateHeaderNav(name){
  }
 }
 
+
+function enhanceHomeHub(){
+ document.querySelectorAll('.homeHubBtn[data-home-img]').forEach(btn=>{
+   const key=btn.dataset.homeImg,img=btn.querySelector('.homeHubVisual img');
+   if(!img||img.dataset.ready==='1')return;
+   img.dataset.ready='1';img.src=licensedImageSrc(key);
+   img.onerror=()=>{img.style.display='none'};
+   cacheLicensedImage(key);
+ });
+ document.querySelectorAll('.vesselModeThumb[data-mode-img]').forEach(box=>{
+   const key=box.dataset.modeImg,img=box.querySelector('img');
+   if(!img||img.dataset.ready==='1')return;
+   img.dataset.ready='1';img.src=licensedImageSrc(key);
+   img.onerror=()=>{img.style.display='none'};
+   cacheLicensedImage(key);
+ });
+}
+
 function showModule(name,btn){
  updateHeaderNav(name);
+ if(name==='scenarios')setTimeout(enhanceHomeHub,0);
  if(name==='lights')setTimeout(bvRender,0);
  if(name==='buoyage') setTimeout(()=>{renderBuoys(); if(buoyIndex<0)nextBuoyQuestion(); else renderBuoyChallenge();},0);
  
@@ -19567,6 +19642,8 @@ function restart(){go('handover')}
 renderScenarioList();setOwnVesselMode('power');initScenario();renderBuoys();nextBuoyQuestion();bvRender();setHornProfile('large');renderSignalCards();renderHarbourSignals();showSignalSection('audio');renderTSS();tssSimReset();
 
 try{enhanceColregRuleVisuals();}catch(e){}
+
+try{enhanceHomeHub();}catch(e){}
 </script>
 
 <div id="detailSheet" class="detailSheet" onclick="if(event.target===this)closeDetail()">
