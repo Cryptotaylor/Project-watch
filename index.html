@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37 — Structured Training Pathway</title>
+<title>Project Watch 1.37.1 — Course-First Home</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37 — Structured Training Pathway */
+/* Project Watch 1.37.1 — Course-First Home */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -804,6 +804,33 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .courseFuture{display:grid;grid-template-columns:1fr auto;gap:15px;align-items:center;margin-top:10px;padding:13px;border-radius:12px;background:#302b1b;border:1px solid #d4b1643d}.courseFuture h2{margin:2px 0 4px}.courseFuture p{font-size:8px;line-height:1.4;color:#c5bfa9;margin:0}.courseFuture>span{padding:7px 9px;border-radius:7px;background:#463b20;color:#e8ce8d;font-size:7px;font-weight:900}
 @media(max-width:920px){.homeRouteChoice{grid-template-columns:1fr}.courseStandards{grid-template-columns:1fr 1fr}.courseStage{grid-template-columns:62px 1fr}.courseStageAction{grid-column:2}.orientationGrid,.qualityGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.courseHero{grid-template-columns:1fr}.courseHeroProgress{text-align:left}.courseStandards{grid-template-columns:1fr}.courseStage{grid-template-columns:50px 1fr}.courseObjectives{grid-template-columns:1fr}.orientationGrid,.qualityGrid{grid-template-columns:1fr}.orientationCheck{grid-template-columns:1fr}.homeRouteChoice button{grid-template-columns:46px 1fr}.homeRouteChoice strong{grid-column:2}.courseFuture{grid-template-columns:1fr}}
+
+
+/* ============================================================
+   PROJECT WATCH 1.37.1 — COURSE-FIRST HOME
+   ============================================================ */
+.homeCourseDashboard{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:10px;margin:16px 0}
+.homeCoursePrimary{padding:17px;border-radius:16px;background:linear-gradient(135deg,#05283a,#07394d);border:1px solid #ffffff17;box-shadow:0 10px 30px #0003}
+.homeCourseTopline{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start}
+.homeCourseTopline h2{margin:3px 0 5px;font-size:24px}.homeCourseTopline p{margin:0;max-width:680px;font-size:9px;line-height:1.45;color:#a8c1cc}
+.homeCoursePercentWrap{text-align:right;min-width:110px}.homeCoursePercentWrap small,.homeCoursePercentWrap span{display:block;font-size:6.5px;color:#8ba8b5}.homeCoursePercentWrap b{display:block;font-size:30px;line-height:1;color:#74e6ae;margin:3px 0}
+.homeCourseProgressBar{height:8px;margin:12px 0;border-radius:999px;overflow:hidden;background:#031821}.homeCourseProgressBar>div{height:100%;width:0;background:linear-gradient(90deg,#47caee,#69e2a4);transition:.25s}
+.homeCourseNow{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:center;padding:12px;border-radius:12px;background:#031d29;border:1px solid #ffffff12}
+.homeCourseStageBadge{height:58px;border-radius:10px;background:#0b4258;display:flex;flex-direction:column;justify-content:center;align-items:center}.homeCourseStageBadge span{font-size:6px;color:#9dc1cf}.homeCourseStageBadge b{font-size:19px}
+.homeCourseNowCopy small{font-size:6.5px;color:#71d8f7;font-weight:900;letter-spacing:.5px}.homeCourseNowCopy h3{margin:2px 0 3px;font-size:16px}.homeCourseNowCopy p{margin:0;font-size:8px;line-height:1.4;color:#9fb7c2}
+.homeCourseNow button{width:auto;min-width:138px;background:#117957}
+.homeCourseMilestones{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:9px}.homeCourseMilestones span{padding:8px;border-radius:8px;background:#041d29;border:1px solid #ffffff10}.homeCourseMilestones b{display:block;font-size:10px}.homeCourseMilestones small{display:block;font-size:6px;color:#7899a6;margin-top:1px}
+.homeQuickAccess{padding:16px;border-radius:16px;background:#041f2d;border:1px solid #ffffff15}.homeQuickAccess h3{margin:3px 0 5px;font-size:18px}.homeQuickAccess p{font-size:8.5px;line-height:1.45;color:#9db6c1;margin:0 0 10px}.homeQuickAccess button{width:100%;margin-top:6px}.homeQuickAccess button.alt{background:#10384b}
+.homePathwaySnapshot{margin:10px 0 16px;padding:15px;border-radius:15px;background:#041e2b;border:1px solid #ffffff14}
+.homePathwaySnapshotHead{display:grid;grid-template-columns:1fr minmax(280px,460px);gap:15px;align-items:end;margin-bottom:10px}.homePathwaySnapshotHead h2{margin:2px 0}.homePathwaySnapshotHead p{margin:0;font-size:8px;line-height:1.4;color:#91adb8}
+.homeCourseStageRail{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
+.homeRailStage{position:relative;min-height:82px;padding:8px;border-radius:9px;background:#031923;border:1px solid #ffffff10}
+.homeRailStage:after{content:"";position:absolute;top:24px;right:-6px;width:7px;height:2px;background:#315362}.homeRailStage:last-child:after{display:none}
+.homeRailStage span{display:block;font-size:6px;color:#789aa7}.homeRailStage b{display:block;margin:2px 0 3px;font-size:8px;line-height:1.25}.homeRailStage small{display:block;font-size:6px;line-height:1.25;color:#819ca8}
+.homeRailStage.done{background:#07372d;border-color:#62dc9d55}.homeRailStage.current{background:#0a4259;border-color:#61d9f666}.homeRailStage.locked{opacity:.48}
+.homeRailStage.done span{color:#75e7ad}.homeRailStage.current span{color:#74ddfa}
+@media(max-width:1050px){.homeCourseDashboard{grid-template-columns:1fr}.homeQuickAccess{display:grid;grid-template-columns:1fr 1fr;gap:7px}.homeQuickAccess .ver,.homeQuickAccess h3,.homeQuickAccess p{grid-column:1/-1}.homeCourseStageRail{grid-template-columns:repeat(4,1fr)}.homeRailStage:nth-child(4):after,.homeRailStage:nth-child(8):after{display:none}}
+@media(max-width:700px){.homeCourseTopline{grid-template-columns:1fr}.homeCoursePercentWrap{text-align:left}.homeCourseNow{grid-template-columns:52px 1fr}.homeCourseNow button{grid-column:2;width:100%}.homeCourseMilestones{grid-template-columns:1fr 1fr}.homeQuickAccess{grid-template-columns:1fr}.homeQuickAccess button{grid-column:1}.homePathwaySnapshotHead{grid-template-columns:1fr}.homeCourseStageRail{grid-template-columns:1fr 1fr}.homeRailStage:after{display:none}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17356,7 +17383,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37 • STRUCTURED TRAINING PATHWAY</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.1 • COURSE-FIRST HOME</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18038,25 +18065,72 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     </div>
   </div>
 
-  <div class="homeRouteChoice">
-    <button class="homeCourseRoute" onclick="showCoursePage()">
-      <span class="routeIcon">▶</span>
-      <span><small>RECOMMENDED FOR LEARNERS</small><b>START / CONTINUE MY COURSE</b><em id="homeCourseProgress">Structured progression • 0% complete</em></span>
-      <strong>OPEN COURSE →</strong>
-    </button>
-    <button class="homeLibraryRoute" onclick="document.getElementById('trainingLibraryHead').scrollIntoView({behavior:'smooth'})">
-      <span class="routeIcon">☰</span>
-      <span><small>DIRECT ACCESS</small><b>TRAINING LIBRARY</b><em>Open any simulator, reference module or assessment</em></span>
-      <strong>BROWSE →</strong>
-    </button>
+  
+<div class="homeCourseDashboard">
+  <div class="homeCoursePrimary">
+    <div class="homeCourseTopline">
+      <div>
+        <div class="homeEyebrow">PROJECT WATCH • STRUCTURED TRAINING</div>
+        <h2>Your bridge-watchkeeping course</h2>
+        <p>Follow the recommended sequence from foundations through COLREGs, vessel recognition, collision avoidance, buoyage, TSS and AIS.</p>
+      </div>
+      <div class="homeCoursePercentWrap">
+        <small>COURSE PROGRESS</small>
+        <b id="homeCoursePercentBig">0%</b>
+        <span id="homeCourseStageText">0 / 8 STAGES</span>
+      </div>
+    </div>
+
+    <div class="homeCourseProgressBar"><div id="homeCourseProgressBar"></div></div>
+
+    <div class="homeCourseNow">
+      <div class="homeCourseStageBadge">
+        <span>NEXT</span>
+        <b id="homeNextStageNo">01</b>
+      </div>
+      <div class="homeCourseNowCopy">
+        <small id="homeNextStageType">FOUNDATION</small>
+        <h3 id="homeNextStageTitle">Orientation & Watchkeeping Fundamentals</h3>
+        <p id="homeNextStageDesc">Start with the language, vessel profile and watchkeeping mindset used throughout Project Watch.</p>
+      </div>
+      <button id="homeContinueCourseBtn" onclick="continueCourseFromHome()">START COURSE →</button>
+    </div>
+
+    <div class="homeCourseMilestones">
+      <span><b>8</b><small>COURSE STAGES</small></span>
+      <span><b>4</b><small>FULL MOCK EXAMS</small></span>
+      <span><b>LIVE</b><small>SIMULATION</small></span>
+      <span><b id="homeVesselCourseName">SUILVEN</b><small>TRAINING VESSEL</small></span>
+    </div>
   </div>
 
-  <div id="trainingLibraryHead" class="homeSectionHead">
+  <div class="homeQuickAccess">
+    <div class="ver">QUICK ACCESS</div>
+    <h3>Experienced user?</h3>
+    <p>Jump straight to any simulator, reference module or assessment without affecting the recommended course order.</p>
+    <button onclick="document.getElementById('trainingLibraryHead').scrollIntoView({behavior:'smooth'})">OPEN TRAINING LIBRARY →</button>
+    <button class="alt" onclick="showCoursePage()">VIEW FULL COURSE MAP →</button>
+  </div>
+</div>
+
+<div class="homePathwaySnapshot">
+  <div class="homePathwaySnapshotHead">
+    <div>
+      <div class="ver">COURSE MAP</div>
+      <h2>Eight stages. One progression.</h2>
+    </div>
+    <p>The next stage unlocks when the previous stage is complete in Course Mode. The Training Library remains open at all times.</p>
+  </div>
+  <div id="homeCourseStageRail" class="homeCourseStageRail"></div>
+</div>
+
+<div id="trainingLibraryHead" class="homeSectionHead">
+
     <div>
       <div class="ver">TRAINING LIBRARY • DIRECT ACCESS</div>
-      <h2>Choose your bridge-training module</h2>
+      <h2>All training modules</h2>
     </div>
-    <p>Start as a beginner, practise with the interactive trainers, then move into the full Project Watch mock assessments where available.</p>
+    <p>Use this area for direct access, revision, simulator practice or assessment. New learners should normally follow Course Mode above.</p>
   </div>
 
   <div class="appMenu homeHubMenu professionalHub">
@@ -18090,24 +18164,6 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     </button>
   </div>
 
-  <div class="homePathway">
-    <div class="homePathwayHead">
-      <div><div class="ver">TRAINING PATHWAY</div><h2>Learn → Practise → Assess</h2></div>
-      <p>Project Watch now combines guided teaching, practical bridge-style simulation and original assessment rather than simply presenting the rules on a page.</p>
-    </div>
-    <div class="homePathwayGrid">
-      <div class="homePathCard">
-        <span>01</span><div><b>LEARN</b><small>Beginner tutorials explain what you are seeing, why the rule exists and what the skipper should be thinking.</small></div>
-      </div>
-      <div class="homePathCard">
-        <span>02</span><div><b>PRACTISE</b><small>Collision, buoyage, TSS and AIS trainers turn the theory into a moving bridge picture you can interact with.</small></div>
-      </div>
-      <div class="homePathCard">
-        <span>03</span><div><b>ASSESS</b><small>Original Project Watch mock exams currently cover Collision, Lights &amp; Shapes, Buoyage and TSS.</small></div>
-      </div>
-    </div>
-  </div>
-
   <div class="homeCapabilityBar">
     <span><b>COLLISION</b><small>Guided / Watch / Exam</small></span>
     <span><b>LIGHTS</b><small>Visual recognition + Exam</small></span>
@@ -18117,8 +18173,8 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37</b></div>
-    <div><small>PLATFORM</small><b>7 TRAINING MODULES • 4 FULL MOCK EXAMS</b></div>
+    <div><small>BUILD</small><b>1.37.1</b></div>
+    <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
 </section>
@@ -21900,6 +21956,54 @@ function crRestartQuiz(){crQuizIndex=0;crQuizScore=0;crQuizAnswered=false;$('crL
 
 
 
+
+function homeCourseCurrentIndex(){
+ const idx=PW_COURSE_STAGES.findIndex(s=>!courseCompleted(s.id));
+ return idx<0?PW_COURSE_STAGES.length:idx;
+}
+function continueCourseFromHome(){
+ const idx=homeCourseCurrentIndex();
+ if(idx>=PW_COURSE_STAGES.length){showCoursePage();return}
+ courseLaunch(PW_COURSE_STAGES[idx].id);
+}
+function renderHomeCourseDashboard(){
+ if(typeof PW_COURSE_STAGES==='undefined')return;
+ const count=courseCount(),pct=coursePct(),idx=homeCourseCurrentIndex();
+ const pctEl=$('homeCoursePercentBig'),stageText=$('homeCourseStageText'),bar=$('homeCourseProgressBar');
+ if(pctEl)pctEl.textContent=pct+'%';
+ if(stageText)stageText.textContent=`${count} / ${PW_COURSE_STAGES.length} STAGES`;
+ if(bar)bar.style.width=pct+'%';
+ if($('homeVesselCourseName'))$('homeVesselCourseName').textContent=vesselNameUpper();
+
+ const btn=$('homeContinueCourseBtn');
+ if(idx>=PW_COURSE_STAGES.length){
+   if($('homeNextStageNo'))$('homeNextStageNo').textContent='✓';
+   if($('homeNextStageType'))$('homeNextStageType').textContent='CORE PATHWAY';
+   if($('homeNextStageTitle'))$('homeNextStageTitle').textContent='Core course complete';
+   if($('homeNextStageDesc'))$('homeNextStageDesc').textContent='Review any stage from the Course Map or continue practising through the Training Library.';
+   if(btn)btn.textContent='VIEW COURSE MAP →';
+ }else{
+   const s=PW_COURSE_STAGES[idx];
+   if($('homeNextStageNo'))$('homeNextStageNo').textContent=s.no;
+   if($('homeNextStageType'))$('homeNextStageType').textContent=s.type;
+   if($('homeNextStageTitle'))$('homeNextStageTitle').textContent=s.title;
+   if($('homeNextStageDesc'))$('homeNextStageDesc').textContent=s.desc;
+   if(btn)btn.textContent=(count===0?'START COURSE':'CONTINUE COURSE')+' →';
+ }
+
+ const rail=$('homeCourseStageRail');
+ if(rail){
+   rail.innerHTML=PW_COURSE_STAGES.map((s,i)=>{
+     const done=courseCompleted(s.id),current=i===idx,locked=!done&&!current&&!coursePrereqComplete(i);
+     return `<div class="homeRailStage ${done?'done':''} ${current?'current':''} ${locked?'locked':''}">
+       <span>${done?'COMPLETE':current?'NEXT':'STAGE '+s.no}</span>
+       <b>${s.title}</b>
+       <small>${done?'✓ Completed':current?'Ready to continue':locked?'Course Mode locked':'Available'}</small>
+     </div>`;
+   }).join('');
+ }
+}
+
 // ---------------- STRUCTURED COURSE PATHWAY ----------------
 const PW_COURSE_STORAGE='projectWatchCourseProgressV1';
 const PW_AIS_TASKS_STORAGE='projectWatchAisTasksV1';
@@ -21970,6 +22074,7 @@ function courseCount(){
 function coursePct(){return Math.round(courseCount()/PW_COURSE_STAGES.length*100)}
 function updateHomeCourseProgress(){
  const el=$('homeCourseProgress');if(el)el.textContent=`Structured progression • ${coursePct()}% complete`;
+ renderHomeCourseDashboard();
 }
 function coursePrereqComplete(index){
  if(index<=0)return true;
@@ -23329,7 +23434,7 @@ try{enhanceColregRuleVisuals();}catch(e){}
 
 try{enhanceHomeHub();updateHeaderNav('home');updateModuleContext('home');}catch(e){}
 try{initVesselProfile();updateHeaderNav('home');}catch(e){console.warn('Vessel profile init failed',e)}
-try{updateHomeCourseProgress();}catch(e){}
+try{updateHomeCourseProgress();renderHomeCourseDashboard();}catch(e){}
 </script>
 
 
