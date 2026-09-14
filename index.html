@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.24.4 — Audited Scenario Geometry</title>
+<title>Project Watch 1.24.5 — Clean Scenario Cards</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -243,13 +243,83 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  font:900 6.2px Arial,sans-serif;letter-spacing:.35px;
  paint-order:stroke;stroke:#001722;stroke-width:2px;stroke-linejoin:round;fill:#fff
 }
-.sgSide{
- font:900 6px Arial,sans-serif;letter-spacing:.4px;
- paint-order:stroke;stroke:#001722;stroke-width:2px;fill:#8cecff
-}
-.sgRuleBadge{fill:#001722dd;stroke:#7be5ff99;stroke-width:.7}
-.sgRuleText{font:900 5.8px Arial,sans-serif;fill:#e8fbff;letter-spacing:.25px}
 .scenarioVisualTag{left:7px;bottom:6px}
+
+
+/* 1.24.5 — clean scenario cards: no stretched SVG text, stronger typography */
+.scenarioBtn{
+ grid-template-columns:43% 57%;
+ min-height:98px;
+}
+.scenarioPhoto{min-height:98px}
+.scenarioCopy{padding:12px 14px}
+.scenarioBtn b{
+ font-size:14.5px;
+ line-height:1.18;
+ font-weight:900;
+ letter-spacing:.05px;
+}
+.scenarioBtn .scenarioCopy span{
+ font-size:10.5px;
+ line-height:1.3;
+ font-weight:700;
+ color:#cce3ed;
+ margin-top:6px;
+}
+.scenarioPhoto img{
+ object-fit:cover!important;
+ width:100%!important;
+ height:100%!important;
+ transform:none!important;
+}
+.scenarioGeometry{inset:5px 6px 5px 6px}
+.scenarioGeometry svg{
+ width:100%;
+ height:100%;
+ display:block;
+ overflow:hidden;
+}
+.sgLabel{
+ font:900 7px Arial,sans-serif;
+ letter-spacing:.2px;
+ paint-order:stroke;
+ stroke:#001722;
+ stroke-width:2.3px;
+ fill:#fff;
+}
+.scenarioAspectChip{
+ position:absolute;
+ left:7px;
+ top:6px;
+ z-index:6;
+ padding:4px 7px;
+ border-radius:6px;
+ background:#001722e8;
+ border:1px solid #7be5ff88;
+ color:#dff8ff;
+ font-size:7px;
+ font-weight:900;
+ letter-spacing:.55px;
+ line-height:1;
+ white-space:nowrap;
+ box-shadow:0 2px 8px #0006;
+}
+.scenarioVisualTag{
+ left:7px;
+ bottom:6px;
+ font-size:6.4px;
+ letter-spacing:.35px;
+ max-width:76%;
+ white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis;
+}
+@media(max-width:760px){
+ .scenarioBtn{grid-template-columns:41% 59%;min-height:92px}
+ .scenarioPhoto{min-height:92px}
+ .scenarioBtn b{font-size:13.5px}
+ .scenarioBtn .scenarioCopy span{font-size:10px}
+}
 
 /* 1.24 photographic home / training hub */
 .homeHubMenu{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -16768,7 +16838,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.24.4 • AUDITED SCENARIO GEOMETRY</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.24.5 • CLEAN SCENARIO CARDS</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -17489,20 +17559,21 @@ function scenarioInitialRelative(s){
 function scenarioGeometryHTML(id){
   const s=SCENARIOS[id],r=scenarioInitialRelative(s);
 
-  // Display is own-heading-up. Rotate world relative vector by -own heading.
+  // Heading-up display: rotate the real simulator geometry into own-vessel reference.
   const a=-rad(s.ownH);
   const rx=r.x*Math.cos(a)+r.y*Math.sin(a);
   const ry=-r.x*Math.sin(a)+r.y*Math.cos(a);
 
-  // Scale 2 NM initial range to a 30-unit radius. SVG y is down.
-  const ownX=50,ownY=73,scale=29/2;
+  // Wide 180×64 plate closely matches the actual photograph box, so boats and labels
+  // retain their proportions instead of being stretched horizontally.
+  const ownX=90,ownY=53,scale=20/2;
   const tx=ownX+rx*scale,ty=ownY-ry*scale;
   const tgtRelH=((s.tgtH-s.ownH)%360+360)%360;
 
   const boat=(x,y,h,cls)=>`
     <g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${h.toFixed(1)})">
-      <line class="${cls==='sgOwn'?'sgCourseOwn':'sgCourseTarget'}" x1="0" y1="8" x2="0" y2="-16"/>
-      <path class="${cls}" d="M 0,-8 L 5,6 L 0,4 L -5,6 Z"/>
+      <line class="${cls==='sgOwn'?'sgCourseOwn':'sgCourseTarget'}" x1="0" y1="7" x2="0" y2="-13"/>
+      <path class="${cls}" d="M 0,-7 L 4.5,5 L 0,3.5 L -4.5,5 Z"/>
     </g>`;
 
   let side='AHEAD';
@@ -17510,27 +17581,15 @@ function scenarioGeometryHTML(id){
   else if(rx<-.18)side='TARGET • PORT';
   else if(ry<-.15)side='TARGET • ASTERN';
 
-  let badge='';
-  if(s.ownType==='sail'){
-    badge=`OWN ${String(s.ownTack||'').toUpperCase()} TACK`;
-    if(s.ownWindward===true)badge+=' • WINDWARD';
-    if(s.ownWindward===false)badge+=' • LEEWARD';
-  }else if(s.tgtType==='sail'){
-    badge='TARGET • SAILING';
-  }else if(s.kind==='overtaking')badge='OWN • OVERTAKING';
-  else if(s.kind==='overtaken')badge='TARGET • OVERTAKING';
-  else if(s.kind==='head_on')badge='RECIPROCAL / NEAR RECIPROCAL';
-
   return `<span class="scenarioGeometry">
-   <svg viewBox="0 0 100 82" preserveAspectRatio="none" aria-hidden="true">
+   <svg viewBox="0 0 180 64" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
     <line class="sgBearing" x1="${ownX}" y1="${ownY}" x2="${tx.toFixed(1)}" y2="${ty.toFixed(1)}"/>
     ${boat(ownX,ownY,0,'sgOwn')}
     ${boat(tx,ty,tgtRelH,'sgTarget')}
-    <text class="sgLabel" x="${ownX+6}" y="${ownY+5}">OWN</text>
-    <text class="sgLabel" x="${Math.min(80,Math.max(4,tx+5)).toFixed(1)}" y="${Math.min(76,Math.max(8,ty+2)).toFixed(1)}">TARGET</text>
-    <text class="sgSide" x="4" y="9">${side}</text>
-    ${badge?`<rect class="sgRuleBadge" x="4" y="65" width="${Math.min(90,Math.max(42,badge.length*3.25))}" height="10" rx="3"/><text class="sgRuleText" x="7" y="72">${badge}</text>`:''}
+    <text class="sgLabel" x="${ownX+6}" y="${ownY+3}">OWN</text>
+    <text class="sgLabel" x="${Math.min(158,Math.max(8,tx+6)).toFixed(1)}" y="${Math.min(58,Math.max(9,ty+2)).toFixed(1)}">TARGET</text>
    </svg>
+   <span class="scenarioAspectChip">${side}</span>
   </span>`;
 }
 
