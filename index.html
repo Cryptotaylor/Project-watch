@@ -21949,4 +21949,25 @@ svg text.warnLabel, .ttDemo text.warnLabel {
   }
 }
 
+
+
+/* Project Watch — larger adaptive home module numbers */
+.homeModuleNo {
+  font-size: clamp(22px, 2vw + 6px, 34px) !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 1180px) {
+  .homeModuleNo {
+    font-size: clamp(24px, 3vw, 32px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .homeModuleNo {
+    font-size: clamp(22px, 6vw, 30px) !important;
+  }
+}
+
 </style>
