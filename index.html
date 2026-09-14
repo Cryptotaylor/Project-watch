@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.35 — AIS Target Training Engine</title>
+<title>Project Watch 1.35.1 — AIS Target Selection Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.35 — AIS Target Training Engine */
+/* Project Watch 1.35.1 — AIS Target Selection Fix */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -703,7 +703,9 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .aisTargetHead{display:grid;grid-template-columns:1fr auto;gap:5px;align-items:center;border-bottom:1px solid #ffffff11;padding-bottom:8px}.aisTargetHead h3{margin:0;font-size:16px}.aisTargetClass{padding:4px 6px;border-radius:6px;background:#0c4961;font-size:7px;font-weight:900}.aisTargetGrid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}.aisTargetGrid div{background:#031d29;border-radius:7px;padding:6px}.aisTargetGrid small{display:block;font-size:6px;color:#789baa}.aisTargetGrid b{display:block;font-size:9px;margin-top:1px}.aisTargetDanger{margin-top:8px;padding:7px;border-radius:7px;background:#6d2828;color:#ffd4d4;font-size:8px;font-weight:900}.aisTargetGood{margin-top:8px;padding:7px;border-radius:7px;background:#174d3c;color:#c8f6de;font-size:8px;font-weight:900}.aisTargetNote{margin-top:7px;font-size:7.5px;color:#92adb8;line-height:1.45}
 .aisLegend{display:grid;grid-template-columns:1fr 1fr;gap:6px}.aisLegend .ver{grid-column:1/-1}.aisLegend div:not(.ver){display:flex;align-items:center;gap:6px;font-size:7px;color:#a9c0ca}.aisLegend i{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:11px solid #70dab0}.aisLegend i.tanker{border-bottom-color:#ef817a}.aisLegend i.passenger{border-bottom-color:#7fa6ff}.aisLegend i.fishing{border-bottom-color:#f2aa54}.aisLegend i.pleasure{border-bottom-color:#df8cdc}.aisLegend i.danger{border-bottom-color:#ff3b35}.aisLegend i.lost{border-bottom-color:#89969b;filter:grayscale(1)}
 .aisLearnGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.aisLearnCard h3{margin:3px 0 5px}.aisLearnCard p{font-size:8.5px;line-height:1.45;color:#a9c1cb;margin:0}
-.aisMapWater{fill:#9cc2c6}.aisMapLand{fill:#ded7bb;stroke:#6d806f;stroke-width:2}.aisDepth{fill:none;stroke:#6ba5aa;stroke-width:1;opacity:.55}.aisGrid{stroke:#7ba7aa;stroke-width:1;opacity:.32}.aisNavLine{stroke:#758f8d;stroke-width:1;stroke-dasharray:5 5;opacity:.55}.aisOwn{fill:#a92525;stroke:#5a1717;stroke-width:2}.aisOwnVector{stroke:#a92525;stroke-width:2.5}.aisTarget{cursor:pointer;filter:drop-shadow(0 1px 1px #0004)}.aisTarget polygon{stroke:#18353c;stroke-width:1.5}.aisTarget.selected polygon{stroke:#fff;stroke-width:3}.aisTarget.danger polygon{stroke:#8d1010;stroke-width:3}.aisTarget.lost{opacity:.55}.aisTargetLabel{font-size:10px;font-weight:900;fill:#19353d}.aisTargetSub{font-size:8px;fill:#304d54}.aisVector{stroke-width:2;opacity:.85}.aisCpaLine{stroke:#d3463e;stroke-width:2;stroke-dasharray:5 5}.aisCpaMark{fill:none;stroke:#d3463e;stroke-width:2}.aisRangeRing{fill:none;stroke:#668f92;stroke-width:1;stroke-dasharray:4 5;opacity:.7}
+.aisMapWater{fill:#9cc2c6}.aisMapLand{fill:#ded7bb;stroke:#6d806f;stroke-width:2}.aisDepth{fill:none;stroke:#6ba5aa;stroke-width:1;opacity:.55}.aisGrid{stroke:#7ba7aa;stroke-width:1;opacity:.32}.aisNavLine{stroke:#758f8d;stroke-width:1;stroke-dasharray:5 5;opacity:.55}.aisOwn{fill:#a92525;stroke:#5a1717;stroke-width:2}.aisOwnVector{stroke:#a92525;stroke-width:2.5}.aisTarget{cursor:pointer;filter:drop-shadow(0 1px 1px #0004);pointer-events:all}
+.aisTarget *{pointer-events:none}
+.aisTargetHit{fill:transparent;stroke:none;pointer-events:all;cursor:pointer}.aisTarget polygon{stroke:#18353c;stroke-width:1.5}.aisTarget.selected polygon{stroke:#fff;stroke-width:3}.aisTarget.danger polygon{stroke:#8d1010;stroke-width:3}.aisTarget.lost{opacity:.55}.aisTargetLabel{font-size:10px;font-weight:900;fill:#19353d}.aisTargetSub{font-size:8px;fill:#304d54}.aisVector{stroke-width:2;opacity:.85}.aisCpaLine{stroke:#d3463e;stroke-width:2;stroke-dasharray:5 5}.aisCpaMark{fill:none;stroke:#d3463e;stroke-width:2}.aisRangeRing{fill:none;stroke:#668f92;stroke-width:1;stroke-dasharray:4 5;opacity:.7}
 @media(max-width:1000px){.aisWorkspace{grid-template-columns:1fr}.aisSidePanel{grid-template-columns:1fr 1fr}.aisLegend{grid-column:1/-1}.aisLearnGrid{grid-template-columns:1fr 1fr}.aisLessonStrip{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.aisHero{grid-template-columns:1fr}.aisHeroBadge{text-align:left}.aisSafetyBar{grid-template-columns:1fr}.aisLessonStrip{grid-template-columns:1fr 1fr}.aisChart{height:460px}.aisChartTopbar{align-items:flex-start;flex-direction:column}.aisSidePanel,.aisLearnGrid{grid-template-columns:1fr}.aisLegend{grid-column:auto}.aisChartBottom{grid-template-columns:repeat(3,1fr)}}
 
@@ -17191,7 +17193,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.35 • AIS TRAINING ENGINE</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.35.1 • AIS TARGET SELECTION FIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -21595,6 +21597,7 @@ const AIS_TRAINING_TARGETS=[
 let aisTargets=[],aisOwn={x:0,y:0,cog:12,hdg:12,sog:7},aisSelected=null,aisRunning=true,aisLast=0,aisRAF=0,aisRange=6,aisNames=true,aisVectors=true,aisLesson=1,aisStartEpoch=Date.now();
 
 function aisInit(){
+ aisBindChartEvents();
  if(!aisTargets.length)aisReset();else{aisDraw();aisUpdatePanel()}
  if(!aisRAF){aisLast=performance.now();aisRAF=requestAnimationFrame(aisFrame)}
 }
@@ -21666,7 +21669,8 @@ function aisDraw(){
    const danger=aisDanger(t),sel=aisSelected===t.id;
    const vecLen=Math.min(90,18+t.sog*3.2),rad=t.cog*Math.PI/180,vx=Math.sin(rad)*vecLen,vy=-Math.cos(rad)*vecLen;
    const rot=t.cog;
-   return `<g class="aisTarget ${danger?'danger':''} ${t.lost?'lost':''} ${sel?'selected':''}" onclick="aisSelect('${t.id}')">
+   return `<g class="aisTarget ${danger?'danger':''} ${t.lost?'lost':''} ${sel?'selected':''}" data-ais-id="${t.id}" role="button" tabindex="0">
+     <circle cx="${x}" cy="${y}" r="22" class="aisTargetHit" data-ais-id="${t.id}"/>
      ${aisVectors&&!t.lost?`<line x1="${x}" y1="${y}" x2="${x+vx}" y2="${y+vy}" class="aisVector" stroke="${danger?'#d92727':t.colour}"/>`:''}
      <g transform="translate(${x} ${y}) rotate(${rot})"><polygon points="0,-10 7,9 0,5 -7,9" fill="${danger?'#ff352f':t.colour}"/></g>
      ${t.lost?`<path d="M${x-8} ${y-8} L${x+8} ${y+8} M${x+8} ${y-8} L${x-8} ${y+8}" stroke="#68777b" stroke-width="3"/>`:''}
@@ -21697,7 +21701,35 @@ function aisDraw(){
  let d=new Date(aisStartEpoch+(performance.now()-aisLast)*10); // display-only clock
  $('aisClock').textContent=new Date().toISOString().slice(11,19)+' UTC';
 }
-function aisSelect(id){aisSelected=id;aisUpdatePanel();aisDraw()}
+function aisSelect(id){
+ aisSelected=id;
+ aisUpdatePanel();
+ aisDraw();
+}
+function aisBindChartEvents(){
+ const chart=$('aisChart');if(!chart||chart.dataset.aisBound==='1')return;
+ chart.dataset.aisBound='1';
+
+ const pick=(ev)=>{
+   const el=ev.target?.closest?.('[data-ais-id]');
+   if(!el)return;
+   ev.preventDefault();
+   ev.stopPropagation();
+   aisSelect(el.getAttribute('data-ais-id'));
+ };
+
+ chart.addEventListener('click',pick);
+ chart.addEventListener('pointerup',pick,{passive:false});
+ chart.addEventListener('touchend',pick,{passive:false});
+
+ chart.addEventListener('keydown',ev=>{
+   if(ev.key!=='Enter'&&ev.key!==' ')return;
+   const el=ev.target?.closest?.('[data-ais-id]');
+   if(!el)return;
+   ev.preventDefault();
+   aisSelect(el.getAttribute('data-ais-id'));
+ });
+}
 function aisUpdatePanel(){
  const panel=$('aisTargetPanel');if(!panel)return;
  const t=aisTargets.find(x=>x.id===aisSelected);
