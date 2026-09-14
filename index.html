@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.34.3 — TSS Examination Suite</title>
+<title>Project Watch 1.35 — AIS Target Training Engine</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -687,6 +687,25 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .tssPracticalExam{margin-top:12px;background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:14px}.tssPracticalExam h2{margin:3px 0 5px}.tssPracticalExam p{color:#a9c1cb;font-size:9px;line-height:1.45}.tssPracticalExamDeck{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.tssPracticalCard{background:#031d29;border:1px solid #ffffff12;border-radius:10px;padding:10px}.tssPracticalCard h4{margin:3px 0}.tssPracticalCard p{font-size:8px;min-height:32px}.tssPracticalCard button{width:100%;background:#166d91}
 @media(max-width:900px){.tssExamBasis{grid-template-columns:1fr 1fr}.txLayout{grid-template-columns:1fr}.tssExamToolbar{grid-template-columns:1fr 1fr}.tssExamToolbar .examProgressText{grid-column:1/-1}.tssPracticalExamDeck{grid-template-columns:1fr 1fr}.txVisual{height:350px}}
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
+
+
+/* Project Watch 1.35 — AIS Target Training Engine */
+.homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
+.homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
+.homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
+.aisHero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:24px;border-radius:18px;background:linear-gradient(135deg,#052b3d,#073e57);border:1px solid #ffffff18;box-shadow:0 12px 32px #0004}.aisHero h1{margin:3px 0 7px;font-size:29px}.aisHero p{margin:0;max-width:820px;color:#b7ced8;font-size:10px;line-height:1.5}.aisHeroBadge{padding:11px 13px;border-radius:10px;background:#031b27;border:1px solid #6ee6d342;text-align:right}.aisHeroBadge small,.aisHeroBadge span{display:block;font-size:7px;color:#8fb5c4}.aisHeroBadge b{display:block;font-size:17px;color:#75ecc1;margin:2px 0}
+.aisSafetyBar{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;margin:9px 0;padding:10px 12px;border-radius:10px;background:#432919;border:1px solid #f0b36d4d;color:#ffd39e}.aisSafetyBar b{font-size:9px}.aisSafetyBar span{font-size:8px;line-height:1.4}
+.aisLessonStrip{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:9px 0}.aisLessonStrip button{display:grid;grid-template-columns:30px 1fr;grid-template-rows:auto auto;text-align:left;gap:1px 7px;padding:8px;background:#05283a;border:1px solid #ffffff14}.aisLessonStrip button span{grid-row:1/3;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:7px;background:#031b27;font-size:8px;font-weight:900}.aisLessonStrip button b{font-size:8px}.aisLessonStrip button small{font-size:6.5px;color:#8faab6}.aisLessonStrip button.active{background:#0a5b75;border-color:#6adcfb66}
+.aisWorkspace{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:10px;align-items:start}.aisChartPanel{background:#041d29;border:1px solid #ffffff16;border-radius:15px;overflow:hidden;box-shadow:0 10px 26px #0003}.aisChartTopbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;background:#031823;border-bottom:1px solid #ffffff12}.aisChartTopbar>div:first-child{display:flex;align-items:center;gap:7px}.aisChartTopbar b{font-size:8px}.aisChartTopbar small{font-size:7px;color:#819dab}.aisStatusDot{width:7px;height:7px;background:#65e6a8;border-radius:50%;box-shadow:0 0 8px #65e6a8}.aisChartTools{display:flex;gap:5px;flex-wrap:wrap}.aisChartTools button{font-size:7px;padding:6px 7px;background:#0b3a4d}.aisChartTools button.active{background:#126b8c}
+.aisChart{height:590px;background:#94bbc0;position:relative;overflow:hidden}.aisChart svg{width:100%;height:100%;display:block}.aisChartBottom{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#ffffff0c}.aisChartBottom div{padding:8px;background:#031b27}.aisChartBottom small{display:block;font-size:6px;color:#7897a5}.aisChartBottom b{font-size:9px}.aisChartBottom .warn{color:#ff8a83}
+.aisSidePanel{display:grid;gap:8px}.aisCoachCard,.aisTargetPanel,.aisLegend,.aisLearnCard{background:#05283a;border:1px solid #ffffff15;border-radius:12px;padding:11px}.aisCoachCard h3{margin:3px 0 5px}.aisCoachCard p{font-size:8.5px;line-height:1.45;color:#abc2cc}.aisTask{margin-top:8px;padding:7px 8px;border-radius:7px;background:#031b27;border-left:3px solid #58d9f8;font-size:7px;font-weight:900;color:#d7f7ff}
+.aisTargetEmpty{min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#7898a5}.aisTargetEmpty b{font-size:10px;color:#e5f5fa}.aisTargetEmpty span{font-size:8px;margin-top:4px}
+.aisTargetHead{display:grid;grid-template-columns:1fr auto;gap:5px;align-items:center;border-bottom:1px solid #ffffff11;padding-bottom:8px}.aisTargetHead h3{margin:0;font-size:16px}.aisTargetClass{padding:4px 6px;border-radius:6px;background:#0c4961;font-size:7px;font-weight:900}.aisTargetGrid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}.aisTargetGrid div{background:#031d29;border-radius:7px;padding:6px}.aisTargetGrid small{display:block;font-size:6px;color:#789baa}.aisTargetGrid b{display:block;font-size:9px;margin-top:1px}.aisTargetDanger{margin-top:8px;padding:7px;border-radius:7px;background:#6d2828;color:#ffd4d4;font-size:8px;font-weight:900}.aisTargetGood{margin-top:8px;padding:7px;border-radius:7px;background:#174d3c;color:#c8f6de;font-size:8px;font-weight:900}.aisTargetNote{margin-top:7px;font-size:7.5px;color:#92adb8;line-height:1.45}
+.aisLegend{display:grid;grid-template-columns:1fr 1fr;gap:6px}.aisLegend .ver{grid-column:1/-1}.aisLegend div:not(.ver){display:flex;align-items:center;gap:6px;font-size:7px;color:#a9c0ca}.aisLegend i{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:11px solid #70dab0}.aisLegend i.tanker{border-bottom-color:#ef817a}.aisLegend i.passenger{border-bottom-color:#7fa6ff}.aisLegend i.fishing{border-bottom-color:#f2aa54}.aisLegend i.pleasure{border-bottom-color:#df8cdc}.aisLegend i.danger{border-bottom-color:#ff3b35}.aisLegend i.lost{border-bottom-color:#89969b;filter:grayscale(1)}
+.aisLearnGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.aisLearnCard h3{margin:3px 0 5px}.aisLearnCard p{font-size:8.5px;line-height:1.45;color:#a9c1cb;margin:0}
+.aisMapWater{fill:#9cc2c6}.aisMapLand{fill:#ded7bb;stroke:#6d806f;stroke-width:2}.aisDepth{fill:none;stroke:#6ba5aa;stroke-width:1;opacity:.55}.aisGrid{stroke:#7ba7aa;stroke-width:1;opacity:.32}.aisNavLine{stroke:#758f8d;stroke-width:1;stroke-dasharray:5 5;opacity:.55}.aisOwn{fill:#a92525;stroke:#5a1717;stroke-width:2}.aisOwnVector{stroke:#a92525;stroke-width:2.5}.aisTarget{cursor:pointer;filter:drop-shadow(0 1px 1px #0004)}.aisTarget polygon{stroke:#18353c;stroke-width:1.5}.aisTarget.selected polygon{stroke:#fff;stroke-width:3}.aisTarget.danger polygon{stroke:#8d1010;stroke-width:3}.aisTarget.lost{opacity:.55}.aisTargetLabel{font-size:10px;font-weight:900;fill:#19353d}.aisTargetSub{font-size:8px;fill:#304d54}.aisVector{stroke-width:2;opacity:.85}.aisCpaLine{stroke:#d3463e;stroke-width:2;stroke-dasharray:5 5}.aisCpaMark{fill:none;stroke:#d3463e;stroke-width:2}.aisRangeRing{fill:none;stroke:#668f92;stroke-width:1;stroke-dasharray:4 5;opacity:.7}
+@media(max-width:1000px){.aisWorkspace{grid-template-columns:1fr}.aisSidePanel{grid-template-columns:1fr 1fr}.aisLegend{grid-column:1/-1}.aisLearnGrid{grid-template-columns:1fr 1fr}.aisLessonStrip{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.aisHero{grid-template-columns:1fr}.aisHeroBadge{text-align:left}.aisSafetyBar{grid-template-columns:1fr}.aisLessonStrip{grid-template-columns:1fr 1fr}.aisChart{height:460px}.aisChartTopbar{align-items:flex-start;flex-direction:column}.aisSidePanel,.aisLearnGrid{grid-template-columns:1fr}.aisLegend{grid-column:auto}.aisChartBottom{grid-template-columns:repeat(3,1fr)}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17172,7 +17191,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.34.3 • TSS EXAM</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.35 • AIS TRAINING ENGINE</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -17542,6 +17561,91 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 </section>
 
+
+<section id="aisPage" class="appPage">
+ <div class="aisHero">
+  <div>
+   <div class="ver">PROJECT WATCH • AIS TARGET TRAINER</div>
+   <h1>Learn to read the AIS picture.</h1>
+   <p>A simulated chartplotter workspace for understanding AIS targets, vessel information, course and heading, speed, closest approach, time to closest approach, dangerous-target warnings and lost/stale data. All vessels and positions are fictional.</p>
+  </div>
+  <div class="aisHeroBadge"><small>TRAINING ENGINE</small><b>LIVE AIS</b><span>SIMULATED DATA ONLY</span></div>
+ </div>
+
+ <div class="aisSafetyBar">
+  <b>AIS IS AN AID — NOT A SUBSTITUTE FOR LOOKOUT.</b>
+  <span>Use sight, hearing, radar where fitted and all other appropriate means. AIS information can be incomplete, manually entered, delayed or wrong.</span>
+ </div>
+
+ <div class="aisLessonStrip">
+  <button class="active" id="aisLesson1" onclick="aisSetLesson(1)"><span>01</span><b>READ A TARGET</b><small>Name • MMSI • type • range</small></button>
+  <button id="aisLesson2" onclick="aisSetLesson(2)"><span>02</span><b>COG vs HEADING</b><small>Movement over ground vs bow direction</small></button>
+  <button id="aisLesson3" onclick="aisSetLesson(3)"><span>03</span><b>CPA / TCPA</b><small>Developing collision picture</small></button>
+  <button id="aisLesson4" onclick="aisSetLesson(4)"><span>04</span><b>CLASS A / B</b><small>Different data sets and update behaviour</small></button>
+  <button id="aisLesson5" onclick="aisSetLesson(5)"><span>05</span><b>STALE / LOST</b><small>Do not trust old target data</small></button>
+ </div>
+
+ <div class="aisWorkspace">
+  <div class="aisChartPanel">
+   <div class="aisChartTopbar">
+    <div><span class="aisStatusDot"></span><b>AIS TRAINING FEED</b><small id="aisClock">00:00:00 UTC</small></div>
+    <div class="aisChartTools">
+     <button id="aisPlayBtn" onclick="aisTogglePlay()">Ⅱ PAUSE</button>
+     <button onclick="aisReset()">↻ RESET</button>
+     <button onclick="aisCycleRange()">RANGE <b id="aisRangeLabel">6 NM</b></button>
+     <button id="aisNamesBtn" class="active" onclick="aisToggleNames()">NAMES ON</button>
+     <button id="aisVectorsBtn" class="active" onclick="aisToggleVectors()">VECTORS ON</button>
+    </div>
+   </div>
+
+   <div id="aisChart" class="aisChart" aria-label="Simulated AIS chart"></div>
+
+   <div class="aisChartBottom">
+    <div><small>OWN SHIP</small><b>SUILVEN</b></div>
+    <div><small>COG</small><b id="aisOwnCog">012°</b></div>
+    <div><small>SOG</small><b id="aisOwnSog">7.0 kn</b></div>
+    <div><small>TARGETS</small><b id="aisTargetCount">8</b></div>
+    <div><small>ALARM</small><b id="aisAlarmState">CLEAR</b></div>
+   </div>
+  </div>
+
+  <aside class="aisSidePanel">
+   <div class="aisCoachCard">
+    <div class="ver">CAPTAIN'S COACH</div>
+    <h3 id="aisLessonTitle">Read a target</h3>
+    <p id="aisLessonText">Tap any AIS target. Read the vessel identity first, then dynamic information such as COG, SOG, heading and range.</p>
+    <div id="aisLessonTask" class="aisTask">TASK • Select any moving vessel.</div>
+   </div>
+
+   <div id="aisTargetPanel" class="aisTargetPanel">
+    <div class="aisTargetEmpty">
+     <b>NO TARGET SELECTED</b>
+     <span>Tap a vessel triangle on the chart.</span>
+    </div>
+   </div>
+
+   <div class="aisLegend">
+    <div class="ver">TARGET LEGEND</div>
+    <div><i class="cargo"></i><span>Cargo / commercial</span></div>
+    <div><i class="tanker"></i><span>Tanker</span></div>
+    <div><i class="passenger"></i><span>Passenger</span></div>
+    <div><i class="fishing"></i><span>Fishing</span></div>
+    <div><i class="pleasure"></i><span>Pleasure craft</span></div>
+    <div><i class="danger"></i><span>Dangerous / close CPA</span></div>
+    <div><i class="lost"></i><span>Lost or stale target</span></div>
+   </div>
+  </aside>
+ </div>
+
+ <div class="aisLearnGrid">
+  <div class="aisLearnCard"><div class="ver">DYNAMIC DATA</div><h3>What changes automatically?</h3><p>Position, speed over ground, course over ground and—in equipment that supplies it—heading. Class A reports also include navigational status and rate of turn.</p></div>
+  <div class="aisLearnCard"><div class="ver">STATIC / VOYAGE DATA</div><h3>What may be manually entered?</h3><p>Vessel name, call sign, dimensions and type are static data. Class A voyage fields can include draught, destination and ETA, so do not assume every manually entered value is current.</p></div>
+  <div class="aisLearnCard"><div class="ver">COURSE vs HEADING</div><h3>Two different numbers.</h3><p><b>COG</b> is the direction the vessel is moving over the ground. <b>Heading</b> is where the bow points. Tide, current or leeway can make them differ.</p></div>
+  <div class="aisLearnCard"><div class="ver">CPA / TCPA</div><h3>Prediction, not permission.</h3><p>CPA and TCPA are calculated predictions based on the present motion of both vessels. They support collision assessment; they do not replace COLREG judgement or lookout.</p></div>
+  <div class="aisLearnCard"><div class="ver">CLASS A / CLASS B</div><h3>Do not expect identical data.</h3><p>Class B normally transmits a reduced information set compared with Class A and may update less frequently. Missing voyage fields on a Class B target are not automatically a fault.</p></div>
+  <div class="aisLearnCard"><div class="ver">LOST TARGET</div><h3>Old information becomes dangerous.</h3><p>If transmissions stop, the displayed position can become stale. Treat a lost AIS target as an information warning—not proof that the vessel disappeared.</p></div>
+ </div>
+</section>
 <section id="tssPage" class="appPage">
 <div class="panel">
  <div class="ver">COLREG RULE 10 • MCA MGN 364 (M+F) AMENDMENT 2</div>
@@ -17795,6 +17899,10 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <button class="homeHubBtn" data-home-img="channel_ship" onclick="showModule('tss',this)">
       <span class="homeHubVisual"><img alt="" loading="lazy"><span class="homeHubShade"></span><span class="homeTssOverlay"><i></i><i></i><i></i></span></span>
       <span class="homeHubCopy"><span class="homeModuleNo">06</span><b>TRAFFIC SEPARATION</b><small>Rule 10 • Crossing trainer • Live TSS watch</small><em>OPEN MODULE →</em></span>
+    </button>
+    <button class="homeHubBtn" data-home-img="bridge" onclick="showModule('ais',this)">
+      <span class="homeHubVisual"><img alt="" loading="lazy"><span class="homeHubShade"></span><span class="homeAisOverlay"><i></i><i></i><i></i><i></i></span></span>
+      <span class="homeHubCopy"><span class="homeModuleNo">07</span><b>AIS TARGET TRAINER</b><small>Live mock chart • Targets • CPA/TCPA • COG/HDG</small><em>OPEN MODULE →</em></span>
     </button>
   </div>
 
@@ -21471,6 +21579,146 @@ function crAnswer(i){if(crQuizAnswered)return;crQuizAnswered=true;let q=CR_QUIZ[
 function crQuizNext(){crQuizIndex++;crQuizAnswered=false;$('crLessonVisual').innerHTML=crQuizHTML();if(crQuizIndex>=CR_QUIZ.length){crDone.add(6);$('crProgressText').textContent=`${crDone.size} / 7 COMPLETE`;$('crProgressFill').style.width=(crDone.size/7*100)+'%'}}
 function crRestartQuiz(){crQuizIndex=0;crQuizScore=0;crQuizAnswered=false;$('crLessonVisual').innerHTML=crQuizHTML()}
 
+
+// ---------------- AIS TARGET TRAINING ENGINE ----------------
+// Fictional AIS training data only. No live network/API is used.
+const AIS_TRAINING_TARGETS=[
+ {id:'a1',name:'MERIDIAN STAR',mmsi:'232001101',imo:'9301101',call:'MSTA7',cls:'A',type:'Cargo',colour:'#66cfa2',x:-2.7,y:2.1,cog:128,hdg:124,sog:13.4,rot:0,status:'Under way using engine',dest:'LIVERPOOL',eta:'15 SEP 04:20',draught:'8.2 m',len:'182 m',beam:'28 m',age:2},
+ {id:'a2',name:'NORTH CHANNEL',mmsi:'235004208',imo:'9464208',call:'2NCH4',cls:'A',type:'Tanker',colour:'#e8756f',x:2.1,y:1.1,cog:248,hdg:247,sog:11.8,rot:-2,status:'Under way using engine',dest:'BELFAST',eta:'15 SEP 02:45',draught:'9.6 m',len:'144 m',beam:'23 m',age:3},
+ {id:'a3',name:'ISLAND FERRY',mmsi:'235011425',imo:'9811425',call:'2IFR8',cls:'A',type:'Passenger',colour:'#7398ef',x:-1.2,y:-2.6,cog:018,hdg:020,sog:17.2,rot:1,status:'Under way using engine',dest:'DOUGLAS',eta:'14 SEP 23:35',draught:'4.8 m',len:'96 m',beam:'18 m',age:1},
+ {id:'a4',name:'SEA HARVEST',mmsi:'235099114',imo:'',call:'MSEA6',cls:'A',type:'Fishing',colour:'#efa44e',x:2.9,y:-1.8,cog:302,hdg:290,sog:5.8,rot:4,status:'Engaged in fishing',dest:'',eta:'',draught:'3.1 m',len:'24 m',beam:'7 m',age:5},
+ {id:'a5',name:'COAST RUNNER',mmsi:'235771902',imo:'',call:'',cls:'B',type:'Pleasure',colour:'#d987d3',x:.7,y:2.8,cog:188,hdg:176,sog:8.1,rot:null,status:'',dest:'',eta:'',draught:'',len:'13 m',beam:'4 m',age:14},
+ {id:'a6',name:'TUG ALPHA',mmsi:'232551120',imo:'9123411',call:'MTUG5',cls:'A',type:'Tug',colour:'#5dcac4',x:-3.0,y:-.6,cog:082,hdg:080,sog:9.4,rot:0,status:'Restricted manoeuvrability',dest:'WORK AREA',eta:'',draught:'4.0 m',len:'31 m',beam:'10 m',age:4},
+ {id:'a7',name:'WESTERN YACHT',mmsi:'235888701',imo:'',call:'',cls:'B',type:'Pleasure',colour:'#d987d3',x:3.3,y:2.6,cog:224,hdg:218,sog:6.7,rot:null,status:'',dest:'',eta:'',draught:'',len:'15 m',beam:'4.5 m',age:22},
+ {id:'a8',name:'OLD SIGNAL',mmsi:'235550099',imo:'',call:'2OLD9',cls:'A',type:'Cargo',colour:'#7c9b96',x:-.3,y:3.4,cog:194,hdg:193,sog:10.2,rot:0,status:'Under way using engine',dest:'HEYSHAM',eta:'',draught:'5.6 m',len:'88 m',beam:'14 m',age:75,lost:true}
+];
+let aisTargets=[],aisOwn={x:0,y:0,cog:12,hdg:12,sog:7},aisSelected=null,aisRunning=true,aisLast=0,aisRAF=0,aisRange=6,aisNames=true,aisVectors=true,aisLesson=1,aisStartEpoch=Date.now();
+
+function aisInit(){
+ if(!aisTargets.length)aisReset();else{aisDraw();aisUpdatePanel()}
+ if(!aisRAF){aisLast=performance.now();aisRAF=requestAnimationFrame(aisFrame)}
+}
+function aisReset(){
+ aisTargets=AIS_TRAINING_TARGETS.map(t=>({...t}));
+ aisSelected=null;aisOwn={x:0,y:0,cog:12,hdg:12,sog:7};aisRunning=true;aisLast=performance.now();aisStartEpoch=Date.now();
+ if($('aisPlayBtn'))$('aisPlayBtn').textContent='Ⅱ PAUSE';
+ aisDraw();aisUpdatePanel();aisSetLesson(1);
+ if(!aisRAF)aisRAF=requestAnimationFrame(aisFrame);
+}
+function aisTogglePlay(){aisRunning=!aisRunning;if($('aisPlayBtn'))$('aisPlayBtn').textContent=aisRunning?'Ⅱ PAUSE':'▶ PLAY'}
+function aisCycleRange(){const r=[3,6,12];aisRange=r[(r.indexOf(aisRange)+1)%r.length];if($('aisRangeLabel'))$('aisRangeLabel').textContent=aisRange+' NM';aisDraw()}
+function aisToggleNames(){aisNames=!aisNames;$('aisNamesBtn')?.classList.toggle('active',aisNames);$('aisNamesBtn').textContent=aisNames?'NAMES ON':'NAMES OFF';aisDraw()}
+function aisToggleVectors(){aisVectors=!aisVectors;$('aisVectorsBtn')?.classList.toggle('active',aisVectors);$('aisVectorsBtn').textContent=aisVectors?'VECTORS ON':'VECTORS OFF';aisDraw()}
+function aisSetLesson(n){
+ aisLesson=n;document.querySelectorAll('.aisLessonStrip button').forEach((b,i)=>b.classList.toggle('active',i===n-1));
+ const data={
+  1:['Read a target','Tap any AIS target. Start with identity and type, then read range, bearing, COG, SOG and heading.','TASK • Select any moving vessel.'],
+  2:['COG versus heading','Compare COG with heading. COG describes movement across the earth; heading is where the bow points. Tide/current/leeway can separate them.','TASK • Find a target where COG and heading differ by more than 5°.'],
+  3:['CPA and TCPA','Select targets and compare CPA and TCPA. A small predicted CPA with a positive TCPA deserves attention, but the figures are predictions based on present motion.','TASK • Find the target with the dangerous CPA warning.'],
+  4:['Class A and Class B','Class B commonly provides a reduced set of information and typically updates less often than Class A. Missing destination, ETA or draught on a Class B target can be normal.','TASK • Select a CLASS B target and inspect the missing voyage fields.'],
+  5:['Stale and lost data','A lost target is not a vanished vessel. If reports stop, the last position becomes old. Continue proper lookout and use other sensors/means.','TASK • Select the grey LOST target and read its age.']
+ }[n];
+ $('aisLessonTitle').textContent=data[0];$('aisLessonText').textContent=data[1];$('aisLessonTask').textContent=data[2];
+}
+function aisFrame(ts){
+ let dt=Math.min((ts-aisLast)/1000,.12);aisLast=ts;
+ if(aisRunning){
+   const scale=10; // accelerated training clock
+   const ov=aisVel(aisOwn.cog,aisOwn.sog);
+   aisOwn.x+=ov.x*dt*scale/3600;aisOwn.y+=ov.y*dt*scale/3600;
+   aisTargets.forEach(t=>{
+     if(t.lost){t.age+=dt*scale;return}
+     const v=aisVel(t.cog,t.sog);t.x+=v.x*dt*scale/3600;t.y+=v.y*dt*scale/3600;t.age=Math.max(0.5,(t.age+dt*scale)%28);
+   });
+   aisDraw();aisUpdatePanel();
+ }
+ aisRAF=requestAnimationFrame(aisFrame);
+}
+function aisVel(cog,sog){let r=cog*Math.PI/180;return{x:Math.sin(r)*sog,y:Math.cos(r)*sog}}
+function aisRel(t){
+ const dx=t.x-aisOwn.x,dy=t.y-aisOwn.y,range=Math.hypot(dx,dy),bearing=(Math.atan2(dx,dy)*180/Math.PI+360)%360;
+ const vo=aisVel(aisOwn.cog,aisOwn.sog),vt=aisVel(t.cog,t.sog),rv={x:vt.x-vo.x,y:vt.y-vo.y},vv=rv.x*rv.x+rv.y*rv.y;
+ let tcpa=vv?-(dx*rv.x+dy*rv.y)/vv*60:0,cpa=range;
+ if(vv){let h=Math.max(0,tcpa/60),cx=dx+rv.x*h,cy=dy+rv.y*h;cpa=Math.hypot(cx,cy)}
+ return{range,bearing,cpa,tcpa};
+}
+function aisDanger(t){
+ const r=aisRel(t);return !t.lost&&r.tcpa>0&&r.tcpa<30&&r.cpa<.5;
+}
+function aisTypeLabel(t){return t.type==='Tug'?'Tug / special craft':t.type}
+function aisMapXY(x,y){
+ const cx=470,cy=295,scale=270/aisRange;
+ return [cx+(x-aisOwn.x)*scale,cy-(y-aisOwn.y)*scale];
+}
+function aisDraw(){
+ const box=$('aisChart');if(!box)return;
+ const own=aisMapXY(aisOwn.x,aisOwn.y);
+ let rings=[.25,.5,.75,1].map(f=>`<circle cx="470" cy="295" r="${270*f}" class="aisRangeRing"/><text x="${470+6}" y="${295-270*f+13}" font-size="8" fill="#486b6e">${(aisRange*f).toFixed(f===1?0:1)} NM</text>`).join('');
+ let grid='';for(let x=65;x<940;x+=90)grid+=`<line x1="${x}" y1="0" x2="${x}" y2="590" class="aisGrid"/>`;for(let y=25;y<590;y+=70)grid+=`<line x1="0" y1="${y}" x2="940" y2="${y}" class="aisGrid"/>`;
+ // Generic fictional coastline/chart — intentionally original, not copied from Navionics or MarineTraffic.
+ let land=`<path d="M0 0 H150 C185 50 135 100 178 148 C205 180 145 230 180 270 C212 308 150 354 180 400 C207 438 165 485 195 530 L170 590 H0 Z" class="aisMapLand"/>
+           <path d="M940 0 H850 C823 55 865 105 828 160 C798 205 850 248 820 305 C790 355 840 404 810 460 C790 500 818 550 790 590 H940 Z" class="aisMapLand"/>
+           <path d="M0 102 C190 130 335 105 470 125 S750 145 940 110" class="aisDepth"/>
+           <path d="M0 190 C200 225 360 200 525 215 S790 225 940 190" class="aisDepth"/>
+           <path d="M0 480 C250 455 390 485 545 470 S760 450 940 480" class="aisDepth"/>`;
+ let targetSvg=aisTargets.map(t=>{
+   const [x,y]=aisMapXY(t.x,t.y);if(x<-40||x>980||y<-40||y>630)return '';
+   const danger=aisDanger(t),sel=aisSelected===t.id;
+   const vecLen=Math.min(90,18+t.sog*3.2),rad=t.cog*Math.PI/180,vx=Math.sin(rad)*vecLen,vy=-Math.cos(rad)*vecLen;
+   const rot=t.cog;
+   return `<g class="aisTarget ${danger?'danger':''} ${t.lost?'lost':''} ${sel?'selected':''}" onclick="aisSelect('${t.id}')">
+     ${aisVectors&&!t.lost?`<line x1="${x}" y1="${y}" x2="${x+vx}" y2="${y+vy}" class="aisVector" stroke="${danger?'#d92727':t.colour}"/>`:''}
+     <g transform="translate(${x} ${y}) rotate(${rot})"><polygon points="0,-10 7,9 0,5 -7,9" fill="${danger?'#ff352f':t.colour}"/></g>
+     ${t.lost?`<path d="M${x-8} ${y-8} L${x+8} ${y+8} M${x+8} ${y-8} L${x-8} ${y+8}" stroke="#68777b" stroke-width="3"/>`:''}
+     ${aisNames?`<text x="${x+10}" y="${y-8}" class="aisTargetLabel">${t.name}</text><text x="${x+10}" y="${y+4}" class="aisTargetSub">${t.sog.toFixed(1)} kn • ${String(Math.round(t.cog)).padStart(3,'0')}°</text>`:''}
+   </g>`;
+ }).join('');
+ let dangerTarget=aisTargets.find(aisDanger),cpa='';
+ if(dangerTarget){
+   const r=aisRel(dangerTarget),[tx,ty]=aisMapXY(dangerTarget.x,dangerTarget.y);
+   cpa=`<line x1="${own[0]}" y1="${own[1]}" x2="${tx}" y2="${ty}" class="aisCpaLine" opacity=".28"/>`;
+ }
+ box.innerHTML=`<svg viewBox="0 0 940 590">
+   <rect width="940" height="590" class="aisMapWater"/>
+   ${grid}${land}
+   <path d="M205 295 H735" class="aisNavLine"/><text x="220" y="286" font-size="8" fill="#526f72">TRAINING FAIRWAY</text>
+   ${rings}${cpa}${targetSvg}
+   <g transform="translate(${own[0]} ${own[1]}) rotate(${aisOwn.hdg})"><path d="M0,-16 L9,12 L0,8 L-9,12 Z" class="aisOwn"/></g>
+   <line x1="${own[0]}" y1="${own[1]}" x2="${own[0]+Math.sin(aisOwn.cog*Math.PI/180)*72}" y2="${own[1]-Math.cos(aisOwn.cog*Math.PI/180)*72}" class="aisOwnVector"/>
+   <text x="${own[0]+12}" y="${own[1]+22}" font-size="10" fill="#7a1c1c" font-weight="900">SUILVEN</text>
+   <text x="15" y="22" font-size="9" fill="#34555b">SIMULATED TRAINING CHART • NOT FOR NAVIGATION</text>
+  </svg>`;
+ let dangerCount=aisTargets.filter(aisDanger).length;
+ $('aisTargetCount').textContent=aisTargets.length;
+ $('aisAlarmState').textContent=dangerCount?`${dangerCount} DANGER`:'CLEAR';
+ $('aisAlarmState').className=dangerCount?'warn':'';
+ $('aisOwnCog').textContent=String(Math.round(aisOwn.cog)).padStart(3,'0')+'°';
+ $('aisOwnSog').textContent=aisOwn.sog.toFixed(1)+' kn';
+ let d=new Date(aisStartEpoch+(performance.now()-aisLast)*10); // display-only clock
+ $('aisClock').textContent=new Date().toISOString().slice(11,19)+' UTC';
+}
+function aisSelect(id){aisSelected=id;aisUpdatePanel();aisDraw()}
+function aisUpdatePanel(){
+ const panel=$('aisTargetPanel');if(!panel)return;
+ const t=aisTargets.find(x=>x.id===aisSelected);
+ if(!t){panel.innerHTML=`<div class="aisTargetEmpty"><b>NO TARGET SELECTED</b><span>Tap a vessel triangle on the chart.</span></div>`;return}
+ const r=aisRel(t),danger=aisDanger(t);
+ const diff=Math.abs((((t.cog-t.hdg)+540)%360)-180);
+ panel.innerHTML=`<div class="aisTargetHead"><div><div class="ver">${aisTypeLabel(t).toUpperCase()} • AIS CLASS ${t.cls}</div><h3>${t.name}</h3></div><span class="aisTargetClass">CLASS ${t.cls}</span></div>
+  <div class="aisTargetGrid">
+   <div><small>MMSI</small><b>${t.mmsi}</b></div><div><small>CALL SIGN</small><b>${t.call||'—'}</b></div>
+   <div><small>RANGE</small><b>${r.range.toFixed(2)} NM</b></div><div><small>BEARING</small><b>${String(Math.round(r.bearing)).padStart(3,'0')}°T</b></div>
+   <div><small>COG</small><b>${String(Math.round(t.cog)).padStart(3,'0')}°</b></div><div><small>HEADING</small><b>${String(Math.round(t.hdg)).padStart(3,'0')}°</b></div>
+   <div><small>SOG</small><b>${t.sog.toFixed(1)} kn</b></div><div><small>COG/HDG DIFF</small><b>${Math.round(diff)}°</b></div>
+   <div><small>CPA</small><b>${r.cpa.toFixed(2)} NM</b></div><div><small>TCPA</small><b>${r.tcpa>0?r.tcpa.toFixed(1)+' min':'PAST'}</b></div>
+   <div><small>NAV STATUS</small><b>${t.status||'Not transmitted / not in Class B set'}</b></div><div><small>REPORT AGE</small><b>${Math.round(t.age)} s${t.lost?' • LOST':''}</b></div>
+   <div><small>DESTINATION</small><b>${t.dest||'—'}</b></div><div><small>ETA</small><b>${t.eta||'—'}</b></div>
+   <div><small>DRAUGHT</small><b>${t.draught||'—'}</b></div><div><small>SIZE</small><b>${t.len} × ${t.beam}</b></div>
+  </div>
+  <div class="${danger?'aisTargetDanger':'aisTargetGood'}">${t.lost?'LOST / STALE AIS TARGET':danger?'DANGEROUS PREDICTED APPROACH':'NO TRAINING DANGER FLAG'}</div>
+  <div class="aisTargetNote">${t.cls==='B'?'Class B example: some Class A voyage/status fields are deliberately absent. ':''}${t.lost?'This is the last received position. The vessel may still be present and moving. ':''}CPA/TCPA are predictions from present motion and must be checked against the full traffic picture.</div>`;
+}
+
 const MODULE_META={
  home:{no:'',title:'',desc:'',state:''},
  scenarios:{no:'01',title:'Collision Scenarios',desc:'Scenario briefing, guided watch, simulator and debrief.',state:'SIMULATOR MODULE'},
@@ -21478,7 +21726,8 @@ const MODULE_META={
  lights:{no:'03',title:'Lights & Shapes',desc:'Bridge-view recognition of navigation lights and day shapes.',state:'RECOGNITION MODULE'},
  signals:{no:'04',title:'Signals',desc:'Sound signals, restricted visibility, distress and harbour practice.',state:'SIGNALS MODULE'},
  buoyage:{no:'05',title:'Buoyage',desc:'IALA Region A marks, lights and recognition challenges.',state:'BUOYAGE MODULE'},
- tss:{no:'06',title:'Traffic Separation',desc:'Rule 10 learning, crossing geometry, bridge display and live TSS watch.',state:'TSS MODULE'}
+ tss:{no:'06',title:'Traffic Separation',desc:'Rule 10 learning, crossing geometry, bridge display and live TSS watch.',state:'TSS MODULE'},
+ ais:{no:'07',title:'AIS Target Trainer',desc:'Simulated AIS chart, vessel targets, COG/heading, CPA/TCPA and lost-target awareness.',state:'AIS LEARNING MODULE'}
 };
 function updateModuleContext(name){
  const box=$('moduleContext'),m=MODULE_META[name]||MODULE_META.home;
@@ -21540,6 +21789,7 @@ function showModule(name,btn){
  if(name==='home')setTimeout(enhanceHomeHub,0);
  if(name==='lights')setTimeout(bvRender,0);
  if(name==='buoyage')setTimeout(()=>{renderBuoys();if(buoyIndex<0)nextBuoyQuestion();else renderBuoyChallenge();},0);
+ if(name==='ais')setTimeout(()=>{aisInit();},0);
 
  // Hard isolation: no previous module, simulator or debrief screen may remain active.
  document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
