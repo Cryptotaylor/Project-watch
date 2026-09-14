@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.25.1 — COLREG Verified Scenario Deck</title>
+<title>Project Watch 1.25.2 — Clear Scenario Geometry</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -248,7 +248,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 /* 1.25 — chart-style scenario cards */
 .scenarioBtn{
-  background:#07344a;text-align:left;padding:0;min-height:112px;overflow:hidden;
+  background:#07344a;text-align:left;padding:0;min-height:122px;overflow:hidden;
   display:grid;grid-template-columns:48% 52%;align-items:stretch;
   border:1px solid #ffffff16;border-radius:12px;position:relative
 }
@@ -257,7 +257,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 }
 .scenarioBtn:hover{border-color:#6ee0ff66}
 .scenarioChart{
-  position:relative;display:block;min-height:112px;overflow:hidden;
+  position:relative;display:block;min-height:122px;overflow:hidden;
   background:
     linear-gradient(#6ea7bd22 1px,transparent 1px),
     linear-gradient(90deg,#6ea7bd22 1px,transparent 1px),
@@ -303,8 +303,8 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .chartRolePill{stroke:none;opacity:.95}
 .chartRolePillText{font:900 6.2px Arial,sans-serif;fill:white}
 @media(max-width:760px){
- .scenarioBtn{grid-template-columns:47% 53%;min-height:104px}
- .scenarioChart{min-height:104px}
+ .scenarioBtn{grid-template-columns:47% 53%;min-height:112px}
+ .scenarioChart{min-height:112px}
  .scenarioBtn b{font-size:13.8px}
  .scenarioBtn .scenarioCopy span{font-size:10px}
 }
@@ -312,6 +312,19 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  .scenarioBtn b{font-size:13.5px}
  .scenarioBtn .scenarioCopy span{font-size:10px}
 }
+
+
+/* 1.25.2 — clearer vessel separation and unobstructed symbols */
+.scenarioChartKey{
+ position:absolute;left:50%;top:7px;transform:translateX(-50%);z-index:6;
+ display:flex;gap:8px;align-items:center;padding:3px 7px;border-radius:6px;
+ background:#f6f0dfe8;border:1px solid #234a5c3d;
+ font-size:6.4px;font-weight:900;letter-spacing:.35px;color:#173f50;
+ white-space:nowrap
+}
+.scenarioChartKey i{width:8px;height:8px;display:inline-block;border-radius:2px;margin-right:3px;vertical-align:-1px}
+.scenarioChartKey .ownKey{background:#b72828}.scenarioChartKey .targetKey{background:#3f968c}
+.chartLabel{display:none!important}
 
 /* 1.24 photographic home / training hub */
 .homeHubMenu{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -16830,7 +16843,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.25.1 • COLREG VERIFIED SCENARIO DECK</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.25.2 • CLEAR SCENARIO GEOMETRY</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -17549,7 +17562,7 @@ function scenarioChartHTML(id){
   const rx=r.x*Math.cos(a)+r.y*Math.sin(a);
   const ry=-r.x*Math.sin(a)+r.y*Math.cos(a);
 
-  const ownX=90,ownY=82,scale=27/2;
+  const ownX=90,ownY=66,scale=34/2;
   const tx=ownX+rx*scale,ty=ownY-ry*scale;
   const tgtRelH=((s.tgtH-s.ownH)%360+360)%360;
 
@@ -17585,14 +17598,13 @@ function scenarioChartHTML(id){
 
   return `<span class="scenarioChart">
     <span class="scenarioChartTitle">${rel}</span>
+    <span class="scenarioChartKey"><span><i class="ownKey"></i>OWN</span><span><i class="targetKey"></i>TARGET</span></span>
     <span class="scenarioChartRule">${spec[1]}</span>
     <svg viewBox="0 0 180 104" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <line class="chartBearing" x1="${ownX}" y1="${ownY}" x2="${tx.toFixed(1)}" y2="${ty.toFixed(1)}"/>
       ${wind}
       ${boat(ownX,ownY,0,'own')}
       ${boat(tx,ty,tgtRelH,'target')}
-      <text class="chartLabel" x="${ownX+7}" y="${ownY+3}">OWN${s.ownType==='sail'&&s.ownTack?' • '+s.ownTack.toUpperCase()+' TACK':''}</text>
-      <text class="chartLabel" x="${Math.min(146,Math.max(8,tx+7)).toFixed(1)}" y="${Math.min(94,Math.max(15,ty+2)).toFixed(1)}">TARGET${s.tgtType==='sail'&&s.tgtTack?' • '+s.tgtTack.toUpperCase()+' TACK':''}</text>
       <rect class="chartRolePill ${role[1]}" x="114" y="7" width="58" height="12" rx="4"/>
       <text class="chartRolePillText" x="143" y="15" text-anchor="middle">${role[0]}</text>
     </svg>
