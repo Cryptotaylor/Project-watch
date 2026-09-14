@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.34.2 — Buoyage Examination Suite</title>
+<title>Project Watch 1.34.3 — TSS Examination Suite</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -673,6 +673,20 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bxReviewVisual{height:245px;display:flex;align-items:center;justify-content:center;border-radius:10px;overflow:hidden;margin:7px 0;background:linear-gradient(#9dd6e9 0 60%,#eaf0ea 61% 64%,#3e85a3 65% 100%)}.bxReviewVisual.night{background:radial-gradient(circle at 50% 28%,#142841 0,#06101b 58%,#01050a 100%)}.bxReviewVisual .buoySvg{width:155px;height:215px}.bxReviewVisual.night .dayBody{opacity:.18}.bxReviewVisual.night .dayTop{opacity:.22}
 @media(max-width:900px){.buoyExamBasis{grid-template-columns:1fr 1fr}.bxLayout{grid-template-columns:1fr}.buoyExamToolbar{grid-template-columns:1fr 1fr}.buoyExamToolbar .examProgressText{grid-column:1/-1}.bxVisual{min-height:300px}}
 @media(max-width:650px){.buoyExamHero{grid-template-columns:1fr}.buoyExamBadge{text-align:left}.buoyExamBasis,.buoyExamToolbar{grid-template-columns:1fr}.bxVisual{min-height:270px}.bxVisual .buoySvg{width:180px;height:250px}}
+
+
+/* 1.34.3 TSS Full Mock Exam */
+.tssExamLaunch{margin:7px 0 11px}.tssExamLaunch button{width:100%;display:grid;grid-template-columns:120px 1fr auto;grid-template-rows:auto auto;gap:2px 12px;align-items:center;text-align:left;padding:12px 14px;border-radius:12px;background:linear-gradient(100deg,#0a684c,#0a435d);border:1px solid #70e5ad66;color:#fff;box-shadow:0 8px 22px #0003}.tssExamLaunch span{grid-row:1/3;font-size:8px;font-weight:900;color:#a8f1d0}.tssExamLaunch b{font-size:11px}.tssExamLaunch small{font-size:7px;color:#b7d7e1}.tssExamLaunch em{grid-row:1/3;grid-column:3;font-style:normal;font-size:8px;font-weight:900}
+.tssExamHero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:24px;border-radius:18px;background:linear-gradient(135deg,#052b3d,#073e57);border:1px solid #ffffff18;box-shadow:0 12px 32px #0004}.tssExamHero h1{font-size:27px;margin:3px 0 7px}.tssExamHero p{max-width:790px;margin:0;color:#b7ced8;font-size:10px;line-height:1.5}.tssExamBadge{padding:11px 13px;border-radius:10px;background:#031b27;border:1px solid #70e5ad42;text-align:right}.tssExamBadge small,.tssExamBadge span{display:block;font-size:7px;color:#8fb5c4}.tssExamBadge b{display:block;font-size:16px;margin:2px 0;color:#72e4aa}
+.tssExamBasis{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}.tssExamBasis div{background:#041e2b;border:1px solid #ffffff13;border-radius:9px;padding:9px}.tssExamBasis small{display:block;font-size:6.5px;color:#7895a2}.tssExamBasis b{display:block;font-size:8px;line-height:1.35;margin-top:2px}
+.tssExamToolbar{display:grid;grid-template-columns:auto auto 1fr;gap:7px;align-items:center;margin:10px 0}.tssExamToolbar button{width:auto}.tssExamToolbar .big{background:#157b55}
+.tssExamQuestionArea{background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:14px;min-height:520px}
+.txLayout{display:grid;grid-template-columns:minmax(390px,1.1fr) minmax(360px,.9fr);gap:12px}.txVisualCard{background:#031b27;border:1px solid #ffffff15;border-radius:12px;overflow:hidden}.txVisualHead{display:flex;justify-content:space-between;gap:8px;padding:9px 10px;background:#041e2b}.txVisualHead span{font-size:7px;font-weight:900;color:#8fb5c4}.txVisual{height:390px;background:#9bb9b4}.txVisual svg{width:100%;height:100%;display:block}.txKnowledgeOnly{min-height:390px;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;background:radial-gradient(circle at 50% 50%,#0b4560,#031923 72%)}.txKnowledgeOnly b{display:block;font-size:18px}.txKnowledgeOnly span{display:block;margin-top:8px;font-size:9px;color:#a9c4cf;line-height:1.45}
+.txQuestionCard{display:flex;flex-direction:column;min-height:390px}.txQuestionCard .examQuestion{margin:10px 0}.txRulePrompt{background:#031d29;border-left:3px solid #4dccf4;padding:8px 9px;border-radius:7px;font-size:8px;color:#b9d0da;line-height:1.45}
+.txResultsSummary{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:15px;border-radius:12px;background:#031d29}.txResultsSummary.pass{border:1px solid #55dc9a66}.txResultsSummary.fail{border:1px solid #f06e6e66}.txScore{font-size:28px;font-weight:1000}.txReviewVisual{height:270px;border-radius:10px;overflow:hidden;margin:7px 0;background:#9bb9b4}.txReviewVisual svg{width:100%;height:100%;display:block}
+.tssPracticalExam{margin-top:12px;background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:14px}.tssPracticalExam h2{margin:3px 0 5px}.tssPracticalExam p{color:#a9c1cb;font-size:9px;line-height:1.45}.tssPracticalExamDeck{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.tssPracticalCard{background:#031d29;border:1px solid #ffffff12;border-radius:10px;padding:10px}.tssPracticalCard h4{margin:3px 0}.tssPracticalCard p{font-size:8px;min-height:32px}.tssPracticalCard button{width:100%;background:#166d91}
+@media(max-width:900px){.tssExamBasis{grid-template-columns:1fr 1fr}.txLayout{grid-template-columns:1fr}.tssExamToolbar{grid-template-columns:1fr 1fr}.tssExamToolbar .examProgressText{grid-column:1/-1}.tssPracticalExamDeck{grid-template-columns:1fr 1fr}.txVisual{height:350px}}
+@media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17158,7 +17172,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.34.2 • BUOYAGE EXAM</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.34.3 • TSS EXAM</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -17536,6 +17550,9 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  <div class="tssBeginnerLaunch">
    <button onclick="showTSSTutorial()"><span>NEW TO TSS?</span><b>START THE BEGINNER COURSE</b><small>9 guided lessons • under-20 m focus • spoken coaching • live demonstrations</small><em>START COURSE →</em></button>
  </div>
+ <div class="tssExamLaunch">
+   <button onclick="showTSSExam()"><span>MOCK ASSESSMENT</span><b>PROJECT WATCH TSS FULL EXAM</b><small>30 questions • Rule 10 • under-20 m • geometry • live practicals</small><em>START EXAM →</em></button>
+ </div>
  <div class="tssTabs">
   <button id="tssTabLearn" class="active" onclick="showTSS('learn')">📖 LEARN THE TSS</button>
   <button id="tssTabExamples" onclick="showTSS('examples')">🗺️ CROSSING EXAMPLES</button>
@@ -17650,6 +17667,48 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 </section>
 
+
+<section id="tssExamPage" class="appPage">
+ <div class="tssExamHero">
+  <div>
+   <div class="ver">PROJECT WATCH • COLREG RULE 10 • UNDER-20 m</div>
+   <h1>Traffic Separation Scheme Full Mock Examination</h1>
+   <p>You are assessed as skipper of Suilven, a 14.2 m power-driven recreational vessel. The exam tests the exact Rule 10 material taught in Project Watch: under-20 m responsibilities, ITZ use, crossing geometry, heading versus COG, joining/leaving, separation zones, lane use and collision-rule interaction.</p>
+  </div>
+  <div class="tssExamBadge"><small>FULL MOCK</small><b>30 QUESTIONS</b><span>KNOWLEDGE • VISUAL • DECISION</span></div>
+ </div>
+
+ <div class="tssExamBasis">
+  <div><small>TRAINING VESSEL</small><b>Suilven • 14.2 m • power-driven</b></div>
+  <div><small>RULE FOCUS</small><b>Rule 10(a)–(j) + other applicable COLREGs</b></div>
+  <div><small>STANDARD</small><b>Project Watch mock • 90% • no critical error</b></div>
+  <div><small>STATUS</small><b>Independent training assessment • not RYA/MCA certification</b></div>
+ </div>
+
+ <div class="tssExamToolbar">
+  <button class="big" onclick="startTSSFullExam()">START NEW 30-QUESTION MOCK</button>
+  <button onclick="showModule('tss')">← TSS TRAINING</button>
+  <div id="txProgress" class="examProgressText">Ready</div>
+ </div>
+
+ <div id="txQuestionArea" class="tssExamQuestionArea">
+  <div class="examEmpty">
+   <b>Full TSS Mock</b>
+   <span>The assessment mixes Rule 10 knowledge with the same chart/bridge geometry used in the Project Watch tutorial. Answers and reasoning remain hidden until submission.</span>
+  </div>
+ </div>
+
+ <div class="tssPracticalExam">
+  <div class="ver">PRACTICAL ASSESSMENT • EXISTING LIVE TSS WATCH</div>
+  <h2>Take the watch after the written mock.</h2>
+  <p>Launch one of the existing live scenarios directly from the examination centre. The simulator remains the same validated TSS engine already used in training.</p>
+  <div id="tssPracticalExamDeck" class="tssPracticalExamDeck"></div>
+ </div>
+
+ <div class="examSourceNote">
+  <b>Assessment basis:</b> Original Project Watch questions derived from the Rule 10 material already taught in this application. The mock does not reproduce RYA examination material and does not confer an MCA or RYA qualification.
+ </div>
+</section>
 <section id="tssTutorialPage" class="appPage">
  <div class="tutTssHero">
   <div><div class="ver">RULE 10 • BEGINNER COURSE • VESSELS UNDER 20 m</div>
@@ -20449,6 +20508,116 @@ function renderTSS(){
  if($('tssEcdisExample')) setTSSGeometry('textbook');
  if($('tssRuleGrid'))$('tssRuleGrid').innerHTML=TSS_RULES.map(r=>`<div class="tssCard"><h4>${r[0]}</h4><p>${r[1]}</p><span class="ruleFlag">Rule ${r[2]}</span></div>`).join('');
 }
+const TSS_EXAM_BANK=[
+{cat:"Under-20 m",rule:"Rule 10(j)",critical:true,visual:null,q:"Suilven is 14.2 m long. What additional Rule 10 duty applies when a power-driven vessel is following a traffic lane?",a:["Suilven always has priority because she is small", "Suilven shall not impede the safe passage of that power-driven vessel", "Suilven must stop outside every TSS", "Suilven must always use the ITZ"],correct:1,why:"Rule 10(j) requires a vessel under 20 m not to impede the safe passage of a power-driven vessel following a traffic lane."},
+{cat:"Application",rule:"Rule 10(a)",critical:false,visual:null,q:"Does using or crossing a TSS remove your obligations under the other COLREGs?",a:["Yes", "No", "Only for vessels under 20 m", "Only in daylight"],correct:1,why:"Rule 10 does not relieve a vessel of obligations under any other Rule."},
+{cat:"Lane use",rule:"Rule 10(b)",critical:true,visual:"textbook",q:"If Suilven is using a traffic lane, how should she proceed?",a:["Against the arrows if traffic is light", "In the appropriate lane in the general direction of traffic flow", "Along the separation line", "Across the lane diagonally"],correct:1,why:"A vessel using a TSS proceeds in the appropriate traffic lane in the general direction of traffic flow."},
+{cat:"Separation",rule:"Rule 10(b)(ii)",critical:false,visual:null,q:"When using a traffic lane, what should you do regarding the separation line or zone?",a:["Keep clear so far as practicable", "Use it as extra sea room", "Follow it exactly down the centre", "Anchor on it if traffic is dense"],correct:0,why:"Rule 10(b)(ii) says to keep clear of a traffic separation line or separation zone so far as practicable."},
+{cat:"Crossing",rule:"Rule 10(c)",critical:true,visual:"textbook",q:"Traffic flow is east–west. Which crossing heading best represents Rule 10(c)?",a:["North–south, as nearly as practicable at right angles to the flow", "A shallow diagonal in the same general direction as traffic", "Parallel with the lane", "Any heading provided AIS is transmitting"],correct:0,why:"Rule 10(c) requires a crossing heading as nearly as practicable at right angles to the general direction of traffic flow."},
+{cat:"Heading vs COG",rule:"Rule 10(c)",critical:true,visual:"tide",q:"Tide sets Suilven sideways during a crossing. What must remain as nearly as practicable at right angles to the traffic flow?",a:["Course over ground", "Heading", "Wake", "Relative bearing of the nearest ship"],correct:1,why:"The Rule and MCA guidance refer to heading, not course over ground."},
+{cat:"Heading vs COG",rule:"Rule 10(c)",critical:false,visual:"tide",q:"A tidal stream makes Suilven's track over the ground appear diagonal, while her bow remains at the proper right-angle heading. Is the diagonal COG by itself a Rule 10(c) failure?",a:["Yes", "No", "Only if speed is below 10 knots", "Only at night"],correct:1,why:"Tidal set can skew the ground track. The key Rule 10(c) requirement is the crossing heading."},
+{cat:"Wrong geometry",rule:"Rule 10(c)",critical:true,visual:"wrong",q:"What is wrong with the crossing shown?",a:["Nothing; diagonal headings are preferred", "The heading is not as nearly as practicable at right angles to traffic flow", "The vessel is too slow", "The vessel should be in the separation zone"],correct:1,why:"A deliberately shallow/diagonal crossing heading does not meet the right-angle-heading requirement."},
+{cat:"Crossing decision",rule:"Rule 10(c) & (j)",critical:true,visual:null,q:"A lane-following ship would have to alter course or speed because of your planned crossing. What should an under-20 m skipper do?",a:["Commit because you intend to cross at 90°", "Wait and reassess rather than impede the ship", "Enter the separation zone and stop", "Cross ahead quickly"],correct:1,why:"The 90° geometry does not cancel the under-20 m duty not to impede lane traffic."},
+{cat:"Crossing continuity",rule:"Rule 10(c)",critical:true,visual:"textbook",q:"Once committed to a normal TSS crossing, what is the correct training principle?",a:["Cross the complete lane without stopping except in emergency", "Stop in the separation zone and reassess", "Alter to follow the traffic for a short distance", "Reverse course halfway across"],correct:0,why:"Current MCA guidance teaches that the complete lane should be crossed without stopping except in emergency."},
+{cat:"Joining",rule:"Rule 10(b)(iii)",critical:true,visual:"join",q:"If joining a traffic lane from the side, what geometry should be used?",a:["As small an angle to traffic flow as practicable", "As close to 90° as possible", "Exactly 45°", "Any angle if clear"],correct:0,why:"Joining from the side uses a small angle to the general direction of traffic flow."},
+{cat:"Leaving",rule:"Rule 10(b)(iii)",critical:false,visual:"leave",q:"If leaving a traffic lane to the side, what geometry should be used?",a:["A small angle to the traffic flow as practicable", "A 90° crossing heading", "A turn into the opposing lane", "A stop in the separation zone"],correct:0,why:"Leaving to the side is also made at as small an angle to traffic flow as practicable."},
+{cat:"Bad join",rule:"Rule 10(b)(iii)",critical:true,visual:"badjoin",q:"Why is this side-entry example deliberately marked wrong?",a:["It is too shallow", "It uses a steep entry instead of a small angle to the traffic flow", "It joins at the lane termination", "It keeps clear of the separation zone"],correct:1,why:"A steep side entry is not the small-angle joining geometry called for by Rule 10."},
+{cat:"Termination",rule:"Rule 10(b)(iii) & (f)",critical:false,visual:"termination",q:"What is normally the preferred place to join or leave a traffic lane?",a:["At the termination of the lane", "At the centre of the separation zone", "At any midpoint", "At the nearest cardinal mark"],correct:0,why:"Rule 10 says a vessel should normally join or leave at the termination of the lane; particular caution is required near TSS terminations."},
+{cat:"Terminations",rule:"Rule 10(f)",critical:true,visual:"termination",q:"How should you navigate near the terminations of a TSS?",a:["With particular caution", "At maximum speed", "Only inside the separation zone", "Using the wrong-way lane if clear"],correct:0,why:"Rule 10(f) requires particular caution near TSS terminations."},
+{cat:"ITZ",rule:"Rule 10(d)",critical:false,visual:null,q:"May a vessel under 20 m use an Inshore Traffic Zone under Rule 10(d)?",a:["Yes", "No", "Only with pilot permission", "Only if commercially registered"],correct:0,why:"Rule 10(d) expressly permits vessels under 20 m to use an ITZ."},
+{cat:"ITZ",rule:"Rule 10(d)",critical:false,visual:null,q:"For a small recreational vessel, should the ITZ be treated as an empty one-way lane?",a:["Yes", "No", "Only at night", "Only when AIS shows no targets"],correct:1,why:"The ITZ is not guaranteed to be empty or one-way; proper lookout and the other COLREGs still apply."},
+{cat:"ITZ",rule:"Rule 10(d)",critical:false,visual:null,q:"Which vessel is expressly among those permitted to use an ITZ?",a:["A sailing vessel", "Every deep-draught ship regardless of route", "Only naval vessels", "Only vessels over 50 m"],correct:0,why:"Rule 10(d) specifically permits sailing vessels, vessels under 20 m and fishing vessels to use the ITZ."},
+{cat:"Separation zone",rule:"Rule 10(e)",critical:true,visual:null,q:"Can Suilven normally use the separation zone as convenient waiting space between the two traffic lanes?",a:["Yes", "No", "Only if under 20 m", "Only in daylight"],correct:1,why:"The separation zone is not a normal waiting area or spare sea room."},
+{cat:"Separation zone",rule:"Rule 10(e)",critical:false,visual:null,q:"Which is one of the stated exceptions allowing entry into a separation zone?",a:["To avoid immediate danger", "To shorten the passage", "To overtake a slower yacht", "To improve mobile-phone reception"],correct:0,why:"Rule 10(e) includes entry to avoid immediate danger among the stated exceptions."},
+{cat:"Fishing",rule:"Rule 10(i)",critical:true,visual:null,q:"A vessel engaged in fishing near a TSS must not:",a:["Impede the passage of a vessel following a traffic lane", "Use radar", "Show fishing lights", "Cross any lane under any circumstances"],correct:0,why:"Rule 10(i) says a vessel engaged in fishing shall not impede the passage of any vessel following a traffic lane."},
+{cat:"Not using scheme",rule:"Rule 10(h)",critical:false,visual:null,q:"If your vessel is not using the TSS, what should you normally do?",a:["Avoid it by as wide a margin as practicable", "Run just outside the separation line", "Anchor at the termination", "Cross repeatedly to shorten the route"],correct:0,why:"Rule 10(h) says a vessel not using a TSS shall avoid it by as wide a margin as practicable."},
+{cat:"Anchoring",rule:"Rule 10(g)",critical:false,visual:null,q:"What does Rule 10 say about anchoring in a TSS or near its terminations?",a:["Avoid it so far as practicable", "It is preferred for small craft", "It is required before crossing", "It is always permitted in the separation zone"],correct:0,why:"Rule 10(g) says a vessel shall so far as practicable avoid anchoring in a TSS or areas near its terminations."},
+{cat:"Priority",rule:"Rule 10 + other Rules",critical:true,visual:"busy",q:"Does a ship following a traffic lane automatically have right of way over every crossing vessel?",a:["Yes", "No; the other applicable steering and sailing rules still apply", "Only if over 100 m", "Only if displaying AIS"],correct:1,why:"Traffic-lane use does not create automatic blanket priority; the other applicable COLREGs continue to operate."},
+{cat:"Small vessel",rule:"Rule 10(j)",critical:true,visual:"busy",q:"What does 'shall not impede' mean in practical Project Watch training for Suilven?",a:["Force lane traffic to alter because Suilven is smaller", "Plan early so lane-following power-driven traffic is not forced to alter course or speed for Suilven", "Remain permanently outside every TSS", "Always stop before entering an ITZ"],correct:1,why:"The course teaches the under-20 m skipper to plan early and avoid creating a situation where lane traffic must alter for the small vessel."},
+{cat:"Local information",rule:"Rule 10 / local provisions",critical:false,visual:null,q:"Before using a real TSS, what additional information should a recreational skipper check?",a:["The chart and Sailing Directions/local scheme provisions", "Only social-media reports", "Only AIS vessel names", "No additional information is necessary"],correct:0,why:"The Project Watch course repeatedly warns that individual schemes may contain special provisions and should be checked on the chart and in Sailing Directions."},
+{cat:"Scenario",rule:"Rules 5–8 & 10",critical:true,visual:"busy",q:"You have the correct 90° heading but the traffic picture is unsafe. What should you do?",a:["Commit anyway because Rule 10(c) geometry is correct", "Remain clear and reassess; correct geometry does not replace collision-risk assessment", "Enter and stop in the separation zone", "Accelerate across ahead of the nearest ship"],correct:1,why:"Rule 10 works together with lookout, safe speed, risk assessment and avoiding-action duties."},
+{cat:"Scenario",rule:"Rule 10(c) & (j)",critical:true,visual:"textbook",q:"Which sequence best matches the Project Watch under-20 m crossing method?",a:["Enter first, then search for a gap", "Read the scheme, assess traffic, do not impede, wait for a safe gap, cross on the correct heading and keep watch", "Follow the separation line until clear", "Stop between lanes and restart when convenient"],correct:1,why:"That is the complete under-20 m sequence taught in the beginner course."},
+{cat:"Lane use",rule:"Rule 10(b) & (j)",critical:false,visual:null,q:"Is an under-20 m recreational vessel automatically prohibited from using a traffic lane?",a:["Yes, always", "No; if using the lane it must use the appropriate lane and flow, while still complying with Rule 10(j) and any local provisions", "Only if power-driven", "Only if sailing"],correct:1,why:"Rule 10 does not impose a blanket prohibition on an under-20 m recreational vessel using a traffic lane."},
+{cat:"Final watch",rule:"Full Rule 10",critical:true,visual:"textbook",q:"Suilven has crossed both traffic lanes and cleared the far side. What happens to the watchkeeping duty?",a:["It ends immediately", "It continues; maintain lookout and continue applying the COLREGs", "AIS may now replace lookout", "The nearest lane ship becomes responsible for all avoidance"],correct:1,why:"Clearing the TSS does not end the continuous duties of proper lookout, safe navigation and collision avoidance."}
+];
+
+let tssExamSet=[],tssExamAnswers=[],tssExamIndex=0,tssExamSubmitted=false;
+
+function showTSSExam(){
+ document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
+ updateHeaderNav('tss');updateModuleContext('tss');
+ $('tssExamPage').classList.add('active');
+ renderTSSPracticalDeck();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function txShuffle(a){let x=[...a];for(let i=x.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
+function startTSSFullExam(){
+ tssExamSet=txShuffle(TSS_EXAM_BANK);
+ tssExamAnswers=new Array(tssExamSet.length).fill(null);
+ tssExamIndex=0;tssExamSubmitted=false;renderTSSExamQuestion();
+}
+function txVisualHTML(q,review=false){
+ if(!q.visual)return `<div class="txKnowledgeOnly"><div><b>RULE 10 KNOWLEDGE</b><span>Apply the under-20-metre TSS principles taught in Project Watch. No diagram is required for this question.</span></div></div>`;
+ return `<div class="${review?'txReviewVisual':'txVisual'}">${tssEcdisSVG(false,q.visual)}</div>${review?'':`<div class="txVisualHead"><span>RULE 10 GEOMETRY</span><span>${q.visual.toUpperCase()}</span></div>`}`;
+}
+function renderTSSExamQuestion(){
+ if(!tssExamSet.length)return;
+ const q=tssExamSet[tssExamIndex],ans=tssExamAnswers[tssExamIndex];
+ $('txProgress').textContent=`Question ${tssExamIndex+1} of ${tssExamSet.length} • ${tssExamAnswers.filter(x=>x!==null).length} answered`;
+ $('txQuestionArea').innerHTML=`<div class="txLayout">
+   <div class="txVisualCard">${txVisualHTML(q)}</div>
+   <div class="txQuestionCard">
+    <div class="examQTop"><span class="tag">${q.cat} • ${q.rule}</span>${q.critical?'<span class="tag critical">SAFETY-CRITICAL</span>':''}</div>
+    <div class="txRulePrompt">Training vessel: Suilven • 14.2 m • power-driven. Apply Rule 10 together with the other applicable COLREGs.</div>
+    <div class="examQuestion">${q.q}</div>
+    <div class="examChoices">${q.a.map((a,i)=>`<button class="${ans===i?'selected':''}" onclick="answerTSSExam(${i})"><b>${String.fromCharCode(65+i)}.</b> ${a}</button>`).join('')}</div>
+    <div class="examNav" style="margin-top:auto"><button onclick="tssExamPrev()">← PREVIOUS</button><button onclick="tssExamNext()">NEXT →</button><button class="submit" onclick="submitTSSFullExam()">SUBMIT EXAM</button></div>
+   </div></div>`;
+}
+function answerTSSExam(i){if(tssExamSubmitted)return;tssExamAnswers[tssExamIndex]=i;renderTSSExamQuestion()}
+function tssExamPrev(){if(tssExamIndex>0){tssExamIndex--;renderTSSExamQuestion()}}
+function tssExamNext(){if(tssExamIndex<tssExamSet.length-1){tssExamIndex++;renderTSSExamQuestion()}}
+function submitTSSFullExam(){
+ if(!tssExamSet.length||tssExamSubmitted)return;
+ const unanswered=tssExamAnswers.filter(x=>x===null).length;
+ if(unanswered&&!confirm(`${unanswered} question(s) are unanswered. Submit anyway?`))return;
+ tssExamSubmitted=true;
+ const correct=tssExamSet.filter((q,i)=>tssExamAnswers[i]===q.correct).length;
+ const pct=Math.round(correct/tssExamSet.length*100);
+ const criticalWrong=tssExamSet.filter((q,i)=>q.critical&&tssExamAnswers[i]!==q.correct);
+ const pass=pct>=90&&criticalWrong.length===0;
+ $('txProgress').textContent=`Complete • ${correct}/${tssExamSet.length} • ${pct}%`;
+ $('txQuestionArea').innerHTML=`<div class="txResultsSummary ${pass?'pass':'fail'}">
+   <div><div class="ver">PROJECT WATCH TSS MOCK</div><h2>${pass?'PASS':'NOT YET PASSED'}</h2>
+   <p class="note">${pass?'Rule 10 mock standard achieved with no safety-critical error.':'Review the debrief below, revisit the relevant lessons, then sit a new mock.'}</p></div>
+   <div class="txScore">${pct}%</div></div>
+   <div class="examStandardNote"><b>Project Watch standard:</b> 90% overall plus no designated safety-critical Rule 10 error. This is an independent training benchmark, not an MCA/RYA certificate.</div>
+   ${criticalWrong.length?`<div class="examStandardNote"><b>Safety-critical errors:</b> ${criticalWrong.length}. One or more important crossing, non-impeding or traffic-management decisions were wrong or unanswered.</div>`:''}
+   <div class="examResultGrid">${tssExamSet.map((q,i)=>txReviewHTML(q,tssExamAnswers[i],i)).join('')}</div>
+   <div class="examNav"><button onclick="startTSSFullExam()">NEW FULL MOCK</button><button onclick="showTSSTutorial()">REVIEW BEGINNER COURSE</button><button onclick="showModule('tss')">RETURN TO TSS</button></div>`;
+}
+function txReviewHTML(q,user,i){
+ const ok=user===q.correct,userText=user===null?'No answer':q.a[user];
+ return `<div class="examReview ${ok?'ok':'bad'}"><b>${i+1}. ${q.cat} • ${q.rule} ${q.critical?'• SAFETY-CRITICAL':''}</b>${q.visual?txVisualHTML(q,true):''}<p>${q.q}</p><p>Your answer: <span class="answerKey">${userText}</span></p><p>Correct answer: <span class="answerKey">${q.a[q.correct]}</span></p><p class="why">${q.why}</p></div>`;
+}
+
+const TSS_PRACTICAL_EXAM=[
+ ['basic','Basic gap','Assess the lane traffic, wait for a safe gap and complete the crossing without impeding lane-following ships.'],
+ ['dense','Dense traffic','Manage a busier developing picture while retaining the correct Rule 10 heading and collision-risk assessment.'],
+ ['tide','Tidal set','Keep the correct right-angle HEADING while the tidal set visibly changes course over ground.'],
+ ['late','Late decision','Recognise that a poor traffic window requires caution; do not force the crossing simply because the geometry is correct.']
+];
+function renderTSSPracticalDeck(){
+ const d=$('tssPracticalExamDeck');if(!d)return;
+ d.innerHTML=TSS_PRACTICAL_EXAM.map(([id,title,desc],i)=>`<div class="tssPracticalCard"><div class="ver">PRACTICAL ${String(i+1).padStart(2,'0')}</div><h4>${title}</h4><p>${desc}</p><button onclick="launchTSSPracticalExam('${id}')">LAUNCH LIVE ASSESSMENT →</button></div>`).join('');
+}
+function launchTSSPracticalExam(id){
+ showModule('tss');
+ showTSS('live');
+ tssSimSelect(id);
+ window.scrollTo({top:$('tssLive')?.offsetTop||0,behavior:'smooth'});
+}
+
 const TSS_QUESTIONS=[
  {q:'Traffic flows east–west. Tide sets you to starboard. Which must be as nearly as practicable at right angles to traffic flow?',a:['Heading','Course over ground','Ground track only'],ok:0,mode:'correct',why:'Correct. Rule 10(c) and current MCA guidance specify heading, not course over ground.'},
  {q:'Does a ship following a TSS lane automatically have priority over a vessel crossing the lane?',a:['Yes','No — the other applicable COLREG rules still apply','Only if over 20 m'],ok:1,mode:'busy',why:'Correct. Rule 10 does not relieve vessels of obligations under other rules.'},
