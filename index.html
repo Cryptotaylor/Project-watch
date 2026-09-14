@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.22.2 — Professional Annex Plates</title>
+<title>Project Watch 1.22.3 — Photographic Annex Plates</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -138,6 +138,22 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .annexArrow{float:right;color:#6ee0ff;font-size:20px}
 .annexActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.annexActions button{flex:1;min-width:190px}
 @media(max-width:720px){.annexGrid{grid-template-columns:1fr}.annexVisual{height:105px}}
+
+
+.annexPhoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.82) brightness(.58) contrast(1.08)}
+.annexShade{position:absolute;inset:0;background:linear-gradient(90deg,#03121bd9 0%,#03121b33 48%,#03121b9e 100%)}
+.annexPlateTitle{position:absolute;left:16px;top:13px;z-index:3;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#8de8ff;text-shadow:0 2px 5px #000}
+.annexPlateFooter{position:absolute;left:16px;right:16px;bottom:10px;z-index:3;display:flex;justify-content:space-between;gap:8px;color:#d5e7ee;font-size:7px;letter-spacing:.35px;text-shadow:0 2px 4px #000}
+.photoLabel{position:absolute;z-index:4;padding:3px 6px;border-radius:5px;background:#001722d9;border:1px solid #7be5ff66;color:#e7f8ff;font-size:7px;font-weight:800;white-space:nowrap}
+.navLamp{position:absolute;z-index:5;width:10px;height:10px;border-radius:50%;box-shadow:0 0 7px currentColor,0 0 16px currentColor;border:1px solid #fff9}
+.navLamp.white{background:#fff;color:#fff}.navLamp.red{background:#ff3947;color:#ff3947}.navLamp.green{background:#20e77a;color:#20e77a}
+.dayShapePanel{position:absolute;right:14px;top:34px;bottom:29px;width:78px;z-index:4;border-radius:8px;background:#eef4f5f2;border:1px solid #fff;box-shadow:0 4px 14px #0008;display:flex;align-items:center;justify-content:center;gap:8px}
+.dayShapePanel:before{content:"DAY SHAPES";position:absolute;top:5px;left:0;right:0;text-align:center;color:#18313d;font-size:6px;font-weight:900;letter-spacing:.6px}
+.dayBall{width:18px;height:18px;border-radius:50%;background:#050505;box-shadow:inset -3px -3px 4px #333}
+.dayCone{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:20px solid #050505}
+.photoEquipment{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.92) brightness(.62) contrast(1.08)}
+.equipTile{position:absolute;z-index:3;bottom:20px;padding:4px 7px;background:#001722dc;border:1px solid #ffffff33;border-radius:6px;color:#fff;font-size:7px;font-weight:900}
+@media(max-width:720px){.dayShapePanel{width:65px}.annexPlateFooter{font-size:6px}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -16623,7 +16639,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.22.2 • PROFESSIONAL ANNEX PLATES</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.22.3 • PHOTOGRAPHIC ANNEX PLATES</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -16645,35 +16661,16 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 <div class="annexCard" onclick="openAnnex(1)">
  <div class="annexVisual">
-<svg viewBox="0 0 520 150" aria-label="Technical navigation lights and shapes plate">
- <defs>
-  <filter id="glow1"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
- </defs>
- <rect width="520" height="150" fill="#061722"/>
- <g stroke="#14384b" stroke-width="1">
-  <path d="M0 30H520 M0 60H520 M0 90H520 M0 120H520"/>
-  <path d="M65 0V150 M130 0V150 M195 0V150 M260 0V150 M325 0V150 M390 0V150 M455 0V150"/>
- </g>
- <text x="18" y="22" fill="#72dff8" font-size="11" font-weight="800" letter-spacing="1.2">ANNEX I • TECHNICAL POSITIONING</text>
- <path d="M92 108 L118 89 Q220 73 354 87 L392 108 Z" fill="#8fa8b4" stroke="#c8d5db" stroke-width="1.2"/>
- <path d="M130 89 L148 70 H270 L290 88" fill="#6f8792" stroke="#b9c7ce" stroke-width="1"/>
- <line x1="210" y1="37" x2="210" y2="84" stroke="#b9c7ce" stroke-width="2"/>
- <line x1="295" y1="48" x2="295" y2="86" stroke="#b9c7ce" stroke-width="2"/>
- <circle cx="210" cy="37" r="5.8" fill="#fff" filter="url(#glow1)"/>
- <circle cx="295" cy="48" r="5.8" fill="#fff" filter="url(#glow1)"/>
- <circle cx="119" cy="91" r="5.8" fill="#ff4545" filter="url(#glow1)"/>
- <circle cx="353" cy="90" r="5.8" fill="#26e77a" filter="url(#glow1)"/>
- <line x1="210" y1="31" x2="210" y2="12" stroke="#6ee0ff" stroke-width="1.2"/>
- <line x1="295" y1="42" x2="295" y2="20" stroke="#6ee0ff" stroke-width="1.2"/>
- <path d="M210 15 H295" stroke="#6ee0ff" stroke-width="1.2"/>
- <text x="227" y="12" fill="#aeeeff" font-size="8">HORIZONTAL SEPARATION</text>
- <path d="M415 40 v54" stroke="#6ee0ff" stroke-width="1.2"/>
- <path d="M409 40 h12 M409 94 h12" stroke="#6ee0ff" stroke-width="1.2"/>
- <circle cx="447" cy="53" r="9" fill="#111"/>
- <polygon points="447,73 437,90 457,90" fill="#111"/>
- <text x="405" y="112" fill="#aeeeff" font-size="8">SHAPE SPACING</text>
- <text x="18" y="137" fill="#92aebb" font-size="9">POSITION • SECTORS • VERTICAL / HORIZONTAL SPACING • SHAPES</text>
-</svg>
+<img class="annexPhoto" alt="Side profile of a container ship used as a navigation-light positioning reference" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/EVER_GOODS_%2844266594115%29_%28cropped%29.jpg">
+<div class="annexShade"></div>
+<div class="annexPlateTitle">ANNEX I • LIGHT POSITIONING ON A REAL VESSEL</div>
+<div class="navLamp white" style="left:45%;top:28%"></div>
+<div class="navLamp white" style="left:55%;top:34%"></div>
+<div class="navLamp red" style="left:18%;top:66%"></div>
+<div class="photoLabel" style="left:38%;top:39%">MASTHEAD LIGHTS</div>
+<div class="photoLabel" style="left:8%;top:74%">PORT SIDELIGHT</div>
+<div class="dayShapePanel"><span class="dayBall"></span><span class="dayCone"></span></div>
+<div class="annexPlateFooter"><span>POSITION • SPACING • SECTORS • SHAPES</span><span>PHOTO: K. TORN / WIKIMEDIA COMMONS • CC BY-SA</span></div>
 </div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex I • Lights & Shapes</h4><div class="annexPills"><span class="annexPill">Positioning</span><span class="annexPill">Sectors</span><span class="annexPill">Shapes</span></div><p>Technical positioning, spacing, colour, intensity and screening requirements.</p></div>
 </div>
@@ -16709,77 +16706,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 
 <div class="annexCard" onclick="openAnnex(3)">
- <div class="annexVisual">
-<svg viewBox="0 0 520 150" aria-label="Sound appliance technical line art">
- <rect width="520" height="150" fill="#061722"/>
- <g stroke="#14384b" stroke-width="1"><path d="M0 30H520 M0 60H520 M0 90H520 M0 120H520"/></g>
- <text x="18" y="22" fill="#72dff8" font-size="11" font-weight="800" letter-spacing="1.2">ANNEX III • SOUND APPLIANCE SPECIFICATION</text>
- <g transform="translate(28 32)" fill="none" stroke="#c7d5dc">
-  <path d="M10 46 H74 L105 24 V68 L74 46" fill="#9cb0ba" stroke-width="1.2"/>
-  <path d="M114 31 Q136 46 114 61" stroke="#6ee0ff" stroke-width="2"/>
-  <path d="M126 23 Q161 46 126 69" stroke="#6ee0ff88" stroke-width="1.5"/>
-  <line x1="10" y1="77" x2="105" y2="77" stroke="#5c7683"/>
-  <text x="24" y="93" fill="#9fc0ce" font-size="9">WHISTLE / HORN</text>
- </g>
- <g transform="translate(210 32)">
-  <path d="M45 71 Q47 31 82 31 Q117 31 119 71 Z" fill="#b8862d" stroke="#e4bb63" stroke-width="1.2"/>
-  <rect x="60" y="18" width="44" height="13" rx="4" fill="#96691f"/>
-  <circle cx="82" cy="77" r="6" fill="#e7bf65"/>
-  <text x="57" y="101" fill="#9fc0ce" font-size="9">BELL</text>
- </g>
- <g transform="translate(360 32)">
-  <circle cx="62" cy="54" r="34" fill="#8e6027" stroke="#c28b3a" stroke-width="2"/>
-  <circle cx="62" cy="54" r="22" fill="#a9782f" stroke="#d09a43" stroke-width="1.5"/>
-  <circle cx="62" cy="54" r="4" fill="#e4bb63"/>
-  <text x="45" y="101" fill="#9fc0ce" font-size="9">GONG</text>
- </g>
- <text x="18" y="137" fill="#92aebb" font-size="9">FREQUENCY • AUDIBLE RANGE • INSTALLATION • APPLIANCE PERFORMANCE</text>
-</svg>
+ <div class="annexVisual" style="background:#071823">
+<div style="position:absolute;inset:0 50% 0 0;overflow:hidden;border-right:1px solid #4f7080">
+ <img class="photoEquipment" alt="Marine ship whistle horn" src="https://static.wixstatic.com/media/755c05_5fd6591fdafb43eaacad4fd880fc9a08~mv2.jpg/v1/fill/w_1000%2Ch_1000%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01/755c05_5fd6591fdafb43eaacad4fd880fc9a08~mv2.jpg">
+ <div class="annexShade"></div><div class="equipTile" style="left:12px">MARINE WHISTLE / HORN</div>
+</div>
+<div style="position:absolute;inset:0 0 0 50%;overflow:hidden">
+ <img class="photoEquipment" alt="Ship's bell" src="https://img.nauticexpo.ru/images_ne/photo-g/200323-18269577.jpg">
+ <div class="annexShade"></div><div class="equipTile" style="left:12px">SHIP'S BELL</div>
+ <div class="equipTile" style="right:12px;background:#18303b">+ GONG REQUIREMENTS</div>
+</div>
+<div class="annexPlateTitle">ANNEX III • REAL SOUND-SIGNAL APPLIANCES</div>
+<div class="annexPlateFooter"><span>FREQUENCY • AUDIBLE RANGE • INSTALLATION</span><span>TECHNICAL EQUIPMENT REFERENCE</span></div>
 </div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex III • Sound Appliances</h4><div class="annexPills"><span class="annexPill">Whistle</span><span class="annexPill">Bell</span><span class="annexPill">Gong</span></div><p>Technical characteristics and installation of sound-signal appliances.</p></div>
 </div>
 
 <div class="annexCard" onclick="openAnnex(4)">
  <div class="annexVisual">
-<svg viewBox="0 0 520 150" aria-label="Professional distress signal recognition plate">
- <defs>
-  <filter id="glow4"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
- </defs>
- <rect width="520" height="150" fill="#160b10"/>
- <g stroke="#3a2027" stroke-width="1"><path d="M0 30H520 M0 60H520 M0 90H520 M0 120H520"/></g>
- <text x="18" y="22" fill="#ff9ca8" font-size="11" font-weight="800" letter-spacing="1.2">ANNEX IV • INTERNATIONAL DISTRESS SIGNALS</text>
- <g transform="translate(20 32)">
-  <text x="0" y="25" fill="#fff" font-size="22" font-weight="900">SOS</text>
-  <text x="0" y="42" fill="#bfa5aa" font-size="8">... --- ...</text>
- </g>
- <g transform="translate(115 28)">
-  <path d="M32 88 L42 37 L52 88 Z" fill="#dc3f4c"/>
-  <circle cx="42" cy="28" r="8" fill="#ff4555" filter="url(#glow4)"/>
-  <path d="M42 20 L48 2" stroke="#ff7b87" stroke-width="2"/>
-  <text x="5" y="105" fill="#d8a6ad" font-size="8">RED FLARE</text>
- </g>
- <g transform="translate(205 26)">
-  <rect x="14" y="28" width="42" height="64" rx="8" fill="#e89a25" stroke="#ffd289" stroke-width="1"/>
-  <circle cx="35" cy="44" r="7" fill="#fff"/>
-  <path d="M35 23 q15-15 30 0" fill="none" stroke="#ffb53e" stroke-width="2"/>
-  <path d="M35 16 q23-24 46 0" fill="none" stroke="#ffb53e88" stroke-width="1.5"/>
-  <text x="10" y="108" fill="#d8a6ad" font-size="8">EPIRB</text>
- </g>
- <g transform="translate(305 30)">
-  <rect x="0" y="24" width="72" height="54" rx="7" fill="#26313a" stroke="#647985"/>
-  <rect x="9" y="34" width="34" height="22" rx="3" fill="#6e94a5"/>
-  <circle cx="57" cy="41" r="5" fill="#d94953"/>
-  <circle cx="57" cy="58" r="5" fill="#e9b44f"/>
-  <path d="M38 18 q15-15 30 0" fill="none" stroke="#6ee0ff" stroke-width="2"/>
-  <text x="5" y="96" fill="#d8a6ad" font-size="8">DSC / VHF</text>
- </g>
- <g transform="translate(405 25)">
-  <path d="M20 80 C8 58 14 35 31 24 C42 17 51 22 54 31 C58 44 44 52 49 66 C52 75 59 82 64 88" fill="none" stroke="#f47b2d" stroke-width="10" stroke-linecap="round"/>
-  <path d="M15 87 C29 91 48 92 69 86" fill="none" stroke="#8b5b27" stroke-width="3"/>
-  <text x="6" y="108" fill="#d8a6ad" font-size="8">ORANGE SMOKE</text>
- </g>
- <text x="18" y="137" fill="#b98790" font-size="9">RECOGNITION • DISTRESS & NEED OF ASSISTANCE • NOT ROUTINE SIGNALLING</text>
-</svg>
+<img class="annexPhoto" style="filter:saturate(1.05) brightness(.58) contrast(1.08)" alt="Marine distress equipment including orange smoke and EPIRB" src="https://cdn11.bigcommerce.com/s-zbaesdaekt/images/stencil/original/o/epirb__53225.original.jpg">
+<div class="annexShade" style="background:linear-gradient(90deg,#1a070ccf 0%,#16070a44 55%,#16070a99 100%)"></div>
+<div class="annexPlateTitle" style="color:#ffb0ba">ANNEX IV • DISTRESS EQUIPMENT IN THE REAL WORLD</div>
+<div class="photoLabel" style="left:15px;top:46px;border-color:#ff8e9966">ORANGE SMOKE</div>
+<div class="photoLabel" style="right:15px;top:46px;border-color:#ff8e9966">EPIRB</div>
+<div style="position:absolute;left:17px;bottom:31px;z-index:4;color:white;font-size:17px;font-weight:900;text-shadow:0 2px 6px #000">SOS · MAYDAY · DSC</div>
+<div class="annexPlateFooter" style="color:#ffe1e5"><span>RECOGNISE • ALERT • LOCATE • ASSIST</span><span>PHOTOGRAPHIC TRAINING REFERENCE</span></div>
 </div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex IV • Distress Signals</h4><div class="annexPills"><span class="annexPill">MAYDAY</span><span class="annexPill">Flares</span><span class="annexPill">EPIRB</span></div><p>Internationally recognised distress signals and alerts.</p></div>
 </div>
