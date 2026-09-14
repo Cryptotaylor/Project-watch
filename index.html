@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.22.3 — Photographic Annex Plates</title>
+<title>Project Watch 1.22.4 — Corrected Vessel Plates</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -16639,7 +16639,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.22.3 • PHOTOGRAPHIC ANNEX PLATES</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.22.4 • CORRECTED VESSEL PLATES</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -16661,46 +16661,60 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 <div class="annexCard" onclick="openAnnex(1)">
  <div class="annexVisual">
-<img class="annexPhoto" alt="Side profile of a container ship used as a navigation-light positioning reference" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/EVER_GOODS_%2844266594115%29_%28cropped%29.jpg">
+<img class="annexPhoto" alt="Starboard side view of container ship used as a navigation-light positioning reference" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/EVER_GOODS_%2844266594115%29_%28cropped%29.jpg">
 <div class="annexShade"></div>
 <div class="annexPlateTitle">ANNEX I • LIGHT POSITIONING ON A REAL VESSEL</div>
-<div class="navLamp white" style="left:45%;top:28%"></div>
-<div class="navLamp white" style="left:55%;top:34%"></div>
-<div class="navLamp red" style="left:18%;top:66%"></div>
-<div class="photoLabel" style="left:38%;top:39%">MASTHEAD LIGHTS</div>
-<div class="photoLabel" style="left:8%;top:74%">PORT SIDELIGHT</div>
+
+<!-- This photograph is a STARBOARD-side view. Bow is to the left, stern/superstructure to the right. -->
+<div class="navLamp white" style="left:45%;top:34%"></div>
+<div class="navLamp white" style="left:57%;top:25%"></div>
+<div class="navLamp green" style="left:18%;top:66%"></div>
+
+<div class="photoLabel" style="left:35%;top:43%">FORWARD MASTHEAD</div>
+<div class="photoLabel" style="left:51%;top:33%">AFT MASTHEAD • HIGHER</div>
+<div class="photoLabel" style="left:8%;top:74%">STARBOARD SIDELIGHT</div>
+
 <div class="dayShapePanel"><span class="dayBall"></span><span class="dayCone"></span></div>
-<div class="annexPlateFooter"><span>POSITION • SPACING • SECTORS • SHAPES</span><span>PHOTO: K. TORN / WIKIMEDIA COMMONS • CC BY-SA</span></div>
+<div class="annexPlateFooter">
+ <span>STARBOARD ASPECT • POSITION • SPACING • SECTORS • SHAPES</span>
+ <span>PHOTO: KEES TORN / WIKIMEDIA COMMONS • CC BY-SA 2.0</span>
+</div>
 </div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex I • Lights & Shapes</h4><div class="annexPills"><span class="annexPill">Positioning</span><span class="annexPill">Sectors</span><span class="annexPill">Shapes</span></div><p>Technical positioning, spacing, colour, intensity and screening requirements.</p></div>
 </div>
 
 <div class="annexCard" onclick="openAnnex(2)">
  <div class="annexVisual">
-<svg viewBox="0 0 520 150" aria-label="Fishing close proximity technical plate">
- <defs><filter id="glow2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
- <rect width="520" height="150" fill="#061722"/>
- <g stroke="#14384b" stroke-width="1"><path d="M0 30H520 M0 60H520 M0 90H520 M0 120H520"/></g>
- <text x="18" y="22" fill="#72dff8" font-size="11" font-weight="800" letter-spacing="1.2">ANNEX II • FISHING IN CLOSE PROXIMITY</text>
- <g transform="translate(28 22)">
-  <text x="95" y="20" fill="#9fc0ce" font-size="9" font-weight="700">TRAWLING GROUP</text>
-  <path d="M44 93 L65 77 Q125 67 188 79 L207 93 Z" fill="#879faa" stroke="#c4d2d8" stroke-width="1"/>
-  <line x1="125" y1="42" x2="125" y2="76" stroke="#c1cfd5" stroke-width="2"/>
-  <circle cx="125" cy="42" r="5.8" fill="#25df75" filter="url(#glow2)"/>
-  <circle cx="125" cy="60" r="5.8" fill="#fff" filter="url(#glow2)"/>
-  <path d="M207 83 C232 76 246 70 267 56" fill="none" stroke="#6a8490" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="220" y="94" fill="#7895a2" font-size="8">gear / working area</text>
- </g>
- <g transform="translate(260 22)">
-  <text x="80" y="20" fill="#9fc0ce" font-size="9" font-weight="700">PURSE-SEINE EXAMPLE</text>
-  <path d="M36 93 L55 78 Q112 69 170 79 L188 93 Z" fill="#879faa" stroke="#c4d2d8" stroke-width="1"/>
-  <line x1="112" y1="42" x2="112" y2="76" stroke="#c1cfd5" stroke-width="2"/>
-  <circle cx="112" cy="42" r="5.8" fill="#ff4545" filter="url(#glow2)"/>
-  <circle cx="112" cy="60" r="5.8" fill="#fff" filter="url(#glow2)"/>
-  <path d="M188 81 C205 66 223 55 244 51 C258 49 268 56 273 67" fill="none" stroke="#6ee0ff" stroke-width="1.4" stroke-dasharray="4 4"/>
- </g>
- <text x="18" y="137" fill="#92aebb" font-size="9">ADDITIONAL WORKING SIGNALS • DO NOT REPLACE RULE 26 DISPLAY</text>
-</svg>
+<img class="annexPhoto" style="filter:saturate(.9) brightness(.56) contrast(1.08)" alt="Commercial fishing vessel used as an Annex II training reference" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20vessel%20Magalh%C3%A3es%20Silva%20XIV%20off%20Cabo%20Frio%2C%20Brazil.jpg?width=1600">
+<div class="annexShade"></div>
+<div class="annexPlateTitle">ANNEX II • FISHING VESSELS IN CLOSE PROXIMITY</div>
+
+<div style="position:absolute;left:16px;top:43px;z-index:4;background:#001722dc;border:1px solid #6ee0ff55;border-radius:8px;padding:7px 9px">
+ <div style="color:#aeefff;font-size:7px;font-weight:900;letter-spacing:.7px;margin-bottom:5px">TRAWLING SIGNAL REFERENCE</div>
+ <div style="display:flex;align-items:center;gap:7px">
+  <div style="display:flex;flex-direction:column;gap:4px">
+   <span class="navLamp green" style="position:static;width:9px;height:9px"></span>
+   <span class="navLamp white" style="position:static;width:9px;height:9px"></span>
+  </div>
+  <span style="color:#d7edf5;font-size:8px;font-weight:800">GREEN OVER WHITE</span>
+ </div>
+</div>
+
+<div style="position:absolute;right:16px;top:43px;z-index:4;background:#001722dc;border:1px solid #ff9a9a55;border-radius:8px;padding:7px 9px">
+ <div style="color:#ffd2d2;font-size:7px;font-weight:900;letter-spacing:.7px;margin-bottom:5px">FISHING OTHER THAN TRAWLING</div>
+ <div style="display:flex;align-items:center;gap:7px">
+  <div style="display:flex;flex-direction:column;gap:4px">
+   <span class="navLamp red" style="position:static;width:9px;height:9px"></span>
+   <span class="navLamp white" style="position:static;width:9px;height:9px"></span>
+  </div>
+  <span style="color:#f2dddd;font-size:8px;font-weight:800">RED OVER WHITE</span>
+ </div>
+</div>
+
+<div class="annexPlateFooter">
+ <span>REAL FISHING VESSEL • ADDITIONAL ANNEX II SIGNALS OVERLAY</span>
+ <span>PHOTO: WILFREDOR / WIKIMEDIA COMMONS • CC0</span>
+</div>
 </div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex II • Fishing Signals</h4><div class="annexPills"><span class="annexPill">Trawling</span><span class="annexPill">Purse seine</span><span class="annexPill">Close proximity</span></div><p>Additional signals for fishing vessels working close to one another.</p></div>
 </div>
