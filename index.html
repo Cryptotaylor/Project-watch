@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.33.1 — Explicit 90° TSS Crossing</title>
+<title>Project Watch 1.33.2 — 90° Traffic-Flow Geometry</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17107,7 +17107,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.33.1 • EXPLICIT 90° TSS CROSSING</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.33.2 • 90° TO TRAFFIC FLOW</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -19589,9 +19589,9 @@ const TSS_TUTORIAL=[
  explain:'This lesson prevents another common misunderstanding. Being under twenty metres does not by itself prohibit Suilven from using a traffic lane. If her passage uses the lane, she must follow the correct direction and comply with Rule 10. But this beginner course does not present the shipping lane as the default route for a small recreational vessel, and the chart and local scheme provisions must always be checked.',
  q:'If Suilven is using a traffic lane, may she steam against the arrows because she is under 20 metres?',a:['YES','NO — use the appropriate lane in the general direction of traffic flow','ONLY IN DAYLIGHT'],correct:1},
 
- {rule:'RULE 10(b)(iii), (f), (g), (h)',title:'Joining, leaving and staying clear',intro:'Know the difference between crossing, joining and not using the scheme.',mode:'join',
+ {rule:'RULE 10(b)(iii), (f), (g), (h)',title:'Joining, leaving and staying clear',intro:'Contrast the manoeuvres: crossing is near 90° to traffic flow; joining or leaving from the side uses a small angle to traffic flow.',mode:'join',
  facts:[['JOIN / LEAVE','Normally join or leave a traffic lane at its termination.'],['FROM THE SIDE','If joining or leaving from the side, use as small an angle to traffic flow as practicable.'],['NOT USING IT','If not using the TSS, avoid it by as wide a margin as practicable.'],['ANCHORING','So far as practicable avoid anchoring in the TSS or near its terminations.']],
- explain:'Do not confuse a ninety-degree crossing with joining a lane. Joining and leaving have different geometry. Normally use the lane termination; from the side, use as small an angle to the traffic flow as practicable. If your voyage is not using the scheme at all, remain clear by as wide a margin as practicable.',
+ explain:'Do not confuse a ninety-degree crossing with joining a lane. Crossing is as nearly as practicable at right angles to traffic flow; joining or leaving from the side deliberately uses different geometry. Normally use the lane termination; from the side, use as small an angle to the traffic flow as practicable. If your voyage is not using the scheme at all, remain clear by as wide a margin as practicable.',
  q:'Which manoeuvre uses the near-90-degree heading?',a:['CROSSING A TRAFFIC LANE','JOINING FROM THE SIDE','FOLLOWING THE LANE'],correct:0},
 
  {rule:'UNDER-20 m WATCH • FULL RULE 10',title:'Take the watch: small-vessel crossing',intro:'Put the under-20-metre lessons together.',mode:'final',
@@ -19654,26 +19654,35 @@ function ttDraw(mode,p){
     <text x="${x+30}" y="${y-7}" class="ruleLabel">90° HEADING</text>`;
 
   const crossingGeometry=()=>`
-    <!-- Green corridor = correct crossing axis, perpendicular to E/W traffic -->
+    <!-- Correct crossing corridor: vessel heading is vertical -->
     <rect x="418" y="72" width="64" height="392" rx="18" class="crossCorridor"/>
     <path d="M450 455 V68" class="crossAxis"/>
-    <!-- Big right-angle indicators at both lane entries -->
-    <g transform="translate(450 395)">
-      <path d="M0 0 h30 v-30" fill="none" stroke="#07966d" stroke-width="5"/>
-      <text x="36" y="-10" class="angleText">90°</text>
-    </g>
-    <g transform="translate(450 205)">
-      <path d="M0 0 h30 v-30" fill="none" stroke="#07966d" stroke-width="5"/>
-      <text x="36" y="-10" class="angleText">90°</text>
-    </g>
-    <!-- Red diagonal examples show the wrong crossing geometry -->
+
+    <!-- Explicit traffic-flow reference through the crossing point -->
+    <path d="M205 345 H695" stroke="#a64a4a" stroke-width="7" fill="none"/>
+    <path d="M675 333 L700 345 L675 357 Z" fill="#a64a4a"/>
+    <text x="205" y="328" class="warnLabel">TRAFFIC FLOW → 090°</text>
+
+    <!-- Right-angle square is physically between traffic flow and vessel heading -->
+    <path d="M450 345 H486 V309" fill="none" stroke="#07966d" stroke-width="6"/>
+    <rect x="490" y="304" width="142" height="30" rx="8" class="angleBox"/>
+    <text x="501" y="324" class="angleText">90° TO TRAFFIC FLOW</text>
+
+    <!-- Vessel heading label -->
+    <text x="365" y="84" class="ruleLabel">SUILVEN HEADING ↑ 000°</text>
+    <text x="365" y="103" class="guideLabel">PERPENDICULAR TO LANE FLOW</text>
+
+    <!-- Wrong shallow crossing examples -->
     <path d="M300 455 L405 300" class="forbiddenPath"/>
     <path d="M600 455 L495 300" class="forbiddenPath"/>
-    <g class="forbiddenX" transform="translate(335 405)"><path d="M-9 -9 L9 9 M9 -9 L-9 9"/></g>
-    <g class="forbiddenX" transform="translate(565 405)"><path d="M-9 -9 L9 9 M9 -9 L-9 9"/></g>
-    <text x="208" y="430" class="warnLabel">✕ NOT A SHALLOW CROSSING</text>
-    <text x="505" y="430" class="warnLabel">✕ NOT A SHALLOW CROSSING</text>
-    <text x="365" y="84" class="ruleLabel">CORRECT CROSSING AXIS</text>
+    <g class="forbiddenX" transform="translate(335 405)">
+      <path d="M-10 -10 L10 10 M10 -10 L-10 10"/>
+    </g>
+    <g class="forbiddenX" transform="translate(565 405)">
+      <path d="M-10 -10 L10 10 M10 -10 L-10 10"/>
+    </g>
+    <text x="196" y="432" class="warnLabel">✕ WRONG — SHALLOW ANGLE</text>
+    <text x="505" y="432" class="warnLabel">✕ WRONG — SHALLOW ANGLE</text>
   `;
 
   if(mode==='layout'){
@@ -19701,8 +19710,7 @@ function ttDraw(mode,p){
     const westX=790-215*p;
     vessels=ttShip(x,y,0,'SUILVEN')+topTraffic(eastX)+botTraffic(westX);
     tracks=crossingGeometry()+`<path d="M450 455 L450 ${y}" class="trackGood"/>`;
-    notes=`<text x="500" y="108" class="ruleLabel">SUILVEN HEADING 000°</text>
-           <text x="500" y="128" class="guideLabel">LANE FLOW 090° / 270° • PERPENDICULAR = 90°</text>`;
+    notes=`<text x="620" y="112" class="ruleLabel">MEASURE THE 90° FROM THE TRAFFIC FLOW</text>`;
     caption='RULE 10(c): KEEP THE BOW ON THE 90° CROSSING AXIS • RED DIAGONALS ARE WRONG • SAFE GAP SHOWN';
   }
 
@@ -19715,7 +19723,7 @@ function ttDraw(mode,p){
     notes=`<line x1="${xL}" y1="${topY1}" x2="${xL}" y2="${topY2}" class="termination"/>
            <text x="118" y="118" class="ruleLabel">LANE TERMINATION • NORMAL ENTRY / EXIT</text>
            <text x="260" y="219" class="guideLabel">SIDE ENTRY / EXIT: SMALL ANGLE TO TRAFFIC FLOW</text>`;
-    caption='RULE 10(b)(iii): NORMALLY JOIN / LEAVE AT A TERMINATION • FROM THE SIDE USE A SMALL ANGLE';
+    caption='CROSSING ≈ 90° TO FLOW • JOINING / LEAVING FROM SIDE = SMALL ANGLE TO FLOW';
   }
 
   if(mode==='zone'){
@@ -19747,8 +19755,7 @@ function ttDraw(mode,p){
             botTraffic(790-170*p,'POWER-DRIVEN LANE SHIP')+
             ttShip(450,sy,0,'UNDER-20 m CROSSER','#146e78');
     tracks=crossingGeometry()+`<path d="M450 455 L450 ${sy}" class="trackGood"/>`;
-    notes=`<text x="500" y="108" class="ruleLabel">WAIT CLEAR • THEN USE THE SAME 90° AXIS</text>
-           <text x="500" y="128" class="guideLabel">DO NOT IMPEDE POWER-DRIVEN VESSEL FOLLOWING THE LANE</text>`;
+    notes=`<text x="620" y="112" class="ruleLabel">WAIT CLEAR • THEN CROSS 90° TO FLOW</text>`;
     caption=crossP===0
       ?'UNDER 20 m: REMAIN OUTSIDE UNTIL A SAFE GAP DEVELOPS'
       :'SAFE GAP ESTABLISHED • CROSS ON THE 90° AXIS • DO NOT IMPEDE LANE TRAFFIC';
@@ -19783,8 +19790,7 @@ function ttDraw(mode,p){
             topTraffic(eastX,'EASTBOUND TRAFFIC')+
             botTraffic(westX,'WESTBOUND TRAFFIC');
     tracks=crossingGeometry()+`<path d="M450 455 L450 ${Math.max(y,25)}" class="trackGood"/>`;
-    notes=`<text x="500" y="108" class="ruleLabel">FIXED 000° HEADING</text>
-           <text x="500" y="128" class="guideLabel">90° TO BOTH EASTBOUND AND WESTBOUND FLOWS</text>`;
+    notes=`<text x="620" y="112" class="ruleLabel">HOLD THE PERPENDICULAR HEADING</text>`;
     caption=p<.28
       ?'UNDER 20 m • WAIT CLEAR • DO NOT IMPEDE • DO NOT COMMIT YET'
       :p<.90
