@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.23 — Photographic COLREG Map</title>
+<title>Project Watch 1.23.1 — Licensed COLREG Library</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -180,6 +180,17 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  .ruleVisual{width:82px;height:60px}
  .ruleVisual .rvTag{font-size:6px}
 }
+
+
+.rulePhotoFallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#062b3b,#041923);color:#bfefff;text-align:center;padding:6px}
+.rulePhotoFallback span{font-size:6px;letter-spacing:.7px;opacity:.7}.rulePhotoFallback b{font-size:8px;margin-top:3px}
+.imageLicenceBtn{margin-top:10px;width:auto;background:#16475e;border:1px solid #6ee0ff44}
+.creditSheet{display:none;position:fixed;inset:0;background:#001018e8;z-index:120;padding:18px;overflow:auto}
+.creditSheet.open{display:block}.creditCard{max-width:900px;margin:22px auto;background:#07364e;border:1px solid #ffffff2a;border-radius:18px;padding:16px}
+.creditRow{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;background:#052a3c;border-radius:10px;padding:10px;margin-top:7px}
+.creditRow b{display:block}.creditRow small{display:block;color:#a8bec9;margin-top:3px}.creditRow div:last-child{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap;font-size:9px}
+.creditRow span,.creditRow a{padding:3px 6px;border-radius:12px;background:#0b4059;color:#d7f5ff;text-decoration:none}
+@media(max-width:720px){.creditRow{grid-template-columns:1fr}.creditRow div:last-child{justify-content:flex-start}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -16665,12 +16676,12 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.23 • PHOTOGRAPHIC COLREG MAP</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.23.1 • LICENSED COLREG LIBRARY</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
 <div class="panel"><div class="ver">COLREGS • COMPLETE MAP</div><h2>Rules 1–41</h2>
-<p class="note">A structured learning map of all 41 COLREG rules. The wording shown here is a training descriptor, not a substitute for the official Convention text.</p>
+<p class="note">A structured learning map of all 41 COLREG rules. The wording shown here is a training descriptor, not a substitute for the official Convention text.</p><button class="imageLicenceBtn" onclick="openImageCredits()">📷 IMAGE CREDITS & LICENCES</button>
 <div class="ruleParts">
 <div class="rulePart" onclick="filterRules('all')"><b>ALL RULES</b><small>1–41</small></div>
 <div class="rulePart" onclick="filterRules('Part A')"><b>PART A</b><small>General • 1–3</small></div>
@@ -18597,69 +18608,368 @@ const RULE_DATA={"1": {"title": "Application", "summary": "Defines where COLREGS
 
 
 
-const COLREG_PHOTOS={
- bridge:'https://globalchartering.com/wp-content/uploads/2024/08/about.jpg',
- cargo:'https://images.maritimeprofessional.com/images/maritime/w800/stockstudio-adobe-stock-143404.jpeg',
- fishing:'https://scx2.b-cdn.net/gfx/news/hires/2025/fishery.jpg',
- tug:'https://www.bayviewnb.com/assets/img/images/Headers/AC_ProductPage_Header_BusLoansMort_936x600.jpg',
- anchor:'https://alandia.wntr.io/uploads/2020/10/shutterstock-65418748-scaled.jpg',
- night:'https://sealight.no/cdn/shop/files/ai_2.jpg?v=1731579929&width=3840',
- sailing:'https://rumbomed.com/assets/img/blog/luces-navegacion.webp',
- flare:'https://boattest.com/sites/default/files/Marine-flare-1000-2-12-24_0.jpg',
- tss:'https://upload.wikimedia.org/wikipedia/commons/4/46/Chart1.jpg',
- navlights:'https://upload.wikimedia.org/wikipedia/commons/6/66/Starboard%2C_masthead_and_port_navigational_lights%2C_Williamson_Art_Gallery.jpg',
- annexShip:'https://upload.wikimedia.org/wikipedia/commons/d/d7/EVER_GOODS_%2844266594115%29_%28cropped%29.jpg'
-};
 
+const COLREG_IMAGE_LIBRARY={
+  "bridge": {
+    "file": "Bridge of a Modern Cruise Ship.jpg",
+    "title": "Bridge of a Modern Cruise Ship",
+    "creator": "Richard Weil",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bridge_of_a_Modern_Cruise_Ship.jpg",
+    "use": "Bridge/watchkeeping, lookout, responsibility and verification"
+  },
+  "cargo": {
+    "file": "Cargo ship.jpg",
+    "title": "Cargo ship",
+    "creator": "Wilfredor",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cargo_ship.jpg",
+    "use": "General power-driven vessel and open-water rules"
+  },
+  "channel_ship": {
+    "file": "Container Ship, English Channel (10509006206).jpg",
+    "title": "Container Ship, English Channel",
+    "creator": "Gary Todd",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Container_Ship,_English_Channel_(10509006206).jpg",
+    "use": "Channel/open-water encounter context"
+  },
+  "narrow": {
+    "file": "US Navy 040629-N-6213R-128 Commanding Officer, USS John C. Stennis (CVN 74), Capt. David H. Buss, keeps close watch as the ship is navigated through the narrow channel into Pearl Harbor, Hawaii.jpg",
+    "title": "USS John C. Stennis navigating a narrow channel",
+    "creator": "U.S. Navy / Mark J. Rebilas",
+    "license": "Public Domain — U.S. Navy federal work",
+    "source": "https://commons.wikimedia.org/wiki/File:US_Navy_040629-N-6213R-128_Commanding_Officer,_USS_John_C._Stennis_(CVN_74),_Capt._David_H._Buss,_keeps_close_watch_as_the_ship_is_navigated_through_the_narrow_channel_into_Pearl_Harbor,_Hawaii.jpg",
+    "use": "Rule 9 narrow channels"
+  },
+  "sail": {
+    "file": "Sailboat in the ocean.jpg",
+    "title": "Sailboat in the ocean",
+    "creator": "Seabee314",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sailboat_in_the_ocean.jpg",
+    "use": "Sailing vessel rules"
+  },
+  "fishing": {
+    "file": "Fishing vessel UK-272.jpg",
+    "title": "Fishing vessel UK-272",
+    "creator": "Tvabutzku1234",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fishing_vessel_UK-272.jpg",
+    "use": "Fishing vessel rules"
+  },
+  "mixed": {
+    "file": "Fishing vessel and container ship.jpg",
+    "title": "Fishing vessel and container ship",
+    "creator": "Tvabutzku1234",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fishing_vessel_and_container_ship.jpg",
+    "use": "Crossing/responsibility between vessel types"
+  },
+  "tug": {
+    "file": "Tugboat with work barge in Tokyo 20110812 2.jpg",
+    "title": "Tugboat with work barge in Tokyo",
+    "creator": "Vantey",
+    "license": "Public Domain — released by author worldwide",
+    "source": "https://commons.wikimedia.org/wiki/File:Tugboat_with_work_barge_in_Tokyo_20110812_2.jpg",
+    "use": "Towing, pushing and manoeuvring"
+  },
+  "pilot": {
+    "file": "Enterprise pilot boat.JPG",
+    "title": "Enterprise pilot boat",
+    "creator": "Alf van Beem",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Enterprise_pilot_boat.JPG",
+    "use": "Pilot vessel"
+  },
+  "fog": {
+    "file": "Margaret Todd in the fog.jpg",
+    "title": "Margaret Todd in the fog",
+    "creator": "Snyder261",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Margaret_Todd_in_the_fog.jpg",
+    "use": "Restricted visibility and fog signals"
+  },
+  "aground": {
+    "file": "Big cargo ship aground.jpg",
+    "title": "Big cargo ship aground",
+    "creator": "Steve Hillebrand / U.S. Fish and Wildlife Service",
+    "license": "Public Domain — author/federal source",
+    "source": "https://commons.wikimedia.org/wiki/File:Big_cargo_ship_aground.jpg",
+    "use": "Anchored/aground vessel context"
+  },
+  "navlights": {
+    "file": "Nr Rule23a.gif",
+    "title": "COLREG Rule 23 navigation-light diagram",
+    "creator": "U.S. Coast Guard",
+    "license": "Public Domain — U.S. Coast Guard federal work",
+    "source": "https://commons.wikimedia.org/wiki/File:Nr_Rule23a.gif",
+    "use": "Lights, definitions and visibility"
+  },
+  "bell": {
+    "file": "Ship bell missile cruiser USS Chancellorsville.jpg",
+    "title": "Ship bell aboard USS Chancellorsville",
+    "creator": "U.S. Navy",
+    "license": "Public Domain — U.S. Navy federal work",
+    "source": "https://commons.wikimedia.org/wiki/File:Ship_bell_missile_cruiser_USS_Chancellorsville.jpg",
+    "use": "Sound-signal equipment"
+  },
+  "flare": {
+    "file": "JASDF U-125A 20090822-05(Signal flare).JPG",
+    "title": "Signal flare",
+    "creator": "Los688",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:JASDF_U-125A_20090822-05(Signal_flare).JPG",
+    "use": "Distress signal recognition"
+  },
+  "seaplane": {
+    "file": "XJR2F-1 NATC NAN1-50.jpg",
+    "title": "Grumman seaplane",
+    "creator": "U.S. Navy",
+    "license": "Public Domain — U.S. Navy federal work",
+    "source": "https://commons.wikimedia.org/wiki/File:XJR2F-1_NATC_NAN1-50.jpg",
+    "use": "Rule 31 seaplanes"
+  }
+};
 const COLREG_RULE_PHOTOS={
- 1:['cargo','APPLICATION'], 2:['bridge','RESPONSIBILITY'], 3:['cargo','DEFINITIONS'],
- 4:['bridge','CONDUCT OF VESSELS'], 5:['bridge','LOOK-OUT'], 6:['cargo','SAFE SPEED'],
- 7:['bridge','RISK OF COLLISION'], 8:['cargo','ACTION TO AVOID'], 9:['cargo','NARROW CHANNEL'],
- 10:['tss','TRAFFIC SEPARATION'],
- 11:['cargo','VESSELS IN SIGHT'], 12:['sailing','SAILING VESSELS'], 13:['cargo','OVERTAKING'],
- 14:['cargo','HEAD-ON'], 15:['cargo','CROSSING'], 16:['cargo','GIVE-WAY'],
- 17:['bridge','STAND-ON'], 18:['fishing','RESPONSIBILITIES'], 19:['night','RESTRICTED VISIBILITY'],
- 20:['night','APPLICATION OF LIGHTS'], 21:['navlights','DEFINITIONS OF LIGHTS'],
- 22:['navlights','VISIBILITY OF LIGHTS'], 23:['cargo','POWER-DRIVEN VESSELS'],
- 24:['tug','TOWING & PUSHING'], 25:['sailing','SAILING & OARS'], 26:['fishing','FISHING VESSELS'],
- 27:['cargo','NOT UNDER COMMAND / RAM'], 28:['cargo','CONSTRAINED BY DRAUGHT'],
- 29:['cargo','PILOT VESSELS'], 30:['anchor','ANCHORED / AGROUND'], 31:['night','SEAPLANES'],
- 32:['bridge','SOUND SIGNALS'], 33:['navlights','SOUND EQUIPMENT'], 34:['tug','MANOEUVRING SIGNALS'],
- 35:['night','FOG SIGNALS'], 36:['night','ATTRACTING ATTENTION'], 37:['flare','DISTRESS SIGNALS'],
- 38:['bridge','EXEMPTIONS'], 39:['cargo','DEFINITIONS'], 40:['bridge','APPLICATION'],
- 41:['bridge','VERIFICATION']
+  "1": [
+    "cargo",
+    "APPLICATION"
+  ],
+  "2": [
+    "bridge",
+    "RESPONSIBILITY"
+  ],
+  "3": [
+    "cargo",
+    "DEFINITIONS"
+  ],
+  "4": [
+    "bridge",
+    "CONDUCT"
+  ],
+  "5": [
+    "bridge",
+    "LOOK-OUT"
+  ],
+  "6": [
+    "channel_ship",
+    "SAFE SPEED"
+  ],
+  "7": [
+    "bridge",
+    "RISK OF COLLISION"
+  ],
+  "8": [
+    "cargo",
+    "AVOIDING ACTION"
+  ],
+  "9": [
+    "narrow",
+    "NARROW CHANNEL"
+  ],
+  "10": [
+    "channel_ship",
+    "TRAFFIC SEPARATION"
+  ],
+  "11": [
+    "bridge",
+    "IN SIGHT"
+  ],
+  "12": [
+    "sail",
+    "SAILING VESSELS"
+  ],
+  "13": [
+    "channel_ship",
+    "OVERTAKING"
+  ],
+  "14": [
+    "cargo",
+    "HEAD-ON"
+  ],
+  "15": [
+    "mixed",
+    "CROSSING"
+  ],
+  "16": [
+    "cargo",
+    "GIVE-WAY"
+  ],
+  "17": [
+    "bridge",
+    "STAND-ON"
+  ],
+  "18": [
+    "mixed",
+    "RESPONSIBILITIES"
+  ],
+  "19": [
+    "fog",
+    "RESTRICTED VISIBILITY"
+  ],
+  "20": [
+    "navlights",
+    "LIGHTS — APPLICATION"
+  ],
+  "21": [
+    "navlights",
+    "LIGHT DEFINITIONS"
+  ],
+  "22": [
+    "navlights",
+    "VISIBILITY OF LIGHTS"
+  ],
+  "23": [
+    "cargo",
+    "POWER-DRIVEN"
+  ],
+  "24": [
+    "tug",
+    "TOWING / PUSHING"
+  ],
+  "25": [
+    "sail",
+    "SAILING / OARS"
+  ],
+  "26": [
+    "fishing",
+    "FISHING VESSELS"
+  ],
+  "27": [
+    "cargo",
+    "NUC / RAM"
+  ],
+  "28": [
+    "cargo",
+    "CONSTRAINED BY DRAUGHT"
+  ],
+  "29": [
+    "pilot",
+    "PILOT VESSELS"
+  ],
+  "30": [
+    "aground",
+    "ANCHOR / AGROUND"
+  ],
+  "31": [
+    "seaplane",
+    "SEAPLANES"
+  ],
+  "32": [
+    "bell",
+    "SOUND DEFINITIONS"
+  ],
+  "33": [
+    "bell",
+    "SOUND EQUIPMENT"
+  ],
+  "34": [
+    "tug",
+    "MANOEUVRING SIGNALS"
+  ],
+  "35": [
+    "fog",
+    "FOG SIGNALS"
+  ],
+  "36": [
+    "bridge",
+    "ATTRACTING ATTENTION"
+  ],
+  "37": [
+    "flare",
+    "DISTRESS"
+  ],
+  "38": [
+    "bridge",
+    "EXEMPTIONS"
+  ],
+  "39": [
+    "cargo",
+    "DEFINITIONS"
+  ],
+  "40": [
+    "bridge",
+    "APPLICATION"
+  ],
+  "41": [
+    "bridge",
+    "VERIFICATION"
+  ]
 };
+const COLREG_IMAGE_CACHE_VERSION='pw-colreg-img-v1';
 
-
+function commonsThumb(file,width=640){
+ return 'https://commons.wikimedia.org/wiki/Special:Redirect/file/'+encodeURIComponent(file)+'?width='+width;
+}
+function licensedImageSrc(key){
+ const a=COLREG_IMAGE_LIBRARY[key]; if(!a)return '';
+ try{
+   const hit=localStorage.getItem(COLREG_IMAGE_CACHE_VERSION+':'+key);
+   if(hit)return hit;
+ }catch(e){}
+ return commonsThumb(a.file,640);
+}
+function cacheLicensedImage(key){
+ const a=COLREG_IMAGE_LIBRARY[key]; if(!a)return Promise.resolve(false);
+ try{if(localStorage.getItem(COLREG_IMAGE_CACHE_VERSION+':'+key))return Promise.resolve(true)}catch(e){}
+ return fetch(commonsThumb(a.file,640),{mode:'cors',cache:'force-cache'})
+  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.blob()})
+  .then(blob=>new Promise((resolve,reject)=>{
+    const fr=new FileReader();
+    fr.onload=()=>{try{localStorage.setItem(COLREG_IMAGE_CACHE_VERSION+':'+key,fr.result);resolve(true)}catch(e){resolve(false)}};
+    fr.onerror=reject;fr.readAsDataURL(blob);
+  })).catch(()=>false);
+}
+function cacheColregLibrary(){
+ const keys=[...new Set(Object.values(COLREG_RULE_PHOTOS).map(x=>x[0]))];
+ let i=0;
+ const next=()=>{if(i>=keys.length)return;cacheLicensedImage(keys[i++]).finally(()=>setTimeout(next,120));};
+ setTimeout(next,800);
+}
+function rulePhotoFallback(img,key,label){
+ img.style.display='none';
+ const v=img.parentElement;
+ if(!v)return;
+ let f=v.querySelector('.rulePhotoFallback');
+ if(!f){
+   f=document.createElement('div');f.className='rulePhotoFallback';
+   f.innerHTML='<span>LICENSED IMAGE</span><b>'+label+'</b>';
+   v.insertBefore(f,v.firstChild);
+ }
+}
 function enhanceColregRuleVisuals(){
  document.querySelectorAll('#ruleList .ruleRow').forEach(row=>{
    if(row.dataset.visualised==='1')return;
    const n=Number(row.dataset.rule), b=row.querySelector('b'), s=row.querySelector('small');
    if(!b||!s)return;
    const spec=COLREG_RULE_PHOTOS[n]||['cargo','COLREG'];
-   const src=COLREG_PHOTOS[spec[0]]||COLREG_PHOTOS.cargo;
+   const key=spec[0],src=licensedImageSrc(key);
 
    const textWrap=document.createElement('div');
-   textWrap.className='ruleText';
-   textWrap.appendChild(b);
-   textWrap.appendChild(s);
+   textWrap.className='ruleText';textWrap.appendChild(b);textWrap.appendChild(s);
 
    const visual=document.createElement('div');
-   visual.className='ruleVisual';
-   visual.setAttribute('aria-hidden','true');
-   visual.innerHTML=`<img class="rulePhoto" src="${src}" alt="" loading="lazy"><span class="rulePhotoShade"></span><span class="rvNum">R${n}</span><span class="rvTag">${spec[1]}</span>`;
+   visual.className='ruleVisual';visual.setAttribute('aria-hidden','true');
+   const img=document.createElement('img');img.className='rulePhoto';img.alt='';img.loading='lazy';img.src=src;
+   img.onerror=()=>rulePhotoFallback(img,key,spec[1]);
+   visual.appendChild(img);
+   const sh=document.createElement('span');sh.className='rulePhotoShade';visual.appendChild(sh);
+   const rn=document.createElement('span');rn.className='rvNum';rn.textContent='R'+n;visual.appendChild(rn);
+   const rt=document.createElement('span');rt.className='rvTag';rt.textContent=spec[1];visual.appendChild(rt);
 
-   const arrow=document.createElement('div');
-   arrow.className='ruleArrow';
-   arrow.setAttribute('aria-hidden','true');
-   arrow.textContent='›';
-
-   row.appendChild(visual);
-   row.appendChild(textWrap);
-   row.appendChild(arrow);
-   row.dataset.visualised='1';
+   const arrow=document.createElement('div');arrow.className='ruleArrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='›';
+   row.appendChild(visual);row.appendChild(textWrap);row.appendChild(arrow);row.dataset.visualised='1';
  });
+ cacheColregLibrary();
 }
+function openImageCredits(){
+ const sheet=$('imageCreditSheet'), body=$('imageCreditBody');if(!sheet||!body)return;
+ const rows=Object.entries(COLREG_IMAGE_LIBRARY).map(([k,a])=>`<div class="creditRow"><div><b>${a.title}</b><small>${a.use}</small></div><div><span>${a.creator}</span><span>${a.license}</span><a href="${a.source}" target="_blank" rel="noopener">SOURCE</a></div></div>`).join('');
+ body.innerHTML=rows;
+ sheet.classList.add('open');
+}
+function closeImageCredits(){const s=$('imageCreditSheet');if(s)s.classList.remove('open')}
 
 
 const ANNEX_DATA={
@@ -19268,4 +19578,13 @@ try{enhanceColregRuleVisuals();}catch(e){}
   <div id="detailActions" class="annexActions" style="display:none"></div><div style="margin-top:10px"><span id="detailSource" class="sourcePill"></span><span class="sourcePill">Training paraphrase — verify against official text</span></div>
  </div>
 </div>
+
+<div id="imageCreditSheet" class="creditSheet" onclick="if(event.target===this)closeImageCredits()">
+ <div class="creditCard">
+  <div class="detailTop"><div><div class="ver">PROJECT WATCH • LICENSED IMAGE LIBRARY</div><h2>COLREG Rules 1–41 image credits</h2></div><button class="closeBtn" onclick="closeImageCredits()">✕</button></div>
+  <p class="note">Every external image in the Rules 1–41 map is limited to CC0 or public-domain material. Project Watch caches thumbnails locally in the browser after first successful load so the map is less dependent on repeated external requests.</p>
+  <div id="imageCreditBody"></div>
+ </div>
+</div>
+
 </body></html>
