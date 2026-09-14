@@ -21788,4 +21788,26 @@ svg text.guideLabel, svg text.warnLabel {
 
 /* IMPORTANT: no button, nav, input, select or control font-size rules here. */
 
+
+
+/* Adaptive NOTE text — Project Watch */
+.note {
+  font-size: clamp(16px, 1.35vw, 21px) !important;
+  line-height: 1.5 !important;
+}
+
+/* Keep notes comfortably readable on iPad/tablet */
+@media (max-width: 1180px) {
+  .note {
+    font-size: clamp(17px, 2vw, 20px) !important;
+  }
+}
+
+/* Phone: prevent text becoming tiny */
+@media (max-width: 700px) {
+  .note {
+    font-size: clamp(16px, 4.2vw, 19px) !important;
+  }
+}
+
 </style>
