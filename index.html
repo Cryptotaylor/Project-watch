@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.33.2 — 90° Traffic-Flow Geometry</title>
+<title>Project Watch 1.34 — Collision Examination Suite</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -622,6 +622,23 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bpFeedback{min-height:32px;margin-top:7px;font-size:8px;line-height:1.4;font-weight:800}.bpFeedback.ok{color:#70e3ad}.bpFeedback.warn{color:#ffb77e}.bpConsole{display:grid;grid-template-columns:1fr 1.2fr 1.4fr auto auto;gap:7px;margin-top:9px}.bpConsole>div,.bpConsole>button{background:#041e2b;border:1px solid #ffffff13;border-radius:9px;padding:8px}.bpConsole small{display:block;font-size:6.5px;color:#7f9daa}.bpConsole b{display:block;font-size:8px;margin-top:2px;line-height:1.3}.bpConsole button{color:#fff;font-size:8px;font-weight:900}
 @media(max-width:900px){.bpDecisionOverlay.moveLeft{left:14px;right:14px}.buoyStartGrid{grid-template-columns:1fr}.buoyTutorialLayout{grid-template-columns:1fr}.btList{display:grid;grid-template-columns:repeat(3,1fr)}.bpSea{height:650px}.bpDecisionOverlay{width:calc(100% - 28px)}.bpConsole{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:650px){.buoyTutorialHero,.buoyPassageHead{grid-template-columns:1fr}.buoyCourseBadge,.bpScore{text-align:left}.btList{grid-template-columns:1fr}.btFacts,.btActions{grid-template-columns:1fr}.bpSea{height:700px}.bpConsole{grid-template-columns:1fr 1fr}.bpChoices{grid-template-columns:1fr}}
+
+
+/* 1.34 Collision Examination Suite */
+.collisionHeroActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.collisionHeroActions .beginnerLaunch{margin:0}.examLaunch{padding:9px 12px;border-radius:9px;border:1px solid #73e0a766;background:#0a6047;color:#fff;font-size:9px;font-weight:900;letter-spacing:.65px}
+.examHero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:25px;border-radius:18px;background:linear-gradient(135deg,#052b3d,#073e57);border:1px solid #ffffff18;box-shadow:0 12px 32px #0004}.examHero h1{margin:3px 0 7px;font-size:27px}.examHero p{margin:0;max-width:760px;color:#b8ced8;font-size:9.5px;line-height:1.5}.examHeroBadge{padding:11px 13px;border-radius:10px;background:#031b27;border:1px solid #64dda342;text-align:right}.examHeroBadge small,.examHeroBadge span{display:block;font-size:7px;color:#8fb5c4}.examHeroBadge b{display:block;font-size:16px;margin:2px 0;color:#71e6aa}
+.examBasis{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}.examBasis div{background:#041e2b;border:1px solid #ffffff13;border-radius:9px;padding:9px}.examBasis small{display:block;font-size:6.5px;color:#7895a2;letter-spacing:.4px}.examBasis b{display:block;font-size:8px;line-height:1.35;margin-top:2px}
+.examModeTabs{display:grid;grid-template-columns:1fr 1fr 1fr .8fr;gap:6px;margin:10px 0}.examModeTabs button{min-height:43px;font-size:8px;background:#123e54}.examModeTabs button.active{background:#158fcf;border-color:#75dfff}
+.collisionExamSection{display:none}.collisionExamSection.active{display:block}
+.examIntroGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.examIntroCard{background:#05283a;border:1px solid #ffffff15;border-radius:12px;padding:12px;display:grid;grid-template-columns:58px 1fr;grid-template-rows:auto auto;gap:2px 10px}.examIntroCard span{grid-row:1/3;width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#031b27;color:#72e4aa;font-size:16px;font-weight:1000}.examIntroCard b{font-size:9px;align-self:end}.examIntroCard small{font-size:7.5px;color:#9eb7c1;line-height:1.35}
+.examToolbar{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;margin:10px 0}.examToolbar .big{margin:0;width:auto}.examProgressText{text-align:right;color:#9eb7c1;font-size:8px;font-weight:900}
+.examQuestionArea{background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:14px;min-height:300px}.examEmpty{min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#91aeba}.examEmpty b{color:#e9f7fb;font-size:18px}.examEmpty span{font-size:9px;max-width:560px;margin-top:6px;line-height:1.45}
+.examQTop{display:flex;justify-content:space-between;gap:10px;align-items:center}.examQTop .tag{display:inline-block;padding:4px 7px;border-radius:6px;background:#0b5c7b;color:#dff8ff;font-size:7px;font-weight:900}.examQTop .critical{background:#773434;color:#ffd5d5}.examQuestion{font-size:17px;line-height:1.35;margin:13px 0}.examScenarioStem{padding:9px 10px;border-radius:9px;background:#031d29;border-left:3px solid #49c8ef;color:#bad0d9;font-size:8.5px;line-height:1.5;margin-bottom:9px}.examChoices{display:grid;gap:7px}.examChoices button{min-height:48px;text-align:left;padding:9px 11px;border-radius:9px;background:#0a3d53;border:1px solid #ffffff12;color:#fff;font-size:9px;line-height:1.35}.examChoices button.selected{background:#0c7098;border-color:#81e4ff}.examChoices button.correct{background:#126440;border-color:#70e4aa}.examChoices button.wrong{background:#713535;border-color:#ff9e9e}.examNav{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:6px;margin-top:10px}.examNav button{min-height:40px}.examNav .submit{background:#157b55}.examRuleRef{font-size:7px;color:#7f9aa6;font-weight:800}
+.examResultsHero{display:grid;grid-template-columns:1fr auto;gap:15px;align-items:center;padding:15px;border-radius:12px;background:#031d29}.examResultsHero.pass{border:1px solid #55dc9a66}.examResultsHero.fail{border:1px solid #f06e6e66}.examResultsHero h2{margin:2px 0}.examScoreBig{font-size:28px;font-weight:1000}.examResultGrid{display:grid;gap:7px;margin-top:10px}.examReview{padding:10px;border-radius:9px;background:#031d29;border:1px solid #ffffff10}.examReview.ok{border-left:3px solid #54da99}.examReview.bad{border-left:3px solid #ee7474}.examReview b{display:block;font-size:9px}.examReview p{font-size:8px;line-height:1.45;color:#adc4ce;margin:4px 0}.examReview .answerKey{color:#e7f6fb}.examReview .why{color:#8fb0bd}
+.oralHeader,.practicalHeader{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#05283a;border:1px solid #ffffff15;border-radius:13px;padding:13px}.oralHeader h2,.practicalHeader h2{margin:2px 0 4px}.oralHeader p,.practicalHeader p{font-size:8.5px;line-height:1.45;color:#a9c1cb;margin:0}.oralHeader .big{width:auto;margin:0}.examStandardNote{margin:8px 0;padding:9px;border-radius:9px;background:#3a2a18;border:1px solid #ffca7645;color:#ffd9a3;font-size:8px;line-height:1.45}
+.practicalExamDeck{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.practicalExamCard{background:#05283a;border:1px solid #ffffff15;border-radius:11px;padding:11px}.practicalExamCard .ver{font-size:6.5px}.practicalExamCard h4{margin:3px 0}.practicalExamCard p{font-size:8px;line-height:1.4;color:#9db6c1;min-height:34px}.practicalExamCard button{width:100%;font-size:8px;background:#166d91}.examSourceNote{margin-top:11px;padding:10px;border-radius:9px;background:#041e2b;border:1px solid #ffffff13;color:#90abb7;font-size:7.5px;line-height:1.45}
+@media(max-width:900px){.examBasis{grid-template-columns:1fr 1fr}.examModeTabs{grid-template-columns:1fr 1fr}.examIntroGrid{grid-template-columns:1fr}.practicalExamDeck{grid-template-columns:1fr}.examHero{grid-template-columns:1fr}.examHeroBadge{text-align:left}}
+@media(max-width:650px){.examBasis,.examModeTabs{grid-template-columns:1fr}.examToolbar{grid-template-columns:1fr}.examProgressText{text-align:left}.examNav{grid-template-columns:1fr}.practicalExamDeck{grid-template-columns:1fr}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17107,7 +17124,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.33.2 • 90° TO TRAFFIC FLOW</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.34 • COLLISION EXAMINATION SUITE</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -17670,7 +17687,10 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <h1>Prepare the encounter.</h1>
       <p>Choose the vessel status, select a verified COLREG scenario, set the coaching level and then take the watch.</p>
       <div id="handoverStrap" class="scenarioHeroStrap">Training vessel • Power-driven vessel</div>
-      <button class="beginnerLaunch" onclick="showCollisionTutorial()">NEW TO THIS? • START HERE →</button>
+      <div class="collisionHeroActions">
+        <button class="beginnerLaunch" onclick="showCollisionTutorial()">NEW TO THIS? • START HERE →</button>
+        <button class="examLaunch" onclick="showCollisionExamCentre()">PROJECT WATCH MOCK EXAMS →</button>
+      </div>
     </div>
     <div class="scenarioConditions">
       <div><small>VISIBILITY</small><b>Good</b></div>
@@ -17739,6 +17759,68 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 </section>
 
+
+<section id="collisionExamPage" class="appPage">
+  <div class="examHero">
+    <div>
+      <div class="ver">PROJECT WATCH • COLLISION EXAMINATION SUITE</div>
+      <h1>Mock assessment. Original questions. Official-rule basis.</h1>
+      <p>This is an independent Project Watch assessment system. It is not an RYA or MCA examination. Questions and diagrams are original to Project Watch and are checked against the COLREGs and current MCA syllabus/assessment guidance.</p>
+    </div>
+    <div class="examHeroBadge"><small>PROJECT WATCH STANDARD</small><b>90% KNOWLEDGE</b><span>+ NO SAFETY-CRITICAL FAIL</span></div>
+  </div>
+
+  <div class="examBasis">
+    <div><small>KNOWLEDGE BASIS</small><b>COLREG Rules 5–8, 12–19 + collision assessment</b></div>
+    <div><small>MCA ALIGNMENT</small><b>Written • oral • practical / simulation</b></div>
+    <div><small>QUESTION OWNERSHIP</small><b>Original Project Watch content</b></div>
+    <div><small>STATUS</small><b>Training / mock assessment only</b></div>
+  </div>
+
+  <div class="examModeTabs">
+    <button id="examTabKnowledge" class="active" onclick="showCollisionExamMode('knowledge')">01 • KNOWLEDGE MOCK</button>
+    <button id="examTabOral" onclick="showCollisionExamMode('oral')">02 • CAPTAIN'S ORAL</button>
+    <button id="examTabPractical" onclick="showCollisionExamMode('practical')">03 • PRACTICAL SIMULATOR</button>
+    <button onclick="showModule('scenarios')">← COLLISION SCENARIOS</button>
+  </div>
+
+  <div id="collisionKnowledgeExam" class="collisionExamSection active">
+    <div class="examIntroGrid">
+      <div class="examIntroCard"><span>20</span><b>RANDOM QUESTIONS</b><small>Balanced across the collision syllabus.</small></div>
+      <div class="examIntroCard"><span>90%</span><b>PROJECT WATCH PASS</b><small>Chosen to match the current MCA Part A COLREG topic threshold, but this is not an MCA examination.</small></div>
+      <div class="examIntroCard"><span>!</span><b>CRITICAL-FAIL LOGIC</b><small>An unsafe answer to a designated safety-critical item prevents a pass.</small></div>
+    </div>
+    <div class="examToolbar">
+      <button class="big" onclick="startCollisionKnowledgeExam()">START NEW 20-QUESTION MOCK</button>
+      <div id="ckProgress" class="examProgressText">Ready</div>
+    </div>
+    <div id="ckQuestionArea" class="examQuestionArea">
+      <div class="examEmpty"><b>Collision Knowledge Mock</b><span>Press START to generate an original balanced examination from the Project Watch question bank.</span></div>
+    </div>
+  </div>
+
+  <div id="collisionOralExam" class="collisionExamSection">
+    <div class="oralHeader">
+      <div><div class="ver">STRUCTURED ORAL BOARD</div><h2>Explain what you would do — and why.</h2><p>Eight randomly selected oral-style collision situations. Choose the response that best matches the complete answer. Full model reasoning is withheld until the end.</p></div>
+      <button class="big" onclick="startCollisionOralExam()">START NEW ORAL MOCK</button>
+    </div>
+    <div id="coQuestionArea" class="examQuestionArea">
+      <div class="examEmpty"><b>Captain's Oral</b><span>This uses original Project Watch scenarios based on the MCA collision-avoidance syllabus.</span></div>
+    </div>
+  </div>
+
+  <div id="collisionPracticalExam" class="collisionExamSection">
+    <div class="practicalHeader">
+      <div><div class="ver">NO COACHING • REAL SIMULATOR</div><h2>Practical collision assessment</h2><p>Select an encounter. Project Watch switches the existing simulator to EXAM mode. No tutorial coaching is provided; the normal simulator debrief records the outcome, action timing, closest approach and manoeuvre-quality flags.</p></div>
+    </div>
+    <div class="examStandardNote"><b>Assessment rule:</b> A collision or clearly dangerous outcome is safety-critical. Project Watch simulator scores are training metrics, not legal determinations or MCA certification.</div>
+    <div id="practicalExamDeck" class="practicalExamDeck"></div>
+  </div>
+
+  <div class="examSourceNote">
+    <b>Assessment basis:</b> International Regulations for Preventing Collisions at Sea (COLREGs), current MCA Master (Code vessels &lt;200 GT) / OOW (Yachts &lt;500 GT) oral syllabus, current MCA Small Ships Navigation and Radar assessment criteria, and current MCA examination structure. Project Watch questions are independently written and do not reproduce RYA or MCA examination questions.
+  </div>
+</section>
 <section id="colregsTutorialPage" class="appPage">
   <div class="crTutorHero"><div><div class="ver">COLREGS • BEGINNER COURSE</div><h1>Learn the map before the rules.</h1><p>This course does not try to make you memorise 41 rules at once. It teaches you how the COLREGs are organised, how to identify the situation, and where to look next.</p></div><div class="crTutorBadge"><small>STARTING LEVEL</small><b>ZERO KNOWLEDGE</b><span>7 lessons + knowledge check</span></div></div>
   <div class="crTutorProgress"><div><span>COURSE PROGRESS</span><b id="crProgressText">0 / 7 COMPLETE</b></div><i><em id="crProgressFill"></em></i></div>
@@ -18099,6 +18181,191 @@ const SCENARIOS={
   sail_overtaking:{name:'Sailing vessel overtaking',mode:'sail',ownH:0,ownS:8,tgtH:0,tgtS:5,kind:'overtaking',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard',windFrom:90},
   rule17_fail:{name:'Rule 17 — give-way vessel fails to act',mode:'power',ownH:0,ownS:7,tgtH:90,tgtS:10,kind:'cross_standon_fail',offset:0,ownType:'power',tgtType:'power'}
 };
+
+const COLLISION_EXAM_BANK=[
+{cat:"Look-out",rule:"Rules 5 & 6",critical:true,q:"You are making 7 knots in clear weather. AIS shows no target, but you hear an engine forward of the beam. What is the correct watchkeeping response?",a:["Maintain the same watch because AIS shows no contact", "Use sight, hearing and all available appropriate means to determine the situation and risk", "Wait until the vessel appears on radar before taking any action", "Increase speed to clear the area sooner"],correct:1,why:"Rule 5 requires a proper look-out by sight, hearing and all available appropriate means. AIS is an aid, not a substitute for the required look-out."},
+{cat:"Look-out",rule:"Rule 5",critical:false,q:"Which statement best describes a proper look-out?",a:["Visual observation is sufficient in good visibility", "Radar alone is sufficient if correctly tuned", "The watch must use sight, hearing and all available appropriate means so the situation and collision risk can be fully assessed", "AIS and VHF replace visual lookout in congested waters"],correct:2,why:"The Rule is deliberately broader than any one sensor. A proper look-out combines the means appropriate to the circumstances."},
+{cat:"Safe speed",rule:"Rule 6",critical:false,q:"Which factor belongs in a safe-speed assessment for every vessel?",a:["Only the charted speed limit", "Traffic density, visibility, manoeuvrability and the prevailing environmental/navigational circumstances", "Only whether radar is fitted", "Only the vessel's maximum stopping distance"],correct:1,why:"Rule 6 requires a speed at which proper and effective avoiding action can be taken and the vessel can be stopped within an appropriate distance, considering the listed circumstances."},
+{cat:"Safe speed",rule:"Rule 6",critical:true,q:"Visibility falls sharply in a busy area. Your previous speed was safe in clear conditions. What is the correct principle?",a:["Keep the same speed because your course has not changed", "Reassess safe speed for the new visibility and traffic conditions", "Maintain speed if AIS targets are stable", "Only reduce speed if a fog signal is heard"],correct:1,why:"Safe speed is circumstance-dependent. A speed that was appropriate earlier may cease to be safe when visibility or traffic conditions change."},
+{cat:"Risk of collision",rule:"Rule 7",critical:true,q:"A target remains on nearly the same compass bearing while the range steadily decreases. What should you conclude?",a:["Risk of collision should be treated as existing", "No risk exists until CPA reaches zero", "The target must be overtaking", "Bearing is irrelevant if radar is available"],correct:0,why:"A steady or nearly steady compass bearing with decreasing range is a classic indication of collision risk."},
+{cat:"Risk of collision",rule:"Rule 7",critical:false,q:"The bearing of a very large vessel changes appreciably, but the passing distance will be close. Which statement is correct?",a:["A changing bearing always proves there is no collision risk", "Risk can still exist despite an appreciable bearing change, particularly with a large vessel, tow or at close range", "Only visual bearings may be used", "CPA may be ignored once the bearing changes"],correct:1,why:"Rule 7 warns that risk may sometimes exist even when an appreciable bearing change is evident."},
+{cat:"Risk of collision",rule:"Rule 7",critical:false,q:"You have radar fitted and operational. What does Rule 7 expect when assessing risk?",a:["Use radar properly, including long-range scanning and systematic observation/plotting where appropriate", "Use radar only after visual contact", "Rely on one instantaneous CPA readout", "Turn off trails because they can distract from AIS"],correct:0,why:"Proper use of fitted and operational radar includes long-range scanning and systematic observation of detected objects."},
+{cat:"Risk of collision",rule:"Rule 7",critical:true,q:"Information is scanty and you are uncertain whether collision risk exists. What is the correct approach?",a:["Assume there is no risk until proven otherwise", "If in doubt, treat the risk as existing", "Wait for VHF agreement", "Use the stand-on rule immediately"],correct:1,why:"Rule 7 explicitly adopts a cautious approach: if there is doubt, risk of collision is deemed to exist."},
+{cat:"Avoiding action",rule:"Rule 8",critical:true,q:"You are the give-way vessel and have ample sea room. Which manoeuvre best reflects Rule 8?",a:["A series of small course changes that eventually create separation", "A positive, early and readily apparent alteration that produces a safe passing distance", "Wait until the target is inside 0.5 NM", "Sound a warning signal but maintain course and speed"],correct:1,why:"Rule 8 favours positive action made in ample time. Alterations should be large enough to be readily apparent and the result checked."},
+{cat:"Avoiding action",rule:"Rule 8",critical:false,q:"After altering course to avoid another vessel, when may you stop monitoring the encounter?",a:["As soon as CPA increases once", "When the other vessel is finally past and clear", "When the target leaves the bow sector", "When the other vessel acknowledges on VHF"],correct:1,why:"The effectiveness of the action must be checked until the other vessel is finally past and clear."},
+{cat:"Avoiding action",rule:"Rule 8",critical:false,q:"If necessary to avoid collision or gain more time to assess the situation, Rule 8 permits you to:",a:["Only alter course; speed changes are prohibited", "Slack speed, stop or reverse propulsion as appropriate", "Anchor immediately in any depth", "Rely on the other vessel to slow down"],correct:1,why:"Rule 8 expressly recognises speed reduction, stopping or reversing means of propulsion as possible measures."},
+{cat:"Avoiding action",rule:"Rule 8",critical:true,q:"Sea room is available and a course alteration alone can avoid a close-quarters situation. Which is generally preferable?",a:["A succession of small alterations", "One substantial alteration that is readily apparent, if it does not create another close-quarters situation", "No alteration until the other vessel acts", "A small alteration to port in every case"],correct:1,why:"A sufficiently large course alteration may be the most effective action where there is sea room, provided it does not create another close-quarters situation."},
+{cat:"Sailing vessels",rule:"Rule 12",critical:true,q:"Two sailing vessels are approaching with risk of collision. Your vessel has the wind on the port side; the other has the wind on the starboard side. Who keeps out of the way?",a:["The vessel with wind on the port side", "The vessel with wind on the starboard side", "The faster vessel", "The vessel closest to the wind"],correct:0,why:"When sailing vessels have the wind on different sides, the vessel with the wind on the port side keeps out of the way."},
+{cat:"Sailing vessels",rule:"Rule 12",critical:false,q:"Two sailing vessels have the wind on the same side. Which vessel keeps out of the way?",a:["The leeward vessel", "The windward vessel", "The slower vessel", "The vessel on the starboard side of the screen"],correct:1,why:"With wind on the same side, the windward vessel keeps out of the way of the leeward vessel."},
+{cat:"Sailing vessels",rule:"Rule 12",critical:true,q:"Your sailing vessel has the wind on the port side. You see another sailing vessel to windward but cannot determine whether she has the wind on port or starboard. What should you do?",a:["Assume she is on port tack and stand on", "Keep out of the way", "Alter to port and cross ahead", "Use Rule 15 because both are sailing"],correct:1,why:"A port-tack sailing vessel that cannot determine the other vessel's tack is required to keep out of the way."},
+{cat:"Sailing vessels",rule:"Rules 12 & 13",critical:true,q:"A sailing yacht under sail is overtaking a power-driven vessel. Which rule controls the overtaking responsibility?",a:["Rule 18 means the power-driven vessel must keep clear of the yacht", "Rule 13: the overtaking sailing vessel keeps out of the way until finally past and clear", "Rule 12 only", "No rule applies because the vessel types differ"],correct:1,why:"Rule 13 applies to any vessel overtaking another and overrides the simple power-versus-sail hierarchy."},
+{cat:"Overtaking",rule:"Rule 13",critical:true,q:"At night you are coming up on another vessel from a direction more than 22.5° abaft her beam, such that you would see only her sternlight and neither sidelight. How should the encounter be treated?",a:["Crossing", "Head-on", "Overtaking", "Restricted visibility"],correct:2,why:"That is the Rule 13 overtaking sector."},
+{cat:"Overtaking",rule:"Rule 13",critical:false,q:"You begin as the overtaking vessel. Later the bearing changes and you are abeam. Are you relieved of the overtaking duty?",a:["Yes, once abeam it becomes a crossing situation", "No. The overtaking duty continues until finally past and clear", "Yes, if the other vessel is power-driven", "Only if you have sounded two prolonged blasts"],correct:1,why:"A later alteration of bearing does not relieve the overtaking vessel of its duty until it is finally past and clear."},
+{cat:"Overtaking",rule:"Rule 13",critical:true,q:"You are uncertain whether you are overtaking another vessel. What does Rule 13 require?",a:["Assume you are not overtaking", "Assume you are overtaking and act accordingly", "Ask the other vessel on VHF before applying the rule", "Apply Rule 15 instead"],correct:1,why:"If in doubt whether you are overtaking, Rule 13 requires you to assume that you are."},
+{cat:"Overtaking",rule:"Rule 13",critical:false,q:"Who must keep out of the way in an overtaking situation?",a:["The vessel being overtaken", "The overtaking vessel, regardless of the vessel types involved", "The sailing vessel", "The vessel on the port side"],correct:1,why:"Rule 13 places the keep-clear duty on the overtaking vessel."},
+{cat:"Head-on",rule:"Rule 14",critical:true,q:"Two power-driven vessels are meeting on reciprocal or nearly reciprocal courses with risk of collision. What should each do?",a:["Alter course to port", "Alter course to starboard so they pass port side to port side", "The smaller vessel stops", "The vessel with the other on starboard gives way"],correct:1,why:"In a Rule 14 head-on situation, each power-driven vessel alters course to starboard."},
+{cat:"Head-on",rule:"Rule 14",critical:true,q:"At night you see the other power-driven vessel's masthead lights in line or nearly in line and both sidelights. What situation should this indicate?",a:["Overtaking", "Head-on or nearly head-on", "Restricted visibility only", "Sailing crossing"],correct:1,why:"That is the classic night-time indication described for a head-on situation."},
+{cat:"Head-on",rule:"Rule 14",critical:false,q:"You are unsure whether the encounter is truly head-on. What is the correct Rule 14 approach?",a:["Assume it is a crossing situation", "Assume the head-on situation exists and act accordingly", "Stand on until CPA is below 0.1 NM", "Turn to port because the target appears slightly to starboard"],correct:1,why:"When in doubt whether a head-on situation exists, the Rule requires it to be assumed."},
+{cat:"Head-on",rule:"Rules 8 & 14",critical:true,q:"In a clear head-on encounter, which avoiding action is the expected course alteration?",a:["Both vessels make early, readily apparent alterations to starboard", "Both alter to port", "Only the faster vessel alters", "Both stop without altering"],correct:0,why:"Rule 14 sets the direction; Rule 8 supplies the qualities of good avoiding action."},
+{cat:"Crossing",rule:"Rule 15",critical:true,q:"Two power-driven vessels are crossing with risk of collision. The other vessel is on your starboard side. What is your responsibility?",a:["Stand on", "Keep out of the way and, where circumstances admit, avoid crossing ahead", "Maintain course because you are slower", "Alter to port and pass ahead"],correct:1,why:"Under Rule 15, the vessel that has the other on her starboard side keeps out of the way and should avoid crossing ahead where circumstances admit."},
+{cat:"Crossing",rule:"Rules 15 & 17",critical:false,q:"In a power-driven crossing situation, the other vessel is on your port side. What is your initial role?",a:["Give-way", "Stand-on, subject to Rule 17's developing obligations", "Overtaking", "Not under command"],correct:1,why:"The vessel with the other on her starboard side is the give-way vessel; the opposite vessel is initially stand-on under Rule 17."},
+{cat:"Crossing",rule:"Rule 15",critical:true,q:"You are give-way in a crossing situation. Which action is specifically discouraged where circumstances admit?",a:["Passing astern", "Crossing ahead of the vessel on your starboard side", "Reducing speed", "Making an early substantial alteration"],correct:1,why:"Rule 15 says the give-way vessel should, if circumstances admit, avoid crossing ahead of the other vessel."},
+{cat:"Crossing",rule:"Rules 8, 15 & 16",critical:true,q:"As give-way vessel in a developing crossing encounter, when should action normally be taken?",a:["Only when collision becomes unavoidable", "Early and substantially enough to keep well clear", "After the stand-on vessel alters", "Only after a VHF agreement"],correct:1,why:"Rule 16 requires early and substantial action; Rule 8 requires positive action in ample time."},
+{cat:"Give-way / stand-on",rule:"Rule 16",critical:true,q:"What is the core duty of the give-way vessel?",a:["Maintain course and speed", "Take early and substantial action to keep well clear", "Wait for the stand-on vessel to signal", "Always stop engines"],correct:1,why:"Rule 16 requires the vessel directed to keep out of the way to take early and substantial action."},
+{cat:"Give-way / stand-on",rule:"Rule 17",critical:false,q:"What should the stand-on vessel normally do initially?",a:["Immediately alter course", "Keep course and speed while continuing to monitor the situation", "Stop engines", "Call the give-way vessel on VHF before deciding"],correct:1,why:"The stand-on vessel normally keeps course and speed, but this does not remove the duty to keep a proper watch and assess the developing situation."},
+{cat:"Give-way / stand-on",rule:"Rule 17",critical:true,q:"When may a stand-on vessel take action on her own before the situation becomes unavoidable?",a:["As soon as it becomes apparent that the give-way vessel is not taking appropriate action", "Only after collision occurs", "Never; stand-on means no manoeuvre is permitted", "Only after five short blasts"],correct:0,why:"Rule 17 allows the stand-on vessel to act when it becomes apparent the give-way vessel is not taking appropriate action."},
+{cat:"Give-way / stand-on",rule:"Rule 17",critical:true,q:"The vessels are now so close that collision cannot be avoided by the give-way vessel's action alone. What must the stand-on vessel do?",a:["Continue course and speed regardless", "Take such action as will best aid to avoid collision", "Alter to port in every crossing situation", "Turn off the autopilot but make no manoeuvre"],correct:1,why:"At that stage Rule 17 requires the stand-on vessel to take the action that will best aid avoidance."},
+{cat:"Give-way / stand-on",rule:"Rule 17",critical:true,q:"A power-driven stand-on vessel in a crossing situation decides to act alone. If circumstances admit, which course alteration should she avoid for a vessel on her own port side?",a:["A turn to starboard", "A turn to port", "A speed reduction", "Stopping propulsion"],correct:1,why:"Rule 17 advises a power-driven stand-on vessel acting in a crossing situation not to alter course to port for a vessel on her own port side, if circumstances admit."},
+{cat:"Responsibilities",rule:"Rules 13 & 18",critical:true,q:"A power-driven vessel is overtaking a sailing vessel. Which rule determines who keeps out of the way?",a:["Rule 18: the power-driven vessel keeps clear because the other vessel is sailing", "Rule 13: the overtaking vessel keeps out of the way", "Rule 12", "Rule 15"],correct:1,why:"Overtaking under Rule 13 takes precedence over the general vessel-type hierarchy in Rule 18."},
+{cat:"Responsibilities",rule:"Rule 18",critical:false,q:"Away from Rules 9, 10 and 13 complications, a power-driven vessel underway meets a sailing vessel with risk of collision. Which vessel normally keeps out of the way?",a:["The sailing vessel", "The power-driven vessel", "The larger vessel", "The vessel on port tack regardless of vessel type"],correct:1,why:"Rule 18 normally requires a power-driven vessel underway to keep out of the way of a sailing vessel."},
+{cat:"Responsibilities",rule:"Rule 18",critical:true,q:"A power-driven vessel underway encounters a vessel not under command. What is the normal responsibility, subject to the applicable rules?",a:["The NUC vessel must keep clear", "The power-driven vessel keeps out of the way", "Both are stand-on", "Rule 15 always applies"],correct:1,why:"Rule 18 places the ordinary power-driven vessel below a vessel not under command in the responsibility hierarchy."},
+{cat:"Responsibilities",rule:"Rule 18",critical:false,q:"A sailing vessel underway encounters a vessel engaged in fishing. Away from other overriding rules, who keeps out of the way?",a:["The fishing vessel", "The sailing vessel", "Neither vessel", "Whichever vessel sees the other on starboard"],correct:1,why:"Rule 18 requires a sailing vessel underway to keep out of the way of a vessel engaged in fishing."},
+{cat:"Restricted visibility",rule:"Rule 19",critical:true,q:"You detect another vessel by radar in restricted visibility but cannot see her. Which statement is correct?",a:["Rules 11–18 give you a stand-on role", "Rule 19 governs conduct because the vessels are not in sight of one another", "Rule 15 applies automatically to every crossing track", "No action is permitted until visual contact"],correct:1,why:"Rule 19 applies to vessels not in sight of one another when navigating in or near restricted visibility."},
+{cat:"Restricted visibility",rule:"Rule 19",critical:true,q:"In restricted visibility, a radar contact is forward of your beam and an alteration of course is required to avoid close quarters. Which alteration should generally be avoided, except when overtaking?",a:["To starboard", "To port", "Any alteration greater than 20°", "A speed reduction"],correct:1,why:"Rule 19 advises avoiding an alteration to port for a vessel forward of the beam, except for a vessel being overtaken."},
+{cat:"Restricted visibility",rule:"Rule 19",critical:true,q:"A radar contact is abeam or abaft your beam in restricted visibility. If altering course to avoid close quarters, what should generally be avoided?",a:["An alteration toward that vessel", "An alteration away from that vessel", "A reduction in speed", "Using radar plotting"],correct:0,why:"Rule 19 advises avoiding an alteration toward a vessel abeam or abaft the beam."},
+{cat:"Restricted visibility",rule:"Rule 19",critical:true,q:"You hear a fog signal apparently forward of your beam and cannot avoid a close-quarters situation. What is the required cautious response?",a:["Maintain speed because the other vessel is sounding", "Reduce speed to the minimum at which you can keep course; if necessary take all way off, and navigate with extreme caution", "Alter to port immediately", "Accelerate to pass before the contact"],correct:1,why:"Rule 19 calls for a substantial speed reduction in this circumstance and, if necessary, taking all way off while navigating with extreme caution."},
+{cat:"Radar / CPA",rule:"Rules 7 & 8",critical:false,q:"CPA is increasing after your manoeuvre. What does that prove?",a:["The encounter is finished and no further monitoring is needed", "Only that the predicted closest approach has changed; continue checking until finally past and clear", "That the other vessel has accepted your manoeuvre", "That the COLREGs no longer apply"],correct:1,why:"CPA is a useful collision-assessment aid, but the effectiveness of action must still be checked until the vessels are finally past and clear."},
+{cat:"Radar / CPA",rule:"Rule 7",critical:true,q:"A single instantaneous CPA/TCPA value shows a comfortable pass, but the target data is unstable and based on scant observations. What should you do?",a:["Accept the value as definitive", "Continue systematic observation and avoid assumptions based on scanty information", "Ignore visual bearings", "Increase speed to improve ARPA acquisition"],correct:1,why:"Rule 7 warns against assumptions made on scanty information, especially scanty radar information."},
+{cat:"Radar / CPA",rule:"Rules 5 & 7",critical:false,q:"Which is the best use of AIS information in collision assessment?",a:["Treat AIS as a useful source that supports, but does not replace, proper lookout and assessment by all appropriate means", "Use AIS as the sole source because it reports vessel identity", "Ignore radar if AIS is fitted", "Use AIS CPA only and disregard visual bearing"],correct:0,why:"AIS can support situational awareness, but the COLREG duties to maintain a proper look-out and use all available appropriate means remain."},
+{cat:"Radar / CPA",rule:"Rule 7",critical:false,q:"What does TCPA describe in a constant-course/constant-speed prediction?",a:["The predicted time until the closest point of approach", "The target's true course", "The time since the target was first detected", "The period for which the stand-on vessel must hold course"],correct:0,why:"TCPA is a radar/ARPA assessment term for predicted time to closest point of approach; it is not itself a COLREG rule or a substitute for judgement."}
+];
+const COLLISION_ORAL_BANK=[
+{rule:"Rules 5–8",prompt:"A target is fine on your starboard bow. Range is reducing and the compass bearing is steady. You are the power-driven give-way vessel in a crossing situation. What is the complete response?",a:["Maintain course until the target is within 0.5 NM", "Treat collision risk as existing, keep a proper lookout, and take early substantial action to keep well clear; where circumstances admit avoid crossing ahead", "Call on VHF and wait for agreement before applying Rule 15"],correct:1,why:"A complete answer combines Rule 7 risk assessment with Rules 15, 16 and 8 action.",critical:true},
+{rule:"Rule 17",prompt:"You are stand-on in a crossing encounter. The give-way vessel has made no meaningful alteration and the range is closing. What should you explain?",a:["Stand-on means you must never manoeuvre", "Initially keep course and speed while monitoring; you may act when it becomes apparent the give-way vessel is not taking appropriate action, and must act if collision cannot be avoided by her action alone", "Turn to port immediately because the target is on your port side"],correct:1,why:"The oral answer should distinguish the initial stand-on duty, the 'may act' stage and the later 'shall act' stage.",critical:true},
+{rule:"Rule 14",prompt:"At night you see both sidelights and masthead lights nearly in line on a power-driven vessel ahead. Risk is developing. What do you do and why?",a:["Treat it as head-on; make an early, readily apparent alteration to starboard and continue monitoring until past and clear", "Treat it as crossing and stand on", "Alter to port so both vessels turn the same way"],correct:0,why:"This identifies the Rule 14 head-on geometry and combines it with Rule 8.",critical:true},
+{rule:"Rule 13",prompt:"You are under sail and overtaking a power-driven motor vessel. Explain who gives way.",a:["The motor vessel gives way because power normally keeps clear of sail", "Your sailing vessel keeps out of the way because Rule 13 overtaking applies regardless of vessel type, until finally past and clear", "Both vessels maintain course and speed"],correct:1,why:"A strong oral answer recognises that overtaking overrides the simple power-versus-sail hierarchy.",critical:true},
+{rule:"Rule 19",prompt:"In fog, a radar target is forward of your beam and risk of close quarters is developing. You cannot see the vessel. What framework applies?",a:["Use Rule 15 and decide which vessel is stand-on", "Use Rule 19; proceed at safe speed with engines ready, assess by radar and avoid an alteration to port for a vessel forward of the beam unless overtaking", "Maintain speed until you hear a fog signal"],correct:1,why:"The key oral distinction is that vessels not in sight in restricted visibility are governed by Rule 19 rather than the in-sight give-way/stand-on framework.",critical:true},
+{rule:"Rule 12",prompt:"Two sailing vessels have wind on the same side and you are the windward vessel. What is your responsibility?",a:["Keep out of the way of the leeward vessel", "Stand on because windward has priority", "Apply Rule 15"],correct:0,why:"Rule 12 requires the windward sailing vessel to keep out of the way when both have wind on the same side.",critical:false},
+{rule:"Rules 7 & 8",prompt:"Your ARPA shows CPA improving after an alteration. Is your job finished?",a:["Yes, an improving CPA ends the encounter", "No. Continue systematic observation and verify the action until the other vessel is finally past and clear", "Yes, provided TCPA is under five minutes"],correct:1,why:"A good watchkeeper treats CPA as one aid and continues monitoring the result of the manoeuvre.",critical:false},
+{rule:"Rules 15 & 16",prompt:"A power-driven target is on your starboard side in a crossing encounter. What should your avoiding action achieve?",a:["Pass ahead if you can accelerate enough", "Keep well clear by early and substantial action and, where circumstances admit, avoid crossing ahead", "Hold course and speed because the target is visible"],correct:1,why:"The answer should connect the Rule 15 relationship to the Rule 16 and Rule 8 quality of action.",critical:true},
+{rule:"Rule 6",prompt:"Visibility and traffic density deteriorate while you continue at the same speed. What must you reassess?",a:["Only the radar range scale", "Whether your speed remains safe for the changed circumstances and whether you can take proper effective action and stop within an appropriate distance", "Nothing unless a collision alarm sounds"],correct:1,why:"Safe speed is dynamic and depends on the prevailing circumstances.",critical:false},
+{rule:"Rule 18",prompt:"You are power-driven and meet a sailing vessel in open water. What must you check before simply saying 'power gives way to sail'?",a:["Whether Rules such as overtaking, narrow channels or TSS alter the applicable relationship, plus the vessel's actual status", "Only which vessel is larger", "Only whether the sailing vessel has AIS"],correct:0,why:"The Rule 18 hierarchy must be applied with the stated exceptions and the actual encounter classification.",critical:false},
+{rule:"Rule 7",prompt:"The relative bearing changes, but the target is a very large vessel and the projected pass is close. Can you dismiss collision risk?",a:["Yes, any bearing change proves there is no risk", "No. Risk may still exist even with appreciable bearing change, particularly with large vessels, tows or at close range", "Only if the vessel is over 50 m"],correct:1,why:"A complete oral answer should mention the caution in Rule 7 about large vessels, tows and close range.",critical:false},
+{rule:"Rule 13",prompt:"You are unsure whether you are overtaking. How should you proceed?",a:["Assume overtaking and act accordingly", "Assume crossing", "Stand on until visual bearings resolve the doubt"],correct:0,why:"Rule 13 explicitly resolves doubt by requiring the vessel to assume she is overtaking.",critical:false}
+];
+
+let collisionExamSet=[],collisionExamAnswers=[],collisionExamIndex=0,collisionExamSubmitted=false;
+let collisionOralSet=[],collisionOralAnswers=[],collisionOralIndex=0,collisionOralSubmitted=false;
+
+function showCollisionExamCentre(){
+  document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
+  updateHeaderNav('scenarios');updateModuleContext('scenarios');
+  $('collisionExamPage').classList.add('active');
+  showCollisionExamMode('knowledge');
+  renderPracticalExamDeck();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showCollisionExamMode(mode){
+  ['Knowledge','Oral','Practical'].forEach(x=>{
+    const sec=$('collision'+x+'Exam'),tab=$('examTab'+x);
+    if(sec)sec.classList.toggle('active',x.toLowerCase()===mode);
+    if(tab)tab.classList.toggle('active',x.toLowerCase()===mode);
+  });
+}
+function pwShuffle(arr){
+  let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;
+}
+function buildBalancedCollisionExam(n=20){
+  const groups={};
+  COLLISION_EXAM_BANK.forEach(q=>(groups[q.cat]||(groups[q.cat]=[])).push(q));
+  let chosen=[];
+  Object.values(groups).forEach(g=>chosen.push(pwShuffle(g)[0]));
+  const remaining=pwShuffle(COLLISION_EXAM_BANK.filter(q=>!chosen.includes(q)));
+  while(chosen.length<n&&remaining.length)chosen.push(remaining.shift());
+  return pwShuffle(chosen).slice(0,n);
+}
+function startCollisionKnowledgeExam(){
+  collisionExamSet=buildBalancedCollisionExam(20);
+  collisionExamAnswers=new Array(collisionExamSet.length).fill(null);
+  collisionExamIndex=0;collisionExamSubmitted=false;
+  renderCollisionKnowledgeQuestion();
+}
+function renderCollisionKnowledgeQuestion(){
+  const area=$('ckQuestionArea');if(!collisionExamSet.length)return;
+  const q=collisionExamSet[collisionExamIndex],ans=collisionExamAnswers[collisionExamIndex];
+  $('ckProgress').textContent=`Question ${collisionExamIndex+1} of ${collisionExamSet.length} • ${collisionExamAnswers.filter(x=>x!==null).length} answered`;
+  area.innerHTML=`<div class="examQTop"><span class="tag">${q.cat} • ${q.rule}</span>${q.critical?'<span class="tag critical">SAFETY-CRITICAL</span>':''}</div>
+    <div class="examQuestion">${q.q}</div>
+    <div class="examChoices">${q.a.map((a,i)=>`<button class="${ans===i?'selected':''}" onclick="answerCollisionKnowledge(${i})"><b>${String.fromCharCode(65+i)}.</b> ${a}</button>`).join('')}</div>
+    <div class="examNav">
+      <button onclick="collisionExamPrev()">← PREVIOUS</button>
+      <button onclick="collisionExamNext()">NEXT →</button>
+      <button class="submit" onclick="submitCollisionKnowledgeExam()">SUBMIT EXAM</button>
+    </div>`;
+}
+function answerCollisionKnowledge(i){if(collisionExamSubmitted)return;collisionExamAnswers[collisionExamIndex]=i;renderCollisionKnowledgeQuestion()}
+function collisionExamPrev(){if(collisionExamIndex>0){collisionExamIndex--;renderCollisionKnowledgeQuestion()}}
+function collisionExamNext(){if(collisionExamIndex<collisionExamSet.length-1){collisionExamIndex++;renderCollisionKnowledgeQuestion()}}
+function submitCollisionKnowledgeExam(){
+  if(!collisionExamSet.length||collisionExamSubmitted)return;
+  const unanswered=collisionExamAnswers.filter(x=>x===null).length;
+  if(unanswered && !confirm(`${unanswered} question(s) are unanswered. Submit anyway?`))return;
+  collisionExamSubmitted=true;
+  const correct=collisionExamSet.filter((q,i)=>collisionExamAnswers[i]===q.correct).length;
+  const pct=Math.round(correct/collisionExamSet.length*100);
+  const criticalWrong=collisionExamSet.filter((q,i)=>q.critical&&collisionExamAnswers[i]!==q.correct);
+  const pass=pct>=90&&criticalWrong.length===0;
+  $('ckProgress').textContent=`Complete • ${correct}/${collisionExamSet.length} • ${pct}%`;
+  $('ckQuestionArea').innerHTML=`<div class="examResultsHero ${pass?'pass':'fail'}"><div><div class="ver">PROJECT WATCH MOCK RESULT</div><h2>${pass?'PASS':'NOT YET PASSED'}</h2><p class="note">${pass?'Knowledge standard achieved with no safety-critical error.':'Review the debrief below, retrain weak areas and generate a new mock.'}</p></div><div class="examScoreBig">${pct}%</div></div>
+    <div class="examStandardNote"><b>Project Watch pass rule:</b> 90% overall and no wrong answer on a designated safety-critical item. This is an independent training standard, not an MCA/RYA certificate.</div>
+    ${criticalWrong.length?`<div class="examStandardNote"><b>Safety-critical errors:</b> ${criticalWrong.length}. A designated critical item was answered incorrectly or left unanswered.</div>`:''}
+    <div class="examResultGrid">${collisionExamSet.map((q,i)=>examReviewHTML(q,collisionExamAnswers[i],i)).join('')}</div>
+    <div class="examNav"><button onclick="startCollisionKnowledgeExam()">NEW RANDOM MOCK</button><button onclick="showCollisionExamMode('oral')">CAPTAIN'S ORAL →</button><button onclick="showCollisionExamMode('practical')">PRACTICAL →</button></div>`;
+}
+function examReviewHTML(q,user,i){
+  const ok=user===q.correct;
+  const userText=user===null?'No answer':q.a[user];
+  return `<div class="examReview ${ok?'ok':'bad'}"><b>${i+1}. ${q.cat} • ${q.rule} ${q.critical?'• SAFETY-CRITICAL':''}</b><p>${q.q}</p><p>Your answer: <span class="answerKey">${userText}</span></p><p>Correct answer: <span class="answerKey">${q.a[q.correct]}</span></p><p class="why">${q.why}</p></div>`;
+}
+function startCollisionOralExam(){
+  collisionOralSet=pwShuffle(COLLISION_ORAL_BANK).slice(0,8);
+  collisionOralAnswers=new Array(collisionOralSet.length).fill(null);
+  collisionOralIndex=0;collisionOralSubmitted=false;renderCollisionOralQuestion();
+}
+function renderCollisionOralQuestion(){
+  const area=$('coQuestionArea');if(!collisionOralSet.length)return;
+  const q=collisionOralSet[collisionOralIndex],ans=collisionOralAnswers[collisionOralIndex];
+  area.innerHTML=`<div class="examQTop"><span class="tag">ORAL ${collisionOralIndex+1}/${collisionOralSet.length} • ${q.rule}</span>${q.critical?'<span class="tag critical">SAFETY-CRITICAL</span>':''}</div>
+    <div class="examScenarioStem">Examiner prompt</div><div class="examQuestion">${q.prompt}</div>
+    <div class="examChoices">${q.a.map((a,i)=>`<button class="${ans===i?'selected':''}" onclick="answerCollisionOral(${i})">${a}</button>`).join('')}</div>
+    <div class="examNav"><button onclick="collisionOralPrev()">← PREVIOUS</button><button onclick="collisionOralNext()">NEXT →</button><button class="submit" onclick="submitCollisionOralExam()">SUBMIT ORAL MOCK</button></div>`;
+}
+function answerCollisionOral(i){if(collisionOralSubmitted)return;collisionOralAnswers[collisionOralIndex]=i;renderCollisionOralQuestion()}
+function collisionOralPrev(){if(collisionOralIndex>0){collisionOralIndex--;renderCollisionOralQuestion()}}
+function collisionOralNext(){if(collisionOralIndex<collisionOralSet.length-1){collisionOralIndex++;renderCollisionOralQuestion()}}
+function submitCollisionOralExam(){
+  if(!collisionOralSet.length||collisionOralSubmitted)return;
+  const correct=collisionOralSet.filter((q,i)=>collisionOralAnswers[i]===q.correct).length;
+  const pct=Math.round(correct/collisionOralSet.length*100);
+  const criticalWrong=collisionOralSet.filter((q,i)=>q.critical&&collisionOralAnswers[i]!==q.correct);
+  const pass=pct>=80&&criticalWrong.length===0;
+  $('coQuestionArea').innerHTML=`<div class="examResultsHero ${pass?'pass':'fail'}"><div><div class="ver">PROJECT WATCH ORAL MOCK</div><h2>${pass?'PASS':'NOT YET PASSED'}</h2><p class="note">Project Watch oral benchmark: 80% plus no safety-critical error. The detailed reasoning is now revealed.</p></div><div class="examScoreBig">${pct}%</div></div>
+  <div class="examResultGrid">${collisionOralSet.map((q,i)=>examReviewHTML({cat:"Captain's Oral",rule:q.rule,critical:q.critical,q:q.prompt,a:q.a,correct:q.correct,why:q.why},collisionOralAnswers[i],i)).join('')}</div>
+  <div class="examNav"><button onclick="startCollisionOralExam()">NEW ORAL MOCK</button><button onclick="showCollisionExamMode('knowledge')">KNOWLEDGE →</button><button onclick="showCollisionExamMode('practical')">PRACTICAL →</button></div>`;
+}
+const PRACTICAL_EXAM_SCENARIOS=[
+ ['cross_stbd','Crossing • Give-way','Identify the starboard-side crossing risk and demonstrate early, substantial keep-clear action.'],
+ ['cross_port','Crossing • Stand-on','Maintain the correct initial stand-on behaviour while continuously monitoring the give-way vessel.'],
+ ['rule17_fail','Rule 17 escalation','The give-way vessel deliberately fails to act. Recognise when stand-on action becomes necessary.'],
+ ['head_on','Head-on','Recognise reciprocal / nearly reciprocal geometry and demonstrate the expected starboard action.'],
+ ['overtake','Overtaking','You are the overtaking vessel. Keep out of the way until finally past and clear.'],
+ ['overtaken','Being overtaken','Manage the encounter as the vessel being overtaken while the target remains responsible.'],
+ ['cross_stbd_offset','Deceptive CPA','Assess the developing crossing risk rather than relying on a superficial first impression.'],
+ ['head_on_offset','Near head-on','Decide whether the nearly reciprocal geometry should be treated as head-on.'],
+ ['power_vs_sail','Power meets sail','Apply the vessel-responsibility hierarchy while remembering the overriding rules.'],
+ ['sail_port_tack','Sail vs sail • Port tack','Apply Rule 12 with own vessel on port tack.'],
+ ['sail_windward','Sail vs sail • Windward','Apply Rule 12 to vessels with wind on the same side.'],
+ ['sail_overtaking','Sailing vessel overtaking','Recognise that Rule 13 overtaking controls despite the vessel types.']
+];
+function renderPracticalExamDeck(){
+  const deck=$('practicalExamDeck');if(!deck)return;
+  deck.innerHTML=PRACTICAL_EXAM_SCENARIOS.map(([id,title,desc],i)=>`<div class="practicalExamCard"><div class="ver">PRACTICAL ${String(i+1).padStart(2,'0')} • ${SCENARIOS[id]?.mode==='sail'?'SAILING':'POWER-DRIVEN'}</div><h4>${title}</h4><p>${desc}</p><button onclick="launchCollisionPracticalExam('${id}')">LAUNCH EXAM SCENARIO →</button></div>`).join('');
+}
+function launchCollisionPracticalExam(id){
+  const s=SCENARIOS[id];if(!s)return;
+  scenarioId=id;setOwnVesselMode(s.mode);scenarioId=id;setTrainingMode('exam');
+  renderScenarioList();initScenario();startWatch();
+}
 
 const POWER_SCENARIO_ORDER=['cross_stbd','cross_port','rule17_fail','head_on','overtake','overtaken','cross_stbd_offset','head_on_offset','overtake_port','power_vs_sail'];
 const SAIL_SCENARIO_ORDER=['sail_vs_power','sail_port_tack','sail_starboard_tack','sail_windward','sail_leeward','sail_overtaking'];
