@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.27.2 — Compact Helm Control</title>
+<title>Project Watch 1.28 — Beginner Tutorial</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -505,6 +505,52 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .helmThumb{position:absolute;left:50%;top:50%;width:22px;height:22px;border-radius:50%;transform:translate(-50%,-50%);background:#f5fbfd;border:4px solid #31b9e8;box-shadow:0 2px 8px #0008}
 .helmOrder{text-align:center;margin:6px 0}.helmOrder small{display:block;font-size:7px;color:#809eab;letter-spacing:.6px}.helmOrder strong{display:block;font-size:16px;color:#fff;margin-top:1px}
 .helmQuick{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:5px}.helmQuick button{min-height:38px;border:0;border-radius:9px;background:#168fcf;color:#fff;font-size:8px;font-weight:900;padding:5px}.helmQuick .alt{background:#123e54;border:1px solid #6ddfff40}
+
+
+/* 1.28 Beginner collision tutorial */
+.beginnerLaunch{
+  display:block;margin-top:12px;padding:9px 12px;border-radius:9px;border:1px solid #79e2ff66;
+  background:#0b6b91;color:#fff;font-size:9px;font-weight:900;letter-spacing:.7px;
+  box-shadow:0 7px 18px #0003
+}
+.tutorialHero{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:26px;border-radius:18px;background:linear-gradient(135deg,#052b3d,#073e57);border:1px solid #ffffff18;box-shadow:0 12px 32px #0004}
+.tutorialHero h1{margin:2px 0 7px;font-size:29px}.tutorialHero p{margin:0;max-width:650px;color:#b9ced7;font-size:10px;line-height:1.5}
+.tutorialHeroBadge{text-align:right;padding:10px 12px;border-radius:10px;background:#031b27;border:1px solid #6ee0ff42}
+.tutorialHeroBadge small{display:block;font-size:7px;color:#78cce6;letter-spacing:.8px}.tutorialHeroBadge b{display:block;font-size:16px;margin-top:2px}.tutorialHeroBadge span{display:block;font-size:8px;color:#9eb7c1;margin-top:2px}
+.tutorialProgressWrap{margin:10px 0 12px;padding:9px 11px;border-radius:10px;background:#041e2b;border:1px solid #ffffff13}
+.tutorialProgressHead{display:flex;justify-content:space-between;gap:10px;font-size:7px;font-weight:900;letter-spacing:.6px;color:#91adba}
+.tutorialProgressBar{height:7px;background:#02141d;border-radius:8px;overflow:hidden;margin-top:6px}.tutorialProgressBar i{display:block;height:100%;width:0;background:#44d09a;border-radius:8px;transition:.2s}
+.tutorialGrid{display:grid;grid-template-columns:270px 1fr;gap:11px}
+.tutorialLessonList{background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:8px;align-self:start}
+.tutorialLessonBtn{width:100%;display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;padding:8px;border:0;border-radius:9px;background:transparent;color:#d9edf4;text-align:left;margin:2px 0}
+.tutorialLessonBtn:hover{background:#08384f}.tutorialLessonBtn.active{background:#0c5e82;box-shadow:inset 0 0 0 1px #83e7ff55}
+.tutorialLessonBtn.done{background:#064132}.tutorialLessonNum{width:30px;height:30px;border-radius:8px;background:#031b27;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#79ddfa}
+.tutorialLessonBtn b{display:block;font-size:9px;line-height:1.2}.tutorialLessonBtn small{display:block;font-size:7px;color:#90acb8;margin-top:2px}.tutorialLessonCheck{font-size:12px;color:#69dfa8}
+.tutorialLessonMain{background:#05283a;border:1px solid #ffffff15;border-radius:14px;padding:14px}
+.tutorialLessonTop{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}.tutorialLessonTop h2{margin:2px 0 4px;font-size:21px}.tutorialLessonTop p{margin:0;color:#9fb7c2;font-size:9px;line-height:1.4}
+.tutorialBackBtn{background:#123f55!important;font-size:8px!important;width:auto!important}
+.tutorialLessonVisual{height:215px;margin:13px 0;border-radius:13px;overflow:hidden;background:#031923;border:1px solid #ffffff13;position:relative}
+.tutorialLessonBody{padding:2px 2px 5px}.tutorialLessonBody h3{margin:0 0 7px}.tutorialLessonPoints{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.tutorialPoint{background:#031d29;border:1px solid #ffffff10;border-radius:9px;padding:9px}.tutorialPoint b{display:block;font-size:9px;color:#fff}.tutorialPoint span{display:block;font-size:8px;line-height:1.4;color:#9fb8c3;margin-top:3px}
+.tutorialLessonActions{display:grid;grid-template-columns:120px 1fr 120px;gap:7px;margin-top:10px}.tutorialLessonActions .big{margin:0}
+.tutorialMiniRadar{position:absolute;inset:0;background:radial-gradient(circle at center,#16465b 0,#082a3b 66%,#041923 100%)}
+.tutorialMiniRadar:before,.tutorialMiniRadar:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid #79dff74a;border-radius:50%}.tutorialMiniRadar:before{width:120px;height:120px}.tutorialMiniRadar:after{width:190px;height:190px}
+.tutorialMiniOwn,.tutorialMiniTarget{position:absolute;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:25px solid #e03e3e;left:50%;top:63%;transform:translate(-50%,-50%)}.tutorialMiniTarget{border-bottom-color:#47d3c0;left:72%;top:36%;transform:translate(-50%,-50%) rotate(270deg)}
+.tutorialMiniLabel{position:absolute;padding:4px 6px;border-radius:6px;background:#001722dd;color:#fff;font-size:7px;font-weight:900}.tutorialMiniLabel.own{left:52%;top:67%}.tutorialMiniLabel.target{left:73%;top:42%}
+.tutorialVisualCopy{position:absolute;left:16px;bottom:14px;right:16px;color:#dff7ff;font-size:9px;line-height:1.45;background:#031722d9;border:1px solid #ffffff15;border-radius:9px;padding:9px}
+
+.tutorialCoach{
+ display:none;position:fixed;left:18px;bottom:18px;width:min(360px,calc(100vw - 36px));z-index:250;
+ background:#052a3d;border:1px solid #75ddfb80;border-radius:15px;box-shadow:0 18px 55px #000a;padding:12px
+}
+.tutorialCoach.show{display:block}.tutorialCoachTop{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start}.tutorialCoachTop small{display:block;color:#6fdafa;font-size:7px;font-weight:900;letter-spacing:.7px}.tutorialCoachTop b{display:block;font-size:13px;margin-top:1px}.tutorialCoachTop button{width:30px;height:30px;padding:0;border-radius:8px;background:#123e54}
+.tutorialCoachText{font-size:10px;line-height:1.5;color:#d0e3ea;margin:9px 0}
+.tutorialCoachProgress{height:5px;background:#02141d;border-radius:6px;overflow:hidden;margin-bottom:8px}.tutorialCoachProgress i{display:block;height:100%;background:#45d39c;width:0;transition:.2s}
+.tutorialCoachControls{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:5px}.tutorialCoachControls button{min-height:35px;font-size:8px}.tutorialCoachControls .active{background:#168bcf}
+.tutorialFocus{position:relative;z-index:40;box-shadow:0 0 0 3px #76e3ff,0 0 28px #3ac9ff88!important;border-radius:10px!important}
+.tutorialDimmed:before{content:"";position:fixed;inset:0;background:#0010184f;z-index:30;pointer-events:none}
+@media(max-width:900px){.tutorialGrid{grid-template-columns:1fr}.tutorialLessonList{display:grid;grid-template-columns:repeat(3,1fr)}.tutorialLessonBtn{grid-template-columns:30px 1fr}.tutorialLessonCheck{display:none}.tutorialHero{grid-template-columns:1fr}.tutorialHeroBadge{text-align:left}.tutorialLessonPoints{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.tutorialLessonList{grid-template-columns:1fr}.tutorialLessonPoints{grid-template-columns:1fr}.tutorialLessonActions{grid-template-columns:1fr}.tutorialCoach{left:10px;bottom:10px;width:calc(100vw - 20px)}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -16990,7 +17036,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.27.2 • COMPACT HELM CONTROL</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.28 • BEGINNER TUTORIAL</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -17481,6 +17527,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <h1>Prepare the encounter.</h1>
       <p>Choose the vessel status, select a verified COLREG scenario, set the coaching level and then take the watch.</p>
       <div id="handoverStrap" class="scenarioHeroStrap">Training vessel • Power-driven vessel</div>
+      <button class="beginnerLaunch" onclick="showCollisionTutorial()">NEW TO THIS? • START HERE →</button>
     </div>
     <div class="scenarioConditions">
       <div><small>VISIBILITY</small><b>Good</b></div>
@@ -17548,6 +17595,49 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     </div>
   </div>
 </section>
+
+<section id="collisionTutorialPage" class="appPage">
+  <div class="tutorialHero">
+    <div>
+      <div class="ver">BEGINNER COURSE • COLLISION AVOIDANCE</div>
+      <h1>Start from zero.</h1>
+      <p>No previous boating knowledge is assumed. Work through the lessons in order, then use the real simulator with coaching switched on.</p>
+    </div>
+    <div class="tutorialHeroBadge"><small>COURSE</small><b>9 LESSONS</b><span>Beginner → First Watch</span></div>
+  </div>
+
+  <div class="tutorialProgressWrap">
+    <div class="tutorialProgressHead"><span>COURSE PROGRESS</span><b id="tutorialProgressText">0 / 9 COMPLETE</b></div>
+    <div class="tutorialProgressBar"><i id="tutorialProgressFill"></i></div>
+  </div>
+
+  <div class="tutorialGrid">
+    <aside class="tutorialLessonList" id="tutorialLessonList"></aside>
+    <main class="tutorialLessonMain">
+      <div class="tutorialLessonTop">
+        <div>
+          <div class="ver" id="tutorialLessonNo">LESSON 01</div>
+          <h2 id="tutorialLessonTitle">Meet your bridge display</h2>
+          <p id="tutorialLessonSummary">Learn what you are looking at before you touch any controls.</p>
+        </div>
+        <button class="tutorialBackBtn" onclick="showModule('scenarios')">← SCENARIOS</button>
+      </div>
+
+      <div id="tutorialLessonVisual" class="tutorialLessonVisual"></div>
+
+      <div class="tutorialLessonBody">
+        <h3 id="tutorialLessonGoal">What you will learn</h3>
+        <div id="tutorialLessonPoints" class="tutorialLessonPoints"></div>
+      </div>
+
+      <div class="tutorialLessonActions">
+        <button class="big alt" onclick="tutorialPrevLesson()">← PREVIOUS</button>
+        <button class="big" id="tutorialLaunchBtn" onclick="launchTutorialLesson()">START THIS LESSON →</button>
+        <button class="big alt" onclick="tutorialNextLesson()">NEXT →</button>
+      </div>
+    </main>
+  </div>
+</section>
 <section id="buoyagePage" class="appPage">
 <div class="panel">
   <div class="ver">IALA REGION A • UK TRAINING • VISUAL SET</div>
@@ -17579,7 +17669,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <button onclick="orientation='course';draw()">COURSE UP</button>
       <button onclick="orientation='head';draw()">HEAD UP</button>
     </div>
-    <div class="sea">
+    <div id="radarDisplay" class="sea">
       <div id="windIndicator" class="windIndicator"><div id="windArrow" class="windArrow">←</div><div id="windText" class="windText">WIND FROM STARBOARD</div><div id="windSub" class="windSub">OWN VESSEL • STARBOARD TACK</div></div>
       <div id="alert" class="alert"></div><div id="qualityAlert" class="qualityAlert"></div>
       <svg viewBox="-4 -4 8 8">
@@ -17606,15 +17696,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <div class="grid">
       <div class="metric"><small>Heading</small><b id="hdg"></b></div>
       <div class="metric"><small>Speed</small><b id="spd"></b></div>
-      <div class="metric"><small>Range</small><b id="rng"></b></div>
-      <div class="metric"><small>Target sector</small><b id="sector"></b></div>
-      <div class="metric"><small>CPA</small><b id="cpa"></b></div>
-      <div class="metric"><small>TCPA</small><b id="tcpa"></b></div>
+      <div id="rangeMetric" class="metric"><small>Range</small><b id="rng"></b></div>
+      <div id="sectorMetric" class="metric"><small>Target sector</small><b id="sector"></b></div>
+      <div id="cpaMetric" class="metric"><small>CPA</small><b id="cpa"></b></div>
+      <div id="tcpaMetric" class="metric"><small>TCPA</small><b id="tcpa"></b></div>
     </div>
   </div>
   <div class="panel"><h3>Helm instruments</h3>
     <div class="instrumentRow">
-      <div class="instrument">
+      <div id="rudderInstrument" class="instrument">
         <div class="subread">RUDDER ANGLE</div>
         <div class="dial"><div class="arc"></div><div id="rudderPointer" class="pointer"></div><div class="centerDot"></div></div>
         <div class="scale"><span>P35</span><span>0</span><span>S35</span></div>
@@ -17628,7 +17718,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       </div>
     </div>
   </div>
-  <div class="panel"><h3>Helm</h3>
+  <div id="helmControlPanel" class="panel"><h3>Helm</h3>
     <div class="compactHelm">
       <div class="helmScaleLabels"><span>P35</span><span>P20</span><span>P10</span><span>0</span><span>S10</span><span>S20</span><span>S35</span></div>
       <div id="helmTrack" class="helmTrack" role="slider" aria-label="Ordered rudder angle" aria-valuemin="-35" aria-valuemax="35" aria-valuenow="0" tabindex="0">
@@ -19592,6 +19682,170 @@ function openModule(title,summary,training){
 }
 
 
+
+const COLLISION_TUTORIAL_LESSONS=[
+ {id:'display',title:'Meet your bridge display',sub:'Own vessel, target, range and bearing',scenario:'cross_stbd',mode:'power',
+  summary:'Learn what you are looking at before you touch any controls.',
+  points:[['Own vessel','The red vessel symbol represents you.'],['Target','The teal vessel symbol is the other vessel.'],['Range','Distance to the target is shown in nautical miles.'],['Target sector','A plain-language position such as starboard bow or port bow.']],
+  steps:[
+   ['radarDisplay','This is your radar-style display. The centre reference is your own ship and the other vessel is the target.'],
+   ['og','The red vessel is your own vessel. In this lesson, think of it as Suilven.'],
+   ['tg','The teal vessel is the target vessel. Its position changes as the encounter develops.'],
+   ['rangeMetric','Range is the distance between you and the target. NM means nautical miles.'],
+   ['sectorMetric','Target sector tells you where the vessel is relative to your bow: ahead, port, starboard, beam, quarter or astern.']
+  ]},
+ {id:'cpa',title:'CPA & TCPA',sub:'Understand collision risk',scenario:'cross_stbd',mode:'power',
+  summary:'Learn the two numbers used constantly when assessing another vessel.',
+  points:[['CPA','Closest Point of Approach: predicted minimum passing distance if courses and speeds remain unchanged.'],['TCPA','Time to CPA: how long until that closest point occurs.'],['Trend','A low CPA with positive TCPA deserves attention.'],['Reassess','CPA/TCPA change when either vessel manoeuvres.']],
+  steps:[
+   ['cpaMetric','CPA means Closest Point of Approach. It predicts the minimum passing distance if both vessels continue as they are.'],
+   ['tcpaMetric','TCPA means Time to CPA. A positive value means the predicted closest point is still ahead in time.'],
+   ['radarDisplay','Never use one number in isolation. Keep watching the target, the trend, the bearing and the developing situation.']
+  ]},
+ {id:'sides',title:'Port & starboard',sub:'Know which side the target is on',scenario:'cross_stbd',mode:'power',
+  summary:'Build the basic language used throughout COLREG collision avoidance.',
+  points:[['Port','Left side of the vessel when facing forward.'],['Starboard','Right side of the vessel when facing forward.'],['Bow','Front of the vessel.'],['Quarter','Rear side area, between beam and stern.']],
+  steps:[
+   ['sectorMetric','This encounter starts with the target on your STARBOARD side — your right-hand side when looking forward.'],
+   ['radarDisplay','The words port and starboard always refer to the vessel, not the left or right edge of the tablet.']
+  ]},
+ {id:'helm',title:'Using the helm',sub:'Order rudder and read the response',scenario:'cross_stbd',mode:'power',
+  summary:'Learn the difference between ordered rudder, actual rudder and rate of turn.',
+  points:[['Ordered rudder','What you ask the steering system to do.'],['Actual rudder','What the rudder has physically reached.'],['Rate of turn','How quickly the vessel heading is changing.'],['Midships','Returns the ordered rudder to zero.']],
+  steps:[
+   ['helmControlPanel','This is the helm control. Drag or tap the scale, use the 5° buttons, or press MIDSHIPS.'],
+   ['rudderInstrument','The instrument above shows the ACTUAL rudder angle. It moves progressively toward your ordered rudder.'],
+   ['helmControlPanel','Try ordering STARBOARD 5°. Then press MIDSHIPS. Watch the actual rudder follow the command.']
+  ]},
+ {id:'crossing',title:'Crossing situation',sub:'Rules 15–17',scenario:'cross_stbd',mode:'power',
+  summary:'Recognise a power-driven crossing encounter and understand give-way / stand-on roles.',
+  points:[['Rule 15','If the other power-driven vessel is on your starboard side, you are normally the give-way vessel.'],['Rule 16','The give-way vessel should take early and substantial action to keep well clear.'],['Rule 17','The stand-on vessel initially keeps course and speed, while continuing to monitor.'],['Avoid ahead','Where circumstances admit, the give-way vessel should avoid crossing ahead.']],
+  steps:[
+   ['sectorMetric','The target is on your starboard side. In this constructed power-versus-power crossing encounter, you are the give-way vessel.'],
+   ['cpaMetric','Use CPA and TCPA to understand how the encounter is developing, but keep a proper lookout and assess the whole situation.'],
+   ['helmControlPanel','A training response may involve an early, obvious course and/or speed change. Project Watch will show how your manoeuvre changes the geometry.']
+  ]},
+ {id:'headon',title:'Head-on situation',sub:'Rule 14',scenario:'head_on',mode:'power',
+  summary:'Recognise reciprocal or nearly reciprocal courses.',
+  points:[['Recognise','Two power-driven vessels meeting on reciprocal or nearly reciprocal courses.'],['Action','Each alters course to starboard.'],['Passing','The intended result is a port-to-port pass.'],['Monitor','Continue checking the other vessel is also acting.']],
+  steps:[
+   ['radarDisplay','The target is essentially ahead on a reciprocal course. This is the classic head-on geometry.'],
+   ['helmControlPanel','Under Rule 14, each power-driven vessel alters course to starboard so they pass port-to-port.']
+  ]},
+ {id:'overtaking',title:'Overtaking',sub:'Rule 13',scenario:'overtake',mode:'power',
+  summary:'Learn why the overtaking vessel carries the responsibility.',
+  points:[['Overtaking vessel','A vessel coming up from more than 22.5° abaft the beam is overtaking.'],['Give-way','The overtaking vessel keeps out of the way.'],['Until clear','Responsibility continues until finally past and clear.'],['Doubt','If in doubt whether you are overtaking, assume that you are.']],
+  steps:[
+   ['radarDisplay','In this scenario, your vessel is faster and is approaching from astern of the target.'],
+   ['sectorMetric','Overtaking is not turned into a crossing situation simply because the bearing later changes. The overtaking responsibility continues until finally past and clear.']
+  ]},
+ {id:'sail',title:'Power meets sail',sub:'Rule 18 basics',scenario:'power_vs_sail',mode:'power',
+  summary:'Understand the normal power-versus-sail relationship — and that other rules can override it.',
+  points:[['Normal hierarchy','A power-driven vessel normally keeps out of the way of a sailing vessel.'],['Not absolute','Overtaking, narrow channels, TSS and special vessel status can change the analysis.'],['Sailing means sailing','If propulsion machinery is being used, the vessel is treated as power-driven.'],['Look first','Always identify the actual situation before applying a simple hierarchy.']],
+  steps:[
+   ['radarDisplay','The target in this training encounter is a sailing vessel under sail with machinery not being used.'],
+   ['sectorMetric','The simple power-versus-sail hierarchy is only the starting point. First check whether another rule — such as overtaking — applies.']
+  ]},
+ {id:'firstwatch',title:'Your first coached watch',sub:'Put everything together',scenario:'cross_stbd',mode:'power',
+  summary:'Run a complete collision encounter with beginner coaching and spoken warnings.',
+  points:[['Observe','Identify target side, range, CPA and TCPA.'],['Decide','Work out whether you are give-way or stand-on.'],['Act','Make any avoiding action early and obvious enough to be understood.'],['Check','Keep monitoring until the vessels are past and clear.']],
+  steps:[
+   ['radarDisplay','This is your first complete coached watch. Start by identifying where the target is and whether risk of collision is developing.'],
+   ['sectorMetric','The target begins on your starboard side. In this power-driven crossing exercise, you are the give-way vessel.'],
+   ['helmControlPanel','Use the helm and, if useful, engine controls. Watch how your decisions change CPA and the target geometry.'],
+   ['alert','Guided mode gives visual and spoken warnings as the situation becomes close. Continue monitoring until the exercise ends.']
+  ]}
+];
+let tutorialLessonIndex=0,tutorialActive=false,tutorialStepIndex=0,tutorialCompleted=new Set();
+
+function tutorialVisualHTML(lesson){
+ return `<div class="tutorialMiniRadar"><div class="tutorialMiniOwn"></div><div class="tutorialMiniTarget"></div><span class="tutorialMiniLabel own">OWN VESSEL</span><span class="tutorialMiniLabel target">TARGET</span><div class="tutorialVisualCopy"><b>${lesson.title}</b><br>${lesson.summary}</div></div>`;
+}
+function renderCollisionTutorial(){
+ const lesson=COLLISION_TUTORIAL_LESSONS[tutorialLessonIndex];
+ $('tutorialLessonList').innerHTML=COLLISION_TUTORIAL_LESSONS.map((l,i)=>`<button class="tutorialLessonBtn ${i===tutorialLessonIndex?'active':''} ${tutorialCompleted.has(l.id)?'done':''}" onclick="selectTutorialLesson(${i})"><span class="tutorialLessonNum">${String(i+1).padStart(2,'0')}</span><span><b>${l.title}</b><small>${l.sub}</small></span><span class="tutorialLessonCheck">${tutorialCompleted.has(l.id)?'✓':''}</span></button>`).join('');
+ $('tutorialLessonNo').textContent='LESSON '+String(tutorialLessonIndex+1).padStart(2,'0');
+ $('tutorialLessonTitle').textContent=lesson.title;
+ $('tutorialLessonSummary').textContent=lesson.summary;
+ $('tutorialLessonVisual').innerHTML=tutorialVisualHTML(lesson);
+ $('tutorialLessonPoints').innerHTML=lesson.points.map(p=>`<div class="tutorialPoint"><b>${p[0]}</b><span>${p[1]}</span></div>`).join('');
+ $('tutorialLaunchBtn').textContent=lesson.id==='firstwatch'?'START COACHED WATCH →':'START THIS LESSON →';
+ const done=tutorialCompleted.size,total=COLLISION_TUTORIAL_LESSONS.length;
+ $('tutorialProgressText').textContent=`${done} / ${total} COMPLETE`;
+ $('tutorialProgressFill').style.width=(done/total*100)+'%';
+}
+function showCollisionTutorial(){
+ document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
+ updateHeaderNav('scenarios');updateModuleContext('scenarios');
+ $('collisionTutorialPage').classList.add('active');
+ renderCollisionTutorial();window.scrollTo({top:0,behavior:'smooth'});
+}
+function selectTutorialLesson(i){tutorialLessonIndex=Math.max(0,Math.min(COLLISION_TUTORIAL_LESSONS.length-1,i));renderCollisionTutorial()}
+function tutorialPrevLesson(){selectTutorialLesson(tutorialLessonIndex-1)}
+function tutorialNextLesson(){selectTutorialLesson(tutorialLessonIndex+1)}
+
+function launchTutorialLesson(){
+ const lesson=COLLISION_TUTORIAL_LESSONS[tutorialLessonIndex];
+ tutorialActive=true;tutorialStepIndex=0;
+ setTrainingMode('guided');
+ setOwnVesselMode(lesson.mode||'power');
+ scenarioId=lesson.scenario;
+ renderScenarioList();
+ initScenario();
+ go('watch');
+ running=false;
+ if($('play'))$('play').textContent='▶ PLAY';
+ draw();update();
+ setTimeout(()=>showTutorialStep(0,true),180);
+}
+function clearTutorialFocus(){
+ document.querySelectorAll('.tutorialFocus').forEach(e=>e.classList.remove('tutorialFocus'));
+ document.body.classList.remove('tutorialDimmed');
+}
+function showTutorialStep(i,speak=true){
+ if(!tutorialActive)return;
+ const lesson=COLLISION_TUTORIAL_LESSONS[tutorialLessonIndex],steps=lesson.steps;
+ tutorialStepIndex=Math.max(0,Math.min(steps.length-1,i));
+ clearTutorialFocus();
+ const step=steps[tutorialStepIndex],target=$(step[0]);
+ if(target){
+   target.classList.add('tutorialFocus');
+   try{target.scrollIntoView({behavior:'smooth',block:'center',inline:'nearest'})}catch(e){}
+ }
+ $('tutorialCoachLesson').textContent='LESSON '+String(tutorialLessonIndex+1).padStart(2,'0')+' • STEP '+(tutorialStepIndex+1)+' / '+steps.length;
+ $('tutorialCoachTitle').textContent=lesson.title;
+ $('tutorialCoachText').textContent=step[1];
+ $('tutorialCoachProgressFill').style.width=((tutorialStepIndex+1)/steps.length*100)+'%';
+ $('tutorialStepNext').textContent=tutorialStepIndex===steps.length-1?'FINISH LESSON ✓':'NEXT →';
+ $('tutorialCoach').classList.add('show');
+ if(speak)setTimeout(()=>speakMarine(step[1]),120);
+}
+function tutorialStepNext(){
+ const lesson=COLLISION_TUTORIAL_LESSONS[tutorialLessonIndex];
+ if(tutorialStepIndex<lesson.steps.length-1){showTutorialStep(tutorialStepIndex+1,true);return}
+ tutorialCompleted.add(lesson.id);
+ clearTutorialFocus();
+ $('tutorialCoach').classList.remove('show');
+ tutorialActive=false;
+ if(lesson.id==='firstwatch'){
+   running=true;lastTs=0;requestAnimationFrame(tick);
+   speakMarine('Coached watch started. Maintain a proper lookout and assess the developing situation.');
+ }else{
+   running=false;
+   showCollisionTutorial();
+ }
+}
+function tutorialStepBack(){if(tutorialStepIndex>0)showTutorialStep(tutorialStepIndex-1,false)}
+function tutorialSpeakCurrent(){
+ const lesson=COLLISION_TUTORIAL_LESSONS[tutorialLessonIndex];
+ if(lesson&&lesson.steps[tutorialStepIndex])speakMarine(lesson.steps[tutorialStepIndex][1]);
+}
+function exitTutorialWatch(){
+ tutorialActive=false;running=false;clearTutorialFocus();
+ if($('tutorialCoach'))$('tutorialCoach').classList.remove('show');
+ showCollisionTutorial();
+}
+
 const MODULE_META={
  home:{no:'',title:'',desc:'',state:''},
  scenarios:{no:'01',title:'Collision Scenarios',desc:'Scenario briefing, guided watch, simulator and debrief.',state:'SIMULATOR MODULE'},
@@ -19654,6 +19908,7 @@ function enhanceHomeHub(){
 }
 
 function showModule(name,btn){
+ tutorialActive=false;clearTutorialFocus();if($('tutorialCoach'))$('tutorialCoach').classList.remove('show');
  updateHeaderNav(name);
  updateModuleContext(name);
 
@@ -20205,6 +20460,20 @@ try{enhanceColregRuleVisuals();}catch(e){}
 try{enhanceHomeHub();updateHeaderNav('home');updateModuleContext('home');}catch(e){}
 </script>
 
+
+<div id="tutorialCoach" class="tutorialCoach" aria-live="polite">
+  <div class="tutorialCoachTop">
+    <div><small id="tutorialCoachLesson">LESSON 01</small><b id="tutorialCoachTitle">Meet your bridge display</b></div>
+    <button onclick="exitTutorialWatch()">✕</button>
+  </div>
+  <div id="tutorialCoachText" class="tutorialCoachText"></div>
+  <div class="tutorialCoachProgress"><i id="tutorialCoachProgressFill"></i></div>
+  <div class="tutorialCoachControls">
+    <button onclick="tutorialStepBack()">← BACK</button>
+    <button onclick="tutorialSpeakCurrent()">🔊 HEAR</button>
+    <button class="active" id="tutorialStepNext" onclick="tutorialStepNext()">NEXT →</button>
+  </div>
+</div>
 <div id="detailSheet" class="detailSheet" onclick="if(event.target===this)closeDetail()">
  <div class="detailCard">
   <div class="detailTop"><div><div class="ver">PROJECT WATCH • TRAINING DATA</div><h2 id="detailTitle"></h2></div><button class="closeBtn" onclick="closeDetail()">✕</button></div>
