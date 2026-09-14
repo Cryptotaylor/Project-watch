@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.28.2 — Clear Live Voice</title>
+<title>Project Watch 1.28.3 — Tutorial Vessel Colour Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -535,7 +535,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .tutorialLessonActions{display:grid;grid-template-columns:120px 1fr 120px;gap:7px;margin-top:10px}.tutorialLessonActions .big{margin:0}
 .tutorialMiniRadar{position:absolute;inset:0;background:radial-gradient(circle at center,#16465b 0,#082a3b 66%,#041923 100%)}
 .tutorialMiniRadar:before,.tutorialMiniRadar:after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid #79dff74a;border-radius:50%}.tutorialMiniRadar:before{width:120px;height:120px}.tutorialMiniRadar:after{width:190px;height:190px}
-.tutorialMiniOwn,.tutorialMiniTarget{position:absolute;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:25px solid #e03e3e;left:50%;top:63%;transform:translate(-50%,-50%)}.tutorialMiniTarget{border-bottom-color:#47d3c0;left:72%;top:36%;transform:translate(-50%,-50%) rotate(270deg)}
+.tutorialMiniOwn,.tutorialMiniTarget{position:absolute;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:25px solid #ffffff;left:50%;top:63%;transform:translate(-50%,-50%);filter:drop-shadow(0 0 3px #001722)}.tutorialMiniTarget{border-bottom-color:#ff655f;left:72%;top:36%;transform:translate(-50%,-50%) rotate(270deg)}
 .tutorialMiniLabel{position:absolute;padding:4px 6px;border-radius:6px;background:#001722dd;color:#fff;font-size:7px;font-weight:900}.tutorialMiniLabel.own{left:52%;top:67%}.tutorialMiniLabel.target{left:73%;top:42%}
 .tutorialVisualCopy{position:absolute;left:16px;bottom:14px;right:16px;color:#dff7ff;font-size:9px;line-height:1.45;background:#031722d9;border:1px solid #ffffff15;border-radius:9px;padding:9px}
 
@@ -17036,7 +17036,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.28.2 • CLEAR LIVE VOICE</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.28.3 • TUTORIAL VESSEL COLOUR FIX</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -19686,11 +19686,11 @@ function openModule(title,summary,training){
 const COLLISION_TUTORIAL_LESSONS=[
  {id:'display',title:'Meet your bridge display',sub:'Own vessel, target, range and bearing',scenario:'cross_stbd',mode:'power',
   summary:'Learn what you are looking at before you touch any controls.',
-  points:[['Own vessel','The red vessel symbol represents you.'],['Target','The teal vessel symbol is the other vessel.'],['Range','Distance to the target is shown in nautical miles.'],['Target sector','A plain-language position such as starboard bow or port bow.']],
+  points:[['Own vessel','The white vessel symbol represents you. It starts in the centre of the simulator display.'],['Target','The red vessel symbol is the other vessel — the target.'],['Range','Distance to the target is shown in nautical miles.'],['Target sector','A plain-language position such as starboard bow or port bow.']],
   steps:[
-   ['radarDisplay','At the start of every tutorial scenario, the red vessel in the centre of the display is your own vessel. The teal vessel is the target.'],
-   ['og','The red vessel starting in the centre is always your own vessel. In the power-driven lessons, that vessel represents Suilven.'],
-   ['tg','The teal vessel is the target vessel. At the start, it is positioned around your own vessel according to the encounter being taught.'],
+   ['radarDisplay','At the start of every tutorial scenario, the white vessel in the centre of the display is your own vessel. The red vessel is the target.'],
+   ['og','The white vessel starting in the centre is always your own vessel. In the power-driven lessons, that vessel represents Suilven.'],
+   ['tg','The red vessel is the target vessel. At the start, it is positioned around your own vessel according to the encounter being taught.'],
    ['rangeMetric','Range is the distance between you and the target. NM means nautical miles.'],
    ['sectorMetric','Target sector tells you where the vessel is relative to your bow: ahead, port, starboard, beam, quarter or astern.']
   ]},
@@ -19750,7 +19750,7 @@ const COLLISION_TUTORIAL_LESSONS=[
   summary:'Run a complete collision encounter with beginner coaching and spoken warnings.',
   points:[['Observe','Identify target side, range, CPA and TCPA.'],['Decide','Work out whether you are give-way or stand-on.'],['Act','Make any avoiding action early and obvious enough to be understood.'],['Check','Keep monitoring until the vessels are past and clear.']],
   steps:[
-   ['radarDisplay','This is your first complete coached watch. At the start, the red vessel in the centre is your own vessel and the teal vessel is the target. Begin by identifying the target’s position and whether risk of collision is developing.'],
+   ['radarDisplay','This is your first complete coached watch. At the start, the white vessel in the centre is your own vessel and the red vessel is the target. Begin by identifying the target’s position and whether risk of collision is developing.'],
    ['sectorMetric','In this constructed power-driven crossing exercise, the target begins on your starboard side, so your own vessel is the give-way vessel under Rule 15.'],
    ['helmControlPanel','Use the helm and, if useful, engine controls. Watch how your decisions change CPA and the target geometry.'],
    ['alert','Guided mode gives visual and spoken warnings as the situation becomes close. Continue monitoring until the exercise ends.']
