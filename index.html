@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.22.1 — Interactive Annexes</title>
+<title>Project Watch 1.22.2 — Professional Annex Plates</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -128,8 +128,12 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .annexGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
 .annexCard{background:linear-gradient(145deg,#041f2d,#073248);border:1px solid #ffffff18;border-radius:16px;overflow:hidden;cursor:pointer;transition:.15s}
 .annexCard:hover{border-color:#6ee0ff66;transform:translateY(-1px)}.annexCard:active{transform:scale(.99)}
-.annexVisual{height:120px;position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 30%,#154b63,#061a26 72%);overflow:hidden}
-.annexVisual svg{width:100%;height:100%}.annexBody{padding:12px}.annexBody h4{margin:0 0 6px;font-size:15px}.annexBody p{margin:6px 0 0;color:#b8ced8;font-size:11px;line-height:1.4}
+.annexVisual{height:150px;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#061a26,#03111a);overflow:hidden}
+.annexVisual svg{width:100%;height:100%;display:block}
+.annexVisual:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#ffffff05,transparent 28%,transparent 72%,#0000001f)}
+.annexCard{box-shadow:0 10px 28px #0003}
+.annexCard:hover .annexVisual{filter:brightness(1.06)}
+.annexBody{padding:12px}.annexBody h4{margin:0 0 6px;font-size:15px}.annexBody p{margin:6px 0 0;color:#b8ced8;font-size:11px;line-height:1.4}
 .annexPills{display:flex;gap:5px;flex-wrap:wrap}.annexPill{font-size:9px;padding:3px 7px;border-radius:20px;background:#0b4059;color:#d7f5ff}
 .annexArrow{float:right;color:#6ee0ff;font-size:20px}
 .annexActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.annexActions button{flex:1;min-width:190px}
@@ -16619,7 +16623,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.22.1 • INTERACTIVE ANNEXES</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.22.2 • PROFESSIONAL ANNEX PLATES</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -16641,57 +16645,142 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 <div class="annexCard" onclick="openAnnex(1)">
  <div class="annexVisual">
-  <svg viewBox="0 0 420 120" aria-label="Navigation lights and shapes diagram">
-   <rect width="420" height="120" fill="#061724"/>
-   <path d="M92 86 Q195 68 330 82 L312 100 H112 Z" fill="#a9bdc7"/>
-   <line x1="210" y1="30" x2="210" y2="82" stroke="#c7d6dd" stroke-width="4"/>
-   <circle cx="210" cy="30" r="8" fill="#fff"/><circle cx="112" cy="79" r="7" fill="#ff3b3b"/><circle cx="308" cy="79" r="7" fill="#22df71"/>
-   <circle cx="365" cy="35" r="11" fill="#111"/><polygon points="365,57 353,78 377,78" fill="#111"/>
-   <text x="18" y="28" fill="#7de3ff" font-size="13" font-weight="800">POSITION • SPACING • SECTORS</text>
-  </svg>
- </div>
+<svg viewBox="0 0 520 150" aria-label="Technical navigation lights and shapes plate">
+ <defs>
+  <filter id="glow1"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <rect width="520" height="150" fill="#061722"/>
+ <g stroke="#14384b" stroke-width="1">
+  <path d="M0 30H520 M0 60H520 M0 90H520 M0 120H520"/>
+  <path d="M65 0V150 M130 0V150 M195 0V150 M260 0V150 M325 0V150 M390 0V150 M455 0V150"/>
+ </g>
+ <text x="18" y="22" fill="#72dff8" font-size="11" font-weight="800" letter-spacing="1.2">ANNEX I • TECHNICAL POSITIONING</text>
+ <path d="M92 108 L118 89 Q220 73 354 87 L392 108 Z" fill="#8fa8b4" stroke="#c8d5db" stroke-width="1.2"/>
+ <path d="M130 89 L148 70 H270 L290 88" fill="#6f8792" stroke="#b9c7ce" stroke-width="1"/>
+ <line x1="210" y1="37" x2="210" y2="84" stroke="#b9c7ce" stroke-width="2"/>
+ <line x1="295" y1="48" x2="295" y2="86" stroke="#b9c7ce" stroke-width="2"/>
+ <circle cx="210" cy="37" r="5.8" fill="#fff" filter="url(#glow1)"/>
+ <circle cx="295" cy="48" r="5.8" fill="#fff" filter="url(#glow1)"/>
+ <circle cx="119" cy="91" r="5.8" fill="#ff4545" filter="url(#glow1)"/>
+ <circle cx="353" cy="90" r="5.8" fill="#26e77a" filter="url(#glow1)"/>
+ <line x1="210" y1="31" x2="210" y2="12" stroke="#6ee0ff" stroke-width="1.2"/>
+ <line x1="295" y1="42" x2="295" y2="20" stroke="#6ee0ff" stroke-width="1.2"/>
+ <path d="M210 15 H295" stroke="#6ee0ff" stroke-width="1.2"/>
+ <text x="227" y="12" fill="#aeeeff" font-size="8">HORIZONTAL SEPARATION</text>
+ <path d="M415 40 v54" stroke="#6ee0ff" stroke-width="1.2"/>
+ <path d="M409 40 h12 M409 94 h12" stroke="#6ee0ff" stroke-width="1.2"/>
+ <circle cx="447" cy="53" r="9" fill="#111"/>
+ <polygon points="447,73 437,90 457,90" fill="#111"/>
+ <text x="405" y="112" fill="#aeeeff" font-size="8">SHAPE SPACING</text>
+ <text x="18" y="137" fill="#92aebb" font-size="9">POSITION • SECTORS • VERTICAL / HORIZONTAL SPACING • SHAPES</text>
+</svg>
+</div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex I • Lights & Shapes</h4><div class="annexPills"><span class="annexPill">Positioning</span><span class="annexPill">Sectors</span><span class="annexPill">Shapes</span></div><p>Technical positioning, spacing, colour, intensity and screening requirements.</p></div>
 </div>
 
 <div class="annexCard" onclick="openAnnex(2)">
  <div class="annexVisual">
-  <svg viewBox="0 0 420 120" aria-label="Fishing vessel additional signals">
-   <rect width="420" height="120" fill="#082334"/>
-   <path d="M90 90 Q180 70 280 84 L264 101 H110 Z" fill="#a6bac4"/>
-   <line x1="188" y1="28" x2="188" y2="78" stroke="#c7d6dd" stroke-width="4"/>
-   <circle cx="188" cy="32" r="8" fill="#26e574"/><circle cx="188" cy="55" r="8" fill="#fff"/>
-   <circle cx="318" cy="34" r="8" fill="#ff3b3b"/><circle cx="318" cy="57" r="8" fill="#fff"/>
-   <text x="18" y="23" fill="#7de3ff" font-size="13" font-weight="800">FISHING IN CLOSE PROXIMITY</text>
-  </svg>
- </div>
+<svg viewBox="0 0 520 150" aria-label="Fishing close proximity technical plate">
+ <defs><filter id="glow2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+ <rect width="520" height="150" fill="#061722"/>
+ <g stroke="#14384b" stroke-width="1"><path d="M0 30H520 M0 60H520 M0 90H520 M0 120H520"/></g>
+ <text x="18" y="22" fill="#72dff8" font-size="11" font-weight="800" letter-spacing="1.2">ANNEX II • FISHING IN CLOSE PROXIMITY</text>
+ <g transform="translate(28 22)">
+  <text x="95" y="20" fill="#9fc0ce" font-size="9" font-weight="700">TRAWLING GROUP</text>
+  <path d="M44 93 L65 77 Q125 67 188 79 L207 93 Z" fill="#879faa" stroke="#c4d2d8" stroke-width="1"/>
+  <line x1="125" y1="42" x2="125" y2="76" stroke="#c1cfd5" stroke-width="2"/>
+  <circle cx="125" cy="42" r="5.8" fill="#25df75" filter="url(#glow2)"/>
+  <circle cx="125" cy="60" r="5.8" fill="#fff" filter="url(#glow2)"/>
+  <path d="M207 83 C232 76 246 70 267 56" fill="none" stroke="#6a8490" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="220" y="94" fill="#7895a2" font-size="8">gear / working area</text>
+ </g>
+ <g transform="translate(260 22)">
+  <text x="80" y="20" fill="#9fc0ce" font-size="9" font-weight="700">PURSE-SEINE EXAMPLE</text>
+  <path d="M36 93 L55 78 Q112 69 170 79 L188 93 Z" fill="#879faa" stroke="#c4d2d8" stroke-width="1"/>
+  <line x1="112" y1="42" x2="112" y2="76" stroke="#c1cfd5" stroke-width="2"/>
+  <circle cx="112" cy="42" r="5.8" fill="#ff4545" filter="url(#glow2)"/>
+  <circle cx="112" cy="60" r="5.8" fill="#fff" filter="url(#glow2)"/>
+  <path d="M188 81 C205 66 223 55 244 51 C258 49 268 56 273 67" fill="none" stroke="#6ee0ff" stroke-width="1.4" stroke-dasharray="4 4"/>
+ </g>
+ <text x="18" y="137" fill="#92aebb" font-size="9">ADDITIONAL WORKING SIGNALS • DO NOT REPLACE RULE 26 DISPLAY</text>
+</svg>
+</div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex II • Fishing Signals</h4><div class="annexPills"><span class="annexPill">Trawling</span><span class="annexPill">Purse seine</span><span class="annexPill">Close proximity</span></div><p>Additional signals for fishing vessels working close to one another.</p></div>
 </div>
 
 <div class="annexCard" onclick="openAnnex(3)">
  <div class="annexVisual">
-  <svg viewBox="0 0 420 120" aria-label="Whistle bell and gong">
-   <rect width="420" height="120" fill="#101c29"/>
-   <path d="M70 62 h70 l34 -26 v52 l-34 -26" fill="#c8d4da"/>
-   <path d="M180 44 q28 18 0 36" fill="none" stroke="#6ee0ff" stroke-width="4"/><path d="M194 35 q46 28 0 55" fill="none" stroke="#6ee0ff88" stroke-width="3"/>
-   <path d="M278 78 q0-35 25-35 q25 0 25 35 z" fill="#d9ad45"/><circle cx="303" cy="84" r="6" fill="#f0cd69"/>
-   <circle cx="362" cy="60" r="28" fill="#9c6b2b"/><circle cx="362" cy="60" r="19" fill="#bd8737"/>
-   <text x="18" y="22" fill="#7de3ff" font-size="13" font-weight="800">WHISTLE • BELL • GONG</text>
-  </svg>
- </div>
+<svg viewBox="0 0 520 150" aria-label="Sound appliance technical line art">
+ <rect width="520" height="150" fill="#061722"/>
+ <g stroke="#14384b" stroke-width="1"><path d="M0 30H520 M0 60H520 M0 90H520 M0 120H520"/></g>
+ <text x="18" y="22" fill="#72dff8" font-size="11" font-weight="800" letter-spacing="1.2">ANNEX III • SOUND APPLIANCE SPECIFICATION</text>
+ <g transform="translate(28 32)" fill="none" stroke="#c7d5dc">
+  <path d="M10 46 H74 L105 24 V68 L74 46" fill="#9cb0ba" stroke-width="1.2"/>
+  <path d="M114 31 Q136 46 114 61" stroke="#6ee0ff" stroke-width="2"/>
+  <path d="M126 23 Q161 46 126 69" stroke="#6ee0ff88" stroke-width="1.5"/>
+  <line x1="10" y1="77" x2="105" y2="77" stroke="#5c7683"/>
+  <text x="24" y="93" fill="#9fc0ce" font-size="9">WHISTLE / HORN</text>
+ </g>
+ <g transform="translate(210 32)">
+  <path d="M45 71 Q47 31 82 31 Q117 31 119 71 Z" fill="#b8862d" stroke="#e4bb63" stroke-width="1.2"/>
+  <rect x="60" y="18" width="44" height="13" rx="4" fill="#96691f"/>
+  <circle cx="82" cy="77" r="6" fill="#e7bf65"/>
+  <text x="57" y="101" fill="#9fc0ce" font-size="9">BELL</text>
+ </g>
+ <g transform="translate(360 32)">
+  <circle cx="62" cy="54" r="34" fill="#8e6027" stroke="#c28b3a" stroke-width="2"/>
+  <circle cx="62" cy="54" r="22" fill="#a9782f" stroke="#d09a43" stroke-width="1.5"/>
+  <circle cx="62" cy="54" r="4" fill="#e4bb63"/>
+  <text x="45" y="101" fill="#9fc0ce" font-size="9">GONG</text>
+ </g>
+ <text x="18" y="137" fill="#92aebb" font-size="9">FREQUENCY • AUDIBLE RANGE • INSTALLATION • APPLIANCE PERFORMANCE</text>
+</svg>
+</div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex III • Sound Appliances</h4><div class="annexPills"><span class="annexPill">Whistle</span><span class="annexPill">Bell</span><span class="annexPill">Gong</span></div><p>Technical characteristics and installation of sound-signal appliances.</p></div>
 </div>
 
 <div class="annexCard" onclick="openAnnex(4)">
  <div class="annexVisual">
-  <svg viewBox="0 0 420 120" aria-label="Distress signals">
-   <rect width="420" height="120" fill="#220d12"/>
-   <text x="28" y="48" fill="#fff" font-size="22" font-weight="900">SOS</text>
-   <path d="M145 92 L160 34 L175 92" fill="#ef5757"/><circle cx="160" cy="28" r="10" fill="#ff4747"/>
-   <rect x="225" y="42" width="48" height="60" rx="8" fill="#f59d27"/><circle cx="249" cy="62" r="8" fill="#fff"/>
-   <path d="M323 86 q18-60 44 0" fill="none" stroke="#ff8b2f" stroke-width="12" stroke-linecap="round"/>
-   <text x="18" y="111" fill="#ffb6b6" font-size="13" font-weight="800">DISTRESS • MAYDAY • EPIRB • FLARES</text>
-  </svg>
- </div>
+<svg viewBox="0 0 520 150" aria-label="Professional distress signal recognition plate">
+ <defs>
+  <filter id="glow4"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <rect width="520" height="150" fill="#160b10"/>
+ <g stroke="#3a2027" stroke-width="1"><path d="M0 30H520 M0 60H520 M0 90H520 M0 120H520"/></g>
+ <text x="18" y="22" fill="#ff9ca8" font-size="11" font-weight="800" letter-spacing="1.2">ANNEX IV • INTERNATIONAL DISTRESS SIGNALS</text>
+ <g transform="translate(20 32)">
+  <text x="0" y="25" fill="#fff" font-size="22" font-weight="900">SOS</text>
+  <text x="0" y="42" fill="#bfa5aa" font-size="8">... --- ...</text>
+ </g>
+ <g transform="translate(115 28)">
+  <path d="M32 88 L42 37 L52 88 Z" fill="#dc3f4c"/>
+  <circle cx="42" cy="28" r="8" fill="#ff4555" filter="url(#glow4)"/>
+  <path d="M42 20 L48 2" stroke="#ff7b87" stroke-width="2"/>
+  <text x="5" y="105" fill="#d8a6ad" font-size="8">RED FLARE</text>
+ </g>
+ <g transform="translate(205 26)">
+  <rect x="14" y="28" width="42" height="64" rx="8" fill="#e89a25" stroke="#ffd289" stroke-width="1"/>
+  <circle cx="35" cy="44" r="7" fill="#fff"/>
+  <path d="M35 23 q15-15 30 0" fill="none" stroke="#ffb53e" stroke-width="2"/>
+  <path d="M35 16 q23-24 46 0" fill="none" stroke="#ffb53e88" stroke-width="1.5"/>
+  <text x="10" y="108" fill="#d8a6ad" font-size="8">EPIRB</text>
+ </g>
+ <g transform="translate(305 30)">
+  <rect x="0" y="24" width="72" height="54" rx="7" fill="#26313a" stroke="#647985"/>
+  <rect x="9" y="34" width="34" height="22" rx="3" fill="#6e94a5"/>
+  <circle cx="57" cy="41" r="5" fill="#d94953"/>
+  <circle cx="57" cy="58" r="5" fill="#e9b44f"/>
+  <path d="M38 18 q15-15 30 0" fill="none" stroke="#6ee0ff" stroke-width="2"/>
+  <text x="5" y="96" fill="#d8a6ad" font-size="8">DSC / VHF</text>
+ </g>
+ <g transform="translate(405 25)">
+  <path d="M20 80 C8 58 14 35 31 24 C42 17 51 22 54 31 C58 44 44 52 49 66 C52 75 59 82 64 88" fill="none" stroke="#f47b2d" stroke-width="10" stroke-linecap="round"/>
+  <path d="M15 87 C29 91 48 92 69 86" fill="none" stroke="#8b5b27" stroke-width="3"/>
+  <text x="6" y="108" fill="#d8a6ad" font-size="8">ORANGE SMOKE</text>
+ </g>
+ <text x="18" y="137" fill="#b98790" font-size="9">RECOGNITION • DISTRESS & NEED OF ASSISTANCE • NOT ROUTINE SIGNALLING</text>
+</svg>
+</div>
  <div class="annexBody"><span class="annexArrow">›</span><h4>Annex IV • Distress Signals</h4><div class="annexPills"><span class="annexPill">MAYDAY</span><span class="annexPill">Flares</span><span class="annexPill">EPIRB</span></div><p>Internationally recognised distress signals and alerts.</p></div>
 </div>
 
