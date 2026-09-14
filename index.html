@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.32.1 — COLREG-Verified TSS Demonstrations</title>
+<title>Project Watch 1.33 — Under-20m TSS Beginner Course</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17099,7 +17099,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.32.1 • VERIFIED TSS DEMONSTRATIONS</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.33 • UNDER-20m TSS BEGINNER COURSE</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -17434,10 +17434,10 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 <section id="tssPage" class="appPage">
 <div class="panel">
  <div class="ver">COLREG RULE 10 • MCA MGN 364 (M+F) AMENDMENT 2</div>
- <h2>TSS Training</h2>
- <p class="note">Learn the geometry first, then apply it under traffic pressure. This build deliberately leaves the locked collision engine untouched.</p>
+ <h2>TSS Training • Vessels under 20 metres</h2>
+ <p class="note"><b>Training vessel: Suilven • 14.2 m • power-driven.</b> This beginner module is written for recreational vessels under 20 m. Rule 10(j) therefore applies throughout: do not impede the safe passage of a power-driven vessel following a traffic lane. Learn the geometry first, then apply it under traffic pressure. The locked collision engine remains untouched.</p>
  <div class="tssBeginnerLaunch">
-   <button onclick="showTSSTutorial()"><span>NEW TO TSS?</span><b>START THE BEGINNER COURSE</b><small>9 guided lessons • spoken coaching • live demonstrations • Rule 10 decisions</small><em>START COURSE →</em></button>
+   <button onclick="showTSSTutorial()"><span>NEW TO TSS?</span><b>START THE BEGINNER COURSE</b><small>9 guided lessons • under-20 m focus • spoken coaching • live demonstrations</small><em>START COURSE →</em></button>
  </div>
  <div class="tssTabs">
   <button id="tssTabLearn" class="active" onclick="showTSS('learn')">📖 LEARN THE TSS</button>
@@ -17511,9 +17511,9 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
  <div id="tssLive" class="tssSection">
   <div class="tssLesson">
-   <div class="ver">RULE 10 • LIVE MULTI-TARGET TRAINER</div>
-   <h3>Live TSS Watch</h3>
-   <p class="note">Cross the complete scheme while maintaining a Rule 10 crossing heading and managing developing collision risk with multiple lane vessels. This simulator is separate from the locked collision-scenario engine.</p>
+   <div class="ver">RULE 10 • UNDER-20 m LIVE MULTI-TARGET TRAINER</div>
+   <h3>Live TSS Watch • Small recreational vessel</h3>
+   <p class="note">Training vessel: Suilven, 14.2 m. Assess the traffic first and do not impede a power-driven vessel following a lane. When a safe crossing develops, cross the complete scheme on the Rule 10(c) heading while continuing to apply the other COLREGs. This simulator remains separate from the locked collision-scenario engine.</p>
 
    <div class="tssScenarioBar">
     <button id="tssScBasic" class="active" onclick="tssSimSelect('basic')">BASIC GAP</button>
@@ -17555,9 +17555,9 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 <section id="tssTutorialPage" class="appPage">
  <div class="tutTssHero">
-  <div><div class="ver">RULE 10 • BEGINNER COURSE • IALA / IMO ROUTEING</div>
-   <h1>Traffic Separation Schemes from zero.</h1>
-   <p>Learn what every part of a TSS means, then watch Suilven demonstrate the manoeuvre on a live chart before you make the decision yourself.</p>
+  <div><div class="ver">RULE 10 • BEGINNER COURSE • VESSELS UNDER 20 m</div>
+   <h1>TSS training for the small recreational vessel.</h1>
+   <p>You are in command of Suilven, a 14.2 m power-driven vessel. Every lesson is taught from the under-20-metre viewpoint: plan early, avoid impeding lane traffic, use the ITZ where Rule 10(d) permits, and if obliged to cross, use the correct Rule 10(c) heading.</p>
   </div>
   <div class="tutTssBadge"><small>COURSE</small><b>9 LESSONS</b><span>LEARN → WATCH → DECIDE</span></div>
  </div>
@@ -19546,43 +19546,51 @@ function showTSS(name){
 }
 
 const TSS_TUTORIAL=[
- {rule:'RULE 10(a)',title:'What is a Traffic Separation Scheme?',intro:'Start by reading the road layout at sea.',mode:'layout',
- facts:[['TRAFFIC LANES','Ships using a lane proceed in its general direction of traffic flow.'],['SEPARATION ZONE','The central zone/line separates opposing streams.'],['INSHORE TRAFFIC ZONE','A separate coastal area may lie between a lane and the shore.'],['OTHER RULES STILL APPLY','A TSS does not give lane traffic automatic priority over crossing vessels.']],
- explain:'Think of the scheme as organised traffic flow, not a motorway that cancels the COLREGs. Rule 10 applies in and near IMO-adopted schemes, while the other steering and sailing rules continue to apply.',
- q:'Does a vessel following a TSS lane automatically have priority over a vessel crossing it?',a:['YES — lane traffic always has priority','NO — the other COLREG rules still apply','ONLY AT NIGHT'],correct:1},
- {rule:'RULE 10(b)',title:'Following a traffic lane',intro:'Use the correct lane and flow with the traffic.',mode:'follow',
- facts:[['DIRECTION','Proceed in the appropriate lane in the general direction of traffic flow.'],['SEPARATION','So far as practicable keep clear of the separation line or zone.'],['LOOK-OUT','Busy schemes demand strict Rules 5, 6, 7 and 8 discipline.'],['PLAN AHEAD','Know the charted scheme before reaching it.']],
- explain:'If Suilven is using the lane, she follows the arrows for that lane. She does not steam against the traffic and she keeps clear of the central separation zone so far as practicable.',
- q:'When using a traffic lane, which way should you proceed?',a:['Against the arrows if the lane is clear','In the general direction of traffic flow','Any direction below 20 knots'],correct:1},
- {rule:'RULE 10(c)',title:'Crossing a traffic lane',intro:'The key beginner lesson: right-angle HEADING.',mode:'cross',
- facts:[['HEADING','Cross on a heading as nearly as practicable at right angles to traffic flow.'],['NOT COG','Rule 10(c) says heading, not course over ground.'],['ONE MANOEUVRE','MCA guidance says cross the entire lane without stopping except in emergency.'],['CLEAR INTENTION','The geometry makes your crossing intention easier for lane traffic to understand.']],
- explain:'The bow points as nearly as practicable ninety degrees to the traffic flow. Tide can push the track sideways; do not confuse that sloping ground track with the heading requirement.',
- q:'With strong tide, what does Rule 10(c) require to be as nearly as practicable at 90 degrees?',a:['COURSE OVER GROUND','HEADING','RELATIVE BEARING'],correct:1},
- {rule:'RULE 10(b)(iii)',title:'Joining and leaving',intro:'Crossing geometry and joining geometry are different.',mode:'join',
- facts:[['BEST OPTION','Normally join or leave at the termination of the lane.'],['FROM THE SIDE','If joining/leaving from either side, use as small an angle to traffic flow as practicable.'],['DO NOT CONFUSE','A shallow join is not a 90-degree crossing.'],['MERGE CLEARLY','Plan a predictable merge with the lane stream.']],
- explain:'At a side entry, Suilven turns into the lane at a shallow angle, becoming established with the flow. When crossing, she uses the near-right-angle heading instead. These are deliberately different manoeuvres.',
- q:'If joining a traffic lane from the side, what angle should you use?',a:['As small an angle as practicable','Exactly 90 degrees','Any angle if AIS is on'],correct:0},
- {rule:'RULE 10(e)',title:'The separation zone',intro:'The centre is not another traffic lane.',mode:'zone',
- facts:[['NORMAL RULE','Other than crossing or joining/leaving, do not normally enter a separation zone or cross a separation line.'],['IMMEDIATE DANGER','Emergency action to avoid immediate danger is an exception.'],['FISHING','Fishing within a separation zone is another stated exception.'],['KEEP IT CLEAR','Treat the central separation feature as a key part of the scheme geometry.']],
- explain:'The central separation zone exists to divide opposing streams. Do not use it as convenient spare sea room. Rule 10 contains specific exceptions, but normal transit is not one of them.',
- q:'Can you normally use the separation zone as spare sea room?',a:['YES','NO','ONLY IF UNDER 20 METRES'],correct:1},
- {rule:'RULE 10(d)',title:'Inshore Traffic Zones',intro:'Who may use the coastal side of the scheme?',mode:'itz',
- facts:[['GENERAL RULE','A vessel should not use an ITZ when it can safely use the appropriate adjacent traffic lane.'],['EXPRESS USERS','Vessels under 20 m, sailing vessels and vessels engaged in fishing may use the ITZ.'],['DESTINATIONS','It may also be used en route to/from a port, offshore installation, pilot station or other place within it.'],['DANGER','Immediate danger is another stated reason.']],
- explain:'Do not treat an inshore zone as the easy lane whenever offshore traffic looks busy. MCA guidance specifically says traffic density or restricted visibility alone are not sufficient reasons for otherwise unjustified ITZ use.',
- q:'Which is expressly permitted by Rule 10(d) to use an ITZ?',a:['A sailing vessel','Every ship over 20 m','Any vessel avoiding busy traffic'],correct:0},
- {rule:'RULE 10(i) & (j)',title:'Fishing, sailing and small vessels',intro:'Small does not mean exempt.',mode:'impede',
- facts:[['FISHING','A vessel engaged in fishing shall not impede a vessel following a traffic lane.'],['UNDER 20 m','A vessel under 20 m shall not impede the safe passage of a power-driven vessel following a traffic lane.'],['SAILING','A sailing vessel has the same non-impeding duty toward a power-driven vessel following the lane.'],['ACT EARLY','Do not force lane traffic to alter course or speed.']],
- explain:'A yacht or fishing vessel still has responsibilities in the scheme. The practical lesson is to plan early and avoid creating a situation where a power-driven vessel following the lane must deviate because of you.',
- q:'May a sailing vessel force a power-driven vessel following a lane to alter for her?',a:['YES — sail always has priority','NO — she shall not impede its safe passage','YES — if under 20 m'],correct:1},
- {rule:'RULE 10(f), (g), (h)',title:'Avoid creating unnecessary risk',intro:'Anchoring and unnecessary use of the scheme matter too.',mode:'avoid',
- facts:[['TERMINATIONS','Navigate with particular caution near the terminations of traffic separation schemes.'],['ANCHORING','So far as practicable avoid anchoring in a TSS or near its terminations.'],['NOT USING IT?','A vessel not using the scheme should avoid it by as wide a margin as practicable.'],['GOOD SEAMANSHIP','Stay predictable and keep concentrated traffic space clear.']],
- explain:'The edges and terminations are where ships join, leave and converge. If you are not using the scheme, keep away by a wide practicable margin rather than skimming its boundary.',
- q:'If you are not using a TSS, what should you normally do?',a:['Avoid it by as wide a margin as practicable','Run along the separation line','Anchor at the termination'],correct:0},
- {rule:'FULL RULE 10',title:'Take the watch',intro:'Put the whole picture together in a live crossing.',mode:'final',
- facts:[['1 • IDENTIFY','Read lanes, arrows, separation zone and your intended route.'],['2 • ASSESS','Maintain look-out, safe speed and collision-risk assessment.'],['3 • EXECUTE','Use the correct Rule 10 geometry for following, crossing, joining or leaving.'],['4 • KEEP APPLYING COLREGS','Rule 10 does not relieve you of obligations under the other Rules.']],
- explain:'The final demonstration combines the beginner course. Suilven approaches, waits for a safe developing picture, crosses on the correct heading, monitors traffic and clears the scheme. After this lesson, use Live TSS Watch for the interactive version.',
- q:'What comes next after this course?',a:['Ignore traffic and hold 90 degrees regardless','Use Live TSS Watch and apply Rule 10 with the other COLREGs','Memorise only the lane arrows'],correct:1}
-];
+ {rule:'YOUR VESSEL • RULE 10(j)',title:'Start here: you are under 20 metres',intro:'The whole course now assumes a small recreational power-driven vessel.',mode:'layout',
+ facts:[['TRAINING VESSEL','Suilven is treated here as a 14.2 m power-driven recreational vessel.'],['UNDER 20 m','Rule 10(j) applies: do not impede the safe passage of a power-driven vessel following a traffic lane.'],['NOT EXEMPT','Being small does not exempt you from Rule 10 or the other COLREGs.'],['LOCAL INFORMATION','Check the chart and Sailing Directions because individual schemes can contain special provisions.']],
+ explain:'Before learning any manoeuvre, fix your vessel status in your mind. In this course you are operating Suilven, a power-driven recreational vessel under twenty metres. You must comply with Rule 10 and the other COLREGs, and Rule 10(j) gives you an additional duty not to impede the safe passage of a power-driven vessel following a traffic lane.',
+ q:'What extra Rule 10 duty applies to Suilven because she is under 20 metres?',a:['She may ignore lane traffic','She shall not impede the safe passage of a power-driven vessel following a traffic lane','She must always use the separation zone'],correct:1},
+
+ {rule:'RULE 10(a) & (j)',title:'Read the scheme before you decide',intro:'Identify the lanes, flow, separation zone and any inshore traffic zone.',mode:'layout',
+ facts:[['TRAFFIC LANES','Traffic using a lane proceeds in its general direction of flow.'],['SEPARATION ZONE','The central line or zone separates opposing streams.'],['ITZ','An Inshore Traffic Zone may exist between the traffic lane and the coast.'],['OTHER COLREGS','A TSS does not cancel Rules 5–8 or the other steering and sailing rules.']],
+ explain:'Do not begin by steering toward the first gap you see. Read the complete scheme. Identify both traffic directions, the separation feature, any inshore traffic zone, your intended route and the traffic that could be affected by you. Lane traffic does not gain automatic priority simply because it is in a TSS, but your under-twenty-metre non-impeding duty still applies.',
+ q:'Does being under 20 metres remove your normal COLREG responsibilities?',a:['YES','NO','ONLY INSIDE AN ITZ'],correct:1},
+
+ {rule:'RULE 10(d)',title:'The Inshore Traffic Zone option',intro:'For an under-20-metre vessel, the ITZ is especially relevant.',mode:'itz',
+ facts:[['EXPRESS PERMISSION','Vessels under 20 m may use an Inshore Traffic Zone.'],['NOT A ONE-WAY LANE','Within an ITZ you may encounter vessels heading in any direction.'],['DO NOT ASSUME','An ITZ is not simply an empty or easier traffic lane.'],['CHECK THE SCHEME','Use the chart and Sailing Directions for the particular TSS and local provisions.']],
+ explain:'Rule 10(d) expressly allows a vessel under twenty metres to use an inshore traffic zone. That makes the ITZ highly relevant to this course. But do not treat it as a one-way traffic lane or assume it will be empty. Maintain a proper lookout and check the particular scheme.',
+ q:'May a vessel under 20 metres use an Inshore Traffic Zone under Rule 10(d)?',a:['YES','NO','ONLY WITH A COMMERCIAL LICENCE'],correct:0},
+
+ {rule:'RULE 10(c) & (j)',title:'Before crossing: do not create the problem',intro:'Avoid crossing traffic lanes so far as practicable; if obliged, plan a safe crossing.',mode:'impede',
+ facts:[['FIRST QUESTION','Can the crossing be avoided so far as practicable?'],['DO NOT IMPEDE','Do not make a lane-following power-driven vessel alter course or speed for you.'],['WAIT OUTSIDE','If the developing picture is unsuitable, remain clear rather than forcing the crossing.'],['PLAN A GAP','Commit only when the traffic picture supports a safe, continuous crossing.']],
+ explain:'For a small recreational vessel, the important lesson comes before the ninety-degree line is drawn. Rule 10 says to avoid crossing traffic lanes so far as practicable. If you are obliged to cross, Rule 10(j) means you must plan early so that a power-driven vessel following the lane is not forced to alter course or speed because of you. In this demonstration Suilven waits outside until the lane ship has passed.',
+ q:'If a lane-following ship would have to alter course or speed because of your crossing, what should you do?',a:['Cross anyway because you are at 90 degrees','Wait and reassess rather than impede it','Enter the separation zone and stop'],correct:1},
+
+ {rule:'RULE 10(c)',title:'Crossing: the 90-degree HEADING',intro:'Once a safe crossing is available, make your intention unmistakable.',mode:'cross',
+ facts:[['HEADING','Cross on a heading as nearly as practicable at right angles to traffic flow.'],['NOT COG','The rule specifies heading, not course over ground.'],['ONE MANOEUVRE','Cross the entire traffic lane without stopping except in emergency.'],['TIDE','Tidal set may make the ground track look diagonal while the bow still holds the required heading.']],
+ explain:'Now the geometry matters. With east-west traffic, Suilven points north-south: as nearly as practicable at right angles to the traffic flow. The requirement is heading, not course over ground. A tidal stream may push the track sideways. Once committed, cross the entire lane without stopping except in an emergency.',
+ q:'What must be as nearly as practicable at right angles to the traffic flow?',a:['HEADING','COURSE OVER GROUND','THE WAKE'],correct:0},
+
+ {rule:'RULE 10(e)',title:'The separation zone is not waiting space',intro:'Do not solve a poor crossing by stopping in the middle.',mode:'zone',
+ facts:[['NORMAL RULE','A vessel other than a crossing vessel or one joining/leaving a lane shall not normally enter the separation zone or cross a separation line.'],['NO MID-SCHEME WAIT','Do not use the separation zone as a convenient place to pause between traffic lanes.'],['EMERGENCY','Immediate danger is one of the stated exceptions.'],['PLAN BEFORE COMMITTING','Choose the safe opportunity before entering the traffic lane.']],
+ explain:'A beginner can be tempted to think of the separation zone as a refuge between the two traffic streams. Do not teach yourself that habit. Plan the complete crossing before committing and do not use the separation zone as convenient waiting or spare sea room.',
+ q:'Should an under-20-metre recreational vessel normally stop in the separation zone to wait for the second lane?',a:['YES','NO','ONLY IF THE FIRST LANE WAS BUSY'],correct:1},
+
+ {rule:'RULE 10(b) & (j)',title:'If you actually use a traffic lane',intro:'Small recreational vessels are not automatically banned from a lane.',mode:'follow',
+ facts:[['LEGAL PRINCIPLE','Rule 10 does not create a blanket ban on an under-20-metre vessel using a traffic lane.'],['CORRECT FLOW','If using a lane, proceed in the appropriate lane in its general direction of traffic flow.'],['KEEP CLEAR','So far as practicable keep clear of the separation line or zone.'],['UNDER 20 m','Your Rule 10(j) duty not to impede a power-driven vessel following the lane still applies.']],
+ explain:'This lesson prevents another common misunderstanding. Being under twenty metres does not by itself prohibit Suilven from using a traffic lane. If her passage uses the lane, she must follow the correct direction and comply with Rule 10. But this beginner course does not present the shipping lane as the default route for a small recreational vessel, and the chart and local scheme provisions must always be checked.',
+ q:'If Suilven is using a traffic lane, may she steam against the arrows because she is under 20 metres?',a:['YES','NO — use the appropriate lane in the general direction of traffic flow','ONLY IN DAYLIGHT'],correct:1},
+
+ {rule:'RULE 10(b)(iii), (f), (g), (h)',title:'Joining, leaving and staying clear',intro:'Know the difference between crossing, joining and not using the scheme.',mode:'join',
+ facts:[['JOIN / LEAVE','Normally join or leave a traffic lane at its termination.'],['FROM THE SIDE','If joining or leaving from the side, use as small an angle to traffic flow as practicable.'],['NOT USING IT','If not using the TSS, avoid it by as wide a margin as practicable.'],['ANCHORING','So far as practicable avoid anchoring in the TSS or near its terminations.']],
+ explain:'Do not confuse a ninety-degree crossing with joining a lane. Joining and leaving have different geometry. Normally use the lane termination; from the side, use as small an angle to the traffic flow as practicable. If your voyage is not using the scheme at all, remain clear by as wide a margin as practicable.',
+ q:'Which manoeuvre uses the near-90-degree heading?',a:['CROSSING A TRAFFIC LANE','JOINING FROM THE SIDE','FOLLOWING THE LANE'],correct:0},
+
+ {rule:'UNDER-20 m WATCH • FULL RULE 10',title:'Take the watch: small-vessel crossing',intro:'Put the under-20-metre lessons together.',mode:'final',
+ facts:[['1 • READ','Identify traffic flow, separation zone, ITZ and your intended route.'],['2 • ASSESS','Avoid crossing so far as practicable; if crossing is required, find a gap that will not impede lane traffic.'],['3 • CROSS','Hold the Rule 10(c) heading as nearly as practicable at 90 degrees and cross continuously.'],['4 • KEEP WATCH','Rules 5–8 and the other COLREGs continue throughout the manoeuvre.']],
+ explain:'This final demonstration is now specifically an under-twenty-metre recreational-vessel exercise. Suilven remains outside while the traffic picture is unsuitable. When a safe gap develops, she commits, holds the right-angle heading, crosses the complete scheme without stopping, does not force either lane-following vessel to alter course or speed, clears the far lane and continues the watch.',
+ q:'What is the correct beginner sequence for an under-20-metre TSS crossing?',a:['Enter first, then look for a gap','Plan early, do not impede, cross on the Rule 10(c) heading, and keep applying the COLREGs','Stop in the separation zone between lanes'],correct:1}
+]
 let ttI=0,ttRAF=null,ttRunToken=0,ttAnswered=false;
 
 function showTSSTutorial(){
@@ -19620,131 +19628,141 @@ function ttShip(x,y,h,label='SUILVEN',fill='#a12f2f'){
  <text x="${x+13}" y="${y-10}" font-size="8" fill="#183d4b" font-weight="800">${label}</text>`;
 }
 function ttDraw(mode,p){
-  // Geometry convention used throughout the tutorial:
-  // upper lane = traffic to the EAST/right; lower lane = traffic to the WEST/left.
-  // The central separation zone lies between them.
+  // VERIFIED TUTORIAL GEOMETRY
+  // Upper lane: EASTBOUND (left -> right)
+  // Lower lane: WESTBOUND (right -> left)
+  // Any vessel demonstrated CROSSING a traffic lane keeps its HEADING
+  // as nearly as practicable at 90° to that horizontal traffic flow.
   const xL=105,xR=795;
   const topY1=105,topY2=205,sepY1=225,sepY2=275,botY1=295,botY2=395;
   let vessels='',tracks='',notes='',caption='';
 
-  const topTraffic=(x)=>ttShip(x,155,90,'LANE TRAFFIC','#667b85');
-  const botTraffic=(x)=>ttShip(x,345,270,'LANE TRAFFIC','#667b85');
+  const topTraffic=(x,label='LANE TRAFFIC')=>ttShip(x,155,90,label,'#667b85');
+  const botTraffic=(x,label='LANE TRAFFIC')=>ttShip(x,345,270,label,'#667b85');
+
+  // Small right-angle marker used on crossing demonstrations.
+  const rightAngle=(x,y)=>`
+    <path d="M${x+5} ${y-24} v19 h19" fill="none" stroke="#0a6d59" stroke-width="3"/>
+    <text x="${x+30}" y="${y-7}" class="ruleLabel">90° HEADING</text>`;
 
   if(mode==='layout'){
-    vessels=topTraffic(345)+botTraffic(575);
-    notes=`<text x="135" y="143" class="laneLabel">TRAFFIC LANE → EASTBOUND</text>
-           <text x="525" y="355" class="laneLabel">WESTBOUND ← TRAFFIC LANE</text>
-           <text x="365" y="255" class="zoneLabel">SEPARATION ZONE</text>`;
-    caption='READ THE LANE ARROWS, BOUNDARIES AND SEPARATION ZONE BEFORE ENTERING';
+    vessels=topTraffic(355)+botTraffic(585);
+    notes=`<text x="125" y="125" class="guideLabel">APPROPRIATE LANE • FOLLOW ITS ARROW</text>
+           <text x="125" y="385" class="guideLabel">OPPOSING TRAFFIC IS SEPARATED</text>`;
+    caption='READ THE TWO TRAFFIC LANES, THEIR ARROWS, AND THE CENTRAL SEPARATION ZONE';
   }
 
   if(mode==='follow'){
     const x=150+560*p;
-    vessels=ttShip(x,155,90,'SUILVEN')+botTraffic(610-280*p);
+    vessels=ttShip(x,155,90,'SUILVEN')+botTraffic(690-260*p);
     tracks=`<path d="M130 155 H${x}" class="trackGood"/>`;
-    notes=`<text x="140" y="130" class="ruleLabel">FOLLOW THE GENERAL DIRECTION OF TRAFFIC FLOW →</text>
-           <text x="580" y="365" class="laneLabel">← OPPOSING LANE TRAFFIC</text>`;
-    caption='USE THE APPROPRIATE LANE • FOLLOW ITS FLOW • KEEP CLEAR OF THE SEPARATION ZONE';
+    notes=`<text x="145" y="126" class="ruleLabel">SUILVEN FOLLOWS EASTBOUND FLOW →</text>`;
+    caption='USE THE APPROPRIATE LANE • PROCEED IN ITS GENERAL DIRECTION • KEEP CLEAR OF THE SEPARATION ZONE';
   }
 
   if(mode==='cross'){
-    // Suilven's HEADING is exactly north/up: 90° to the east/west lane flow.
-    // A blue dashed line illustrates a possible tide-skewed COG while the heading remains 000°.
-    const y=455-390*p;
-    const x=450+55*p; // ground track set by tide; bow remains pointing north
-    vessels=ttShip(x,y,0,'SUILVEN')+topTraffic(155+430*p)+botTraffic(745-410*p);
-    tracks=`<path d="M450 455 L${x} ${y}" class="trackGood"/>
-            <line x1="${x}" y1="${y}" x2="${x}" y2="${y-78}" stroke="#a12f2f" stroke-width="4"/>
-            <path d="M450 455 L505 65" class="trackInfo"/>`;
-    notes=`<text x="${Math.min(690,x+18)}" y="${Math.max(80,y-58)}" class="warnLabel">HEADING 000° • 90° TO TRAFFIC FLOW</text>
-           <text x="530" y="438" class="guideLabel">BLUE DASH = POSSIBLE TIDE-SKEWED COG</text>`;
-    caption='RULE 10(c): RIGHT-ANGLE HEADING • CROSS THE ENTIRE LANE WITHOUT STOPPING';
+    // Textbook Rule 10(c) demonstration.
+    // Vessel heading stays 000° (north/up), exactly perpendicular to the E/W flow.
+    // The green line is the vessel path for this no-tide demo.
+    // Lane traffic is deliberately timed to create a safe gap: it never intersects Suilven.
+    const y=455-390*p,x=450;
+    const eastX=115+260*p;   // remains well west of crossing point when Suilven reaches upper lane
+    const westX=790-250*p;   // remains well east of crossing point when Suilven reaches lower lane
+    vessels=ttShip(x,y,0,'SUILVEN')+topTraffic(eastX)+botTraffic(westX);
+    tracks=`<path d="M450 455 L450 ${y}" class="trackGood"/>`;
+    notes=rightAngle(450,410)+
+          `<text x="500" y="425" class="ruleLabel">BOW / HEADING 000°</text>
+           <text x="500" y="443" class="guideLabel">TRAFFIC FLOW IS 090° / 270°</text>`;
+    caption='RULE 10(c): CROSS ON A HEADING AS NEARLY AS PRACTICABLE AT RIGHT ANGLES • SAFE GAP SHOWN';
   }
 
   if(mode==='join'){
-    // Normal method: enter at the termination, then become established with the lane flow.
-    // An inset side-join path shows the alternative "small angle" geometry.
-    const x=105+500*p;
-    const y=155;
-    vessels=ttShip(x,y,90,'SUILVEN')+botTraffic(650-220*p);
+    // Normal method: use the termination. Side joining/leaving: shallow angle.
+    const x=105+500*p,y=155;
+    vessels=ttShip(x,y,90,'SUILVEN')+botTraffic(705-190*p);
     tracks=`<path d="M85 155 H${x}" class="trackGood"/>
-            <path d="M250 215 Q355 175 470 155" class="trackInfo"/>`;
+            <path d="M245 215 Q350 176 470 155" class="trackInfo"/>`;
     notes=`<line x1="${xL}" y1="${topY1}" x2="${xL}" y2="${topY2}" class="termination"/>
-           <text x="118" y="118" class="ruleLabel">NORMAL: JOIN / LEAVE AT LANE TERMINATION</text>
-           <text x="270" y="225" class="guideLabel">IF JOINING FROM SIDE: USE AS SMALL AN ANGLE AS PRACTICABLE</text>`;
-    caption='RULE 10(b)(iii): TERMINATION NORMALLY • SIDE ENTRY / EXIT ONLY AT A SMALL ANGLE';
+           <text x="118" y="118" class="ruleLabel">LANE TERMINATION • NORMAL ENTRY / EXIT</text>
+           <text x="260" y="219" class="guideLabel">SIDE ENTRY / EXIT: SMALL ANGLE TO TRAFFIC FLOW</text>`;
+    caption='RULE 10(b)(iii): NORMALLY JOIN / LEAVE AT A TERMINATION • FROM THE SIDE USE A SMALL ANGLE';
   }
 
   if(mode==='zone'){
-    vessels=ttShip(455,425,0,'SUILVEN')+topTraffic(360)+botTraffic(590);
-    tracks=`<path d="M455 440 Q420 420 390 405" class="trackGood"/>`;
-    notes=`<rect x="${xL}" y="${sepY1}" width="${xR-xL}" height="${sepY2-sepY1}" fill="#d45454" opacity=".24"/>
-           <text x="350" y="253" class="zoneLabel">SEPARATION ZONE</text>
-           <text x="520" y="415" class="warnLabel">NORMAL TRANSIT STAYS OUT</text>`;
-    caption='DO NOT USE THE SEPARATION ZONE AS CONVENIENT SEA ROOM';
+    vessels=ttShip(455,425,0,'SUILVEN')+topTraffic(350)+botTraffic(620);
+    tracks=`<path d="M455 440 Q418 426 390 410" class="trackGood"/>`;
+    // Do NOT draw another "SEPARATION ZONE" label here: the base chart already has one.
+    notes=`<text x="500" y="418" class="warnLabel">NORMAL TRANSIT REMAINS OUTSIDE THE ZONE</text>
+           <path d="M485 408 L455 398" stroke="#9a3030" stroke-width="2"/>`;
+    caption='RULE 10(e): THE CENTRAL SEPARATION ZONE IS NOT CONVENIENT SPARE SEA ROOM';
   }
 
   if(mode==='itz'){
-    // ITZ is drawn outside the lower traffic lane (coastal side), not over the lane.
     const x=170+250*p;
-    vessels=ttShip(x,455,90,'PERMITTED ITZ USER','#146e78')+topTraffic(445)+botTraffic(640);
-    notes=`<rect x="${xL}" y="420" width="${xR-xL}" height="70" fill="#e3c671" opacity=".42"/>
-           <text x="125" y="447" class="guideLabel">INSHORE TRAFFIC ZONE</text>
-           <text x="125" y="466" class="guideLabel">USE ONLY WHEN RULE 10(d) PERMITS</text>`;
-    caption='THE ITZ IS OUTSIDE THE ADJACENT TRAFFIC LANE • ITS USE IS SPECIFICALLY CONTROLLED';
+    vessels=ttShip(x,455,90,'PERMITTED ITZ USER','#146e78')+topTraffic(455)+botTraffic(660);
+    notes=`<rect x="${xL}" y="420" width="${xR-xL}" height="60" fill="#e3c671" opacity=".42"/>
+           <text x="125" y="444" class="guideLabel">INSHORE TRAFFIC ZONE</text>
+           <text x="125" y="462" class="guideLabel">OUTSIDE THE ADJACENT TRAFFIC LANE • RULE 10(d)</text>`;
+    caption='ITZ USE IS SPECIFICALLY CONTROLLED • TRAFFIC INSIDE AN ITZ MAY BE ENCOUNTERED IN ANY DIRECTION';
   }
 
   if(mode==='impede'){
-    // Lane ship remains on correct eastbound lane heading. Small/sailing vessel waits clear,
-    // then passes astern rather than forcing lane traffic to alter.
-    const tx=160+500*p;
-    const wait=p<.55;
-    const sy=wait?430:430-150*((p-.55)/.45);
-    vessels=ttShip(tx,155,90,'POWER-DRIVEN LANE SHIP','#667b85')+
-            ttShip(455,sy,0,'SMALL / SAILING','#146e78');
-    tracks=`<path d="M455 455 V${sy}" class="trackGood"/>`;
-    notes=`<text x="128" y="128" class="laneLabel">LANE TRAFFIC →</text>
-           <text x="500" y="430" class="ruleLabel">PLAN EARLY • DO NOT FORCE LANE TRAFFIC TO ALTER</text>`;
-    caption='RULE 10(j): UNDER-20 m / SAILING VESSEL SHALL NOT IMPEDE SAFE PASSAGE OF POWER-DRIVEN LANE TRAFFIC';
+    // This demonstration uses a SMALL / SAILING vessel that is crossing.
+    // Because it is crossing the lane, its heading is shown at 90° to traffic flow.
+    // It waits outside until the power-driven lane ship has passed, then crosses
+    // continuously without forcing that lane ship to alter course or speed.
+    const laneX=120+520*p;
+    let crossP=Math.max(0,(p-.48)/.52);
+    crossP=Math.min(1,crossP);
+    const sy=455-390*crossP;
+    vessels=topTraffic(laneX,'POWER-DRIVEN LANE SHIP')+
+            botTraffic(760-210*p,'POWER-DRIVEN LANE SHIP')+
+            ttShip(450,sy,0,'SMALL / SAILING CROSSER','#146e78');
+    tracks=`<path d="M450 455 L450 ${sy}" class="trackGood"/>`;
+    notes=rightAngle(450,410)+
+          `<text x="505" y="430" class="ruleLabel">WAITS FOR A SAFE GAP • THEN CROSSES AT 90°</text>
+           <text x="505" y="447" class="guideLabel">DO NOT IMPEDE POWER-DRIVEN VESSEL FOLLOWING THE LANE</text>`;
+    caption='UNDER 20 m: WAIT CLEAR • DO NOT IMPEDE LANE TRAFFIC • CROSS ONLY WHEN A SAFE GAP DEVELOPS';
   }
 
   if(mode==='avoid'){
-    // Vessel not using scheme stays outside all defined TSS boundaries.
     const y=455-250*p;
-    vessels=ttShip(55,y,0,'NOT USING TSS','#146e78')+topTraffic(420)+botTraffic(610);
+    vessels=ttShip(55,y,0,'NOT USING TSS','#146e78')+topTraffic(430)+botTraffic(625);
     tracks=`<path d="M55 470 V${y}" class="trackGood"/>`;
-    notes=`<text x="18" y="105" class="ruleLabel">KEEP A WIDE PRACTICABLE MARGIN</text>
-           <text x="135" y="128" class="laneLabel">TRAFFIC LANE →</text>
-           <text x="555" y="365" class="laneLabel">← TRAFFIC LANE</text>`;
+    notes=`<text x="18" y="105" class="ruleLabel">KEEP A WIDE PRACTICABLE MARGIN</text>`;
     caption='RULE 10(h): IF NOT USING THE SCHEME, AVOID IT BY AS WIDE A MARGIN AS PRACTICABLE';
   }
 
   if(mode==='final'){
-    // Full beginner demonstration:
-    // 0–25% assess outside the scheme;
-    // 25–85% cross continuously on a north heading (90° to both lane flows);
-    // 85–100% remain clear beyond the far boundary.
-    let phase=0, y=455, x=450;
-    if(p>=.25 && p<.85){
-      phase=(p-.25)/.60;
-      y=455-390*phase;
-      x=450; // no tidal set in final assessment visual: textbook 90° track/heading
-    }else if(p>=.85){
-      y=65-(p-.85)*100;
+    // FULL TEXTBOOK WATCH:
+    // 0–22%: remain outside and assess.
+    // 22–88%: cross the COMPLETE scheme continuously on a fixed north/up heading.
+    // 88–100%: continue beyond the far boundary so the exit is visually unambiguous.
+    let y=455;
+    if(p>=.22 && p<.88){
+      const cp=(p-.22)/.66;
+      y=455-410*cp;
+    }else if(p>=.88){
+      y=45-75*((p-.88)/.12);
     }
-    vessels=ttShip(x,y,0,'SUILVEN')+
-            topTraffic(130+610*p)+
-            botTraffic(780-610*p);
-    tracks=`<path d="M450 455 L450 ${Math.max(y,55)}" class="trackGood"/>`;
-    notes=`<text x="470" y="430" class="ruleLabel">START CLEAR OF THE TSS</text>
-           <text x="470" y="120" class="ruleLabel">EXIT CLEAR OF THE FAR LANE</text>
-           <text x="145" y="128" class="laneLabel">EASTBOUND →</text>
-           <text x="620" y="365" class="laneLabel">← WESTBOUND</text>`;
-    caption=p<.25
-      ?'ASSESS TRAFFIC BEFORE COMMITTING TO THE CROSSING'
-      :p<.85
-        ?'CROSS CONTINUOUSLY ON A HEADING AT 90° TO TRAFFIC FLOW • KEEP APPLYING THE OTHER COLREGS'
-        :'TSS CLEARED • CONTINUE THE WATCH';
+
+    // Traffic is deliberately paced to maintain a visible gap at BOTH lane crossings.
+    // No demo ship crosses Suilven's track at the same time.
+    const eastX=110+300*p;
+    const westX=790-250*p;
+
+    vessels=ttShip(450,y,0,'SUILVEN')+
+            topTraffic(eastX,'EASTBOUND TRAFFIC')+
+            botTraffic(westX,'WESTBOUND TRAFFIC');
+    tracks=`<path d="M450 455 L450 ${Math.max(y,25)}" class="trackGood"/>`;
+    notes=rightAngle(450,410)+
+          `<text x="505" y="430" class="ruleLabel">FIXED 000° HEADING • 90° TO BOTH TRAFFIC FLOWS</text>
+           <text x="505" y="447" class="guideLabel">TEXTBOOK NO-TIDE DEMO • STRAIGHT GROUND TRACK</text>`;
+    caption=p<.22
+      ?'UNDER 20 m • REMAIN CLEAR • ASSESS TRAFFIC • DO NOT IMPEDE BEFORE COMMITTING'
+      :p<.88
+        ?'SAFE GAP ESTABLISHED • CROSS CONTINUOUSLY ON THE 90° HEADING • DO NOT IMPEDE LANE TRAFFIC'
+        :'FAR TRAFFIC LANE CLEARED • EXIT COMPLETE • CONTINUE THE WATCH';
   }
 
   $('ttDemo').innerHTML=`<svg viewBox="0 0 900 520">
@@ -19754,7 +19772,6 @@ function ttDraw(mode,p){
       <path d="M100 0V520M200 0V520M300 0V520M400 0V520M500 0V520M600 0V520M700 0V520M800 0V520"/>
     </g>
 
-    <!-- Explicit TSS boundaries -->
     <rect x="${xL}" y="${topY1}" width="${xR-xL}" height="${topY2-topY1}" fill="#d8c9aa" opacity=".46"/>
     <line x1="${xL}" y1="${topY1}" x2="${xR}" y2="${topY1}" class="laneBoundary"/>
     <line x1="${xL}" y1="${topY2}" x2="${xR}" y2="${topY2}" class="laneBoundary"/>
@@ -19767,10 +19784,10 @@ function ttDraw(mode,p){
     <line x1="${xL}" y1="${botY1}" x2="${xR}" y2="${botY1}" class="laneBoundary"/>
     <line x1="${xL}" y1="${botY2}" x2="${xR}" y2="${botY2}" class="laneBoundary"/>
 
-    <!-- Permanent, non-overlapping traffic-flow labels -->
-    <text x="135" y="188" class="laneLabel">TRAFFIC FLOW →</text>
-    <text x="610" y="328" class="laneLabel">← TRAFFIC FLOW</text>
-    <text x="373" y="255" class="zoneLabel">SEPARATION ZONE</text>
+    <!-- ONE permanent label for each chart feature: no mode is allowed to duplicate these. -->
+    <text x="135" y="188" class="laneLabel">EASTBOUND TRAFFIC →</text>
+    <text x="610" y="328" class="laneLabel">← WESTBOUND TRAFFIC</text>
+    <text x="378" y="255" class="zoneLabel">SEPARATION ZONE</text>
 
     ${tracks}${notes}${vessels}
 
