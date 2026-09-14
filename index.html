@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.33 — Under-20m TSS Beginner Course</title>
+<title>Project Watch 1.33.1 — Explicit 90° TSS Crossing</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -583,6 +583,14 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 /* 1.32 TSS beginner course */
 
 /* 1.32.1 verified TSS demo chart refinements */
+
+.ttDemo .crossCorridor{fill:#30b884;opacity:.10}
+.ttDemo .crossAxis{stroke:#07966d;stroke-width:6;stroke-dasharray:12 8;fill:none}
+.ttDemo .forbiddenPath{stroke:#c33d3d;stroke-width:4;stroke-dasharray:10 8;fill:none;opacity:.62}
+.ttDemo .forbiddenX{stroke:#b92f2f;stroke-width:5;stroke-linecap:round}
+.ttDemo .angleBox{fill:#e8fff6;stroke:#07966d;stroke-width:3}
+.ttDemo .angleText{font-size:13px;font-weight:1000;fill:#06624d;letter-spacing:.5px}
+
 .ttDemo .laneLabel{font-size:10px;font-weight:900;fill:#934b4b;letter-spacing:.25px}
 .ttDemo .zoneLabel{font-size:10px;font-weight:900;fill:#9b4b4b;letter-spacing:.2px}
 .ttDemo .guideLabel{font-size:8px;font-weight:900;fill:#123e4e}
@@ -17099,7 +17107,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.33 • UNDER-20m TSS BEGINNER COURSE</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.33.1 • EXPLICIT 90° TSS CROSSING</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -19566,9 +19574,9 @@ const TSS_TUTORIAL=[
  explain:'For a small recreational vessel, the important lesson comes before the ninety-degree line is drawn. Rule 10 says to avoid crossing traffic lanes so far as practicable. If you are obliged to cross, Rule 10(j) means you must plan early so that a power-driven vessel following the lane is not forced to alter course or speed because of you. In this demonstration Suilven waits outside until the lane ship has passed.',
  q:'If a lane-following ship would have to alter course or speed because of your crossing, what should you do?',a:['Cross anyway because you are at 90 degrees','Wait and reassess rather than impede it','Enter the separation zone and stop'],correct:1},
 
- {rule:'RULE 10(c)',title:'Crossing: the 90-degree HEADING',intro:'Once a safe crossing is available, make your intention unmistakable.',mode:'cross',
+ {rule:'RULE 10(c)',title:'Crossing: the 90-degree HEADING',intro:'Once a safe crossing is available, make the right-angle geometry visually unmistakable.',mode:'cross',
  facts:[['HEADING','Cross on a heading as nearly as practicable at right angles to traffic flow.'],['NOT COG','The rule specifies heading, not course over ground.'],['ONE MANOEUVRE','Cross the entire traffic lane without stopping except in emergency.'],['TIDE','Tidal set may make the ground track look diagonal while the bow still holds the required heading.']],
- explain:'Now the geometry matters. With east-west traffic, Suilven points north-south: as nearly as practicable at right angles to the traffic flow. The requirement is heading, not course over ground. A tidal stream may push the track sideways. Once committed, cross the entire lane without stopping except in an emergency.',
+ explain:'Now the geometry matters. The demonstration shows a green north-south crossing corridor at a clear ninety degrees to the east-west traffic lanes. Red diagonal tracks are marked with crosses to show the geometry you are not trying to use. The requirement is heading, not course over ground. A tidal stream may push the track sideways. Once committed, cross the entire lane without stopping except in an emergency.',
  q:'What must be as nearly as practicable at right angles to the traffic flow?',a:['HEADING','COURSE OVER GROUND','THE WAKE'],correct:0},
 
  {rule:'RULE 10(e)',title:'The separation zone is not waiting space',intro:'Do not solve a poor crossing by stopping in the middle.',mode:'zone',
@@ -19645,6 +19653,29 @@ function ttDraw(mode,p){
     <path d="M${x+5} ${y-24} v19 h19" fill="none" stroke="#0a6d59" stroke-width="3"/>
     <text x="${x+30}" y="${y-7}" class="ruleLabel">90° HEADING</text>`;
 
+  const crossingGeometry=()=>`
+    <!-- Green corridor = correct crossing axis, perpendicular to E/W traffic -->
+    <rect x="418" y="72" width="64" height="392" rx="18" class="crossCorridor"/>
+    <path d="M450 455 V68" class="crossAxis"/>
+    <!-- Big right-angle indicators at both lane entries -->
+    <g transform="translate(450 395)">
+      <path d="M0 0 h30 v-30" fill="none" stroke="#07966d" stroke-width="5"/>
+      <text x="36" y="-10" class="angleText">90°</text>
+    </g>
+    <g transform="translate(450 205)">
+      <path d="M0 0 h30 v-30" fill="none" stroke="#07966d" stroke-width="5"/>
+      <text x="36" y="-10" class="angleText">90°</text>
+    </g>
+    <!-- Red diagonal examples show the wrong crossing geometry -->
+    <path d="M300 455 L405 300" class="forbiddenPath"/>
+    <path d="M600 455 L495 300" class="forbiddenPath"/>
+    <g class="forbiddenX" transform="translate(335 405)"><path d="M-9 -9 L9 9 M9 -9 L-9 9"/></g>
+    <g class="forbiddenX" transform="translate(565 405)"><path d="M-9 -9 L9 9 M9 -9 L-9 9"/></g>
+    <text x="208" y="430" class="warnLabel">✕ NOT A SHALLOW CROSSING</text>
+    <text x="505" y="430" class="warnLabel">✕ NOT A SHALLOW CROSSING</text>
+    <text x="365" y="84" class="ruleLabel">CORRECT CROSSING AXIS</text>
+  `;
+
   if(mode==='layout'){
     vessels=topTraffic(355)+botTraffic(585);
     notes=`<text x="125" y="125" class="guideLabel">APPROPRIATE LANE • FOLLOW ITS ARROW</text>
@@ -19662,18 +19693,17 @@ function ttDraw(mode,p){
 
   if(mode==='cross'){
     // Textbook Rule 10(c) demonstration.
-    // Vessel heading stays 000° (north/up), exactly perpendicular to the E/W flow.
-    // The green line is the vessel path for this no-tide demo.
-    // Lane traffic is deliberately timed to create a safe gap: it never intersects Suilven.
+    // Suilven holds a fixed vertical 000° heading while traffic flows horizontally 090° / 270°.
+    // The geometry overlay makes the perpendicular relationship explicit.
+    // Lane traffic is deliberately paced so neither target reaches x=450 while Suilven is in that lane.
     const y=455-390*p,x=450;
-    const eastX=115+260*p;   // remains well west of crossing point when Suilven reaches upper lane
-    const westX=790-250*p;   // remains well east of crossing point when Suilven reaches lower lane
+    const eastX=110+225*p;
+    const westX=790-215*p;
     vessels=ttShip(x,y,0,'SUILVEN')+topTraffic(eastX)+botTraffic(westX);
-    tracks=`<path d="M450 455 L450 ${y}" class="trackGood"/>`;
-    notes=rightAngle(450,410)+
-          `<text x="500" y="425" class="ruleLabel">BOW / HEADING 000°</text>
-           <text x="500" y="443" class="guideLabel">TRAFFIC FLOW IS 090° / 270°</text>`;
-    caption='RULE 10(c): CROSS ON A HEADING AS NEARLY AS PRACTICABLE AT RIGHT ANGLES • SAFE GAP SHOWN';
+    tracks=crossingGeometry()+`<path d="M450 455 L450 ${y}" class="trackGood"/>`;
+    notes=`<text x="500" y="108" class="ruleLabel">SUILVEN HEADING 000°</text>
+           <text x="500" y="128" class="guideLabel">LANE FLOW 090° / 270° • PERPENDICULAR = 90°</text>`;
+    caption='RULE 10(c): KEEP THE BOW ON THE 90° CROSSING AXIS • RED DIAGONALS ARE WRONG • SAFE GAP SHOWN';
   }
 
   if(mode==='join'){
@@ -19707,22 +19737,21 @@ function ttDraw(mode,p){
   }
 
   if(mode==='impede'){
-    // This demonstration uses a SMALL / SAILING vessel that is crossing.
-    // Because it is crossing the lane, its heading is shown at 90° to traffic flow.
-    // It waits outside until the power-driven lane ship has passed, then crosses
-    // continuously without forcing that lane ship to alter course or speed.
-    const laneX=120+520*p;
-    let crossP=Math.max(0,(p-.48)/.52);
+    // Under-20m / sailing crossing example.
+    // The crosser remains outside until a safe gap exists, then follows the same fixed 90° axis.
+    const laneX=115+430*p;
+    let crossP=Math.max(0,(p-.58)/.42);
     crossP=Math.min(1,crossP);
     const sy=455-390*crossP;
     vessels=topTraffic(laneX,'POWER-DRIVEN LANE SHIP')+
-            botTraffic(760-210*p,'POWER-DRIVEN LANE SHIP')+
-            ttShip(450,sy,0,'SMALL / SAILING CROSSER','#146e78');
-    tracks=`<path d="M450 455 L450 ${sy}" class="trackGood"/>`;
-    notes=rightAngle(450,410)+
-          `<text x="505" y="430" class="ruleLabel">WAITS FOR A SAFE GAP • THEN CROSSES AT 90°</text>
-           <text x="505" y="447" class="guideLabel">DO NOT IMPEDE POWER-DRIVEN VESSEL FOLLOWING THE LANE</text>`;
-    caption='UNDER 20 m: WAIT CLEAR • DO NOT IMPEDE LANE TRAFFIC • CROSS ONLY WHEN A SAFE GAP DEVELOPS';
+            botTraffic(790-170*p,'POWER-DRIVEN LANE SHIP')+
+            ttShip(450,sy,0,'UNDER-20 m CROSSER','#146e78');
+    tracks=crossingGeometry()+`<path d="M450 455 L450 ${sy}" class="trackGood"/>`;
+    notes=`<text x="500" y="108" class="ruleLabel">WAIT CLEAR • THEN USE THE SAME 90° AXIS</text>
+           <text x="500" y="128" class="guideLabel">DO NOT IMPEDE POWER-DRIVEN VESSEL FOLLOWING THE LANE</text>`;
+    caption=crossP===0
+      ?'UNDER 20 m: REMAIN OUTSIDE UNTIL A SAFE GAP DEVELOPS'
+      :'SAFE GAP ESTABLISHED • CROSS ON THE 90° AXIS • DO NOT IMPEDE LANE TRAFFIC';
   }
 
   if(mode==='avoid'){
@@ -19734,35 +19763,33 @@ function ttDraw(mode,p){
   }
 
   if(mode==='final'){
-    // FULL TEXTBOOK WATCH:
-    // 0–22%: remain outside and assess.
-    // 22–88%: cross the COMPLETE scheme continuously on a fixed north/up heading.
-    // 88–100%: continue beyond the far boundary so the exit is visually unambiguous.
+    // Full under-20m watch demonstration.
+    // Suilven does not move until the safe gap is established.
+    // Once committed, she follows one straight vertical axis all the way through the TSS.
     let y=455;
-    if(p>=.22 && p<.88){
-      const cp=(p-.22)/.66;
+    if(p>=.28 && p<.90){
+      const cp=(p-.28)/.62;
       y=455-410*cp;
-    }else if(p>=.88){
-      y=45-75*((p-.88)/.12);
+    }else if(p>=.90){
+      y=45-75*((p-.90)/.10);
     }
 
-    // Traffic is deliberately paced to maintain a visible gap at BOTH lane crossings.
-    // No demo ship crosses Suilven's track at the same time.
-    const eastX=110+300*p;
-    const westX=790-250*p;
+    // Slow, separated lane traffic. Neither lane target occupies the crossing axis while
+    // Suilven is in the respective lane.
+    const eastX=105+240*p;
+    const westX=795-205*p;
 
     vessels=ttShip(450,y,0,'SUILVEN')+
             topTraffic(eastX,'EASTBOUND TRAFFIC')+
             botTraffic(westX,'WESTBOUND TRAFFIC');
-    tracks=`<path d="M450 455 L450 ${Math.max(y,25)}" class="trackGood"/>`;
-    notes=rightAngle(450,410)+
-          `<text x="505" y="430" class="ruleLabel">FIXED 000° HEADING • 90° TO BOTH TRAFFIC FLOWS</text>
-           <text x="505" y="447" class="guideLabel">TEXTBOOK NO-TIDE DEMO • STRAIGHT GROUND TRACK</text>`;
-    caption=p<.22
-      ?'UNDER 20 m • REMAIN CLEAR • ASSESS TRAFFIC • DO NOT IMPEDE BEFORE COMMITTING'
-      :p<.88
-        ?'SAFE GAP ESTABLISHED • CROSS CONTINUOUSLY ON THE 90° HEADING • DO NOT IMPEDE LANE TRAFFIC'
-        :'FAR TRAFFIC LANE CLEARED • EXIT COMPLETE • CONTINUE THE WATCH';
+    tracks=crossingGeometry()+`<path d="M450 455 L450 ${Math.max(y,25)}" class="trackGood"/>`;
+    notes=`<text x="500" y="108" class="ruleLabel">FIXED 000° HEADING</text>
+           <text x="500" y="128" class="guideLabel">90° TO BOTH EASTBOUND AND WESTBOUND FLOWS</text>`;
+    caption=p<.28
+      ?'UNDER 20 m • WAIT CLEAR • DO NOT IMPEDE • DO NOT COMMIT YET'
+      :p<.90
+        ?'COMMITTED • HOLD THE 90° CROSSING HEADING • CROSS CONTINUOUSLY • KEEP WATCH'
+        :'FAR LANE CLEARED • TSS CROSSING COMPLETE';
   }
 
   $('ttDemo').innerHTML=`<svg viewBox="0 0 900 520">
