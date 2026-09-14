@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.35.1 — AIS Target Selection Fix</title>
+<title>Project Watch 1.35.2 — AIS Traffic & Vessel Profiles</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.35.1 — AIS Target Selection Fix */
+/* Project Watch 1.35.2 — AIS Traffic & Vessel Profiles */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -708,6 +708,24 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .aisTargetHit{fill:transparent;stroke:none;pointer-events:all;cursor:pointer}.aisTarget polygon{stroke:#18353c;stroke-width:1.5}.aisTarget.selected polygon{stroke:#fff;stroke-width:3}.aisTarget.danger polygon{stroke:#8d1010;stroke-width:3}.aisTarget.lost{opacity:.55}.aisTargetLabel{font-size:10px;font-weight:900;fill:#19353d}.aisTargetSub{font-size:8px;fill:#304d54}.aisVector{stroke-width:2;opacity:.85}.aisCpaLine{stroke:#d3463e;stroke-width:2;stroke-dasharray:5 5}.aisCpaMark{fill:none;stroke:#d3463e;stroke-width:2}.aisRangeRing{fill:none;stroke:#668f92;stroke-width:1;stroke-dasharray:4 5;opacity:.7}
 @media(max-width:1000px){.aisWorkspace{grid-template-columns:1fr}.aisSidePanel{grid-template-columns:1fr 1fr}.aisLegend{grid-column:1/-1}.aisLearnGrid{grid-template-columns:1fr 1fr}.aisLessonStrip{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.aisHero{grid-template-columns:1fr}.aisHeroBadge{text-align:left}.aisSafetyBar{grid-template-columns:1fr}.aisLessonStrip{grid-template-columns:1fr 1fr}.aisChart{height:460px}.aisChartTopbar{align-items:flex-start;flex-direction:column}.aisSidePanel,.aisLearnGrid{grid-template-columns:1fr}.aisLegend{grid-column:auto}.aisChartBottom{grid-template-columns:repeat(3,1fr)}}
+
+
+/* AIS 1.35.2 — vessel profile imagery + calmer training traffic */
+.aisVesselPhoto{
+  height:150px;border-radius:10px;overflow:hidden;margin:8px 0;
+  background:linear-gradient(#9dcbd6 0 58%,#dfe8e4 59% 62%,#477f95 63% 100%);
+  border:1px solid #ffffff18
+}
+.aisVesselPhoto svg{width:100%;height:100%;display:block}
+.aisVesselCaption{
+  display:flex;justify-content:space-between;gap:8px;margin-top:-2px;margin-bottom:7px;
+  font-size:6.5px;color:#7fa1ad
+}
+.aisVesselCaption b{font-size:7px;color:#b8d0d8}
+.aisTrafficNote{
+  margin-top:7px;padding:7px 8px;border-radius:7px;background:#0a3344;
+  border:1px solid #58cde735;color:#b9d8e2;font-size:7px;line-height:1.4
+}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17193,7 +17211,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.35.1 • AIS TARGET SELECTION FIX</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.35.2 • AIS TRAFFIC & VESSEL PROFILES</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -21626,18 +21644,97 @@ function aisSetLesson(n){
 function aisFrame(ts){
  let dt=Math.min((ts-aisLast)/1000,.12);aisLast=ts;
  if(aisRunning){
-   const scale=10; // accelerated training clock
+   const scale=4; // calmer 4x training clock for easier target selection
    const ov=aisVel(aisOwn.cog,aisOwn.sog);
    aisOwn.x+=ov.x*dt*scale/3600;aisOwn.y+=ov.y*dt*scale/3600;
    aisTargets.forEach(t=>{
      if(t.lost){t.age+=dt*scale;return}
      const v=aisVel(t.cog,t.sog);t.x+=v.x*dt*scale/3600;t.y+=v.y*dt*scale/3600;t.age=Math.max(0.5,(t.age+dt*scale)%28);
    });
+   aisPreventTargetCollisions();
    aisDraw();aisUpdatePanel();
  }
  aisRAF=requestAnimationFrame(aisFrame);
 }
 function aisVel(cog,sog){let r=cog*Math.PI/180;return{x:Math.sin(r)*sog,y:Math.cos(r)*sog}}
+
+function aisPreventTargetCollisions(){
+  // Training-world guardrail only: allow close quarters, but stop fictional
+  // targets from physically overlapping/colliding with one another or Suilven.
+  const minTargetSep=.16; // NM
+  const minOwnSep=.20;    // NM
+
+  // Target-to-target separation
+  for(let i=0;i<aisTargets.length;i++){
+    const a=aisTargets[i]; if(a.lost)continue;
+    for(let j=i+1;j<aisTargets.length;j++){
+      const b=aisTargets[j]; if(b.lost)continue;
+      let dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
+      if(d>0 && d<minTargetSep){
+        const push=(minTargetSep-d)/2;
+        const ux=dx/d,uy=dy/d;
+        a.x-=ux*push; a.y-=uy*push;
+        b.x+=ux*push; b.y+=uy*push;
+        // Slight speed easing gives a natural close-quarters feel.
+        a.sog=Math.max(2,a.sog*.985);
+        b.sog=Math.max(2,b.sog*.985);
+      }
+    }
+  }
+
+  // Keep targets from physically passing through own ship.
+  aisTargets.forEach(t=>{
+    if(t.lost)return;
+    let dx=t.x-aisOwn.x,dy=t.y-aisOwn.y,d=Math.hypot(dx,dy);
+    if(d>0 && d<minOwnSep){
+      const push=minOwnSep-d,ux=dx/d,uy=dy/d;
+      t.x+=ux*push;t.y+=uy*push;
+      t.sog=Math.max(2,t.sog*.98);
+    }
+  });
+}
+
+function aisVesselProfileSVG(t){
+  // Original Project Watch vector illustration — no third-party vessel imagery.
+  const type=(t.type||'Cargo').toLowerCase();
+  let body='#4b5960',superstructure='#ece9dd',accent='#263940';
+  let shape='',extras='';
+
+  if(type.includes('tanker')){
+    body='#7d3e3e';
+    shape='<path d="M70 96 L280 96 L305 118 L292 128 L58 128 L45 116 Z" fill="'+body+'"/>';
+    extras='<rect x="92" y="78" width="130" height="11" rx="4" fill="#d7d4c9"/><rect x="230" y="60" width="35" height="36" fill="'+superstructure+'"/><rect x="239" y="48" width="10" height="12" fill="'+accent+'"/>';
+  }else if(type.includes('passenger')){
+    body='#315d7b';
+    shape='<path d="M58 93 L285 93 L309 113 L300 128 L47 128 L38 115 Z" fill="'+body+'"/>';
+    extras='<rect x="95" y="60" width="145" height="34" rx="6" fill="'+superstructure+'"/><rect x="112" y="47" width="108" height="15" rx="4" fill="#eef6f4"/><g fill="#24445b"><rect x="110" y="69" width="18" height="7"/><rect x="138" y="69" width="18" height="7"/><rect x="166" y="69" width="18" height="7"/><rect x="194" y="69" width="18" height="7"/></g>';
+  }else if(type.includes('fishing')){
+    body='#b06035';
+    shape='<path d="M75 100 L255 100 L284 117 L271 129 L58 129 L45 118 Z" fill="'+body+'"/>';
+    extras='<rect x="180" y="64" width="48" height="37" fill="'+superstructure+'"/><path d="M160 98 L160 45 M160 50 L130 74 M160 50 L195 72" stroke="'+accent+'" stroke-width="4"/><path d="M125 77 L102 103 M197 74 L225 101" stroke="'+accent+'" stroke-width="3"/>';
+  }else if(type.includes('tug')){
+    body='#5a4d40';
+    shape='<path d="M88 99 L245 99 L269 116 L257 129 L72 129 L58 118 Z" fill="'+body+'"/>';
+    extras='<rect x="145" y="61" width="58" height="39" rx="4" fill="'+superstructure+'"/><rect x="157" y="48" width="34" height="14" fill="#d9e6e3"/><rect x="168" y="31" width="8" height="18" fill="'+accent+'"/>';
+  }else if(type.includes('pleasure')){
+    body='#704f73';
+    shape='<path d="M72 103 L248 103 L278 115 L260 126 L55 126 Z" fill="'+body+'"/>';
+    extras='<path d="M130 102 L158 63 L208 63 L226 102 Z" fill="'+superstructure+'"/><rect x="166" y="44" width="6" height="59" fill="'+accent+'"/>';
+  }else{
+    shape='<path d="M52 92 L275 92 L310 112 L295 128 L40 128 L30 113 Z" fill="'+body+'"/>';
+    extras='<g fill="#7a8b90"><rect x="76" y="66" width="34" height="26"/><rect x="115" y="66" width="34" height="26"/><rect x="154" y="66" width="34" height="26"/></g><rect x="224" y="57" width="42" height="36" fill="'+superstructure+'"/><rect x="238" y="40" width="11" height="18" fill="'+accent+'"/>';
+  }
+
+  return `<svg viewBox="0 0 340 160" aria-label="${t.type} vessel illustration">
+    <rect width="340" height="160" fill="#9dcbd6"/>
+    <path d="M0 119 C60 112 110 122 170 116 S280 120 340 112 V160 H0 Z" fill="#477f95"/>
+    <path d="M0 127 C55 121 110 132 170 125 S280 130 340 121" fill="none" stroke="#d8eff3" stroke-width="2" opacity=".8"/>
+    <circle cx="286" cy="35" r="18" fill="#f0df9f" opacity=".7"/>
+    ${shape}${extras}
+    <path d="M45 130 C120 137 215 137 300 130" stroke="#eef7f8" stroke-width="3" fill="none" opacity=".85"/>
+  </svg>`;
+}
+
 function aisRel(t){
  const dx=t.x-aisOwn.x,dy=t.y-aisOwn.y,range=Math.hypot(dx,dy),bearing=(Math.atan2(dx,dy)*180/Math.PI+360)%360;
  const vo=aisVel(aisOwn.cog,aisOwn.sog),vt=aisVel(t.cog,t.sog),rv={x:vt.x-vo.x,y:vt.y-vo.y},vv=rv.x*rv.x+rv.y*rv.y;
@@ -21737,6 +21834,8 @@ function aisUpdatePanel(){
  const r=aisRel(t),danger=aisDanger(t);
  const diff=Math.abs((((t.cog-t.hdg)+540)%360)-180);
  panel.innerHTML=`<div class="aisTargetHead"><div><div class="ver">${aisTypeLabel(t).toUpperCase()} • AIS CLASS ${t.cls}</div><h3>${t.name}</h3></div><span class="aisTargetClass">CLASS ${t.cls}</span></div>
+  <div class="aisVesselPhoto">${aisVesselProfileSVG(t)}</div>
+  <div class="aisVesselCaption"><b>PROJECT WATCH VESSEL PROFILE</b><span>Original training illustration • fictional vessel</span></div>
   <div class="aisTargetGrid">
    <div><small>MMSI</small><b>${t.mmsi}</b></div><div><small>CALL SIGN</small><b>${t.call||'—'}</b></div>
    <div><small>RANGE</small><b>${r.range.toFixed(2)} NM</b></div><div><small>BEARING</small><b>${String(Math.round(r.bearing)).padStart(3,'0')}°T</b></div>
@@ -21748,7 +21847,8 @@ function aisUpdatePanel(){
    <div><small>DRAUGHT</small><b>${t.draught||'—'}</b></div><div><small>SIZE</small><b>${t.len} × ${t.beam}</b></div>
   </div>
   <div class="${danger?'aisTargetDanger':'aisTargetGood'}">${t.lost?'LOST / STALE AIS TARGET':danger?'DANGEROUS PREDICTED APPROACH':'NO TRAINING DANGER FLAG'}</div>
-  <div class="aisTargetNote">${t.cls==='B'?'Class B example: some Class A voyage/status fields are deliberately absent. ':''}${t.lost?'This is the last received position. The vessel may still be present and moving. ':''}CPA/TCPA are predictions from present motion and must be checked against the full traffic picture.</div>`;
+  <div class="aisTargetNote">${t.cls==='B'?'Class B example: some Class A voyage/status fields are deliberately absent. ':''}${t.lost?'This is the last received position. The vessel may still be present and moving. ':''}CPA/TCPA are predictions from present motion and must be checked against the full traffic picture.</div>
+  <div class="aisTrafficNote">Training traffic is intentionally slowed. Targets may enter close-quarters situations for learning, but the simulation now prevents fictional vessels from physically colliding with each other or Suilven.</div>`;
 }
 
 const MODULE_META={
