@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.34 — Collision Examination Suite</title>
+<title>Project Watch 1.35 — Readability Upgrade</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17124,7 +17124,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.34 • COLLISION EXAMINATION SUITE</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.35 • READABILITY UPGRADE</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -21658,4 +21658,147 @@ try{enhanceHomeHub();updateHeaderNav('home');updateModuleContext('home');}catch(
 </div>
 
 </body></html>
-<style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
+<style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}
+
+/* ============================================================
+   PROJECT WATCH 1.35 — GLOBAL READABILITY UPGRADE
+   Training/content typography only. Buttons and controls retain
+   their existing sizes. Final cascade layer intentionally wins
+   over earlier module-specific small-text declarations.
+   ============================================================ */
+
+:root{
+  --pw-body-text: clamp(14px, 1.12vw, 17px);
+  --pw-small-text: clamp(12px, .96vw, 15px);
+  --pw-meta-text: clamp(11px, .86vw, 13px);
+  --pw-card-title: clamp(15px, 1.22vw, 19px);
+  --pw-section-title: clamp(20px, 1.7vw, 28px);
+  --pw-question-text: clamp(18px, 1.65vw, 25px);
+  --pw-readable-leading: 1.48;
+}
+
+/* General readable copy throughout pages, modules, cards, panels,
+   tutorials, debriefs, help, notes and assessments. */
+body :where(
+  .appPage,.screen,.panel,.card,.homeCard,.moduleCard,.lessonCard,
+  .tutorialCard,.detailSheet,.scenarioCard,.scenarioDeck,.briefCard,
+  .watchCard,.debriefCard,.examHero,.examBasis,.collisionExamSection,
+  .examIntroCard,.examQuestionArea,.examReview,.oralHeader,.practicalHeader,
+  .practicalExamCard,.examSourceNote,.examStandardNote,
+  .ttDemo,.ttLesson,.bpLesson,.buoyLesson,.lightsLesson,.colregsLesson
+) :where(p,li,dd,blockquote){
+  font-size:var(--pw-body-text) !important;
+  line-height:var(--pw-readable-leading) !important;
+}
+
+/* Explanatory spans/small print inside content — but not button/control text. */
+body :where(
+  .appPage,.screen,.panel,.card,.homeCard,.moduleCard,.lessonCard,
+  .tutorialCard,.detailSheet,.scenarioCard,.briefCard,.watchCard,
+  .debriefCard,.examHero,.examBasis,.collisionExamSection,.examIntroCard,
+  .examQuestionArea,.examReview,.oralHeader,.practicalHeader,
+  .practicalExamCard,.examSourceNote,.examStandardNote
+) :where(small,.note,.hint,.help,.guideLabel,.answerKey,.why){
+  font-size:var(--pw-small-text) !important;
+  line-height:1.42 !important;
+}
+
+/* Labels / metadata remain visually secondary, but no longer microscopic. */
+body :where(
+  .appPage,.screen,.panel,.card,.lessonCard,.tutorialCard,.detailSheet,
+  .scenarioCard,.briefCard,.watchCard,.debriefCard,.collisionExamSection
+) :where(.ver,.eyebrow,.kicker,.meta,.ruleRef,.examRuleRef){
+  font-size:var(--pw-meta-text) !important;
+  line-height:1.3 !important;
+}
+
+/* Content headings. */
+body :where(
+  .appPage,.screen,.panel,.card,.lessonCard,.tutorialCard,.detailSheet,
+  .scenarioCard,.briefCard,.watchCard,.debriefCard,.collisionExamSection
+) :where(h3,h4){
+  font-size:var(--pw-card-title) !important;
+  line-height:1.25 !important;
+}
+body :where(
+  .appPage,.screen,.tutorialCard,.detailSheet,.collisionExamSection
+) :where(h2){
+  font-size:var(--pw-section-title) !important;
+  line-height:1.18 !important;
+}
+
+/* Examination text: intentionally larger than ordinary body copy. */
+.examQuestion{
+  font-size:var(--pw-question-text) !important;
+  line-height:1.38 !important;
+}
+.examScenarioStem{
+  font-size:var(--pw-body-text) !important;
+  line-height:1.48 !important;
+}
+.examReview b,
+.examBasis b,
+.examIntroCard b,
+.practicalExamCard h4{
+  font-size:var(--pw-card-title) !important;
+  line-height:1.3 !important;
+}
+.examReview p,
+.examIntroCard small,
+.examHero p,
+.oralHeader p,
+.practicalHeader p,
+.practicalExamCard p,
+.examSourceNote,
+.examStandardNote{
+  font-size:var(--pw-body-text) !important;
+  line-height:1.5 !important;
+}
+
+/* Tutorial/training prose that historically used compact labels. */
+body :where(
+  [class*="tutorial"],[class*="Tutorial"],[class*="lesson"],[class*="Lesson"],
+  [class*="training"],[class*="Training"],[class*="brief"],[class*="Brief"],
+  [class*="debrief"],[class*="Debrief"]
+) :where(p,li,span:not(.icon):not(.dot):not(.statusDot),small){
+  font-size:var(--pw-body-text) !important;
+  line-height:1.48 !important;
+}
+
+/* Do not resize button/control/navigation text. */
+button, .btn, [role="button"], input, select, textarea,
+nav, nav *, .topNav, .topNav *, .modeTabs, .modeTabs *,
+.examModeTabs button, .examChoices button, .examNav button{
+  /* existing component typography intentionally retained */
+}
+
+/* iPad / tablet: establish a comfortable minimum independent of viewport width. */
+@media (max-width:1180px){
+  :root{
+    --pw-body-text:15px;
+    --pw-small-text:13px;
+    --pw-meta-text:12px;
+    --pw-card-title:17px;
+    --pw-section-title:23px;
+    --pw-question-text:21px;
+  }
+}
+
+/* Phone: readable copy without changing the existing button system/layout. */
+@media (max-width:700px){
+  :root{
+    --pw-body-text:15px;
+    --pw-small-text:13px;
+    --pw-meta-text:12px;
+    --pw-card-title:17px;
+    --pw-section-title:22px;
+    --pw-question-text:20px;
+  }
+  body :where(.appPage,.screen,.panel,.card,.lessonCard,.tutorialCard,
+    .detailSheet,.scenarioCard,.briefCard,.watchCard,.debriefCard,
+    .collisionExamSection){
+    overflow-wrap:anywhere;
+  }
+}
+
+</style>
