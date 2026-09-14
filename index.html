@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.32 — TSS Beginner Course & Live Demo</title>
+<title>Project Watch 1.32.1 — COLREG-Verified TSS Demonstrations</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -581,6 +581,19 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 
 /* 1.32 TSS beginner course */
+
+/* 1.32.1 verified TSS demo chart refinements */
+.ttDemo .laneLabel{font-size:10px;font-weight:900;fill:#934b4b;letter-spacing:.25px}
+.ttDemo .zoneLabel{font-size:10px;font-weight:900;fill:#9b4b4b;letter-spacing:.2px}
+.ttDemo .guideLabel{font-size:8px;font-weight:900;fill:#123e4e}
+.ttDemo .ruleLabel{font-size:8px;font-weight:900;fill:#0a6d59}
+.ttDemo .warnLabel{font-size:8px;font-weight:900;fill:#9a3030}
+.ttDemo .trackGood{stroke:#0b8f62;stroke-width:5;stroke-dasharray:11 7;fill:none}
+.ttDemo .trackInfo{stroke:#0b6286;stroke-width:3;stroke-dasharray:7 6;fill:none}
+.ttDemo .laneBoundary{stroke:#a95b5b;stroke-width:3;fill:none}
+.ttDemo .sepBoundary{stroke:#b76666;stroke-width:2;stroke-dasharray:9 6;fill:none}
+.ttDemo .termination{stroke:#9d5252;stroke-width:5}
+
 .tssBeginnerLaunch{margin:8px 0 11px}.tssBeginnerLaunch button{width:100%;display:grid;grid-template-columns:120px 1fr auto;grid-template-rows:auto auto;gap:2px 12px;align-items:center;text-align:left;padding:12px 14px;border-radius:12px;background:linear-gradient(100deg,#0b6f93,#0b4663);border:1px solid #6ee2ff66;color:#fff;box-shadow:0 8px 22px #0003}.tssBeginnerLaunch span{grid-row:1/3;font-size:9px;font-weight:900;color:#a8efff}.tssBeginnerLaunch b{font-size:11px}.tssBeginnerLaunch small{font-size:7px;color:#b7d7e1}.tssBeginnerLaunch em{grid-row:1/3;grid-column:3;font-style:normal;font-size:8px;font-weight:900}
 .tutTssHero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:24px;border-radius:18px;background:linear-gradient(135deg,#052b3d,#07445e);border:1px solid #ffffff18;box-shadow:0 12px 32px #0004}.tutTssHero h1{font-size:28px;margin:3px 0 6px}.tutTssHero p{max-width:780px;margin:0;color:#b9d0d9;font-size:10px;line-height:1.5}.tutTssBadge{padding:11px 13px;border-radius:11px;background:#031b27;border:1px solid #6ee0ff42;text-align:right}.tutTssBadge small,.tutTssBadge span{display:block;font-size:7px;color:#8fb5c4}.tutTssBadge b{display:block;font-size:17px;margin:2px 0}
 .tutTssProgress{margin:10px 0 12px;padding:9px 11px;background:#041e2b;border:1px solid #ffffff13;border-radius:10px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;font-size:7px;color:#91adba}.tutTssProgress i{height:7px;background:#02141d;border-radius:8px;overflow:hidden}.tutTssProgress em{display:block;height:100%;background:#44d09a;width:11.11%}
@@ -17086,7 +17099,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.29 • COLREGS BEGINNER COURSE</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.32.1 • VERIFIED TSS DEMONSTRATIONS</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 <div id="moduleContext" class="moduleContext" aria-live="polite">
   <div class="moduleContextNo" id="moduleContextNo">01</div>
@@ -19600,20 +19613,170 @@ function ttRunDemo(){
  ttRAF=requestAnimationFrame(frame);
 }
 function ttShip(x,y,h,label='SUILVEN',fill='#a12f2f'){
- return `<g transform="translate(${x} ${y}) rotate(${h})"><path d="M0,-19 L10,13 L0,21 L-10,13 Z" fill="${fill}" stroke="#4b1a1a" stroke-width="2"/><line x1="0" y1="-18" x2="0" y2="-45" stroke="${fill}" stroke-width="2"/></g><text x="${x+12}" y="${y-10}" font-size="8" fill="#183d4b" font-weight="800">${label}</text>`;
+ return `<g transform="translate(${x} ${y}) rotate(${h})">
+   <path d="M0,-22 L11,10 L8,18 L0,22 L-8,18 L-11,10 Z" fill="${fill}" stroke="#4b1a1a" stroke-width="2"/>
+   <line x1="0" y1="-21" x2="0" y2="-48" stroke="${fill}" stroke-width="2"/>
+ </g>
+ <text x="${x+13}" y="${y-10}" font-size="8" fill="#183d4b" font-weight="800">${label}</text>`;
 }
 function ttDraw(mode,p){
- let ship='',extra='',caption='';
- if(mode==='layout'){ship=ttShip(450,430,0);caption='READ THE SCHEME BEFORE YOU ENTER';}
- if(mode==='follow'){ship=ttShip(120+620*p,150,90);caption='FOLLOW THE GENERAL DIRECTION OF TRAFFIC FLOW';}
- if(mode==='cross'){let y=455-365*p,x=450+70*p;ship=ttShip(x,y,0);extra=`<path d="M450 455 L${x} ${y}" stroke="#0b8f62" stroke-width="5" stroke-dasharray="10 7" fill="none"/><line x1="${x}" y1="${y}" x2="${x}" y2="${y-75}" stroke="#a12f2f" stroke-width="3"/><text x="${x+10}" y="${y-55}" font-size="8" fill="#8e3030" font-weight="800">HEADING 000°</text>`;caption='HEADING ≈ 90° TO TRAFFIC FLOW • TIDE MAY SKEW THE TRACK';}
- if(mode==='join'){let x=80+520*p,y=165-20*p;ship=ttShip(x,y,70);extra=`<path d="M80 165 Q280 205 ${x} ${y}" stroke="#0b8f62" stroke-width="5" stroke-dasharray="10 7" fill="none"/>`;caption='JOIN FROM THE SIDE AT A SMALL ANGLE';}
- if(mode==='zone'){ship=ttShip(450,410,0);extra='<path d="M160 250H740" stroke="#d23b3b" stroke-width="18" opacity=".25"/><text x="350" y="255" font-size="11" fill="#a22" font-weight="900">DO NOT USE AS SPARE SEA ROOM</text>';caption='SEPARATION ZONE DIVIDES OPPOSING TRAFFIC';}
- if(mode==='itz'){let x=120+250*p;ship=ttShip(x,410,90);extra='<rect x="40" y="345" width="780" height="105" fill="#e8d49e" opacity=".55"/><text x="55" y="370" font-size="10" fill="#765b28" font-weight="900">INSHORE TRAFFIC ZONE</text>';caption='ITZ USE IS SPECIFICALLY CONTROLLED BY RULE 10(d)';}
- if(mode==='impede'){ship=ttShip(450,330,0,'SAILING / SMALL','#146e78');extra=ttShip(170+560*p,150,90,'LANE SHIP','#6b7c85');caption='DO NOT IMPEDE THE SAFE PASSAGE OF LANE TRAFFIC';}
- if(mode==='avoid'){ship=ttShip(120,430,0);extra='<path d="M120 420 Q70 300 90 150" stroke="#0b8f62" stroke-width="5" stroke-dasharray="10 7" fill="none"/><text x="35" y="130" font-size="9" fill="#166b58" font-weight="900">KEEP A WIDE PRACTICABLE MARGIN</text>';caption='NOT USING THE TSS? KEEP CLEAR BY A WIDE PRACTICABLE MARGIN';}
- if(mode==='final'){let phase=p<.25?0:p<.8?(p-.25)/.55:1,x=450,y=455-365*phase;ship=ttShip(x,y,0);extra=`<path d="M450 455 L${x} ${y}" stroke="#0b8f62" stroke-width="5" stroke-dasharray="10 7" fill="none"/>`+ttShip(150+520*p,150,90,'TRAFFIC','#687b84')+ttShip(760-520*p,315,270,'TRAFFIC','#687b84');caption=p<.25?'ASSESS THE TRAFFIC BEFORE COMMITTING':p<.8?'CROSS ON THE CORRECT HEADING • KEEP ASSESSING RISK':'CLEAR THE SCHEME AND CONTINUE THE WATCH';}
- $('ttDemo').innerHTML=`<svg viewBox="0 0 900 520"><rect width="900" height="520" fill="#eee4cc"/><g stroke="#c8bfa9"><path d="M0 80H900M0 160H900M0 240H900M0 320H900M0 400H900M0 480H900"/><path d="M100 0V520M200 0V520M300 0V520M400 0V520M500 0V520M600 0V520M700 0V520M800 0V520"/></g><rect x="40" y="95" width="820" height="110" fill="#d9cbb0" opacity=".45"/><rect x="40" y="285" width="820" height="110" fill="#d9cbb0" opacity=".45"/><rect x="40" y="230" width="820" height="40" fill="#d69a9a" opacity=".35"/><g fill="#a05252" font-size="12" font-weight="900"><text x="120" y="125">TRAFFIC FLOW →</text><text x="610" y="370">← TRAFFIC FLOW</text><text x="360" y="255">SEPARATION ZONE</text></g>${extra}${ship}<rect x="18" y="474" width="864" height="30" rx="7" fill="#062431e8"/><text x="450" y="494" text-anchor="middle" font-size="10" fill="#eafaff" font-weight="900">${caption}</text></svg>`;
+  // Geometry convention used throughout the tutorial:
+  // upper lane = traffic to the EAST/right; lower lane = traffic to the WEST/left.
+  // The central separation zone lies between them.
+  const xL=105,xR=795;
+  const topY1=105,topY2=205,sepY1=225,sepY2=275,botY1=295,botY2=395;
+  let vessels='',tracks='',notes='',caption='';
+
+  const topTraffic=(x)=>ttShip(x,155,90,'LANE TRAFFIC','#667b85');
+  const botTraffic=(x)=>ttShip(x,345,270,'LANE TRAFFIC','#667b85');
+
+  if(mode==='layout'){
+    vessels=topTraffic(345)+botTraffic(575);
+    notes=`<text x="135" y="143" class="laneLabel">TRAFFIC LANE → EASTBOUND</text>
+           <text x="525" y="355" class="laneLabel">WESTBOUND ← TRAFFIC LANE</text>
+           <text x="365" y="255" class="zoneLabel">SEPARATION ZONE</text>`;
+    caption='READ THE LANE ARROWS, BOUNDARIES AND SEPARATION ZONE BEFORE ENTERING';
+  }
+
+  if(mode==='follow'){
+    const x=150+560*p;
+    vessels=ttShip(x,155,90,'SUILVEN')+botTraffic(610-280*p);
+    tracks=`<path d="M130 155 H${x}" class="trackGood"/>`;
+    notes=`<text x="140" y="130" class="ruleLabel">FOLLOW THE GENERAL DIRECTION OF TRAFFIC FLOW →</text>
+           <text x="580" y="365" class="laneLabel">← OPPOSING LANE TRAFFIC</text>`;
+    caption='USE THE APPROPRIATE LANE • FOLLOW ITS FLOW • KEEP CLEAR OF THE SEPARATION ZONE';
+  }
+
+  if(mode==='cross'){
+    // Suilven's HEADING is exactly north/up: 90° to the east/west lane flow.
+    // A blue dashed line illustrates a possible tide-skewed COG while the heading remains 000°.
+    const y=455-390*p;
+    const x=450+55*p; // ground track set by tide; bow remains pointing north
+    vessels=ttShip(x,y,0,'SUILVEN')+topTraffic(155+430*p)+botTraffic(745-410*p);
+    tracks=`<path d="M450 455 L${x} ${y}" class="trackGood"/>
+            <line x1="${x}" y1="${y}" x2="${x}" y2="${y-78}" stroke="#a12f2f" stroke-width="4"/>
+            <path d="M450 455 L505 65" class="trackInfo"/>`;
+    notes=`<text x="${Math.min(690,x+18)}" y="${Math.max(80,y-58)}" class="warnLabel">HEADING 000° • 90° TO TRAFFIC FLOW</text>
+           <text x="530" y="438" class="guideLabel">BLUE DASH = POSSIBLE TIDE-SKEWED COG</text>`;
+    caption='RULE 10(c): RIGHT-ANGLE HEADING • CROSS THE ENTIRE LANE WITHOUT STOPPING';
+  }
+
+  if(mode==='join'){
+    // Normal method: enter at the termination, then become established with the lane flow.
+    // An inset side-join path shows the alternative "small angle" geometry.
+    const x=105+500*p;
+    const y=155;
+    vessels=ttShip(x,y,90,'SUILVEN')+botTraffic(650-220*p);
+    tracks=`<path d="M85 155 H${x}" class="trackGood"/>
+            <path d="M250 215 Q355 175 470 155" class="trackInfo"/>`;
+    notes=`<line x1="${xL}" y1="${topY1}" x2="${xL}" y2="${topY2}" class="termination"/>
+           <text x="118" y="118" class="ruleLabel">NORMAL: JOIN / LEAVE AT LANE TERMINATION</text>
+           <text x="270" y="225" class="guideLabel">IF JOINING FROM SIDE: USE AS SMALL AN ANGLE AS PRACTICABLE</text>`;
+    caption='RULE 10(b)(iii): TERMINATION NORMALLY • SIDE ENTRY / EXIT ONLY AT A SMALL ANGLE';
+  }
+
+  if(mode==='zone'){
+    vessels=ttShip(455,425,0,'SUILVEN')+topTraffic(360)+botTraffic(590);
+    tracks=`<path d="M455 440 Q420 420 390 405" class="trackGood"/>`;
+    notes=`<rect x="${xL}" y="${sepY1}" width="${xR-xL}" height="${sepY2-sepY1}" fill="#d45454" opacity=".24"/>
+           <text x="350" y="253" class="zoneLabel">SEPARATION ZONE</text>
+           <text x="520" y="415" class="warnLabel">NORMAL TRANSIT STAYS OUT</text>`;
+    caption='DO NOT USE THE SEPARATION ZONE AS CONVENIENT SEA ROOM';
+  }
+
+  if(mode==='itz'){
+    // ITZ is drawn outside the lower traffic lane (coastal side), not over the lane.
+    const x=170+250*p;
+    vessels=ttShip(x,455,90,'PERMITTED ITZ USER','#146e78')+topTraffic(445)+botTraffic(640);
+    notes=`<rect x="${xL}" y="420" width="${xR-xL}" height="70" fill="#e3c671" opacity=".42"/>
+           <text x="125" y="447" class="guideLabel">INSHORE TRAFFIC ZONE</text>
+           <text x="125" y="466" class="guideLabel">USE ONLY WHEN RULE 10(d) PERMITS</text>`;
+    caption='THE ITZ IS OUTSIDE THE ADJACENT TRAFFIC LANE • ITS USE IS SPECIFICALLY CONTROLLED';
+  }
+
+  if(mode==='impede'){
+    // Lane ship remains on correct eastbound lane heading. Small/sailing vessel waits clear,
+    // then passes astern rather than forcing lane traffic to alter.
+    const tx=160+500*p;
+    const wait=p<.55;
+    const sy=wait?430:430-150*((p-.55)/.45);
+    vessels=ttShip(tx,155,90,'POWER-DRIVEN LANE SHIP','#667b85')+
+            ttShip(455,sy,0,'SMALL / SAILING','#146e78');
+    tracks=`<path d="M455 455 V${sy}" class="trackGood"/>`;
+    notes=`<text x="128" y="128" class="laneLabel">LANE TRAFFIC →</text>
+           <text x="500" y="430" class="ruleLabel">PLAN EARLY • DO NOT FORCE LANE TRAFFIC TO ALTER</text>`;
+    caption='RULE 10(j): UNDER-20 m / SAILING VESSEL SHALL NOT IMPEDE SAFE PASSAGE OF POWER-DRIVEN LANE TRAFFIC';
+  }
+
+  if(mode==='avoid'){
+    // Vessel not using scheme stays outside all defined TSS boundaries.
+    const y=455-250*p;
+    vessels=ttShip(55,y,0,'NOT USING TSS','#146e78')+topTraffic(420)+botTraffic(610);
+    tracks=`<path d="M55 470 V${y}" class="trackGood"/>`;
+    notes=`<text x="18" y="105" class="ruleLabel">KEEP A WIDE PRACTICABLE MARGIN</text>
+           <text x="135" y="128" class="laneLabel">TRAFFIC LANE →</text>
+           <text x="555" y="365" class="laneLabel">← TRAFFIC LANE</text>`;
+    caption='RULE 10(h): IF NOT USING THE SCHEME, AVOID IT BY AS WIDE A MARGIN AS PRACTICABLE';
+  }
+
+  if(mode==='final'){
+    // Full beginner demonstration:
+    // 0–25% assess outside the scheme;
+    // 25–85% cross continuously on a north heading (90° to both lane flows);
+    // 85–100% remain clear beyond the far boundary.
+    let phase=0, y=455, x=450;
+    if(p>=.25 && p<.85){
+      phase=(p-.25)/.60;
+      y=455-390*phase;
+      x=450; // no tidal set in final assessment visual: textbook 90° track/heading
+    }else if(p>=.85){
+      y=65-(p-.85)*100;
+    }
+    vessels=ttShip(x,y,0,'SUILVEN')+
+            topTraffic(130+610*p)+
+            botTraffic(780-610*p);
+    tracks=`<path d="M450 455 L450 ${Math.max(y,55)}" class="trackGood"/>`;
+    notes=`<text x="470" y="430" class="ruleLabel">START CLEAR OF THE TSS</text>
+           <text x="470" y="120" class="ruleLabel">EXIT CLEAR OF THE FAR LANE</text>
+           <text x="145" y="128" class="laneLabel">EASTBOUND →</text>
+           <text x="620" y="365" class="laneLabel">← WESTBOUND</text>`;
+    caption=p<.25
+      ?'ASSESS TRAFFIC BEFORE COMMITTING TO THE CROSSING'
+      :p<.85
+        ?'CROSS CONTINUOUSLY ON A HEADING AT 90° TO TRAFFIC FLOW • KEEP APPLYING THE OTHER COLREGS'
+        :'TSS CLEARED • CONTINUE THE WATCH';
+  }
+
+  $('ttDemo').innerHTML=`<svg viewBox="0 0 900 520">
+    <rect width="900" height="520" fill="#eee4cc"/>
+    <g stroke="#c8bfa9" opacity=".8">
+      <path d="M0 80H900M0 160H900M0 240H900M0 320H900M0 400H900M0 480H900"/>
+      <path d="M100 0V520M200 0V520M300 0V520M400 0V520M500 0V520M600 0V520M700 0V520M800 0V520"/>
+    </g>
+
+    <!-- Explicit TSS boundaries -->
+    <rect x="${xL}" y="${topY1}" width="${xR-xL}" height="${topY2-topY1}" fill="#d8c9aa" opacity=".46"/>
+    <line x1="${xL}" y1="${topY1}" x2="${xR}" y2="${topY1}" class="laneBoundary"/>
+    <line x1="${xL}" y1="${topY2}" x2="${xR}" y2="${topY2}" class="laneBoundary"/>
+
+    <rect x="${xL}" y="${sepY1}" width="${xR-xL}" height="${sepY2-sepY1}" fill="#d99999" opacity=".34"/>
+    <line x1="${xL}" y1="${sepY1}" x2="${xR}" y2="${sepY1}" class="sepBoundary"/>
+    <line x1="${xL}" y1="${sepY2}" x2="${xR}" y2="${sepY2}" class="sepBoundary"/>
+
+    <rect x="${xL}" y="${botY1}" width="${xR-xL}" height="${botY2-botY1}" fill="#d8c9aa" opacity=".46"/>
+    <line x1="${xL}" y1="${botY1}" x2="${xR}" y2="${botY1}" class="laneBoundary"/>
+    <line x1="${xL}" y1="${botY2}" x2="${xR}" y2="${botY2}" class="laneBoundary"/>
+
+    <!-- Permanent, non-overlapping traffic-flow labels -->
+    <text x="135" y="188" class="laneLabel">TRAFFIC FLOW →</text>
+    <text x="610" y="328" class="laneLabel">← TRAFFIC FLOW</text>
+    <text x="373" y="255" class="zoneLabel">SEPARATION ZONE</text>
+
+    ${tracks}${notes}${vessels}
+
+    <rect x="18" y="474" width="864" height="30" rx="7" fill="#062431e8"/>
+    <text x="450" y="494" text-anchor="middle" font-size="10" fill="#eafaff" font-weight="900">${caption}</text>
+  </svg>`;
 }
 
 function renderTSS(){
