@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.1 — Course-First Home</title>
+<title>Project Watch 1.37.2 — Separate Training Library</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37.1 — Course-First Home */
+/* Project Watch 1.37.2 — Separate Training Library */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -831,6 +831,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .homeRailStage.done span{color:#75e7ad}.homeRailStage.current span{color:#74ddfa}
 @media(max-width:1050px){.homeCourseDashboard{grid-template-columns:1fr}.homeQuickAccess{display:grid;grid-template-columns:1fr 1fr;gap:7px}.homeQuickAccess .ver,.homeQuickAccess h3,.homeQuickAccess p{grid-column:1/-1}.homeCourseStageRail{grid-template-columns:repeat(4,1fr)}.homeRailStage:nth-child(4):after,.homeRailStage:nth-child(8):after{display:none}}
 @media(max-width:700px){.homeCourseTopline{grid-template-columns:1fr}.homeCoursePercentWrap{text-align:left}.homeCourseNow{grid-template-columns:52px 1fr}.homeCourseNow button{grid-column:2;width:100%}.homeCourseMilestones{grid-template-columns:1fr 1fr}.homeQuickAccess{grid-template-columns:1fr}.homeQuickAccess button{grid-column:1}.homePathwaySnapshotHead{grid-template-columns:1fr}.homeCourseStageRail{grid-template-columns:1fr 1fr}.homeRailStage:after{display:none}}
+
+
+/* PROJECT WATCH 1.37.2 — STANDALONE TRAINING LIBRARY */
+.libraryPageHero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:22px;margin-bottom:14px;border-radius:16px;background:linear-gradient(135deg,#052b3d,#07384d);border:1px solid #ffffff17;box-shadow:0 10px 30px #0003}
+.libraryPageHero h1{font-size:29px;margin:3px 0 5px}.libraryPageHero p{max-width:760px;margin:0;font-size:9px;line-height:1.5;color:#a7c0cb}
+.libraryHeroActions{display:flex;gap:7px}.libraryHeroActions button{width:auto;white-space:nowrap}
+#libraryPage .homeSectionHead{margin-top:0}
+#libraryPage .homeGrid{margin-bottom:18px}
+@media(max-width:700px){.libraryPageHero{grid-template-columns:1fr}.libraryHeroActions{display:grid;grid-template-columns:1fr 1fr}.libraryHeroActions button{width:100%}}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17383,7 +17392,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.1 • COURSE-FIRST HOME</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.2 • SEPARATE TRAINING LIBRARY</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18108,7 +18117,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <div class="ver">QUICK ACCESS</div>
     <h3>Experienced user?</h3>
     <p>Jump straight to any simulator, reference module or assessment without affecting the recommended course order.</p>
-    <button onclick="document.getElementById('trainingLibraryHead').scrollIntoView({behavior:'smooth'})">OPEN TRAINING LIBRARY →</button>
+    <button onclick="showTrainingLibrary()">OPEN TRAINING LIBRARY →</button>
     <button class="alt" onclick="showCoursePage()">VIEW FULL COURSE MAP →</button>
   </div>
 </div>
@@ -18124,7 +18133,36 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   <div id="homeCourseStageRail" class="homeCourseStageRail"></div>
 </div>
 
-<div id="trainingLibraryHead" class="homeSectionHead">
+<div class="homeCapabilityBar">
+    <span><b>COLLISION</b><small>Guided / Watch / Exam</small></span>
+    <span><b>LIGHTS</b><small>Visual recognition + Exam</small></span>
+    <span><b>BUOYAGE</b><small>Guided passage + Exam</small></span>
+    <span><b>TSS</b><small>Under-20 m live trainer + Exam</small></span>
+    <span><b>AIS</b><small>Interactive target trainer</small></span>
+  </div>
+
+  <div class="homeFooterBar">
+    <div><small>BUILD</small><b>1.37.2</b></div>
+    <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
+    <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
+  </div>
+</section>
+
+
+
+<section id="libraryPage" class="appPage">
+  <div class="libraryPageHero">
+    <div>
+      <div class="ver">PROJECT WATCH • TRAINING LIBRARY</div>
+      <h1>Training Library</h1>
+      <p>Direct access to every Project Watch learning module, simulator, reference section and full mock assessment. Course progress is managed separately through the structured pathway.</p>
+    </div>
+    <div class="libraryHeroActions">
+      <button onclick="showModule('home')">← HOME</button>
+      <button onclick="showCoursePage()">VIEW COURSE MAP →</button>
+    </div>
+  </div>
+  <div class="homeSectionHead">
 
     <div>
       <div class="ver">TRAINING LIBRARY • DIRECT ACCESS</div>
@@ -18164,22 +18202,8 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     </button>
   </div>
 
-  <div class="homeCapabilityBar">
-    <span><b>COLLISION</b><small>Guided / Watch / Exam</small></span>
-    <span><b>LIGHTS</b><small>Visual recognition + Exam</small></span>
-    <span><b>BUOYAGE</b><small>Guided passage + Exam</small></span>
-    <span><b>TSS</b><small>Under-20 m live trainer + Exam</small></span>
-    <span><b>AIS</b><small>Interactive target trainer</small></span>
-  </div>
-
-  <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.1</b></div>
-    <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
-    <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
-  </div>
+  
 </section>
-
-
 <section id="coursePage" class="appPage">
   <div class="courseHero">
     <div>
@@ -22004,6 +22028,14 @@ function renderHomeCourseDashboard(){
  }
 }
 
+
+function showTrainingLibrary(){
+ document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
+ updateHeaderNav('library');
+ $('libraryPage').classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
 // ---------------- STRUCTURED COURSE PATHWAY ----------------
 const PW_COURSE_STORAGE='projectWatchCourseProgressV1';
 const PW_AIS_TASKS_STORAGE='projectWatchAisTasksV1';
@@ -22768,6 +22800,7 @@ function aisUpdatePanel(){
 const MODULE_META={
  home:{no:'',title:'',desc:'',state:''},
  course:{no:'COURSE',title:'Structured Training Pathway',desc:'Project Watch core curriculum, prerequisites, learning outcomes and progression.',state:'COURSE MODE'},
+ library:{no:'LIBRARY',title:'Training Library',desc:'Direct access to Project Watch learning modules, simulators, references and assessments.',state:'DIRECT ACCESS'},
  scenarios:{no:'01',title:'Collision Scenarios',desc:'Scenario briefing, guided watch, simulator and debrief.',state:'SIMULATOR MODULE'},
  colregs:{no:'02',title:'COLREGS',desc:'Rules 1–41, technical Annexes and licensed reference imagery.',state:'RULES MODULE'},
  lights:{no:'03',title:'Lights & Shapes',desc:'Bridge-view recognition of navigation lights and day shapes.',state:'RECOGNITION MODULE'},
