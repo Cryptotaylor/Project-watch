@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.30 — Lights & Shapes Beginner Course</title>
+<title>Project Watch 1.30.2 — COLREG Visual Verification</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -574,7 +574,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .lsVisualCaption{position:absolute;left:13px;right:13px;bottom:10px;padding:8px 10px;border-radius:8px;background:#001722d9;border:1px solid #ffffff15;font-size:8px;color:#dff7ff;line-height:1.4}
 .lsShapeRow{height:100%;display:flex;gap:28px;align-items:center;justify-content:center;background:linear-gradient(#8bc9df,#d7eef5)}.lsShapeDemo{text-align:center;color:#082a39;font-size:9px;font-weight:900}.lsShape{margin:0 auto 8px;background:#050505}.lsBall{width:48px;height:48px;border-radius:50%}.lsDiamond{width:42px;height:42px;transform:rotate(45deg)}.lsCone{width:0;height:0;background:transparent;border-left:25px solid transparent;border-right:25px solid transparent;border-bottom:52px solid #050505}.lsCylinder{width:35px;height:65px}
 .lsPatternBoard{height:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:18px;background:#041923}.lsPattern{border:1px solid #ffffff14;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#d8edf5;font-size:8px;text-align:center}.lsDots{display:flex;flex-direction:column;gap:8px}.lsDots i{display:block;width:17px;height:17px;border-radius:50%;box-shadow:0 0 14px currentColor}.lsDots .w{background:#fff;color:#fff}.lsDots .r{background:#ff4343;color:#ff4343}.lsDots .g{background:#2ce57c;color:#2ce57c}.lsDots .y{background:#ffd23f;color:#ffd23f}
-.lsQuizWrap{margin-top:9px}.lsQuizCard{background:#031d29;border:1px solid #6ee0ff35;border-radius:10px;padding:10px}.lsQuizCard h3{margin:0 0 7px;font-size:12px}.lsQuizChoices{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.lsQuizChoices button{font-size:8px}.lsQuizResult{min-height:22px;margin-top:7px;font-size:9px;font-weight:800}.lsQuizResult.ok{color:#72e4ad}.lsQuizResult.warn{color:#ffbd72}
+.lsQuizWrap{margin-top:9px}.lsQuizCard{background:#031d29;border:1px solid #6ee0ff35;border-radius:10px;padding:10px}.lsQuizCard h3{margin:3px 0 7px;font-size:12px}.lsQuizPrompt{display:inline-block;margin-top:5px;padding:4px 6px;border-radius:5px;background:#0b5d7d;color:#dff8ff;font-size:7px;font-weight:900;letter-spacing:.55px}.lsQuizChoices{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.lsQuizChoices button{font-size:8px}.lsQuizResult{min-height:22px;margin-top:7px;font-size:9px;font-weight:800}.lsQuizResult.ok{color:#72e4ad}.lsQuizResult.warn{color:#ffbd72}
 @media(max-width:900px){.lsCourseGrid{grid-template-columns:1fr}.lsLessonList{display:grid;grid-template-columns:repeat(3,1fr)}.lsHero{grid-template-columns:1fr}.lsHeroBadge{text-align:left}}
 @media(max-width:650px){.lsLessonList{grid-template-columns:1fr}.lsLessonFacts,.lsQuizChoices{grid-template-columns:1fr}.lsLessonFooter{grid-template-columns:1fr 1fr}.lsPatternBoard{grid-template-columns:1fr 1fr}.lsHero h1{font-size:23px}}
 
@@ -18339,12 +18339,50 @@ const LS_LESSONS=[
 ];
 let lsIndex=0,lsDone=new Set(),lsQuizIndex=0;
 const LS_QUIZ=[
- ['Which colour is the port sidelight?',['Red','Green','White','Yellow'],0,'Port is red; starboard is green.'],
- ['What does red over red identify?',['Pilot vessel','Not under command','Trawling','At anchor'],1,'Two all-round red lights identify a vessel not under command.'],
- ['Green over white identifies…',['Trawling','Pilotage duty','Aground','Constrained by draught'],0,'Green over white is the trawling status-light combination.'],
- ['A sailing vessel using machinery shows which day shape?',['One ball','Diamond','Cone apex downward','Cylinder'],2,'Rule 25 uses a cone, apex downward, for a sailing vessel proceeding under machinery.'],
- ['White over red identifies…',['Pilot vessel on pilotage duty','Fishing other than trawling','Not under command','Mine clearance'],0,'White over red identifies a pilot vessel engaged on pilotage duty.']
+ ['Which colour is the port sidelight?',['Red','Green','White','Yellow'],0,'Rule 21: the port sidelight is red and the starboard sidelight is green.','portSide'],
+ ['What does red over red identify?',['Pilot vessel','Not under command','Trawling','At anchor'],1,'Rule 27: two all-round red lights in a vertical line identify a vessel not under command.','redRed'],
+ ['Green over white identifies…',['Trawling','Pilotage duty','Aground','Constrained by draught'],0,'Rule 26: green over white identifies a vessel engaged in trawling.','greenWhite'],
+ ['A sailing vessel using machinery shows which day shape?',['One ball','Diamond','Cone apex downward','Cylinder'],2,'Rule 25: a vessel proceeding under sail while also being propelled by machinery exhibits a conical shape, apex downwards, forward where it can best be seen.','coneDown'],
+ ['White over red identifies…',['Pilot vessel on pilotage duty','Fishing other than trawling','Not under command','Mine clearance'],0,'Rule 29: white over red identifies a pilot vessel engaged on pilotage duty.','whiteRed']
 ];
+
+function lsQuizVisual(kind){
+  const lamp=(c,x,y)=>`<i class="lsLamp ${c}" style="left:${x}%;top:${y}%"></i>`;
+  if(kind==='coneDown'){
+    return `<div class="lsShapeRow">
+      <div class="lsShapeDemo">
+        <div style="height:105px;display:flex;align-items:center;justify-content:center">
+          <div style="width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-top:62px solid #050505"></div>
+        </div>
+        <b>DAY SHAPE SHOWN</b>
+      </div>
+      <div class="lsVisualCaption">Identify the day shape before choosing your answer.</div>
+    </div>`;
+  }
+
+  let lights='',caption='Identify the light pattern before choosing your answer.';
+  if(kind==='portSide'){
+    lights=lamp('r',31,58);
+    caption='PORT-SIDE ASPECT • The visible sidelight is red. Which side of the vessel uses this colour?';
+  }else if(kind==='redRed'){
+    lights=lamp('r',48,28)+lamp('r',48,50);
+    caption='IDENTIFYING STATUS LIGHTS • Two all-round red lights in a vertical line. Identify the vessel status.';
+  }else if(kind==='greenWhite'){
+    lights=lamp('g',48,28)+lamp('w',48,50);
+    caption='IDENTIFYING STATUS LIGHTS • Read the all-round colours from top to bottom. Additional navigation lights depend on whether the fishing vessel is making way.';
+  }else if(kind==='whiteRed'){
+    lights=lamp('w',48,28)+lamp('r',48,50);
+    caption='IDENTIFYING PILOT LIGHTS • Read the two all-round lights from top to bottom. Other required lights depend on whether the pilot vessel is underway or at anchor.';
+  }
+  return `<div class="lsNightSky">
+    <div class="lsHorizon"></div>
+    <div class="lsVesselSil"></div>
+    <div class="lsMast"></div>
+    ${lights}
+    <div class="lsVisualCaption">${caption}</div>
+  </div>`;
+}
+
 function lsVisual(v){
  if(v==='shapes')return `<div class="lsShapeRow"><div class="lsShapeDemo"><div class="lsShape lsBall"></div>BALL</div><div class="lsShapeDemo"><div class="lsShape lsCone"></div>CONE</div><div class="lsShapeDemo"><div class="lsShape lsDiamond"></div>DIAMOND</div><div class="lsShapeDemo"><div class="lsShape lsCylinder"></div>CYLINDER</div></div>`;
  if(v==='status')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i></div><b>NOT UNDER COMMAND</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i><i class="r"></i></div><b>RESTRICTED MANOEUVRABILITY</b></div><div class="lsPattern"><div class="lsDots"><i class="g"></i><i class="w"></i></div><b>TRAWLING</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i></div><b>FISHING</b></div><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i></div><b>PILOT</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i><i class="r"></i></div><b>CONSTRAINED BY DRAUGHT • MAY EXHIBIT</b></div></div>`;
@@ -18362,7 +18400,7 @@ function renderLightsTutorial(){
  $('lsLessonList').innerHTML=LS_LESSONS.map((x,i)=>`<button class="lsLessonBtn ${i===lsIndex?'active':''} ${lsDone.has(i)?'done':''}" onclick="lsSelect(${i})"><span class="n">${String(i+1).padStart(2,'0')}</span><span><b>${x.title}</b><small>${x.sub}</small></span><span class="tick">${lsDone.has(i)?'✓':''}</span></button>`).join('');
  $('lsLessonNo').textContent='LESSON '+String(lsIndex+1).padStart(2,'0');
  $('lsLessonTitle').textContent=l.title;$('lsLessonIntro').textContent=l.intro;
- $('lsLessonVisual').innerHTML=lsVisual(l.visual);
+ $('lsLessonVisual').innerHTML=lsIndex===6?lsQuizVisual(LS_QUIZ[lsQuizIndex][4]):lsVisual(l.visual);
  $('lsLessonFacts').innerHTML=l.facts.map(f=>`<div class="lsFact"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('');
  $('lsQuizWrap').innerHTML=lsIndex===6?lsQuizHTML():'';
  $('lsProgressText').textContent=`${lsDone.size} / ${LS_LESSONS.length} COMPLETE`;
@@ -18377,7 +18415,7 @@ function lsHear(){
 }
 function lsQuizHTML(){
  let q=LS_QUIZ[lsQuizIndex];
- return `<div class="lsQuizCard"><div class="ver">QUICK RECOGNITION CHECK • ${lsQuizIndex+1} / ${LS_QUIZ.length}</div><h3>${q[0]}</h3><div class="lsQuizChoices">${q[1].map((x,i)=>`<button onclick="lsAnswer(${i})">${x}</button>`).join('')}</div><div id="lsQuizResult" class="lsQuizResult"></div></div>`;
+ return `<div class="lsQuizCard"><div class="ver">QUICK RECOGNITION CHECK • ${lsQuizIndex+1} / ${LS_QUIZ.length}</div><div class="lsQuizPrompt">LOOK AT THE DISPLAY ABOVE</div><h3>${q[0]}</h3><div class="lsQuizChoices">${q[1].map((x,i)=>`<button onclick="lsAnswer(${i})">${x}</button>`).join('')}</div><div id="lsQuizResult" class="lsQuizResult"></div></div>`;
 }
 function lsAnswer(i){
  let q=LS_QUIZ[lsQuizIndex],ok=i===q[2],r=$('lsQuizResult');
