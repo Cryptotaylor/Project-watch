@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.20.4 — TSS Termination Audit</title>
+<title>Project Watch 1.20.5 — TSS Termination Diagram</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -12985,7 +12985,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.20.4 • TSS TERMINATION AUDIT</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.20.5 • TSS TERMINATION DIAGRAM</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -14391,11 +14391,20 @@ function setTSSGeometry(mode){
   join:{hdg:'075°',cog:'075°',angle:'SHALLOW ✓',mode:'JOIN',v:'✓ CORRECT — joining from side at a small angle',cls:'goodV',note:'When joining from the side, use as small an angle to the general direction of traffic flow as practicable.'},
   leave:{hdg:'105°',cog:'105°',angle:'SHALLOW ✓',mode:'LEAVE',v:'✓ CORRECT — leaving to side at a small angle',cls:'goodV',note:'When leaving to the side, peel away at as small an angle to the general traffic flow as practicable.'},
   badjoin:{hdg:'010°',cog:'010°',angle:'STEEP ✕',mode:'INCORRECT',v:'✕ INCORRECT — steep side entry',cls:'badV',note:'This deliberately steep entry is not the small-angle side joining geometry Rule 10 calls for.'},
-  termination:{hdg:'LANE',cog:'LANE',angle:'END',mode:'PREFERRED',v:'★ NORMAL METHOD — join or leave through the lane termination',cls:'infoV',note:'The lane now visibly ends in the graphic. Rule 10 says vessels should normally join or leave at the termination, and Rule 10(f) calls for particular caution near terminations.'}
+  termination:{hdg:'JOIN / LEAVE',cog:'TERMINATION',angle:'10(b)(iii)',mode:'RULE 10(f)',v:'★ NORMAL METHOD — join or leave at the lane termination',cls:'infoV',note:'Simplified training view: the traffic lanes visibly start/end at the termination, with open water beyond. Particular caution is required near TSS terminations.'}
  }[mode];
  ['tssBridgeHdg','tssBridgeCog','tssCrossAngle','tssBridgeMode'].forEach((id,i)=>{if($(id))$(id).textContent=[meta.hdg,meta.cog,meta.angle,meta.mode][i]});
  if($('tssGeometryNote'))$('tssGeometryNote').textContent=meta.note;
- if($('tssVerdict')){$('tssVerdict').textContent=meta.v;$('tssVerdict').className='tssVerdict '+meta.cls}
+ if($('tssVerdict')){$('tssVerdict').textContent=meta.v;$('tssVerdict').className='tssVerdict '+meta.cls};
+ const hud=$('tssBridgeHdg')?.parentElement?.parentElement;
+ if(hud){
+   const labels=hud.querySelectorAll('small');
+   if(mode==='termination'){
+     ['MANOEUVRE','LOCATION','RULE','CAUTION'].forEach((v,i)=>{if(labels[i])labels[i].textContent=v});
+   }else{
+     ['OWN HDG','OWN COG','GEOMETRY','MODE'].forEach((v,i)=>{if(labels[i])labels[i].textContent=v});
+   }
+ }
  if($('tssEcdisExample'))$('tssEcdisExample').innerHTML=tssEcdisSVG(false,mode);
 }
 
@@ -14445,33 +14454,54 @@ function tssEcdisSVG(live=false,mode=tssGeometryMode){
    ownShip=`<g transform="translate(390 120) rotate(140)"><path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/></g>`;
    angleMark=`<g fill="#c92f38" font-weight="900"><text x="350" y="105" font-size="42">✕</text><text x="445" y="175" font-size="14">STEEP SIDE ENTRY ✕</text></g>`;
  } else {
-   // Lane termination teaching graphic: show the actual open end of the lane,
-   // with one vessel joining through the end and one leaving through the end.
-   ownTrack=`
-     <path d="M85 125 C145 128 205 132 275 140" stroke="#18815b" stroke-width="5" stroke-dasharray="9 7"/>
-     <path d="M275 140 C335 148 385 155 430 162" stroke="#18815b" stroke-width="5"/>
-     <path d="M430 162 C485 170 535 178 585 185" stroke="#18815b" stroke-width="5" stroke-dasharray="9 7"/>
-   `;
-   ownShip=`
-     <g transform="translate(430 162) rotate(98)">
-       <path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/>
-     </g>
-   `;
-   angleMark=`
-     <g font-weight="900">
-       <text x="65" y="92" fill="#16744e" font-size="14">✓ JOIN THROUGH LANE TERMINATION</text>
-       <text x="495" y="135" fill="#16744e" font-size="14">✓ LEAVE THROUGH LANE TERMINATION</text>
-       <text x="255" y="245" fill="#245b70" font-size="13">⚠ PARTICULAR CAUTION NEAR TERMINATION — RULE 10(f)</text>
-     </g>
-     <!-- mask the lane beyond the termination so the end is visually obvious -->
-     <rect x="0" y="0" width="115" height="220" fill="#eee4cc" opacity="0.98"/>
-     <rect x="785" y="270" width="115" height="250" fill="#eee4cc" opacity="0.98"/>
-     <!-- termination end-caps -->
-     <line x1="115" y1="112" x2="115" y2="192" stroke="#9f5353" stroke-width="4"/>
-     <line x1="785" y1="372" x2="785" y2="455" stroke="#9f5353" stroke-width="4"/>
-     <text x="122" y="105" fill="#7a4a4a" font-size="12" font-weight="800">LANE TERMINATION</text>
-     <text x="665" y="470" fill="#7a4a4a" font-size="12" font-weight="800">LANE TERMINATION</text>
-   `;
+   // Dedicated Rule 10 lane-termination schematic. Deliberately simplified:
+   // no AIS targets, ECDIS clutter or artificial end-caps.
+   return `<svg viewBox="0 0 900 520" role="img" aria-label="Simple Rule 10 traffic lane termination diagram">
+    <rect width="900" height="520" fill="#eee4cc"/>
+    <text x="450" y="42" text-anchor="middle" fill="#183d4d" font-size="23" font-weight="900">TRAFFIC LANE TERMINATION</text>
+    <text x="450" y="68" text-anchor="middle" fill="#53656b" font-size="13">Simplified Rule 10 training diagram</text>
+
+    <!-- Upper traffic lane visibly begins at x=275 -->
+    <path d="M275 125 L845 125" stroke="#9f5353" stroke-width="4"/>
+    <path d="M275 225 L845 225" stroke="#9f5353" stroke-width="4"/>
+    <g fill="#9f5353" font-size="25" font-weight="900">
+      <text x="420" y="185">→</text><text x="545" y="185">→</text><text x="670" y="185">→</text>
+    </g>
+    <text x="585" y="112" text-anchor="middle" fill="#7a4a4a" font-size="14" font-weight="800">TRAFFIC LANE</text>
+
+    <!-- Join at termination: outside open water into lane end -->
+    <path d="M70 85 C145 88 205 100 275 150 C330 165 365 172 405 175" fill="none" stroke="#16815a" stroke-width="6" stroke-dasharray="10 7"/>
+    <g transform="translate(175 103) rotate(110)">
+      <path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/>
+    </g>
+    <text x="75" y="78" fill="#16744e" font-size="17" font-weight="900">✓ JOIN AT TERMINATION</text>
+
+    <!-- separation zone -->
+    <path d="M275 260 L845 260" stroke="#bd7373" stroke-width="2.5" stroke-dasharray="10 8"/>
+    <path d="M275 310 L845 310" stroke="#bd7373" stroke-width="2.5" stroke-dasharray="10 8"/>
+    <text x="585" y="291" text-anchor="middle" fill="#925858" font-size="14" font-weight="800">SEPARATION ZONE</text>
+
+    <!-- Lower opposing lane visibly ends at x=275 -->
+    <path d="M275 345 L845 345" stroke="#9f5353" stroke-width="4"/>
+    <path d="M275 445 L845 445" stroke="#9f5353" stroke-width="4"/>
+    <g fill="#9f5353" font-size="25" font-weight="900">
+      <text x="690" y="405">←</text><text x="565" y="405">←</text><text x="440" y="405">←</text>
+    </g>
+    <text x="585" y="465" text-anchor="middle" fill="#7a4a4a" font-size="14" font-weight="800">TRAFFIC LANE</text>
+
+    <!-- Leave at termination into open water -->
+    <path d="M440 395 C370 395 320 400 275 420 C215 452 150 465 72 466" fill="none" stroke="#16815a" stroke-width="6" stroke-dasharray="10 7"/>
+    <g transform="translate(175 452) rotate(-75)">
+      <path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/>
+    </g>
+    <text x="70" y="505" fill="#16744e" font-size="17" font-weight="900">✓ LEAVE AT TERMINATION</text>
+
+    <!-- unmistakable open end -->
+    <path d="M265 105 L265 465" stroke="#5b7b86" stroke-width="2" stroke-dasharray="5 7"/>
+    <text x="255" y="252" text-anchor="end" fill="#245b70" font-size="14" font-weight="900">LANE</text>
+    <text x="255" y="270" text-anchor="end" fill="#245b70" font-size="14" font-weight="900">TERMINATION</text>
+    <text x="120" y="290" text-anchor="middle" fill="#53656b" font-size="14" font-weight="800">OPEN WATER</text>
+   </svg>`;
  }
 
  return `<svg viewBox="0 0 900 520" aria-label="Project Watch ECDIS-style TSS crossing display">
