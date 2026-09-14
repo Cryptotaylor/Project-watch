@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.16 — Complete Lights & Shapes</title>
+<title>Project Watch 1.17 — Sailing Collision Scenarios</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -149,6 +149,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bridgeShape{fill:#050505}.bridgeQuiz{margin-top:10px}.bridgeQuiz .quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:650px){.bridgeScene{height:340px}.bridgeScene svg{height:325px}.bridgeControls{grid-template-columns:repeat(2,1fr)}}
 
+
+.vesselMode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.vesselMode button{background:#16475e;min-height:58px}
+.vesselMode button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.modeExplainer{background:#041f2d;border-radius:11px;padding:10px;margin-top:8px;color:#c6dce6;font-size:12px;line-height:1.45}
+.sailTag{display:inline-block;background:#174d5f;border-radius:20px;padding:3px 7px;font-size:9px;margin-left:4px}
+#sailPanel{display:none}
+#enginePanel.sailing-disabled{opacity:.35;pointer-events:none}
+
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
 
@@ -181,6 +190,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bridgeLight{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 18px currentColor)}
 .bridgeShape{fill:#050505}.bridgeQuiz{margin-top:10px}.bridgeQuiz .quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:650px){.bridgeScene{height:340px}.bridgeScene svg{height:325px}.bridgeControls{grid-template-columns:repeat(2,1fr)}}
+
+
+.vesselMode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.vesselMode button{background:#16475e;min-height:58px}
+.vesselMode button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.modeExplainer{background:#041f2d;border-radius:11px;padding:10px;margin-top:8px;color:#c6dce6;font-size:12px;line-height:1.45}
+.sailTag{display:inline-block;background:#174d5f;border-radius:20px;padding:3px 7px;font-size:9px;margin-left:4px}
+#sailPanel{display:none}
+#enginePanel.sailing-disabled{opacity:.35;pointer-events:none}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -222,6 +240,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bridgeShape{fill:#050505}.bridgeQuiz{margin-top:10px}.bridgeQuiz .quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:650px){.bridgeScene{height:340px}.bridgeScene svg{height:325px}.bridgeControls{grid-template-columns:repeat(2,1fr)}}
 
+
+.vesselMode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.vesselMode button{background:#16475e;min-height:58px}
+.vesselMode button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.modeExplainer{background:#041f2d;border-radius:11px;padding:10px;margin-top:8px;color:#c6dce6;font-size:12px;line-height:1.45}
+.sailTag{display:inline-block;background:#174d5f;border-radius:20px;padding:3px 7px;font-size:9px;margin-left:4px}
+#sailPanel{display:none}
+#enginePanel.sailing-disabled{opacity:.35;pointer-events:none}
+
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
 
@@ -254,6 +281,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bridgeLight{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 18px currentColor)}
 .bridgeShape{fill:#050505}.bridgeQuiz{margin-top:10px}.bridgeQuiz .quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:650px){.bridgeScene{height:340px}.bridgeScene svg{height:325px}.bridgeControls{grid-template-columns:repeat(2,1fr)}}
+
+
+.vesselMode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.vesselMode button{background:#16475e;min-height:58px}
+.vesselMode button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.modeExplainer{background:#041f2d;border-radius:11px;padding:10px;margin-top:8px;color:#c6dce6;font-size:12px;line-height:1.45}
+.sailTag{display:inline-block;background:#174d5f;border-radius:20px;padding:3px 7px;font-size:9px;margin-left:4px}
+#sailPanel{display:none}
+#enginePanel.sailing-disabled{opacity:.35;pointer-events:none}
 
 @media(min-width:850px){.appMenu{grid-template-columns:repeat(6,1fr)}.ruleParts{grid-template-columns:repeat(3,1fr)}.moduleCards{grid-template-columns:repeat(3,1fr)}}
 
@@ -322,6 +358,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bridgeShape{fill:#050505}.bridgeQuiz{margin-top:10px}.bridgeQuiz .quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:650px){.bridgeScene{height:340px}.bridgeScene svg{height:325px}.bridgeControls{grid-template-columns:repeat(2,1fr)}}
 
+
+.vesselMode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.vesselMode button{background:#16475e;min-height:58px}
+.vesselMode button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.modeExplainer{background:#041f2d;border-radius:11px;padding:10px;margin-top:8px;color:#c6dce6;font-size:12px;line-height:1.45}
+.sailTag{display:inline-block;background:#174d5f;border-radius:20px;padding:3px 7px;font-size:9px;margin-left:4px}
+#sailPanel{display:none}
+#enginePanel.sailing-disabled{opacity:.35;pointer-events:none}
+
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
 
@@ -354,6 +399,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bridgeLight{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 18px currentColor)}
 .bridgeShape{fill:#050505}.bridgeQuiz{margin-top:10px}.bridgeQuiz .quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:650px){.bridgeScene{height:340px}.bridgeScene svg{height:325px}.bridgeControls{grid-template-columns:repeat(2,1fr)}}
+
+
+.vesselMode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.vesselMode button{background:#16475e;min-height:58px}
+.vesselMode button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.modeExplainer{background:#041f2d;border-radius:11px;padding:10px;margin-top:8px;color:#c6dce6;font-size:12px;line-height:1.45}
+.sailTag{display:inline-block;background:#174d5f;border-radius:20px;padding:3px 7px;font-size:9px;margin-left:4px}
+#sailPanel{display:none}
+#enginePanel.sailing-disabled{opacity:.35;pointer-events:none}
 
 @media(min-width:850px){.lsGrid{grid-template-columns:repeat(3,1fr)}}
 
@@ -395,6 +449,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bridgeShape{fill:#050505}.bridgeQuiz{margin-top:10px}.bridgeQuiz .quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:650px){.bridgeScene{height:340px}.bridgeScene svg{height:325px}.bridgeControls{grid-template-columns:repeat(2,1fr)}}
 
+
+.vesselMode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.vesselMode button{background:#16475e;min-height:58px}
+.vesselMode button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.modeExplainer{background:#041f2d;border-radius:11px;padding:10px;margin-top:8px;color:#c6dce6;font-size:12px;line-height:1.45}
+.sailTag{display:inline-block;background:#174d5f;border-radius:20px;padding:3px 7px;font-size:9px;margin-left:4px}
+#sailPanel{display:none}
+#enginePanel.sailing-disabled{opacity:.35;pointer-events:none}
+
 @media(min-width:850px){.buoyGrid{grid-template-columns:repeat(4,1fr)}}
 
 
@@ -428,12 +491,21 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .bridgeShape{fill:#050505}.bridgeQuiz{margin-top:10px}.bridgeQuiz .quizOpts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 @media(max-width:650px){.bridgeScene{height:340px}.bridgeScene svg{height:325px}.bridgeControls{grid-template-columns:repeat(2,1fr)}}
 
+
+.vesselMode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+.vesselMode button{background:#16475e;min-height:58px}
+.vesselMode button.active{background:#168bcf;box-shadow:0 0 0 2px #7adfff55 inset}
+.modeExplainer{background:#041f2d;border-radius:11px;padding:10px;margin-top:8px;color:#c6dce6;font-size:12px;line-height:1.45}
+.sailTag{display:inline-block;background:#174d5f;border-radius:20px;padding:3px 7px;font-size:9px;margin-left:4px}
+#sailPanel{display:none}
+#enginePanel.sailing-disabled{opacity:.35;pointer-events:none}
+
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.16 • COMPLETE LIGHTS & SHAPES</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.17 • SAILING COLLISION SCENARIOS</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -493,7 +565,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <div>
       <div class="ver">WATCH HANDOVER</div>
       <h1>You have the watch.</h1>
-      <div class="strap">Suilven • Nordhavn N43 • Power-driven vessel</div>
+      <div id="handoverStrap" class="strap">Training vessel • Power-driven vessel</div>
     </div>
   </div>
   <div class="conditions">
@@ -503,27 +575,31 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <div class="cond"><small>OWN SPEED</small><b>7.0 kn</b></div>
   </div>
   <div class="panel">
-    <h3>Scenario library</h3>
-    <p class="note">Select an encounter. The exercise itself does not reveal the COLREG rule or expected manoeuvre before you take the watch.</p>
-    <div class="scenarios">
-      <button class="scenarioBtn active" data-sid="cross_stbd" onclick="selectScenario('cross_stbd',this)"><b>01 • Crossing — target starboard</b><span>Power / power • collision course</span></button>
-      <button class="scenarioBtn" data-sid="cross_port" onclick="selectScenario('cross_port',this)"><b>02 • Crossing — target port</b><span>Power / power • stand-on role • target AI audited</span></button>
-      <button class="scenarioBtn" data-sid="head_on" onclick="selectScenario('head_on',this)"><b>03 • Head-on</b><span>Reciprocal power-driven vessels • both alter starboard</span></button>
-      <button class="scenarioBtn" data-sid="overtake" onclick="selectScenario('overtake',this)"><b>04 • Overtaking</b><span>Suilven closing from abaft beam</span></button>
-      <button class="scenarioBtn" data-sid="overtaken" onclick="selectScenario('overtaken',this)"><b>05 • Being overtaken</b><span>Faster vessel approaches astern • target give-way AI</span></button>
-      <button class="scenarioBtn" data-sid="cross_stbd_offset" onclick="selectScenario('cross_stbd_offset',this)"><b>06 • Crossing — deceptive CPA</b><span>Small initial passing distance</span></button>
-      <button class="scenarioBtn" data-sid="head_on_offset" onclick="selectScenario('head_on_offset',this)"><b>07 • Near head-on</b><span>Slightly offset reciprocal tracks</span></button>
-      <button class="scenarioBtn" data-sid="overtake_port" onclick="selectScenario('overtake_port',this)"><b>08 • Overtake — port quarter</b><span>Different overtaking geometry</span></button>
+    <h3>Collision scenario library</h3>
+    <p class="note">Choose what your own training vessel is doing first. The scenario list then changes so the applicable COLREG family is not mixed up.</p>
+
+    <div class="ver">OWN VESSEL PROPULSION / STATUS</div>
+    <div class="vesselMode">
+      <button id="powerModeBtn" class="active" onclick="setOwnVesselMode('power')">⚙ POWER-DRIVEN</button>
+      <button id="sailModeBtn" onclick="setOwnVesselMode('sail')">⛵ SAILING • ENGINE OFF</button>
     </div>
+    <div id="ownModeExplainer" class="modeExplainer">
+      Machinery is propelling the vessel, so she is treated as a power-driven vessel.
+    </div>
+
+    <div class="scenarios" id="scenarioList" style="margin-top:10px"></div>
+
     <div class="panel" style="margin-top:10px">
-<div class="ver">AUDIT STATUS</div>
-<p class="note">Validated in this baseline: CPA/TCPA engine, 2 NM / 8× scenario timing, collision auto-end, one-time audio alerts, Rule 13 being-overtaken target behaviour, Rule 15 stand-on target behaviour, and Rule 14 reciprocal starboard target behaviour. Lights & Shapes are deliberately withheld pending a full visual rebuild.</p>
-</div>
-<div class="scenarioMeta">
+      <div class="ver">SAILING RULE LOGIC</div>
+      <p class="note">Sailing mode means the vessel is under sail and her propelling machinery is not being used. If machinery is used for propulsion, she is treated as power-driven even if sails remain set. Rule 13 overtaking, Rules 9/10, and other applicable rules can override the simple power-v-sail hierarchy.</p>
+    </div>
+
+    <div class="scenarioMeta">
       <div><small>INITIAL RANGE</small><b>2.00 NM</b></div>
       <div><small>SIMULATION</small><b>8×</b></div>
       <div><small>WARNINGS</small><b>≤ 0.50 NM</b></div>
     </div>
+
     <div class="modebar">
       <button id="guidedMode" class="active" onclick="setTrainingMode('guided')">GUIDED</button>
       <button id="watchMode" onclick="setTrainingMode('watch')">WATCH</button>
@@ -532,7 +608,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <p class="note"><b>Guided</b> gives supported coaching where scenario-specific logic has been validated. <b>Watch</b> records the exercise with collision alerts only. <b>Exam</b> is intended for debrief-led assessment.</p>
     <button class="big" onclick="startWatch()">TAKE THE WATCH</button>
     <button class="big alt" onclick="armAudio(); collisionSound(); speakMarine('Collision alert. Starboard bough.')">TEST AUDIO</button>
-  </div>
+  </div>>
 </section>
 <section id="buoyagePage" class="appPage">
 <div class="panel">
@@ -584,7 +660,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <button class="danger" onclick="endWatch()">END WATCH</button>
     </div>
   </div>
-  <div class="panel"><div id="state" class="status"></div><div id="stateNote" class="note"></div></div>
+  <div class="panel"><div class="ver" id="watchVesselStatus">OWN VESSEL • POWER-DRIVEN</div><div id="state" class="status"></div><div id="stateNote" class="note"></div></div>
 </div>
 <div>
   <div class="panel"><h3>Navigation data</h3>
@@ -621,13 +697,17 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     </div>
     <p class="note">Ordered rudder: <b id="rudderText">MIDSHIPS</b>. The rudder now moves progressively and the vessel develops/loses rate of turn with inertia.</p>
   </div>
-  <div class="panel"><h3>Engine</h3>
+  <div id="enginePanel" class="panel"><h3>Engine</h3>
     <div class="throttle">
       <button onclick="setThrottle(0)">STOP</button><button onclick="setThrottle(2)">DEAD SLOW</button><button onclick="setThrottle(4)">SLOW</button><button onclick="setThrottle(7)">HALF</button><button onclick="setThrottle(10)">FULL</button>
     </div>
     <p class="note">Commanded speed: <b id="cmdSpeedText">7.0 kn</b></p>
   </div>
-  <div class="panel"><h3>Watch log</h3><div id="log" class="note"></div></div>
+  <div id="sailPanel" class="panel"><h3>Sailing propulsion</h3>
+      <p class="note"><b>Machinery OFF.</b> Training speed is set by the selected sailing scenario. Helm control remains available. Wind/tack data is scenario-defined for Rule 12 exercises.</p>
+      <div class="grid"><div class="metric"><small>PROPULSION</small><b>SAIL</b></div><div class="metric"><small>MACHINERY</small><b>OFF</b></div></div>
+    </div>
+    <div class="panel"><h3>Watch log</h3><div id="log" class="note"></div></div>
 </div>
 </div>
 </section>
@@ -683,25 +763,87 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div></div>
 <script>
 const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180, norm=x=>(x%360+360)%360;
-let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided',scenarioId='cross_stbd',targetAvoiding=false,targetRudder=0,targetROT=0;
+let own,tgt,running=false,lastTs=0,elapsed=0,mult=1,rudder=0,actualRudder=0,rotRate=0,cmdSpeed=7,orientation='north',trainingMode='guided',scenarioId='cross_stbd',ownVesselMode='power',targetAvoiding=false,targetRudder=0,targetROT=0;
 let ownHist=[],tgtHist=[],events=[],minSep=999,crashed=false,lastAlarm='',firstAction=null,initialCPA=0,initialTCPA=0,lastQuality='',qualityEvents=[],spokenWarnings=new Set(),minSepTime=0,autoEnding=false;
 
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0)}
 function vel(o){return{x:o.s*Math.sin(rad(o.h)),y:o.s*Math.cos(rad(o.h))}}
 const SCENARIOS={
- cross_stbd:{name:'Crossing — target starboard',ownH:0,ownS:7,tgtH:270,tgtS:10,kind:'cross_giveway',offset:0},
- cross_port:{name:'Crossing — target port',ownH:0,ownS:7,tgtH:90,tgtS:10,kind:'cross_standon',offset:0},
- head_on:{name:'Head-on',ownH:0,ownS:7,tgtH:180,tgtS:9,kind:'head_on',offset:0},
- overtake:{name:'Overtaking',ownH:0,ownS:9,tgtH:0,tgtS:5,kind:'overtaking',offset:0},
- overtaken:{name:'Being overtaken',ownH:0,ownS:6,tgtH:0,tgtS:10,kind:'overtaken',offset:0},
- cross_stbd_offset:{name:'Crossing — deceptive CPA',ownH:0,ownS:7,tgtH:270,tgtS:10,kind:'cross_giveway',offset:.12},
- head_on_offset:{name:'Near head-on',ownH:0,ownS:7,tgtH:182,tgtS:9,kind:'head_on',offset:.10},
- overtake_port:{name:'Overtake — port quarter',ownH:0,ownS:9,tgtH:350,tgtS:5,kind:'overtaking',offset:-.12}
+  // POWER-DRIVEN OWN VESSEL
+  cross_stbd:{name:'Crossing — target starboard',mode:'power',ownH:0,ownS:7,tgtH:270,tgtS:10,kind:'cross_giveway',offset:0,ownType:'power',tgtType:'power'},
+  cross_port:{name:'Crossing — target port',mode:'power',ownH:0,ownS:7,tgtH:90,tgtS:10,kind:'cross_standon',offset:0,ownType:'power',tgtType:'power'},
+  head_on:{name:'Head-on',mode:'power',ownH:0,ownS:7,tgtH:180,tgtS:9,kind:'head_on',offset:0,ownType:'power',tgtType:'power'},
+  overtake:{name:'Overtaking',mode:'power',ownH:0,ownS:9,tgtH:0,tgtS:5,kind:'overtaking',offset:0,ownType:'power',tgtType:'power'},
+  overtaken:{name:'Being overtaken',mode:'power',ownH:0,ownS:6,tgtH:0,tgtS:10,kind:'overtaken',offset:0,ownType:'power',tgtType:'power'},
+  cross_stbd_offset:{name:'Crossing — deceptive CPA',mode:'power',ownH:0,ownS:7,tgtH:270,tgtS:10,kind:'cross_giveway',offset:.12,ownType:'power',tgtType:'power'},
+  head_on_offset:{name:'Near head-on',mode:'power',ownH:0,ownS:7,tgtH:182,tgtS:9,kind:'head_on',offset:.10,ownType:'power',tgtType:'power'},
+  overtake_port:{name:'Overtake — port quarter',mode:'power',ownH:0,ownS:9,tgtH:350,tgtS:5,kind:'overtaking',offset:-.12,ownType:'power',tgtType:'power'},
+  power_vs_sail:{name:'Power vessel meeting sailing vessel',mode:'power',ownH:0,ownS:7,tgtH:270,tgtS:6,kind:'power_give_sail',offset:0,ownType:'power',tgtType:'sail'},
+
+  // SAILING OWN VESSEL — MACHINERY NOT BEING USED
+  sail_vs_power:{name:'Sailing vessel meeting power-driven vessel',mode:'sail',ownH:0,ownS:6,tgtH:270,tgtS:9,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard'},
+  sail_port_tack:{name:'Sail vs sail — own vessel on port tack',mode:'sail',ownH:0,ownS:6,tgtH:270,tgtS:6,kind:'sail_giveway',offset:0,ownType:'sail',tgtType:'sail',ownTack:'port',tgtTack:'starboard'},
+  sail_starboard_tack:{name:'Sail vs sail — own vessel on starboard tack',mode:'sail',ownH:0,ownS:6,tgtH:270,tgtS:6,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'port'},
+  sail_windward:{name:'Sail vs sail — same tack, own vessel windward',mode:'sail',ownH:0,ownS:6,tgtH:300,tgtS:6,kind:'sail_giveway',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'starboard',ownWindward:true},
+  sail_leeward:{name:'Sail vs sail — same tack, own vessel leeward',mode:'sail',ownH:0,ownS:6,tgtH:300,tgtS:6,kind:'sail_standon',offset:0,ownType:'sail',tgtType:'sail',ownTack:'starboard',tgtTack:'starboard',ownWindward:false},
+  sail_overtaking:{name:'Sailing vessel overtaking',mode:'sail',ownH:0,ownS:8,tgtH:0,tgtS:5,kind:'overtaking',offset:0,ownType:'sail',tgtType:'power',ownTack:'starboard'}
 };
+
+const POWER_SCENARIO_ORDER=['cross_stbd','cross_port','head_on','overtake','overtaken','cross_stbd_offset','head_on_offset','overtake_port','power_vs_sail'];
+const SAIL_SCENARIO_ORDER=['sail_vs_power','sail_port_tack','sail_starboard_tack','sail_windward','sail_leeward','sail_overtaking'];
+
+function scenarioSubtitle(id){
+  const s=SCENARIOS[id];
+  if(id==='power_vs_sail') return 'Rule 18 • own power vessel normally keeps clear of sailing vessel';
+  if(id==='sail_vs_power') return 'Rule 18 • own sailing vessel is normally stand-on';
+  if(id==='sail_port_tack') return 'Rule 12 • port tack gives way to starboard tack';
+  if(id==='sail_starboard_tack') return 'Rule 12 • target on port tack gives way';
+  if(id==='sail_windward') return 'Rule 12 • same tack • windward vessel gives way';
+  if(id==='sail_leeward') return 'Rule 12 • same tack • leeward vessel stand-on';
+  if(id==='sail_overtaking') return 'Rule 13 overrides vessel-type hierarchy • overtaking vessel gives way';
+  if(s.kind==='head_on') return 'Power / power • reciprocal or nearly reciprocal';
+  if(s.kind==='overtaking') return 'Rule 13 • overtaking vessel responsible';
+  if(s.kind==='overtaken') return 'Rule 13 • target overtaking vessel responsible';
+  if(s.kind==='cross_standon') return 'Power / power • own vessel stand-on';
+  return 'Power / power • give-way assessment';
+}
+
+function renderScenarioList(){
+  const ids=ownVesselMode==='sail'?SAIL_SCENARIO_ORDER:POWER_SCENARIO_ORDER;
+  const box=$('scenarioList');
+  box.innerHTML=ids.map((id,i)=>{
+    const s=SCENARIOS[id];
+    return `<button class="scenarioBtn ${id===scenarioId?'active':''}" data-sid="${id}" onclick="selectScenario('${id}',this)"><b>${String(i+1).padStart(2,'0')} • ${s.name}</b><span>${scenarioSubtitle(id)}</span></button>`;
+  }).join('');
+}
+
+function setOwnVesselMode(mode){
+  ownVesselMode=mode;
+  $('powerModeBtn').classList.toggle('active',mode==='power');
+  $('sailModeBtn').classList.toggle('active',mode==='sail');
+
+  if(mode==='sail'){
+    scenarioId='sail_vs_power';
+    $('ownModeExplainer').innerHTML='<b>SAILING VESSEL:</b> under sail with propelling machinery not being used. Engine controls are disabled for these exercises.';
+    $('handoverStrap').textContent='Training vessel • Sailing vessel • machinery OFF';
+    $('enginePanel').classList.add('sailing-disabled');
+    $('enginePanel').style.display='none';
+    $('sailPanel').style.display='block';
+  }else{
+    scenarioId='cross_stbd';
+    $('ownModeExplainer').innerHTML='<b>POWER-DRIVEN VESSEL:</b> machinery is propelling the vessel. This classification still applies if sails happen to be set.';
+    $('handoverStrap').textContent='Training vessel • Power-driven vessel';
+    $('enginePanel').classList.remove('sailing-disabled');
+    $('enginePanel').style.display='block';
+    $('sailPanel').style.display='none';
+  }
+  renderScenarioList();
+}
+
 function selectScenario(id,el){
- scenarioId=id;
- document.querySelectorAll('.scenarioBtn').forEach(b=>b.classList.remove('active'));
- if(el)el.classList.add('active');
+  scenarioId=id;
+  document.querySelectorAll('.scenarioBtn').forEach(b=>b.classList.remove('active'));
+  if(el)el.classList.add('active');
 }
 
 
@@ -1241,11 +1383,18 @@ function setTrainingMode(m){
   });
 }
 
-function startWatch(){armAudio();initScenario();go('watch');update();addEvent('handover','Watch accepted');toggle()}
+function startWatch(){armAudio();initScenario();go('watch');update();addEvent('handover','Watch accepted — '+(ownVesselMode==='sail'?'sailing vessel, machinery off':'power-driven vessel'));toggle()}
 
 function toggle(){if(crashed)return;running=!running;$('play').textContent=running?'❚❚ PAUSE':'▶ PLAY';lastTs=0;if(running)requestAnimationFrame(tick)}
 function setRudder(v){rudder=v;$('rudderText').textContent=v===0?'MIDSHIPS':(v<0?'PORT ':'STARBOARD ')+Math.abs(v);if(!firstAction&&v!==0)firstAction=elapsed;addEvent('helm','Rudder '+$('rudderText').textContent)}
-function setThrottle(v){cmdSpeed=v;$('cmdSpeedText').textContent=v.toFixed(1)+' kn';if(!firstAction&&Math.abs(v-own.s)>.2)firstAction=elapsed;addEvent('engine','Engine command '+v.toFixed(1)+' kn')}
+function setThrottle(v){
+  if(ownVesselMode==='sail'){
+    addEvent('control','Engine command ignored — sailing mode has machinery OFF');
+    return;
+  }
+  if(firstAction===null)firstAction=elapsed;
+  cmdSpeed=v;$('cmdSpeedText').textContent=v.toFixed(1)+' kn';addEvent('engine','Engine '+v.toFixed(1)+' kn')
+}
 function updateTargetBehaviour(ds){
   const s=SCENARIOS[scenarioId];
   let d=enc();
@@ -1279,6 +1428,17 @@ function updateTargetBehaviour(ds){
       targetAvoiding=true;
       targetRudder=20;
       addEvent('target','Other vessel alters to starboard');
+    }
+  }
+
+
+  // Power-driven target meeting our sailing vessel: under Rule 18, target is give-way
+  // unless another rule (e.g. overtaking, narrow channel, TSS) applies.
+  if(s.kind==='sail_standon'){
+    if(!targetAvoiding && d.H>0 && d.r<=1.20){
+      targetAvoiding=true;
+      targetRudder=22;
+      addEvent('target','Give-way vessel takes avoiding action for sailing vessel');
     }
   }
 
@@ -1441,6 +1601,20 @@ function calculateTrainingScore(){
   let crossedAhead = qualityEvents.some(q=>q.code==='cross_ahead');
   let actionRatio = firstAction===null || initialTCPA<=0 ? 0 : Math.max(0,1-(firstAction/60)/(initialTCPA*60));
 
+
+  if(kind==='power_give_sail' || kind==='sail_giveway'){
+    if(minSep<0.08) return {score:2,label:'Give-way action produced an unsafe / very close outcome'};
+    if(firstAction===null) return {score:3,label:'Give-way responsibility was not demonstrated'};
+    if(minSep>=0.30 && actionRatio>=0.40) return {score:5,label:'Early, clear give-way action'};
+    return {score:4,label:'Give-way encounter resolved safely'};
+  }
+
+  if(kind==='sail_standon'){
+    if(minSep<0.20) return {score:3,label:'Stand-on passage completed, but passing distance was close'};
+    if(firstAction===null && minSep>=0.30) return {score:5,label:'Correct stand-on behaviour; give-way vessel kept clear'};
+    return {score:4,label:'Safe stand-on outcome'};
+  }
+
   if(kind==='overtaken'){
     if(minSep<0.20) return {score:3,label:'Stand-on passage completed, but passing distance was close'};
     if(firstAction===null && minSep>=0.30) return {score:5,label:'Correct stand-on behaviour; overtaking vessel kept clear'};
@@ -1475,12 +1649,18 @@ function calculateTrainingScore(){
 }
 
 function scenarioRuleSummary(){
- const k=SCENARIOS[scenarioId].kind;
+ const s=SCENARIOS[scenarioId],k=s.kind;
+ if(k==='power_give_sail') return 'Rule 18 family — own vessel is power-driven and the other vessel is sailing. Subject to Rules 9, 10 and 13 and other applicable circumstances, the power-driven vessel keeps out of the way of the sailing vessel.';
+ if(k==='sail_standon' && s.tgtType==='power') return 'Rule 18 family — own vessel is sailing with machinery not being used; the target is power-driven. Subject to Rules 9, 10 and 13, the power-driven vessel keeps out of the way.';
+ if(k==='sail_giveway' && s.ownTack==='port' && s.tgtTack==='starboard') return 'Rule 12 — sailing vessels with wind on different sides: the vessel with wind on the port side keeps out of the way.';
+ if(k==='sail_standon' && s.ownTack==='starboard' && s.tgtTack==='port') return 'Rule 12 — target has wind on her port side and must keep out of the way of the vessel with wind on the starboard side.';
+ if(k==='sail_giveway' && s.ownWindward===true) return 'Rule 12 — sailing vessels with wind on the same side: the windward vessel keeps out of the way of the leeward vessel.';
+ if(k==='sail_standon' && s.ownWindward===false) return 'Rule 12 — same tack: own vessel is leeward and is the stand-on vessel in this constructed encounter.';
  if(k==='head_on') return 'Head-on power-driven encounter — Rule 14 family. Each vessel should alter course to starboard so each passes on the port side of the other.';
- if(k==='overtaking') return 'Overtaking encounter — Rule 13 family. Suilven is the overtaking vessel and must keep out of the way of the vessel being overtaken.';
- if(k==='overtaken') return 'Being overtaken — Rule 13 family. The overtaking vessel remains responsible for keeping out of the way until finally past and clear. Suilven is not scored as though she were the give-way vessel.';
- if(k==='cross_standon') return 'Crossing encounter — Rules 15 and 17 family. The other vessel is on Suilven’s port side; Suilven is the stand-on vessel in this constructed power/power encounter.';
- return 'Crossing encounter — Rules 15 and 16 family. The other vessel is on Suilven’s starboard side; Suilven is the give-way vessel in this constructed power/power encounter.';
+ if(k==='overtaking') return 'Overtaking encounter — Rule 13 applies regardless of vessel type. The overtaking vessel must keep out of the way until finally past and clear.';
+ if(k==='overtaken') return 'Being overtaken — Rule 13 family. The overtaking vessel remains responsible for keeping out of the way until finally past and clear.';
+ if(k==='cross_standon') return 'Crossing encounter — Rules 15 and 17 family. The other power-driven vessel is on Suilven’s port side; own vessel is stand-on.';
+ return 'Crossing encounter — Rules 15 and 16 family. The other power-driven vessel is on own vessel’s starboard side; own vessel is give-way.';
 }
 function buildDebrief(d){
   let sc=calculateTrainingScore();
@@ -1507,7 +1687,7 @@ function buildDebrief(d){
   $('timeline').innerHTML=events.map(e=>`<div class="event"><b>T+${fmt(e.t)}</b><br><span>${e.text}</span></div>`).join('');
 }
 function restart(){go('handover')}
-initScenario();renderBuoys();nextBuoyQuestion();bvRender();
+renderScenarioList();setOwnVesselMode('power');initScenario();renderBuoys();nextBuoyQuestion();bvRender();
 </script>
 
 <div id="detailSheet" class="detailSheet" onclick="if(event.target===this)closeDetail()">
