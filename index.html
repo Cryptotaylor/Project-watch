@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.21.2 — TSS Track Trail Fix</title>
+<title>Project Watch 1.21.3 — Persistent TSS Trail</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -16569,7 +16569,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </head>
 <body>
 <div class="app">
-<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.21.2 • TSS TRACK TRAIL FIX</div></div><div id="hdrMode">SUILVEN</div></header>
+<header><div><div class="brand">PROJECT WATCH</div><div class="ver">1.21.3 • PERSISTENT TSS TRAIL</div></div><div id="hdrMode">SUILVEN</div></header>
 <div class="wrap">
 
 <section id="colregsPage" class="appPage">
@@ -18243,7 +18243,15 @@ function tssSimStep(dt){
  // knots to NM/sec, plus illustrative tidal vector in knots
  tssSimOwn.x+=(vo.x+sc.tideX)*dt/3600;
  tssSimOwn.y+=(vo.y+sc.tideY)*dt/3600;
- tssSimTrack.push([tssSimOwn.x,tssSimOwn.y]);if(tssSimTrack.length>420)tssSimTrack.shift();
+
+ // Keep the COMPLETE crossing trail. The previous build retained only the
+ // last 420 animation frames, which meant the old part of the track was
+ // continuously deleted and could disappear behind the vessel.
+ // Sample by distance instead of by frame count for a clean, efficient trail.
+ let lastTrack=tssSimTrack[tssSimTrack.length-1];
+ if(!lastTrack || Math.hypot(tssSimOwn.x-lastTrack[0],tssSimOwn.y-lastTrack[1])>=0.008){
+   tssSimTrack.push([tssSimOwn.x,tssSimOwn.y]);
+ }
  tssSimTargets.forEach(t=>{let v=tssVec(t.h,t.s);t.x=tssWrapX(t.x+v.x*dt/3600);t.y+=v.y*dt/3600});
  tssSimElapsed+=dt;
 
@@ -18284,9 +18292,10 @@ function tssSimCog(){
  return (Math.atan2(x,y)*180/Math.PI+360)%360;
 }
 function tssSimCrossAngle(){
- // acute deviation from ideal perpendicular crossing heading
- let h=tssSimOwn.h%180;
- return 90-Math.abs(90-h); // returns 90 at north/south, 0 east/west
+ // Angle between own heading and the east/west traffic-flow axis.
+ // 000/180 = 90° crossing; 090/270 = 0° (parallel with traffic).
+ let h=((tssSimOwn.h%180)+180)%180;
+ return Math.abs(90-h);
 }
 function tssSimUpdateUI(){
  if(!tssSimOwn)return;
@@ -18317,7 +18326,7 @@ function tssSimDraw(){
  ${lane(.45,1.25)}${lane(-1.25,-.45)}
  <g stroke="#bd7373" stroke-width="2" stroke-dasharray="10 8">${(()=>{let a=tssMapPt(-3,-.25),b=tssMapPt(3,-.25),c=tssMapPt(-3,.25),d=tssMapPt(3,.25);return `<path d="M${a[0]} ${a[1]}L${b[0]} ${b[1]} M${c[0]} ${c[1]}L${d[0]} ${d[1]}"/>`})()}</g>
  <text x="130" y="150" fill="#8d5151" font-size="13" font-weight="800">TRAFFIC FLOW →</text><text x="620" y="390" fill="#8d5151" font-size="13" font-weight="800">← TRAFFIC FLOW</text>
- <path d="${track}" fill="none" stroke="#16815a" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="${track}" fill="none" stroke="#0b8f62" stroke-width="6" stroke-dasharray="12 8" stroke-linecap="round" stroke-linejoin="round"/>
  ${targetSvg}
  <g transform="translate(${o[0]} ${o[1]}) rotate(${tssSimOwn.h+8})"><path d="M0,-25 L13,19 L0,28 L-13,19 Z" fill="#9b2f2f" stroke="#5a1515" stroke-width="2"/><line x1="0" y1="-25" x2="0" y2="-78" stroke="#9b2f2f" stroke-width="3"/></g>
  </svg>`;
@@ -18325,6 +18334,10 @@ function tssSimDraw(){
 function tssSimEnd(manual=false){
  if(tssSimFinished)return;
  tssSimRunning=false;tssSimFinished=true;if(tssSimRAF)cancelAnimationFrame(tssSimRAF);
+ if(tssSimOwn){
+   let lp=tssSimTrack[tssSimTrack.length-1];
+   if(!lp || Math.hypot(tssSimOwn.x-lp[0],tssSimOwn.y-lp[1])>0.001) tssSimTrack.push([tssSimOwn.x,tssSimOwn.y]);
+ }
  // Preserve and redraw the completed own-ship track for debrief.
  tssSimDraw();
  let completed=tssSimOwn&&tssSimOwn.y>=1.35;
