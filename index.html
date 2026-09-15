@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.38.1 — Stage 3 Beginner Teaching Review</title>
+<title>Project Watch 1.38.2 — Stage 3 Recognition Assessment Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.6b • STAGE 3 TEACHING REVIEW</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.38.2 • STAGE 3 RECOGNITION FIX</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -19892,16 +19892,14 @@ function lxReviewHTML(q,user,i){
 }
 
 const LS_LESSONS=[
- {title:'How Project Watch reads lights & shapes',sub:'Learn the language before the recognition',intro:'Before identifying vessels, learn the few marine words used in this stage. You do not need to arrive knowing them.',facts:[
- ['Beam','The widest part of a vessel, roughly across the middle. “Abeam” means directly out to the side.'],
- ['Abaft','Behind or farther toward the stern. “Abaft the beam” simply means behind the vessel’s widest point.'],
- ['Apex','The pointed tip of a cone. “Apex up” means the point faces upward; “apex down” means the point faces downward.'],
- ['Aspect','The direction from which YOU are viewing another vessel: ahead, port side, starboard side or astern.'],
- ['All-round light','A light designed to show through 360° around the horizon.'],
- ['Making way','The vessel is moving through the water, rather than merely being underway but stopped in the water.']
+ {title:'How Project Watch reads lights & shapes',sub:'Four visual ideas — four matching explanations',intro:'Start with four things you can actually see in the approved visual cards. Extra marine words are explained later, at the point where you first need them.',facts:[
+ ['Masthead light','White. A forward-facing navigation light fitted on the vessel’s centreline.'],
+ ['Sidelights','Red is port and green is starboard. Which one or ones you can see depends on your viewing aspect.'],
+ ['Ball','A black round day shape. It is used alone or in prescribed combinations to show particular vessel conditions.'],
+ ['Cone — apex down','A black cone with the pointed end facing downward. “Apex” simply means the pointed tip of the cone.']
  ],visual:'intro'},
  {title:'Ordinary power-driven vessel lights',sub:'First recognise the basic navigation lights',intro:'Start with an ordinary power-driven vessel underway. Where you are looking from — the viewing aspect — changes which lights are visible.',facts:[
- ['Masthead light','A white light on the vessel’s centreline. It shines from right ahead around each side to a little behind the beam.'],
+ ['Masthead light','A white light on the vessel’s centreline. It shines from right ahead to 22.5° abaft the beam on either side. “Abaft” means behind; the beam is the vessel’s widest point across the middle.'],
  ['Port sidelight','Red. It is fitted on the vessel’s port, or left, side when looking forward from onboard.'],
  ['Starboard sidelight','Green. It is fitted on the vessel’s starboard, or right, side when looking forward from onboard.'],
  ['Sternlight','White and directed around the after part of the vessel. From directly astern this is the key ordinary navigation light.'],
@@ -19936,16 +19934,16 @@ const LS_LESSONS=[
  ],visual:'specialVessels'}
 ];
 const LS_FINAL_QUIZ=[
- ['From directly ahead of an ordinary power-driven vessel, which sidelights may be visible?',['Red only','Green only','Both red and green'],2,'Rule 21 defines both sidelight sectors from right ahead. Directly ahead, both may be visible.','headOn','Rule 21'],
- ['Which colour is the vessel’s port sidelight?',['Green','Red','White'],1,'Rule 21: the port sidelight is red and the starboard sidelight is green.','portSide','Rule 21'],
- ['From directly astern of an ordinary power-driven vessel, which navigation light is directed toward you?',['The white sternlight','Both sidelights','The masthead light'],0,'Rule 21 defines the sternlight over the after sector. Directly astern, it is the ordinary navigation light directed toward you.','astern','Rule 21'],
- ['A sailing vessel proceeding under machinery shows which day shape?',['Diamond','Cone apex downward','One ball'],1,'Rule 25: a sailing vessel also propelled by machinery exhibits a cone apex downward by day.','coneDown','Rule 25'],
- ['What does red over red identify?',['Not under command','Pilot vessel','Trawling'],0,'Rule 27: two all-round red lights in a vertical line identify a vessel not under command.','redRed','Rule 27'],
- ['Red • white • red identifies…',['Aground','Pilot vessel','Restricted in ability to manoeuvre'],2,'Rule 27: red-white-red vertically identifies a vessel restricted in her ability to manoeuvre.','redWhiteRed','Rule 27'],
- ['Green over white identifies…',['Pilotage duty','Aground','Trawling'],2,'Rule 26: green over white identifies a vessel engaged in trawling.','greenWhite','Rule 26'],
- ['Red over white identifies…',['Restricted ability to manoeuvre','Fishing other than trawling','Pilotage duty'],1,'Rule 26: red over white identifies fishing other than trawling.','redWhite','Rule 26'],
- ['Which day shape is the basic indication of a vessel at anchor?',['One ball','One cylinder','One diamond'],0,'Rule 30 uses one ball as the basic day shape for a vessel at anchor.','anchorBall','Rule 30'],
- ['White over red identifies…',['Pilot vessel engaged on pilotage duty','Fishing other than trawling','Not under command'],0,'Rule 29: white over red identifies a pilot vessel engaged on pilotage duty.','whiteRed','Rule 29']
+ ['From which aspect are you viewing this ordinary power-driven vessel?',['Directly ahead','Port side','Astern'],0,'Correct: this display is being viewed from directly ahead.','headOn','Rule 23'],
+ ['Which side of this vessel is visible to you?',['Starboard side','Port side','Astern'],1,'Correct: the red sidelight identifies the vessel’s port side as the visible side.','portSide','Rules 21 & 23'],
+ ['From which aspect are you viewing this ordinary power-driven vessel?',['Ahead','Astern','Port side'],1,'Correct: the white sternlight is directed toward an observer astern.','astern','Rules 21 & 23'],
+ ['What does this day shape indicate when displayed by a sailing vessel?',['At anchor','Under sail only','Also being propelled by machinery'],2,'Correct: a cone apex downward identifies a sailing vessel also being propelled by machinery.','coneDown','Rule 25'],
+ ['What does this light configuration identify?',['Fishing other than trawling','Not under command','Pilot vessel'],1,'Correct: two all-round red lights vertically identify a vessel not under command.','redRed','Rule 27'],
+ ['What does this light configuration identify?',['Restricted in ability to manoeuvre','Trawling','Vessel aground'],0,'Correct: red-white-red vertically identifies a vessel restricted in her ability to manoeuvre.','redWhiteRed','Rule 27'],
+ ['What activity does this light configuration identify?',['Fishing other than trawling','Pilotage duty','Trawling'],2,'Correct: green over white identifies a vessel engaged in trawling.','greenWhite','Rule 26'],
+ ['What activity does this light configuration identify?',['Fishing other than trawling','Not under command','Trawling'],0,'Correct: red over white identifies fishing other than trawling.','redWhite','Rule 26'],
+ ['What vessel condition does this day shape indicate?',['Constrained by draught','At anchor','Aground'],1,'Correct: one black ball is the basic day shape for a vessel at anchor.','anchorBall','Rule 30'],
+ ['What vessel or duty does this light configuration identify?',['Pilot vessel engaged on pilotage duty','Restricted in ability to manoeuvre','Power-driven vessel over 50 m'],0,'Correct: white over red identifies a pilot vessel engaged on pilotage duty.','whiteRed','Rule 29']
 ];
 
 function lsLamp(col,x,y,r=8){const c={r:'#ff4545',g:'#35e58a',w:'#ffffff',y:'#ffd54a'}[col];return `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}" style="filter:drop-shadow(0 0 8px ${c})"/>`}
@@ -19966,7 +19964,7 @@ function lsShapeSVG(shape,label){
 }
 function lsVisual(kind){
  if(kind==='intro')return `<div class="lsTeachGrid two">${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'NIGHT: lights are positioned on the vessel')}<div class="lsTeachCard day">${lsShapeSVG('ball','BALL')}${lsShapeSVG('coneDown','CONE — APEX DOWN')}<b>DAY: black shapes identify status or activity</b></div></div><div class="lsCallout"><b>Do not read these as a traffic light.</b> Red and green are port and starboard sidelights fitted on opposite sides of the vessel. Their visibility changes with your viewing aspect.</div>`;
- if(kind==='vesselLights')return `<div class="lsTeachGrid two">${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'HEAD-ON / NEAR HEAD-ON')} ${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199),'PORT-SIDE ASPECT')}</div><div class="lsLegend"><span>⚪ MASTHEAD — WHITE</span><span>🔴 PORT — RED</span><span>🟢 STARBOARD — GREEN</span><span>⚪ STERN — WHITE</span></div>`;
+ if(kind==='vesselLights')return `<div class="lsTeachGrid two">${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'HEAD-ON / NEAR HEAD-ON')} ${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199),'RECOGNITION DISPLAY')}</div><div class="lsLegend"><span>⚪ MASTHEAD — WHITE</span><span>🔴 PORT — RED</span><span>🟢 STARBOARD — GREEN</span><span>⚪ STERN — WHITE</span></div>`;
  if(kind==='aspects')return `<div class="lsAspectGrid"><div>${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'AHEAD')}</div><div>${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199),'PORT SIDE')}</div><div>${lsShipSVG(lsLamp('w',235,70)+lsLamp('g',310,199),'STARBOARD SIDE')}</div><div>${lsShipSVG(lsLamp('w',348,120),'ASTERN — STERNLIGHT')}</div></div>`;
  if(kind==='dayShapes')return `<div class="lsShapeGrid">${lsShapeSVG('ball','BALL')}${lsShapeSVG('coneDown','CONE — APEX DOWN')}${lsShapeSVG('diamond','DIAMOND')}${lsShapeSVG('cylinder','CYLINDER')}</div><div class="lsCallout"><b>Shape recognition:</b> identify the silhouette first, then its number, vertical order and orientation.</div>`;
  if(kind==='statusVessels')return `<div class="lsTeachGrid four">${lsShipSVG(lsLamp('r',235,72)+lsLamp('r',235,105),'NOT UNDER COMMAND')}${lsShipSVG(lsLamp('r',235,55)+lsLamp('w',235,88)+lsLamp('r',235,121),'RESTRICTED MANOEUVRABILITY')}${lsShipSVG(lsLamp('g',235,72)+lsLamp('w',235,105),'TRAWLING')}${lsShipSVG(lsLamp('r',235,72)+lsLamp('w',235,105),'FISHING — OTHER THAN TRAWLING')}</div>`;
@@ -19974,9 +19972,9 @@ function lsVisual(kind){
  return `<div class="lsCallout">Lights & Shapes recognition lesson</div>`;
 }
 function lsQuizVisual(kind){
- if(kind==='headOn')return lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'VIEW FROM AHEAD');
- if(kind==='portSide')return lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199),'PORT-SIDE ASPECT');
- if(kind==='astern')return lsShipSVG(lsLamp('w',348,120),'VIEW FROM ASTERN');
+ if(kind==='headOn')return lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'RECOGNITION DISPLAY');
+ if(kind==='portSide')return lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199),'RECOGNITION DISPLAY');
+ if(kind==='astern')return lsShipSVG(lsLamp('w',348,120),'RECOGNITION DISPLAY');
  if(kind==='redRed')return lsShipSVG(lsLamp('r',235,72)+lsLamp('r',235,105),'IDENTIFY THE STATUS');
  if(kind==='greenWhite')return lsShipSVG(lsLamp('g',235,72)+lsLamp('w',235,105),'IDENTIFY THE STATUS');
  if(kind==='redWhite')return lsShipSVG(lsLamp('r',235,72)+lsLamp('w',235,105),'IDENTIFY THE STATUS');
