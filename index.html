@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.41.3 • Stage 7 TSS —  1.40.1 — Stage 5 Collision Avoidance</title>
+<title>Project Watch 1.41.4 • Stage 7 TSS —  1.40.1 — Stage 5 Collision Avoidance</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.41.3</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.41.4</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -23959,7 +23959,7 @@ function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final
 function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.41.3',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.41.3');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.4',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.41.4');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24170,11 +24170,21 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
   if(i===7)return scheme(`${ship(275,115,90,'LANE SHIP')}${ship(625,315,270,'FISHING')}${ship(410,400,0,'<20 m','#087d65')}<text x="75" y="400" class="s7tRule">SMALL VESSEL: DO NOT IMPEDE</text><text x="500" y="400" class="s7tRule">FISHING: DO NOT IMPEDE</text>`);
   return scheme(`${ship(280,115,90,'VESSEL A')}${ship(410,400,0,'VESSEL B','#087d65')}<path d="M410 382V250" class="s7tGood"/><rect x="52" y="382" width="716" height="34" rx="8" class="s7tCall"/><text x="410" y="404" text-anchor="middle" class="s7tCallText">RULE 10 ORGANISES TRAFFIC — IT DOES NOT CANCEL RULES 5–8 OR THE OTHER STEERING & SAILING RULES</text>`);
  }
+ function currentLessonIndex(){
+   // ttI is a top-level lexical binding in the original module, not window.ttI.
+   // Read the already-rendered lesson counter so the dedicated teaching plate
+   // always follows the actual lesson selected by PREVIOUS/NEXT or the lesson list.
+   const txt=(document.getElementById('ttIndex')?.textContent||'1 / 9').trim();
+   const n=parseInt(txt,10);
+   return Number.isFinite(n)?Math.max(0,Math.min(8,n-1)):0;
+ }
  function apply(){
    const d=document.getElementById('ttDemo'); if(!d)return;
-   d.innerHTML=plate(window.ttI||0);
-   const m=document.getElementById('ttMode');if(m)m.textContent='TEACHING PLATE';
-   const q=document.getElementById('ttQuestion');if(q)q.innerHTML='<h4>STUDY THIS TEACHING PLATE</h4><p>There is no question here. Read the labels and key points, then use PREVIOUS / NEXT. The Stage 7 assessment begins after Lesson 9.</p>';
+   const i=currentLessonIndex();
+   d.innerHTML=plate(i);
+   d.setAttribute('data-teaching-lesson',String(i+1));
+   const m=document.getElementById('ttMode');if(m)m.textContent=`TEACHING PLATE ${i+1} / 9`;
+   const q=document.getElementById('ttQuestion');if(q)q.innerHTML='<h4>STUDY THIS TEACHING PLATE</h4><p>This diagram is specific to the lesson above. There is no question here. Read the labels and key points, then use PREVIOUS / NEXT. The Stage 7 assessment begins after Lesson 9.</p>';
  }
  const previous=window.ttRender;
  window.ttRender=function(){previous();apply()};
@@ -24182,6 +24192,9 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
  // Refresh the visible lesson if Stage 7 is already open when this script loads.
  try{if(document.getElementById('tssTutorialPage')?.classList.contains('active'))apply()}catch(e){}
 })();
+</script>
+<script id="pw1414TeachingPlateAudit">
+(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.4',errors:[],checks:{}});r.version='1.41.4';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.41.4'){r.errors.push('visible-build-1414');}}catch(e){console.error(e)}})();
 </script>
 
 </body></html>
