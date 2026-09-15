@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.40.4</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.40.5</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -23922,7 +23922,7 @@ function completeStage5(){if(!stage5LessonsComplete()||stage5FinalIndex<10||stag
 // Stage 5 is the Course Mode entry point; the existing Collision Scenarios simulator remains available from Training Library and Stage 5.
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.40.4',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.40.4');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.4 audit',r);else console.info('Project Watch 1.40.4 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.40.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.40.5');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24003,6 +24003,33 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
  };
  const oldFinish=bpFinish; bpFinish=function(){stopAssessAnim();document.getElementById('buoyPassagePage')?.classList.remove('bpDayAssess');oldFinish()};
  window.PW_STAGE6_VISUAL_FIX='1.40.4';
+})();
+</script>
+
+<style id="pw1405Stage6ReviewGateStyle">
+#stage6ReviewGate{margin:12px 0;padding:12px 14px;border:1px solid #78e2ff55;border-radius:12px;background:#062b3d;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+#stage6ReviewGate b{display:block;font-size:12px;color:#e8faff;margin-bottom:4px}#stage6ReviewGate span{display:block;font-size:9px;line-height:1.45;color:#b8d3de}
+#stage6ReviewGate strong{font-size:16px;color:#63e7b8;white-space:nowrap}.stage6AssessLocked{opacity:.48!important;cursor:not-allowed!important;background:#28424d!important;border-color:#ffffff20!important}.stage6ReviewComplete{border-color:#63e7b877!important;background:#07362d!important}
+@media(max-width:650px){#stage6ReviewGate{grid-template-columns:1fr}#stage6ReviewGate strong{text-align:left}}
+</style>
+<script id="pw1405Stage6ReviewGate">
+(function(){
+ const review=new Set();
+ function key(){return BUOY_ORDER[btI]+'|'+(btNight?'night':'day')}
+ function renderGate(){
+   const page=document.getElementById('buoyTutorialPage'); if(!page)return;
+   let gate=document.getElementById('stage6ReviewGate');
+   if(!gate){gate=document.createElement('div');gate.id='stage6ReviewGate';const prog=page.querySelector('.buoyTutorialProgress');prog.parentNode.insertBefore(gate,prog.nextSibling)}
+   const n=review.size,complete=n>=BUOY_ORDER.length*2; gate.classList.toggle('stage6ReviewComplete',complete);
+   gate.innerHTML=`<div><b>${complete?'✓ DAY & NIGHT REVIEW COMPLETE':'BEFORE THE ASSESSMENT'}</b><span>${complete?'All 12 marks have been reviewed in both modes. The Passage Assessment is now unlocked.':'You must review every one of the 12 marks in both DAY and NIGHT modes before the Passage Assessment unlocks. Use DAY / NIGHT on each mark.'}</span></div><strong>REVIEW PROGRESS ${n} / ${BUOY_ORDER.length*2}</strong>`;
+   const ready=document.getElementById('stage6Ready'); if(ready){ready.classList.toggle('show',complete);ready.querySelector('b').textContent=complete?'ALL 12 MARKS REVIEWED — DAY & NIGHT':'REVIEW INCOMPLETE';}
+   const actions=page.querySelector('.btActions'),next=actions&&actions.querySelector('button:last-child');
+   if(next&&btI===BUOY_ORDER.length-1){next.textContent=complete?'START ASSESSMENT →':`REVIEW DAY & NIGHT • ${n}/24`;next.classList.toggle('stage6AssessCta',complete);next.classList.toggle('stage6AssessLocked',!complete);next.disabled=!complete;next.onclick=complete?()=>showBuoyPassage('challenge'):null}
+ }
+ const prior=renderBuoyTutorial;renderBuoyTutorial=function(){prior();review.add(key());renderGate()};
+ const priorShow=showBuoyPassage;showBuoyPassage=function(mode){if(mode==='challenge'&&review.size<BUOY_ORDER.length*2){alert(`Review all 12 marks in both DAY and NIGHT modes first. ${review.size}/24 views completed.`);showBuoyTutorial();return}return priorShow(mode)};
+ if(document.getElementById('buoyTutorialPage')?.classList.contains('active'))renderBuoyTutorial();
+ window.PW_STAGE6_REVIEW_GATE={version:'1.40.5',review};
 })();
 </script>
 </body></html>
