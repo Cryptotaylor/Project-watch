@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.5g — Stage 2 State Fix</title>
+<title>Project Watch 1.37.5h — Stage 2 Atomic Unlock</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37.5g — Stage 2 State Fix */
+/* Project Watch 1.37.5h — Stage 2 Atomic Unlock */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -17432,7 +17432,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5g • STAGE 2 STATE FIX</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5h • STAGE 2 ATOMIC UNLOCK</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18183,7 +18183,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.5g</b></div>
+    <div><small>BUILD</small><b>1.37.5h</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -22028,26 +22028,51 @@ function crSelect(i){
 function crPrev(){crSelect(crLesson-1)}
 function crNext(){
  stopCourseSpeech();
- // Sequential completion: completing Lesson N sets the finished count to at least N.
- crLessonsFinished=Math.max(crLessonsFinished,crLesson+1);
  if(crLesson<5){
+  crLessonsFinished=Math.max(crLessonsFinished,crLesson+1);
   crLesson++;
   renderCrLesson();
   return;
  }
- // Lesson 6 has one deterministic outcome: 6/6 and the final check.
+ finishStage2Teaching();
+}
+function finishStage2Teaching(){
+ // Atomic Lesson-6 transition: do not rebuild the lesson/button that launched this event.
  crLessonsFinished=6;
- renderCrLesson();
- const k=$('crKnowledge');
- if(k){
-  k.classList.remove('locked');
-  renderCrQuiz();
-  requestAnimationFrame(()=>k.scrollIntoView({behavior:'smooth',block:'start'}));
- }
+ const progressText=$('crProgressText'),progressFill=$('crProgressFill');
+ if(progressText)progressText.textContent='6 / 6 LESSONS';
+ if(progressFill)progressFill.style.width='100%';
+
+ // Mark all six lesson cards complete without replacing the clicked DOM tree.
+ document.querySelectorAll('#crLessonList button').forEach((b,i)=>{
+  b.classList.remove('lessonLocked');
+  b.classList.add('done');
+  b.disabled=false;
+  const tick=b.querySelector('.tick');
+  if(tick)tick.textContent=' ✓';
+ });
+
+ // Build the final check directly from the quiz data. No second completion test is involved.
+ const k=$('crKnowledge'),area=$('crQuizArea');
+ if(k)k.classList.remove('locked');
+ if(area)area.innerHTML=crQuizHTML();
+
+ const nb=$('crNextBtn');
+ if(nb){nb.textContent='FINAL CHECK UNLOCKED ✓';nb.disabled=true}
+
+ requestAnimationFrame(()=>{
+  if(k)k.scrollIntoView({behavior:'smooth',block:'start'});
+ });
 }
 function crComplete(){crNext()}
 function crSpeak(){if('speechSynthesis' in window&&speechSynthesis.speaking){stopCourseSpeech();return}const l=COLREGS_BEGINNER[crLesson],speech=l.title+'. '+l.intro+'. '+l.facts.map(x=>x[0]+'. '+x[1]).join(' ');const u=speakMarine(speech,'instruction'),b=$('crSpeakBtn');if(b)b.textContent='■ STOP LESSON';if(u)u.onend=()=>{const x=$('crSpeakBtn');if(x)x.textContent='🔊 HEAR LESSON'}}
-function renderCrQuiz(){const area=$('crQuizArea'),box=$('crKnowledge');if(!area)return;const unlocked=crLessonsComplete();if(box)box.classList.toggle('locked',!unlocked);if(!unlocked){area.innerHTML=`<div class="stage2QuizIntro"><b>TEACHING IN PROGRESS</b><br>${crLessonsFinished} / 6 lessons completed. Work through Lessons 1–6 above. The final check unlocks automatically after Lesson 6.</div>`;return}area.innerHTML=crQuizHTML()}
+function renderCrQuiz(){
+ const area=$('crQuizArea'),box=$('crKnowledge');if(!area)return;
+ const unlocked=crLessonsFinished>=6;
+ if(box)box.classList.toggle('locked',!unlocked);
+ if(unlocked){area.innerHTML=crQuizHTML();return}
+ area.innerHTML=`<div class="stage2QuizIntro"><b>TEACHING IN PROGRESS</b><br>${crLessonsFinished} / 6 lessons completed. Work through Lessons 1–6 above. The final check unlocks automatically after Lesson 6.</div>`;
+}
 function crQuizHTML(){
  if(crQuizIndex>=CR_QUIZ.length){const pass=crQuizScore>=8;return `<div class="crQuizScore"><strong>${crQuizScore} / ${CR_QUIZ.length}</strong><b>${pass?'STAGE 2 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</b><span>${pass?'You have demonstrated the COLREG foundations taught in Stage 2.':'Review the six teaching lessons above. You need 8/10 to complete Stage 2.'}</span>${pass?'<button type="button" style="margin-top:12px" onclick="completeStage2()">COMPLETE STAGE 2 →</button>':'<button type="button" style="margin-top:12px" onclick="crRestartQuiz()">TRY AGAIN</button>'} <button type="button" style="margin-top:12px" onclick="openRulesLibrary()">📖 RULES LIBRARY</button></div>`}
  const q=CR_QUIZ[crQuizIndex],ref=CR_QUIZ_RULE_REFS[crQuizIndex];return `<div class="crQuiz"><div class="ver">STAGE 2 FINAL CHECK • QUESTION ${crQuizIndex+1} / ${CR_QUIZ.length}</div><div class="crQuizQ">${q[0]}</div><div class="crQuizOpts">${q[1].map((o,i)=>`<button type="button" onclick="crAnswer(${i});return false;">${o}</button>`).join('')}</div><div class="quizHelpRow">${ref?`<button type="button" onclick="openRulesLibrary('${ref.rule}','Training aid for Stage 2 final-check question ${crQuizIndex+1}. Review this exact reference, then return to the question.')">📖 ${ref.label}</button>`:'<button type="button" onclick="openRulesLibrary()">📖 RULES LIBRARY</button>'}</div><div id="crQuizResult" class="crQuizResult"></div></div>`;
