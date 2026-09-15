@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.3 — Course Start Fix</title>
+<title>Project Watch 1.37.5 — Focused Reference Aid</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37.3 — Course Start Fix */
+/* Project Watch 1.37.5 — Focused Reference Aid */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -842,11 +842,22 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:700px){.libraryPageHero{grid-template-columns:1fr}.libraryHeroActions{display:grid;grid-template-columns:1fr 1fr}.libraryHeroActions button{width:100%}}
 
 
-/* TEMPORARY QA CONTROL — remove after Claire testing */
-.testResetBtn{background:#4a2428!important;border-color:#d87878!important;color:#ffdede!important}
-.courseIntroActions{display:flex;gap:7px;align-items:center}
-.courseIntroActions button{width:auto}
-@media(max-width:650px){.courseIntroActions{display:grid}.courseIntroActions button{width:100%}}
+/* PROJECT WATCH 1.37.4 — COURSE UX REVIEW */
+.orientationTop{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start}.orientationTop p{font-size:9px;line-height:1.5;color:#a8c1cb;max-width:800px}.orientationTop button{width:auto}
+.orientationLessonNav{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:12px 0}.orientationLessonNav button{min-height:54px;text-align:left;padding:8px;background:#052d3e}.orientationLessonNav button.active{background:#0b5873;border-color:#65dcf8}.orientationLessonNav button.done{box-shadow:inset 0 0 0 1px #65dfa0}.orientationLessonNav small{display:block;font-size:6px;color:#8ca9b5}.orientationLessonNav b{display:block;font-size:8px;margin-top:2px}
+.orientationLessonCard{padding:15px;border-radius:12px;background:#031d29;border:1px solid #ffffff12}.orientationLessonCard h3{font-size:20px;margin:3px 0 7px}.orientationLessonCard>p{font-size:10px;line-height:1.55;color:#b6ccd5}.orientationTeachGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:10px}.orientationTeachGrid div{padding:11px;border-radius:9px;background:#052b3b}.orientationTeachGrid b{display:block;font-size:10px}.orientationTeachGrid span{display:block;font-size:8.5px;line-height:1.5;color:#a9c0ca;margin-top:3px}.orientationLessonActions{display:flex;justify-content:space-between;gap:7px;margin-top:10px}.orientationLessonActions button{width:auto}
+.orientationKnowledge{margin-top:12px;padding:15px;border-radius:12px;background:#05283a;border:1px solid #ffffff15}.orientationKnowledge h3{margin:3px 0}.orientationKnowledge>p{font-size:9px;color:#9fb9c4}.orientationQ{padding:12px;border-radius:10px;background:#031b27}.orientationQ h4{font-size:15px;margin:4px 0 10px}.orientationQOpts{display:grid;gap:6px}.orientationQOpts button{position:relative;z-index:2;text-align:left;pointer-events:auto}.orientationQResult{margin-top:9px;font-size:9px;line-height:1.5}.orientationSafety{margin-top:10px;padding:11px;border-radius:9px;background:#30281d;border:1px solid #c7a85a33}.orientationSafety label{font-size:8.5px;line-height:1.5}.orientationSafety small{display:block;color:#bbaF91;margin-top:5px}
+.crHeadActions{display:flex;gap:6px}.crHeadActions button{white-space:nowrap}.crQuizOpts{position:relative;z-index:5}.crQuizOpts button{position:relative;z-index:6;pointer-events:auto;min-height:42px}.crLessonVisual{position:relative}.crQuiz{position:relative;z-index:4}.crLessonFooter button{position:relative;z-index:2}
+.crModeNotice{padding:8px 10px;margin-bottom:8px;border-radius:8px;background:#07364a;border-left:3px solid #63d9f6;font-size:8px;color:#b9d0d9}
+@media(max-width:760px){.orientationLessonNav{grid-template-columns:repeat(2,1fr)}.orientationTeachGrid{grid-template-columns:1fr}.orientationTop{grid-template-columns:1fr}.crHeadActions{display:grid}.crLessonHead{grid-template-columns:1fr}}
+
+
+.contextRuleSheet{display:none;position:fixed;inset:0;background:#001018e8;z-index:180;padding:18px;overflow:auto}.contextRuleSheet.open{display:block}
+.contextRuleCard{max-width:720px;margin:32px auto;background:#07364e;border:1px solid #6ee0ff55;border-radius:18px;padding:17px;box-shadow:0 24px 70px #000b}
+.contextRuleTop{display:flex;justify-content:space-between;gap:12px;align-items:start}.contextRuleTop h2{margin:3px 0 5px}.contextRuleWhy{font-size:9px;line-height:1.5;color:#a9c6d1;margin:0}
+.contextRuleBlock{background:#052a3c;border-radius:11px;padding:11px;margin-top:9px}.contextRuleBlock b{display:block;color:#78e2ff;margin-bottom:4px}.contextRuleBlock p{font-size:10px;line-height:1.55;margin:0;color:#d4e3e9}
+.contextRuleActions{display:flex;gap:7px;margin-top:11px}.contextRuleActions button{width:auto}.contextRuleActions .primary{background:#168bcf}
+.ruleRow.activeRuleFocus{border-color:#78e2ff!important;box-shadow:0 0 0 2px #78e2ff55}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17399,7 +17410,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.3 • COURSE START FIX</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5 • FOCUSED REFERENCE AID</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18149,7 +18160,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.3</b></div>
+    <div><small>BUILD</small><b>1.37.5</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -18167,7 +18178,6 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <div class="libraryHeroActions">
       <button onclick="showModule('home')">← HOME</button>
       <button onclick="showCoursePage()">VIEW COURSE MAP →</button>
-      <button class="testResetBtn" onclick="resetProjectWatchForTesting()">↻ RESET TEST USER</button>
     </div>
   </div>
   <div class="homeSectionHead">
@@ -18243,28 +18253,34 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <h2>Build one layer before relying on the next.</h2>
       <p>The course starts with watchkeeping fundamentals and the collision-rule framework, then teaches vessel recognition, sound signals, collision avoidance, buoyage, TSS and finally AIS/electronic awareness. Experienced users can still use the Training Library in any order.</p>
     </div>
-    <div class="courseIntroActions">
-      <button onclick="showModule('home')">← TRAINING HUB</button>
-      <button class="testResetBtn" onclick="resetProjectWatchForTesting()">↻ RESET TEST USER</button>
-    </div>
+    <button onclick="showModule('home')">← TRAINING HUB</button>
   </div>
 
   <div id="courseStageList" class="courseStageList"></div>
 
   <div id="courseOrientation" class="courseOrientation">
-    <div class="ver">STAGE 01 • ORIENTATION & WATCHKEEPING FUNDAMENTALS</div>
-    <h2>Before you make a collision decision, know what the bridge picture means.</h2>
-    <div class="orientationGrid">
-      <div><b>OWN VESSEL</b><p>Know your vessel profile, propulsion, dimensions and normal speed. Project Watch personalises the training around the vessel you configured.</p></div>
-      <div><b>DIRECTIONS</b><p>Be comfortable with ahead, astern, port, starboard, bow, beam and quarter before interpreting relative traffic.</p></div>
-      <div><b>HEADING / COG / SOG</b><p>Heading is where the bow points. COG is movement over the ground. SOG is speed over the ground. Current and leeway can separate them.</p></div>
-      <div><b>LOOKOUT FIRST</b><p>Electronic aids support the watch; they never replace sight, hearing and all other appropriate means required by Rule 5.</p></div>
-      <div><b>TRAINING MODES</b><p>Guided mode teaches. Watch mode removes coaching. Mock assessments withhold the answers until debrief.</p></div>
-      <div><b>SAFETY MINDSET</b><p>Do not learn slogans in isolation. Identify the situation, decide which Rules apply, act early and clearly, then monitor until finally past and clear.</p></div>
+    <div class="orientationTop">
+      <div>
+        <div class="ver">STAGE 01 • ORIENTATION & WATCHKEEPING FUNDAMENTALS</div>
+        <h2>Learn the bridge language first.</h2>
+        <p>This is a short teaching stage — not a tick-box pass. Work through the six cards, then complete a five-question check. The safety acknowledgement does not score marks.</p>
+      </div>
+      <button onclick="showCoursePage()">← COURSE MAP</button>
     </div>
-    <div class="orientationCheck">
-      <label><input id="orientationAgree" type="checkbox" onchange="renderCoursePage()"> I understand that Project Watch is a training aid and does not replace proper lookout, charts, official publications, qualified instruction or the skipper's responsibility.</label>
-      <button id="orientationCompleteBtn" onclick="completeOrientation()">COMPLETE ORIENTATION →</button>
+
+    <div class="orientationLessonNav" id="orientationLessonNav"></div>
+    <div id="orientationLessonCard" class="orientationLessonCard"></div>
+
+    <div id="orientationKnowledge" class="orientationKnowledge">
+      <div class="ver">STAGE 01 • KNOWLEDGE CHECK</div>
+      <h3>Show that the fundamentals make sense.</h3>
+      <p>Five simple questions based only on the material above. You need 4/5 to complete Stage 1. Wrong answers are explained and you can try again.</p>
+      <div id="orientationQuizArea"></div>
+    </div>
+
+    <div class="orientationSafety">
+      <label><input id="orientationAgree" type="checkbox"> I understand that Project Watch is a training aid and does not replace proper lookout, charts, official publications, qualified instruction or the skipper's responsibility.</label>
+      <small>This is a safety acknowledgement only. It does <b>not</b> give you 100% or complete the stage.</small>
     </div>
   </div>
 
@@ -18438,15 +18454,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 </section>
 <section id="colregsTutorialPage" class="appPage">
-  <div class="crTutorHero"><div><div class="ver">COLREGS • BEGINNER COURSE</div><h1>Learn the map before the rules.</h1><p>This course does not try to make you memorise 41 rules at once. It teaches you how the COLREGs are organised, how to identify the situation, and where to look next.</p></div><div class="crTutorBadge"><small>STARTING LEVEL</small><b>ZERO KNOWLEDGE</b><span>7 lessons + knowledge check</span></div></div>
+  <div class="crTutorHero"><div><div class="ver">STAGE 02 • COLREG FOUNDATIONS • TEACHING FIRST</div><h1>Learn the framework before the test.</h1><p>Lessons 1–6 are teaching. Read them or listen to them at your own pace. Lesson 7 is the knowledge check. You are not expected to know the answers before Project Watch teaches the material.</p></div><div class="crTutorBadge"><small>COURSE FORMAT</small><b>6 TEACHING LESSONS</b><span>then 10-question knowledge check</span></div></div>
   <div class="crTutorProgress"><div><span>COURSE PROGRESS</span><b id="crProgressText">0 / 7 COMPLETE</b></div><i><em id="crProgressFill"></em></i></div>
   <div class="crTutorLayout">
     <aside id="crLessonList" class="crLessonList"></aside>
     <main class="crLessonCard">
-      <div class="crLessonHead"><div><div class="ver" id="crLessonNo">LESSON 01</div><h2 id="crLessonTitle"></h2><p id="crLessonIntro"></p></div><button onclick="showModule('colregs')">← RULES 1–41</button></div>
+      <div class="crLessonHead"><div><div class="ver" id="crLessonNo">LESSON 01</div><h2 id="crLessonTitle"></h2><p id="crLessonIntro"></p></div><div class="crHeadActions"><button onclick="openRulesLibrary()">📖 OPEN RULES LIBRARY</button><button onclick="showCoursePage()">← COURSE MAP</button></div></div>
       <div id="crLessonVisual" class="crLessonVisual"></div>
       <div id="crLessonBody" class="crLessonBody"></div>
-      <div class="crLessonFooter"><button onclick="crPrev()">← PREVIOUS</button><button onclick="crSpeak()">🔊 HEAR LESSON</button><button class="primary" id="crCompleteBtn" onclick="crComplete()">MARK COMPLETE ✓</button><button onclick="crNext()">NEXT →</button></div>
+      <div class="crLessonFooter"><button onclick="crPrev()">← PREVIOUS</button><button id="crSpeakBtn" onclick="crSpeak()">🔊 HEAR LESSON</button><button class="primary" id="crCompleteBtn" onclick="crComplete()">LESSON UNDERSTOOD ✓</button><button onclick="crNext()">NEXT →</button></div>
     </main>
   </div>
 </section>
@@ -21948,6 +21964,18 @@ const COLREGS_BEGINNER=[
  {title:'Special environments change the picture',sub:'Channels, TSS and restricted visibility',intro:'The same two vessels can have different obligations when the navigational environment changes.',visual:'special',facts:[['Rule 9 • Narrow channels','Channel constraints and duties can affect what action is safe and practicable.'],['Rule 10 • TSS','Traffic separation schemes have specific lane, crossing, joining, leaving and separation-zone requirements.'],['Rule 19 • Restricted visibility','Radar information, safe speed, engines ready and special avoiding-action cautions become central when vessels are not in sight.'],['Do not use slogans','Simple ideas such as “power gives way to sail” are not a substitute for identifying the applicable rules and circumstances.']]},
  {title:'How to use Project Watch',sub:'Learn → reference → apply',intro:'Use the library to find a rule, then use the practical modules to see it working.',visual:'quiz',facts:[['Step 1 • Identify','Ask what kind of situation you are actually in.'],['Step 2 • Reference','Open the relevant Rule card and read its purpose, training note and visual.'],['Step 3 • Apply','Use Collision Scenarios, TSS, Lights & Shapes and Signals to practise recognition and decisions.'],['Step 4 • Check yourself','Finish with this short knowledge check. It is reinforcement, not a formal exam.']]}
 ];
+const CR_QUIZ_RULE_REFS=[
+ {rule:'5',label:'REVIEW RULE 5 • LOOK-OUT'},
+ {rule:'7',label:'REVIEW RULE 7 • RISK OF COLLISION'},
+ {rule:'13',label:'REVIEW RULE 13 • OVERTAKING'},
+ {rule:'11',label:'REVIEW RULE 11 • APPLICATION'},
+ {rule:'16',label:'REVIEW RULE 16 • GIVE-WAY VESSEL'},
+ {rule:'17',label:'REVIEW RULE 17 • STAND-ON VESSEL'},
+ {rule:'10',label:'REVIEW RULE 10 • TSS'},
+ {rule:'19',label:'REVIEW RULE 19 • RESTRICTED VISIBILITY'},
+ {rule:'7',label:'REVIEW RULE 7 • RISK ASSESSMENT'},
+ {rule:'2',label:'REVIEW RULE 2 • RESPONSIBILITY'}
+];
 const CR_QUIZ=[
  ['Which Rule requires a proper lookout?',['Rule 5','Rule 10','Rule 15'],0,'Rule 5 is the lookout rule.'],
  ['If there is doubt about risk of collision, what should you assume?',['There is no risk','Risk exists','Wait for AIS'],1,'Rule 7 says that if there is any doubt, risk shall be deemed to exist.'],
@@ -21971,13 +21999,27 @@ function crVisual(l){
  if(l.visual==='quiz')return crQuizHTML();
  return `<div class="crFlow"><div class="node"><b>LOOK OUT</b><small>See • hear • assess</small></div><span class="arrow">→</span><div class="node"><b>UNDERSTAND</b><small>Which rules apply?</small></div><span class="arrow">→</span><div class="node"><b>ACT</b><small>Early • clear • safe</small></div><span class="arrow">→</span><div class="node"><b>CHECK</b><small>Past and clear</small></div></div>`;
 }
-function renderCrLesson(){let l=COLREGS_BEGINNER[crLesson];$('crLessonList').innerHTML=COLREGS_BEGINNER.map((x,i)=>`<button class="crLessonBtn ${i===crLesson?'active':''} ${crDone.has(i)?'done':''}" onclick="crSelect(${i})"><span class="num">${String(i+1).padStart(2,'0')}</span><span><b>${x.title}</b><small>${x.sub}</small></span><span class="tick">${crDone.has(i)?'✓':''}</span></button>`).join('');$('crLessonNo').textContent='LESSON '+String(crLesson+1).padStart(2,'0');$('crLessonTitle').textContent=l.title;$('crLessonIntro').textContent=l.intro;$('crLessonVisual').innerHTML=crVisual(l);$('crLessonBody').innerHTML=l.facts.map(x=>`<div class="crFact"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');$('crCompleteBtn').textContent=crDone.has(crLesson)?'COMPLETED ✓':'MARK COMPLETE ✓';$('crProgressText').textContent=`${crDone.size} / 7 COMPLETE`;$('crProgressFill').style.width=(crDone.size/7*100)+'%'}
-function crSelect(i){crLesson=Math.max(0,Math.min(6,i));renderCrLesson()}
+function renderCrLesson(){let l=COLREGS_BEGINNER[crLesson];$('crLessonList').innerHTML=COLREGS_BEGINNER.map((x,i)=>`<button class="crLessonBtn ${i===crLesson?'active':''} ${crDone.has(i)?'done':''}" onclick="crSelect(${i})"><span class="num">${String(i+1).padStart(2,'0')}</span><span><b>${x.title}</b><small>${x.sub}</small></span><span class="tick">${crDone.has(i)?'✓':''}</span></button>`).join('');$('crLessonNo').textContent='LESSON '+String(crLesson+1).padStart(2,'0');$('crLessonTitle').textContent=l.title;$('crLessonIntro').textContent=l.intro;$('crLessonVisual').innerHTML=crVisual(l);$('crLessonBody').innerHTML=`<div class="crModeNotice">${crLesson<6?'TEACHING LESSON • Read or listen first. Mark it understood when you are comfortable with the material.':'KNOWLEDGE CHECK • This tests only material taught in Lessons 1–6. Use the Rules Library if you want to review a rule.'}</div>`+l.facts.map(x=>`<div class="crFact"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');$('crCompleteBtn').style.display=crLesson===6?'none':'';$('crCompleteBtn').textContent=crDone.has(crLesson)?'UNDERSTOOD ✓':'LESSON UNDERSTOOD ✓';$('crProgressText').textContent=`${crDone.size} / 7 COMPLETE`;$('crProgressFill').style.width=(crDone.size/7*100)+'%'}
+function crSelect(i){stopCourseSpeech();crLesson=Math.max(0,Math.min(6,i));renderCrLesson()}
 function crPrev(){crSelect(crLesson-1)}function crNext(){crSelect(crLesson+1)}
 function crComplete(){crDone.add(crLesson);renderCrLesson();if(crLesson<6)setTimeout(()=>crSelect(crLesson+1),180)}
-function crSpeak(){let l=COLREGS_BEGINNER[crLesson],speech=l.title+'. '+l.intro+'. '+l.facts.map(x=>x[0]+'. '+x[1]).join(' ');speakMarine(speech,'instruction')}
-function crQuizHTML(){if(crQuizIndex>=CR_QUIZ.length)return `<div class="crQuizScore"><strong>${crQuizScore} / ${CR_QUIZ.length}</strong><b>KNOWLEDGE CHECK COMPLETE</b><span>${crQuizScore>=8?'Strong start. Now use Rules 1–41 as a reference and apply them in the practical modules.':'Review the lessons you missed, then try the check again.'}</span><button style="margin-top:12px" onclick="crRestartQuiz()">TRY AGAIN</button></div>`;let q=CR_QUIZ[crQuizIndex];return `<div class="crQuiz"><div class="ver">KNOWLEDGE CHECK • ${crQuizIndex+1} / ${CR_QUIZ.length}</div><div class="crQuizQ">${q[0]}</div><div class="crQuizOpts">${q[1].map((o,i)=>`<button onclick="crAnswer(${i})">${o}</button>`).join('')}</div><div id="crQuizResult" class="crQuizResult"></div></div>`}
-function crAnswer(i){if(crQuizAnswered)return;crQuizAnswered=true;let q=CR_QUIZ[crQuizIndex],ok=i===q[2];if(ok)crQuizScore++;$('crQuizResult').innerHTML=`<b>${ok?'CORRECT ✓':'NOT QUITE'}</b><br>${q[3]}<br><button style="margin-top:7px" onclick="crQuizNext()">${crQuizIndex===CR_QUIZ.length-1?'SEE SCORE':'NEXT QUESTION →'}</button>`}
+function crSpeak(){
+ if('speechSynthesis' in window&&speechSynthesis.speaking){stopCourseSpeech();return}
+ let l=COLREGS_BEGINNER[crLesson],speech=l.title+'. '+l.intro+'. '+l.facts.map(x=>x[0]+'. '+x[1]).join(' ');
+ const u=speakMarine(speech,'instruction'),b=$('crSpeakBtn');if(b)b.textContent='■ STOP LESSON';
+ if(u)u.onend=()=>{const x=$('crSpeakBtn');if(x)x.textContent='🔊 HEAR LESSON'};
+}
+function crQuizHTML(){
+ if(crQuizIndex>=CR_QUIZ.length)return `<div class="crQuizScore"><strong>${crQuizScore} / ${CR_QUIZ.length}</strong><b>KNOWLEDGE CHECK COMPLETE</b><span>${crQuizScore>=8?'Foundation standard achieved.':'Review the teaching lessons you missed, then try the check again.'}</span><button type="button" style="margin-top:12px" onclick="crRestartQuiz()">TRY AGAIN</button> <button type="button" style="margin-top:12px" onclick="openRulesLibrary()">📖 RULES LIBRARY</button></div>`;
+ let q=CR_QUIZ[crQuizIndex];
+ const ref=CR_QUIZ_RULE_REFS[crQuizIndex];
+ return `<div class="crQuiz"><div class="ver">KNOWLEDGE CHECK • ${crQuizIndex+1} / ${CR_QUIZ.length}</div><div class="crQuizQ">${q[0]}</div><div class="crQuizOpts">${q[1].map((o,i)=>`<button type="button" onclick="crAnswer(${i});return false;">${o}</button>`).join('')}</div><div class="quizHelpRow">${ref?`<button type="button" onclick="openRulesLibrary('${ref.rule}','Training aid for Knowledge Check question ${crQuizIndex+1}.')">📖 ${ref.label}</button>`:'<button type="button" onclick="openRulesLibrary()">📖 OPEN RULES LIBRARY</button>'}</div><div id="crQuizResult" class="crQuizResult"></div></div>`;
+}
+function crAnswer(i){
+ if(crQuizAnswered)return;crQuizAnswered=true;let q=CR_QUIZ[crQuizIndex],ok=i===q[2];if(ok)crQuizScore++;
+ const ref=CR_QUIZ_RULE_REFS[crQuizIndex];
+ $('crQuizResult').innerHTML=`<b>${ok?'CORRECT ✓':'NOT QUITE'}</b><br>${q[3]}<br>${ref?`<button type="button" style="margin-top:7px" onclick="openRulesLibrary('${ref.rule}','Review the exact rule connected with this answer, then return to the knowledge check.')">📖 ${ref.label}</button> `:''}<button type="button" style="margin-top:7px" onclick="crQuizNext()">${crQuizIndex===CR_QUIZ.length-1?'SEE SCORE':'NEXT QUESTION →'}</button>`;
+}
 function crQuizNext(){
  crQuizIndex++;crQuizAnswered=false;$('crLessonVisual').innerHTML=crQuizHTML();
  if(crQuizIndex>=CR_QUIZ.length){
@@ -22048,39 +22090,111 @@ function showTrainingLibrary(){
 }
 
 
-// TEMPORARY QA RESET — intended for Claire/user testing; remove before release.
-function resetProjectWatchForTesting(){
- const ok=confirm(
-   'RESET TEST USER?\\n\\nThis will clear Course progress, AIS guided-task progress, vessel profile/setup and saved learner state on this device so Project Watch starts like a new user.\\n\\nThe app itself will not be changed.'
- );
- if(!ok)return;
+const ORIENTATION_LESSONS=[
+ {title:'Your own vessel',sub:'Start with what you command',intro:'Before interpreting other traffic, know the vessel from which you are observing it.',facts:[
+  ['Own vessel','The vessel you are controlling is your own vessel. In Project Watch it uses the personal vessel profile, or Suilven as the default.'],
+  ['Bow & stern','Bow means the front of the vessel. Stern means the rear.'],
+  ['Port & starboard','Facing forward, port is your left side and starboard is your right side. These terms stay with the vessel, not the edge of the screen.']]},
+ {title:'Direction around you',sub:'Bow, beam and quarter',intro:'Traffic is described relative to your vessel as well as by compass bearing.',facts:[
+  ['Ahead / astern','Ahead is in front of the bow. Astern is behind the stern.'],
+  ['Beam','The beam direction is approximately 90° to either side of the vessel.'],
+  ['Quarter','The quarters are the rear-side sectors between the beam and stern.']]},
+ {title:'Heading',sub:'Where the bow points',intro:'Heading tells you the direction the vessel’s bow is pointing.',facts:[
+  ['Heading','A heading of 090° means the bow is pointing east.'],
+  ['It can change','Turning the vessel changes heading.'],
+  ['Not always your track','Wind, tide and current can mean the direction you move over the ground is different from heading.']]},
+ {title:'COG & SOG',sub:'How you move over the ground',intro:'Electronic navigation commonly shows Course Over Ground and Speed Over Ground.',facts:[
+  ['COG','Course Over Ground is the direction your vessel is actually moving across the Earth.'],
+  ['SOG','Speed Over Ground is how fast the vessel is moving over the Earth.'],
+  ['Compare with heading','Heading and COG can differ. That difference is useful information, not automatically an instrument error.']]},
+ {title:'Lookout first',sub:'Rule 5 mindset',intro:'No screen replaces the basic duty to maintain a proper lookout.',facts:[
+  ['Sight and hearing','Look outside and listen.'],
+  ['All available means','Use radar, AIS and other appropriate aids when available, but as supporting information.'],
+  ['Build the picture','Keep updating what vessels are doing; do not make one observation and stop watching.']]},
+ {title:'How Project Watch teaches',sub:'Learn → practise → assess',intro:'Different parts of Project Watch have different purposes.',facts:[
+  ['Learn','Teaching screens explain the subject before you are tested.'],
+  ['Practise','Guided simulators let you apply it with coaching.'],
+  ['Assess','Knowledge checks and mock exams test material after it has been taught. A wrong answer is feedback, not the end of the course.']]}
+];
+const ORIENTATION_QUIZ=[
+ ['Facing forward, which side is starboard?',['Left','Right','Behind you'],1,'Starboard is the right-hand side when facing forward.'],
+ ['What does heading describe?',['Where the bow points','Your speed over the ground','The nearest AIS target'],0,'Heading is the direction the bow is pointing.'],
+ ['What does COG describe?',['Rudder angle','Direction of movement over the ground','Depth below the keel'],1,'COG means Course Over Ground.'],
+ ['Can heading and COG be different?',['Yes','No, never'],0,'Yes. Current, tide, wind and leeway can make the track over the ground differ from the direction the bow points.'],
+ ['What should electronic aids do?',['Replace lookout','Support a proper lookout','Allow you to stop monitoring'],1,'Electronic aids support the watch; they do not replace a proper lookout.']
+];
+let orientationLesson=0,orientationSeen=new Set(),orientationQuizIndex=0,orientationQuizScore=0,orientationQuizAnswered=false;
 
- try{
-   // Known Project Watch persistent state.
-   localStorage.removeItem(PW_COURSE_STORAGE);
-   localStorage.removeItem(PW_AIS_TASKS_STORAGE);
-   if(typeof PW_VESSEL_STORAGE!=='undefined')localStorage.removeItem(PW_VESSEL_STORAGE);
-
-   // Clear other Project Watch-owned localStorage entries while leaving unrelated site data alone.
-   const remove=[];
-   for(let i=0;i<localStorage.length;i++){
-     const k=localStorage.key(i)||'';
-     if(/^projectwatch/i.test(k)||/^projectWatch/i.test(k)||/^pw_/i.test(k))remove.push(k);
-   }
-   remove.forEach(k=>localStorage.removeItem(k));
-
-   // Clear session-only learner state as well.
-   const sremove=[];
-   for(let i=0;i<sessionStorage.length;i++){
-     const k=sessionStorage.key(i)||'';
-     if(/^projectwatch/i.test(k)||/^projectWatch/i.test(k)||/^pw_/i.test(k))sremove.push(k);
-   }
-   sremove.forEach(k=>sessionStorage.removeItem(k));
- }catch(e){console.warn('Test reset storage cleanup',e)}
-
- // Remove course-orientation hash and reload to reproduce first-run behaviour.
- try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}
- location.reload();
+function renderOrientation(){
+ const nav=$('orientationLessonNav'),card=$('orientationLessonCard');if(!nav||!card)return;
+ nav.innerHTML=ORIENTATION_LESSONS.map((l,i)=>`<button class="${i===orientationLesson?'active':''} ${orientationSeen.has(i)?'done':''}" onclick="orientationSelect(${i})"><small>LESSON ${i+1}</small><b>${l.title}</b></button>`).join('');
+ const l=ORIENTATION_LESSONS[orientationLesson];
+ card.innerHTML=`<div class="ver">ORIENTATION LESSON ${orientationLesson+1} / ${ORIENTATION_LESSONS.length}</div><h3>${l.title}</h3><p>${l.intro}</p>
+ <div class="orientationTeachGrid">${l.facts.map(f=>`<div><b>${f[0]}</b><span>${f[1]}</span></div>`).join('')}</div>
+ <div class="orientationLessonActions"><button onclick="orientationPrev()">← PREVIOUS</button><button onclick="orientationHear()" id="orientationHearBtn">🔊 HEAR LESSON</button><button onclick="orientationNext()">${orientationLesson===ORIENTATION_LESSONS.length-1?'GO TO KNOWLEDGE CHECK →':'NEXT LESSON →'}</button></div>`;
+ renderOrientationQuiz();
+}
+function orientationSelect(i){
+ stopCourseSpeech();orientationSeen.add(orientationLesson);
+ orientationLesson=Math.max(0,Math.min(ORIENTATION_LESSONS.length-1,i));orientationSeen.add(orientationLesson);renderOrientation();
+}
+function orientationPrev(){orientationSelect(orientationLesson-1)}
+function orientationNext(){
+ orientationSeen.add(orientationLesson);
+ if(orientationLesson<ORIENTATION_LESSONS.length-1){orientationLesson++;renderOrientation();return}
+ $('orientationKnowledge')?.scrollIntoView({behavior:'smooth',block:'start'});renderOrientationQuiz();
+}
+function orientationHear(){
+ if('speechSynthesis' in window&&speechSynthesis.speaking){stopCourseSpeech();return}
+ const l=ORIENTATION_LESSONS[orientationLesson];
+ const u=speakMarine(l.title+'. '+l.intro+'. '+l.facts.map(f=>f[0]+'. '+f[1]).join(' '),'instruction');
+ const b=$('orientationHearBtn');if(b)b.textContent='■ STOP LESSON';
+ if(u)u.onend=()=>{const x=$('orientationHearBtn');if(x)x.textContent='🔊 HEAR LESSON'};
+}
+function renderOrientationQuiz(){
+ const area=$('orientationQuizArea');if(!area)return;
+ if(orientationQuizIndex>=ORIENTATION_QUIZ.length){
+   const pct=Math.round(orientationQuizScore/ORIENTATION_QUIZ.length*100),pass=orientationQuizScore>=4;
+   area.innerHTML=`<div class="crQuizScore"><strong>${orientationQuizScore} / 5</strong><b>${pass?'STAGE 1 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</b><span>${pass?'You have demonstrated the Stage 1 fundamentals. Tick the safety acknowledgement below, then complete the stage.':'Review the six teaching cards above. You need 4/5.'}</span>${pass?'<button style="margin-top:10px" onclick="completeOrientation()">COMPLETE STAGE 1 →</button>':'<button style="margin-top:10px" onclick="restartOrientationQuiz()">TRY AGAIN</button>'}</div>`;
+   return;
+ }
+ const q=ORIENTATION_QUIZ[orientationQuizIndex];
+ area.innerHTML=`<div class="orientationQ"><div class="ver">QUESTION ${orientationQuizIndex+1} / 5</div><h4>${q[0]}</h4><div class="orientationQOpts">${q[1].map((a,i)=>`<button type="button" onclick="answerOrientation(${i})">${a}</button>`).join('')}</div><div id="orientationQResult" class="orientationQResult"></div></div>`;
+}
+function answerOrientation(i){
+ if(orientationQuizAnswered)return;orientationQuizAnswered=true;
+ const q=ORIENTATION_QUIZ[orientationQuizIndex],ok=i===q[2];if(ok)orientationQuizScore++;
+ $('orientationQResult').innerHTML=`<b>${ok?'CORRECT ✓':'NOT QUITE'}</b><br>${q[3]}<br><button type="button" style="margin-top:7px" onclick="nextOrientationQuestion()">${orientationQuizIndex===4?'SEE RESULT':'NEXT QUESTION →'}</button>`;
+}
+function nextOrientationQuestion(){orientationQuizIndex++;orientationQuizAnswered=false;renderOrientationQuiz()}
+function restartOrientationQuiz(){orientationQuizIndex=0;orientationQuizScore=0;orientationQuizAnswered=false;renderOrientationQuiz()}
+function stopCourseSpeech(){
+ try{if('speechSynthesis' in window)speechSynthesis.cancel()}catch(e){}
+ const a=$('crSpeakBtn');if(a)a.textContent='🔊 HEAR LESSON';
+ const b=$('orientationHearBtn');if(b)b.textContent='🔊 HEAR LESSON';
+}
+let PW_CONTEXT_RULE=null;
+function openRulesLibrary(ruleNo,why){
+ stopCourseSpeech();
+ if(ruleNo){
+  const r=RULE_DATA[String(ruleNo)];
+  if(r){
+   PW_CONTEXT_RULE=String(ruleNo);
+   $('contextRuleTitle').textContent='Rule '+ruleNo+' • '+r.title;
+   $('contextRuleWhy').textContent=why||'This is the exact reference for the lesson or question you are working on. Review it, then return to where you were.';
+   $('contextRuleSummary').textContent=r.summary;
+   $('contextRuleTraining').textContent=r.training;
+   $('contextRuleProject').textContent=r.project;
+   $('contextRuleSheet').classList.add('open');return;
+  }
+ }
+ showModule('colregs');
+ setTimeout(()=>$('ruleList')?.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+function closeContextRule(){$('contextRuleSheet')?.classList.remove('open')}
+function contextRuleOpenFull(){
+ const rn=PW_CONTEXT_RULE;closeContextRule();showModule('colregs');
+ if(rn)setTimeout(()=>{const row=document.querySelector(`#ruleList .ruleRow[data-rule="${rn}"]`);if(row){row.scrollIntoView({behavior:'smooth',block:'center'});row.classList.add('activeRuleFocus');setTimeout(()=>row.classList.remove('activeRuleFocus'),1800)}},120);
 }
 
 // ---------------- STRUCTURED COURSE PATHWAY ----------------
@@ -22091,9 +22205,9 @@ const PW_COURSE_STAGES=[
  {id:'orientation',no:'01',title:'Orientation & Watchkeeping Fundamentals',module:'course',type:'FOUNDATION',
   desc:'Establish the language and safety mindset used by every later module.',
   objectives:['Describe heading, COG and SOG','Use port/starboard and relative sectors correctly','Explain why lookout outranks electronic aids','Understand Guided, Watch and Exam modes'],
-  requirement:'Complete the Project Watch orientation and safety acknowledgement.'},
+  requirement:'Complete the six teaching cards, score at least 4/5 in the knowledge check, then confirm the safety acknowledgement.'},
  {id:'foundations',no:'02',title:'COLREG Foundations',module:'colregs',type:'RULE FRAMEWORK',
-  desc:'Build the Rule framework before learning individual encounter shortcuts.',
+  desc:'Six teaching lessons explain the Rule framework first; a 10-question knowledge check comes only at the end.',
   objectives:['Locate the major COLREG Parts','Explain Rules 5–8 principles','Distinguish in-sight and restricted-visibility frameworks','Understand give-way / stand-on escalation'],
   requirement:'Complete all 7 beginner lessons and score at least 8/10 in the foundation knowledge check.'},
  {id:'lights',no:'03',title:'Lights & Shapes Recognition',module:'lights',type:'VESSEL RECOGNITION',
@@ -22170,6 +22284,7 @@ function showCoursePage(){
    const orientation=$('courseOrientation');
    if(orientation){
      orientation.classList.add('show');
+     renderOrientation();
      requestAnimationFrame(()=>orientation.scrollIntoView({behavior:'smooth',block:'start'}));
      return;
    }
@@ -22206,9 +22321,7 @@ function renderCoursePage(){
  }).join('');
 
  const o=$('courseOrientation');if(o)o.classList.toggle('show',location.hash==='#course-orientation');
- const chk=$('orientationAgree'),btn=$('orientationCompleteBtn');
- if(chk&&btn)btn.disabled=!chk.checked||courseCompleted('orientation');
- if(btn&&courseCompleted('orientation')){btn.disabled=true;btn.textContent='ORIENTATION COMPLETE ✓'}
+ if(o&&o.classList.contains('show'))renderOrientation();
 }
 function courseLaunch(id){
  const idx=PW_COURSE_STAGES.findIndex(s=>s.id===id);
@@ -22235,8 +22348,17 @@ function courseLaunch(id){
  if(id==='ais'){showModule('ais');aisSetLesson(1);return}
 }
 function completeOrientation(){
- const chk=$('orientationAgree');if(!chk?.checked)return;
- courseRecordComplete('orientation',100);location.hash='';renderCoursePage();
+ const chk=$('orientationAgree');
+ if(orientationQuizIndex<ORIENTATION_QUIZ.length||orientationQuizScore<4){
+   alert('Complete the five-question Stage 1 knowledge check first. You need at least 4/5.');
+   $('orientationKnowledge')?.scrollIntoView({behavior:'smooth',block:'start'});return;
+ }
+ if(!chk?.checked){
+   alert('Please read and tick the safety acknowledgement. It does not affect your score.');
+   chk?.scrollIntoView({behavior:'smooth',block:'center'});return;
+ }
+ const pct=Math.round(orientationQuizScore/ORIENTATION_QUIZ.length*100);
+ courseRecordComplete('orientation',pct);location.hash='';renderCoursePage();showCoursePage();
 }
 
 function courseResetProgress(){
@@ -22924,6 +23046,7 @@ function enhanceHomeHub(){
 }
 
 function showModule(name,btn){
+ stopCourseSpeech();
  tutorialActive=false;clearTutorialFocus();if($('tutorialCoach'))$('tutorialCoach').classList.remove('show');
  updateHeaderNav(name);
  updateModuleContext(name);
@@ -23139,6 +23262,7 @@ function speakMarine(text,kind='instruction'){
   else if(kind==='confirmation'){u.rate=0.91;u.pitch=1.0}
   else{u.rate=0.88;u.pitch=1.0}
   synth.speak(u);
+  return u;
 }
 function collisionSound(){
   beep(880,.16,0);beep(880,.16,.25);beep(660,.28,.5);
@@ -23545,6 +23669,15 @@ try{updateHomeCourseProgress();renderHomeCourseDashboard();}catch(e){}
     <button onclick="tutorialSpeakCurrent()">🔊 HEAR</button>
     <button class="active" id="tutorialStepNext" onclick="tutorialStepNext()">NEXT →</button>
   </div>
+</div>
+<div id="contextRuleSheet" class="contextRuleSheet" onclick="if(event.target===this)closeContextRule()" role="dialog" aria-modal="true">
+ <div class="contextRuleCard">
+  <div class="contextRuleTop"><div><div class="ver">RULES LIBRARY • FOCUSED TRAINING AID</div><h2 id="contextRuleTitle"></h2><p id="contextRuleWhy" class="contextRuleWhy"></p></div><button class="closeBtn" onclick="closeContextRule()">✕</button></div>
+  <div class="contextRuleBlock"><b>WHAT THE RULE MEANS</b><p id="contextRuleSummary"></p></div>
+  <div class="contextRuleBlock"><b>WHAT TO LEARN</b><p id="contextRuleTraining"></p></div>
+  <div class="contextRuleBlock"><b>PROJECT WATCH APPLICATION</b><p id="contextRuleProject"></p></div>
+  <div class="contextRuleActions"><button class="primary" onclick="closeContextRule()">← BACK TO QUESTION</button><button onclick="contextRuleOpenFull()">OPEN FULL RULES LIBRARY →</button></div>
+ </div>
 </div>
 <div id="detailSheet" class="detailSheet" onclick="if(event.target===this)closeDetail()">
  <div class="detailCard">
