@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.38.3 — Engineering Audit</title>
+<title>Project Watch 1.39.0 — Stage 4 Sound Signals</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17674,167 +17674,26 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </section>
 <section id="signalsPage" class="appPage">
 <div class="panel">
-<div class="ver">COLREGS PART D • RULES 32–37</div>
-<h2>Signals Trainer</h2>
-<p class="note">The approved whistle, bell and gong engine now drives the complete training module. Learn the signal, hear it, then switch to Test Yourself.</p>
-
+<div class="ver">STAGE 4 • COLREGS PART D • RULES 32–37</div>
+<h2>Sound Signals</h2>
+<p class="note">Learn the signal, hear the real timing pattern, recognise it without a visual clue, then prove it in the 10-question final check. Every teaching card and exam question is backed by the Master Sound Library.</p>
 <div class="signalTabs">
-  <button id="sigTabAudio" class="active" onclick="showSignalSection('audio')">AUDIO LAB</button>
-  <button id="sigTabMan" onclick="showSignalSection('man')">MANOEUVRING</button>
-  <button id="sigTabFog" onclick="showSignalSection('fog')">RESTRICTED VISIBILITY</button>
-  <button id="sigTabDistress" onclick="showSignalSection('distress')">DISTRESS</button>
-  <button id="sigTabHarbour" onclick="showSignalSection('harbour')">HARBOUR / MARINA</button>
-  <button id="sigTabQuiz" onclick="showSignalSection('quiz')">TEST YOURSELF</button>
+ <button id="sigTabLearn" class="active" onclick="showSignalSection('learn')">6 LESSONS</button>
+ <button id="sigTabLibrary" onclick="showSignalSection('library')">MASTER SOUND LIBRARY</button>
+ <button id="sigTabAudio" onclick="showSignalSection('audio')">AUDIO LAB</button>
+ <button id="sigTabMan" onclick="showSignalSection('man')">RULE 34</button>
+ <button id="sigTabFog" onclick="showSignalSection('fog')">RULE 35</button>
+ <button id="sigTabDistress" onclick="showSignalSection('distress')">DISTRESS</button>
+ <button id="sigTabQuiz" onclick="showSignalSection('quiz')">FINAL CHECK</button>
 </div>
-
-
-<div id="sigAudio" class="signalSection active">
-  <div class="ver">APPROVED SOUND ENGINE</div>
-  <h3>Audio Lab</h3>
-  <p class="note">These are the approved core sounds used everywhere else in the Signals trainer.</p>
-
-  <div class="profileBar">
-    <button id="hornLarge" class="active" onclick="setHornProfile('large')">LARGE SHIP</button>
-    <button id="hornMedium" onclick="setHornProfile('medium')">MEDIUM SHIP</button>
-    <button id="hornSmall" onclick="setHornProfile('small')">SMALL VESSEL</button>
-  </div>
-  <p id="hornProfileText" class="note">Large ship profile • deep marine-whistle training tone.</p>
-
-  <div class="audioLabGrid">
-    <div class="audioLabCard"><h4>One short blast</h4><p>About 1 second.</p><button onclick="audioShort(this)">▶ PLAY SHORT</button></div>
-    <div class="audioLabCard"><h4>One prolonged blast</h4><p>4.5 seconds in this trainer.</p><button onclick="audioProlonged(this)">▶ PLAY PROLONGED</button></div>
-    <div class="audioLabCard"><h4>Short • Prolonged • Short</h4><p>Three-part whistle sequence.</p><button onclick="audioSPS(this)">▶ PLAY SEQUENCE</button></div>
-    <div class="audioLabCard"><h4>Single bell strike</h4><p>Approved bell tone.</p><button onclick="audioBellStrike(this)">▶ PLAY BELL</button></div>
-    <div class="audioLabCard"><h4>Rapid bell • about 5 s</h4><p>Anchor/aground training sound.</p><button onclick="audioRapidBell(this)">▶ PLAY RAPID BELL</button></div>
-    <div class="audioLabCard"><h4>Rapid gong • about 5 s</h4><p>Lower, broader gong tone.</p><button onclick="audioRapidGong(this)">▶ PLAY RAPID GONG</button></div>
-  </div>
-  <div class="panel" style="margin-top:12px">
-    <div class="ver">AUDIO STATUS</div>
-    <div id="audioStatus">Tap any sound to unlock audio on iPad/Safari.</div>
-    <div class="audioMeter"><span id="audioMeterBar"></span></div>
-  </div>
-</div>
-
-<div id="sigMan" class="signalSection">
-  <div class="sigGrid" id="manSignalGrid"></div>
-</div>
-
-<div id="sigFog" class="signalSection">
-  <div class="sigGrid" id="fogSignalGrid"></div>
-</div>
-
-<div id="sigDistress" class="signalSection">
-  <div class="ver">COLREG RULE 37 • ANNEX IV</div>
-  <h3>Distress signals & emergency communications</h3>
-  <p class="note">Tap any card for the exact training meaning and practical use. The Annex IV cards are kept separate from the UK operational Mayday and beacon guidance so the learner can see what is COLREG and what is emergency procedure.</p>
-  <div class="distressGrid" id="distressGrid"></div>
-  <div id="distressDetail" class="distressDetail"></div>
-  <p class="note" style="margin-top:10px">Annex IV signals indicate distress and need of assistance. Use or exhibition of these signals for another purpose, or use of signals liable to be confused with them, is prohibited.</p>
-</div>
-
-<div id="sigHarbour" class="signalSection">
-  <div class="harbourGrid" id="harbourSignalGrid"></div>
-
-  <div class="marinaSim">
-    <div class="ver">PRACTICAL MARINA SCENARIO</div>
-    <h3>Reverse out of the berth</h3>
-    <p class="note">Select the signal you would make while operating astern propulsion. This exercise teaches the COLREG signal itself; actual berth/departure requirements can be supplemented by local harbour rules.</p>
-    <div class="marinaDiagram">
-      <svg viewBox="0 0 900 330" aria-label="Top-down marina berth showing a vessel lying correctly fore-and-aft between finger pontoons and reversing astern into the fairway">
-        <defs>
-          <marker id="arrowWhite" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-            <path d="M0,0 L12,6 L0,12 z" fill="#ffffff"/>
-          </marker>
-          <marker id="arrowCyan" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-            <path d="M0,0 L12,6 L0,12 z" fill="#6ee0ff"/>
-          </marker>
-        </defs>
-
-        <!-- water -->
-        <rect x="0" y="0" width="900" height="330" fill="#4f98ba"/>
-
-        <!-- main pontoon and two finger pontoons -->
-        <rect x="82" y="34" width="22" height="262" rx="6" fill="#d8d2c5"/>
-        <rect x="82" y="66" width="360" height="16" rx="5" fill="#d8d2c5"/>
-        <rect x="82" y="246" width="360" height="16" rx="5" fill="#d8d2c5"/>
-
-        <!-- vessel correctly aligned fore-and-aft in the berth -->
-        <!-- Bow is inboard to the left; stern is outboard toward the fairway -->
-        <g transform="translate(270 164)">
-          <path d="M-105,0
-                   C-92,-28 -55,-39 30,-35
-                   C67,-33 94,-22 112,0
-                   C94,22 67,33 30,35
-                   C-55,39 -92,28 -105,0 Z"
-                fill="#f7fbfd" stroke="#15394c" stroke-width="4"/>
-          <rect x="-30" y="-22" width="58" height="44" rx="9"
-                fill="#c8d9e1" stroke="#15394c" stroke-width="3"/>
-          <line x1="-74" y1="0" x2="82" y2="0" stroke="#15394c" stroke-width="2" opacity=".45"/>
-          <circle cx="-72" cy="0" r="5" fill="#15394c"/>
-          <!-- bow-point detail -->
-          <path d="M-105,0 L-88,-10 L-88,10 Z" fill="#15394c"/>
-          <!-- stern transom cue -->
-          <line x1="103" y1="-17" x2="103" y2="17" stroke="#15394c" stroke-width="5"/>
-        </g>
-
-        <!-- bow and stern labels -->
-        <text x="126" y="151" class="routeLabel">BOW</text>
-        <line x1="155" y1="156" x2="176" y2="164" stroke="#6ee0ff" stroke-width="4"/>
-        <text x="350" y="151" class="routeLabel">STERN</text>
-        <line x1="405" y1="156" x2="382" y2="164" stroke="#6ee0ff" stroke-width="4"/>
-
-        <!-- planned astern path from the stern out of the berth, then into fairway -->
-        <path d="M382 164
-                 C470 164 525 174 565 208
-                 C605 242 652 247 713 215"
-              fill="none" stroke="#ffffff" stroke-width="9"
-              stroke-dasharray="18 12" marker-end="url(#arrowWhite)"/>
-
-        <text x="470" y="292" class="routeLabel">PLANNED ASTERN MOVEMENT</text>
-
-        <!-- bow swing -->
-        <path d="M170 164 C150 136 151 112 172 92"
-              fill="none" stroke="#6ee0ff" stroke-width="7"
-              marker-end="url(#arrowCyan)"/>
-        <text x="115" y="83" class="routeLabel" fill="#6ee0ff">BOW SWING</text>
-
-        <!-- fairway reference -->
-        <line x1="690" y1="38" x2="690" y2="285"
-              stroke="#d9f4ff" stroke-width="3"
-              stroke-dasharray="14 12" opacity=".8"/>
-        <text x="710" y="58" class="routeLabel">FAIRWAY</text>
-      </svg>
-    </div>
-
-    <div class="signalRef">
-      <div class="ver">CORRECT VISUAL REFERENCE</div>
-      <b>••• THREE SHORT BLASTS</b>
-      <div class="note">Operating astern propulsion</div>
-      <button class="big alt" onclick="playHarbourSignal('harbourAstern')">🔊 HEAR CORRECT SIGNAL</button>
-    </div>
-
-    <div class="quizOpts" style="margin-top:10px">
-      <button onclick="answerMarinaSignal('one')">• ONE SHORT</button>
-      <button onclick="answerMarinaSignal('two')">•• TWO SHORT</button>
-      <button onclick="answerMarinaSignal('three')">••• THREE SHORT</button>
-      <button onclick="answerMarinaSignal('long')">— ONE PROLONGED</button>
-    </div>
-    <div id="marinaResult" class="quizResult"></div>
-  </div>
-</div>
-
-<div id="sigQuiz" class="signalSection">
-  <div class="sigQuiz">
-    <div class="ver">AUDIO RECOGNITION</div>
-    <h3 id="sigQuizQ">What signal did you hear?</h3>
-    <button class="big" onclick="playSignalQuiz()">🔊 PLAY SIGNAL</button>
-    <div id="sigQuizChoices" class="quizOpts"></div>
-    <div id="sigQuizResult" class="quizResult"></div>
-    <button class="big alt" onclick="nextSignalQuiz()">NEXT SIGNAL</button>
-  </div>
-</div>
-</div>
-</section>
+<div id="sigLearn" class="signalSection active"><div id="sigLessonApp"></div></div>
+<div id="sigLibrary" class="signalSection"><div class="ver">PROJECT WATCH • MASTER SOUND STANDARD • LIBRARY 04</div><h3>Complete Sound Signals Master Library</h3><p class="note">One source of truth for Stage 4 teaching, playback and assessment. Tap PLAY to hear the approved training timing.</p><div id="soundMasterGrid" class="sigGrid"></div></div>
+<div id="sigAudio" class="signalSection"><div class="ver">APPROVED SOUND ENGINE</div><h3>Audio Lab</h3><p class="note">Short = about 1 second. Prolonged = 4–6 seconds; Project Watch uses 4.5 seconds.</p><div class="profileBar"><button id="hornLarge" class="active" onclick="setHornProfile('large')">LARGE SHIP</button><button id="hornMedium" onclick="setHornProfile('medium')">MEDIUM SHIP</button><button id="hornSmall" onclick="setHornProfile('small')">SMALL VESSEL</button></div><p id="hornProfileText" class="note">Large ship profile • deep marine-whistle training tone.</p><div class="audioLabGrid"><div class="audioLabCard"><h4>One short blast</h4><p>About 1 second.</p><button onclick="audioShort(this)">▶ PLAY SHORT</button></div><div class="audioLabCard"><h4>One prolonged blast</h4><p>4.5 seconds in this trainer.</p><button onclick="audioProlonged(this)">▶ PLAY PROLONGED</button></div><div class="audioLabCard"><h4>Five short rapid</h4><p>Danger / doubt.</p><button onclick="playDefinedSignal('doubt')">▶ PLAY FIVE</button></div><div class="audioLabCard"><h4>Rapid bell</h4><p>About 5 seconds.</p><button onclick="audioRapidBell(this)">▶ PLAY BELL</button></div><div class="audioLabCard"><h4>Rapid gong</h4><p>About 5 seconds.</p><button onclick="audioRapidGong(this)">▶ PLAY GONG</button></div></div><div class="panel" style="margin-top:12px"><div class="ver">AUDIO STATUS</div><div id="audioStatus">Tap any sound to unlock audio on iPad/Safari.</div><div class="audioMeter"><span id="audioMeterBar"></span></div></div></div>
+<div id="sigMan" class="signalSection"><div class="ver">RULE 34 • IN SIGHT OF ONE ANOTHER</div><h3>Manoeuvring & warning signals</h3><div class="sigGrid" id="manSignalGrid"></div></div>
+<div id="sigFog" class="signalSection"><div class="ver">RULE 35 • IN OR NEAR RESTRICTED VISIBILITY</div><h3>Restricted visibility</h3><div class="sigGrid" id="fogSignalGrid"></div></div>
+<div id="sigDistress" class="signalSection"><div class="ver">RULE 36 / RULE 37 • ANNEX IV</div><h3>Attention & distress</h3><p class="note">Rule 36 allows attention signals that cannot be mistaken for an authorised signal. Rule 37 points to Annex IV distress signals.</p><div class="distressGrid" id="distressGrid"></div><div id="distressDetail" class="distressDetail"></div></div>
+<div id="sigQuiz" class="signalSection"><div id="sigStage4Final"></div></div>
+</div></section>
 
 
 <section id="aisPage" class="appPage">
@@ -22402,7 +22261,7 @@ const PW_COURSE_STAGES=[
  {id:'signals',no:'04',title:'Sound, Fog & Distress Signals',module:'signals',type:'COMMUNICATION',
   desc:'Recognise manoeuvring and restricted-visibility signals and understand distress indications.',
   objectives:['Recognise Rule 34 manoeuvring signals','Recognise common Rule 35 fog signals','Distinguish doubt/warning signals','Identify key distress signals and procedures'],
-  requirement:'Score at least 8/10 in the Course Mode audio recognition checkpoint.'},
+  requirement:'Complete all 6 teaching lessons and score at least 8/10 in the Stage 4 final knowledge check.'},
  {id:'collision',no:'05',title:'Collision Avoidance & Rules of the Road',module:'scenarios',type:'DECISION MAKING',
   desc:'Apply the Rule framework to developing encounters and demonstrate safe avoiding action.',
   objectives:['Recognise overtaking, head-on and crossing','Assess collision risk','Apply Rules 13–18 correctly','Take early, substantial action and monitor the result'],
@@ -23886,12 +23745,50 @@ try{updateHomeCourseProgress();renderHomeCourseDashboard();}catch(e){}
 </div>
 
 
+<script id="pwStage4Build1390">
+/* Project Watch 1.39.0 — Stage 4 Sound Signals. 1.38.3 curriculum remains untouched. */
+const PW_SOUND_MASTER=[...MAN_SIGNALS,...FOG_SIGNALS];
+const SIG_LESSONS=[
+ {title:'The language of sound',sub:'Rules 32–33',intro:'First learn the building blocks and which appliances vessels carry.',facts:[['Short blast','About one second.'],['Prolonged blast','Four to six seconds. Project Watch uses 4.5 seconds for training playback.'],['12 m or more','A whistle is required.'],['20 m or more','A bell is required in addition to a whistle.'],['100 m or more','A gong is required in addition to whistle and bell.'],['Under 12 m','If the prescribed appliances are not carried, some other means of making an efficient sound signal is required.']],play:['stbd','pdMakingWay']},
+ {title:'Manoeuvring in sight',sub:'Rule 34(a)',intro:'These signals state what a power-driven vessel is doing when vessels are in sight of one another.',facts:[['• One short','I am altering my course to starboard.'],['•• Two short','I am altering my course to port.'],['••• Three short','I am operating astern propulsion.'],['Important','Three short does not mean simply “I am going backwards”; it states that astern propulsion is being operated.']],play:['stbd','port','astern']},
+ {title:'Overtaking, doubt & bends',sub:'Rule 34(c–e)',intro:'Narrow-channel overtaking and warning signals have distinctive patterns.',facts:[['— — •','I intend to overtake you on your starboard side.'],['— — ••','I intend to overtake you on your port side.'],['— • — •','Agreement by the vessel being overtaken.'],['•••••+','At least five short and rapid blasts: doubt about the other vessel’s intentions/actions or doubt whether sufficient action is being taken.'],['—','One prolonged when nearing an obscured bend/area of a channel or fairway; an approaching vessel within hearing answers with one prolonged.']],play:['overtakeStbd','overtakePort','agreeOvertake','doubt','bend']},
+ {title:'Fog — vessels underway',sub:'Rule 35(a–f)',intro:'In or near restricted visibility, signals identify status and activity. They apply by day or night.',facts:[['Power-driven making way','One prolonged, at intervals of not more than 2 minutes.'],['Power-driven stopped, no way','Two prolonged, about 2 seconds apart, at intervals of not more than 2 minutes.'],['NUC / RAM / CBD / sailing / fishing','One prolonged followed by two short, at intervals of not more than 2 minutes.'],['Towing or pushing','One prolonged followed by two short.'],['Last vessel of a manned tow','One prolonged followed by three short, when practicable immediately after the towing vessel.'],['Rigid composite unit','Treated as a power-driven vessel.']],play:['pdMakingWay','pdStopped','specialFog','towLast']},
+ {title:'Fog — anchor, aground & pilot',sub:'Rule 35(g–k)',intro:'Bell and gong patterns matter just as much as whistle patterns.',facts:[['Anchor under 100 m','Rapid bell for about 5 seconds at intervals of not more than 1 minute.'],['Anchor 100 m or more','Rapid bell forward, then rapid gong aft, each about 5 seconds.'],['Aground','Anchor bell signal plus three distinct bell strokes immediately before and after the rapid ringing.'],['Fishing / RAM at anchor','When carrying out their work at anchor, use the Rule 35(c) whistle signal instead of the ordinary anchor signal.'],['Pilot vessel','When engaged on pilotage duty may add four short blasts to the appropriate Rule 35 signal.']],play:['anchor','anchor100','aground','pilot']},
+ {title:'Attention, distress & watchkeeping',sub:'Rules 36–37',intro:'Know the difference between attracting attention, indicating distress, and making an ordinary COLREG sound signal.',facts:[['Rule 36','A vessel may make light or sound signals to attract attention provided they cannot be mistaken for an authorised signal, and may direct a searchlight without embarrassing another vessel.'],['Rule 37','A vessel in distress and requiring assistance uses or exhibits the signals described in Annex IV.'],['Examples','SOS, MAYDAY, red flares/rockets, orange smoke and continuous sounding of fog-signalling apparatus are among recognised distress indications.'],['Restricted visibility','Hearing is part of the lookout. Rule 35 signals are required in or near restricted visibility, not only in fog.'],['Bridge habit','Hear the pattern, identify only what it actually tells you, then maintain lookout and apply the relevant steering and sailing rules.']],play:['doubt','specialFog']}
+];
+const SIG_FINAL_QUIZ=[
+ ['You hear one short blast from a power-driven vessel in sight. What does it mean?',['I am altering course to starboard','I am altering course to port','I am operating astern propulsion'],0,'Rule 34(a): one short indicates an alteration to starboard.','stbd'],
+ ['What does three short blasts mean?',['I am stopped','I am operating astern propulsion','I am turning around'],1,'Rule 34(a): three short means operating astern propulsion.','astern'],
+ ['In a narrow channel you hear two prolonged followed by two short blasts. What intention is being signalled?',['Overtake on your starboard side','Overtake on your port side','Agreement to be overtaken'],1,'Rule 34(c): two prolonged plus two short indicates intention to overtake on the other vessel’s port side.','overtakePort'],
+ ['What is the danger / doubt signal?',['At least five short and rapid blasts','One prolonged blast','Four short blasts'],0,'Rule 34(d): at least five short and rapid blasts.','doubt'],
+ ['A power-driven vessel is making way in restricted visibility. Which signal?',['One prolonged','Two prolonged','One prolonged and two short'],0,'Rule 35(a): one prolonged at intervals of not more than two minutes.','pdMakingWay'],
+ ['A power-driven vessel is underway but stopped and making no way in restricted visibility. Which signal?',['Two prolonged','One prolonged','Three short'],0,'Rule 35(b): two prolonged with about two seconds between them.','pdStopped'],
+ ['Which fog pattern is used by a sailing vessel underway?',['One prolonged','One prolonged followed by two short','Two prolonged followed by one short'],1,'Rule 35(c): sailing vessels use one prolonged followed by two short.','specialFog'],
+ ['What does a manned vessel at the very end of a tow sound in restricted visibility?',['One prolonged and three short','One prolonged and two short','Four short only'],0,'Rule 35(e): one prolonged followed by three short, when practicable immediately after the towing vessel.','towLast'],
+ ['An anchored vessel under 100 m normally sounds what in restricted visibility?',['Rapid bell for about 5 seconds','One prolonged every minute','Three short every two minutes'],0,'Rule 35(g): rapid ringing of the bell for about five seconds at intervals of not more than one minute.','anchor'],
+ ['A pilot vessel engaged on pilotage duty may add which identity signal to the appropriate Rule 35 signal?',['Four short blasts','Five rapid blasts','One prolonged and one short'],0,'Rule 35(k): four short blasts may be added.','pilot']
+];
+let sigLessonIndex=0,sigLessonsFinished=0,sigFinalIndex=0,sigFinalScore=0,sigFinalAnswered=false;
+function sigLessonsComplete(){return sigLessonsFinished>=SIG_LESSONS.length}
+function renderSigLessons(){const root=$('sigLessonApp');if(!root)return;const l=SIG_LESSONS[sigLessonIndex],next=Math.min(5,sigLessonsFinished);root.innerHTML=`<div class="sigLessonHead"><div><div class="ver">STAGE 4 • LESSON ${sigLessonIndex+1} / 6</div><h3>${l.title}</h3><div class="note">${l.sub}</div></div></div><div class="sigLessonNav">${SIG_LESSONS.map((x,i)=>`<button class="${i===sigLessonIndex?'active':''} ${i<sigLessonsFinished?'done':''}" ${i>next?'disabled':''} onclick="sigSelectLesson(${i})">${String(i+1).padStart(2,'0')}<br>${i<sigLessonsFinished?'✓ DONE':'LESSON'}</button>`).join('')}</div><div class="sigLessonCard"><p>${l.intro}</p>${l.facts.map(f=>`<div class="sigFact"><b>${f[0]}</b><p>${f[1]}</p></div>`).join('')}<div class="sigLessonActions">${l.play.map(id=>{let x=PW_SOUND_MASTER.find(z=>z.id===id);return x&&x.seq?.length?`<button onclick="playDefinedSignal('${id}')">🔊 ${x.pattern} • ${x.title}</button>`:''}).join('')}<button class="big" onclick="sigFinishLesson()">${sigLessonIndex<sigLessonsFinished?'LESSON COMPLETE ✓':sigLessonIndex===5?'COMPLETE LESSON 6':'COMPLETE & CONTINUE →'}</button></div></div><div style="margin-top:14px">${sigLessonsComplete()?'<button class="big" onclick="showSignalSection(\'quiz\')">OPEN 10-QUESTION FINAL CHECK →</button>':''}</div>`}
+function sigSelectLesson(i){if(i<=Math.min(5,sigLessonsFinished)){sigLessonIndex=i;renderSigLessons();window.scrollTo({top:0,behavior:'smooth'})}}
+function sigFinishLesson(){sigLessonsFinished=Math.max(sigLessonsFinished,sigLessonIndex+1);if(sigLessonIndex<5)sigLessonIndex++;renderSigLessons()}
+function renderSoundMaster(){let g=$('soundMasterGrid');if(!g)return;g.innerHTML=PW_SOUND_MASTER.map(s=>`<div class="sigCard soundLibCard"><div class="soundGroup">RULE ${s.rule}</div><h4>${s.title}</h4><div class="sigPattern">${s.pattern}</div><p>${s.meaning}</p>${s.seq?.length?`<button onclick="playDefinedSignal('${s.id}')">🔊 PLAY SIGNAL</button>`:'<span class="note">Reference entry</span>'}</div>`).join('')}
+function renderSigFinal(){const root=$('sigStage4Final');if(!root)return;if(!sigLessonsComplete()){root.innerHTML='<div class="sigLocked"><b>FINAL CHECK LOCKED</b><p>Complete Lessons 1–6 first.</p></div>';return}if(sigFinalIndex>=SIG_FINAL_QUIZ.length){let pass=sigFinalScore>=8,pct=Math.round(sigFinalScore/10*100);root.innerHTML=`<div class="sigFinalScore"><div class="ver">STAGE 4 RESULT</div><strong>${sigFinalScore} / 10</strong><h3>${pass?'STAGE 4 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</h3><p>${pass?'You have demonstrated the core sound-signal recognition taught in Stage 4.':'You need 8/10. Review the six lessons and Master Sound Library, then try again.'}</p><button onclick="sigRestartFinal()">TRY AGAIN</button></div>`;if(pass){courseRecordScore('signals',pct,true);courseRecordComplete('signals',pct)}return}let q=SIG_FINAL_QUIZ[sigFinalIndex],sound=PW_SOUND_MASTER.find(x=>x.id===q[4]);root.innerHTML=`<div class="sigFinalBox"><div class="ver">STAGE 4 FINAL CHECK • QUESTION ${sigFinalIndex+1} / 10</div><div class="sigProgress"><span style="width:${sigFinalIndex*10}%"></span></div>${sound?.seq?.length?`<button class="big" onclick="playDefinedSignal('${sound.id}')">🔊 PLAY QUESTION SIGNAL</button>`:''}<div class="sigFinalQ">${q[0]}</div><div class="sigFinalOpts">${q[1].map((o,i)=>`<button onclick="sigFinalAnswer(${i})">${o}</button>`).join('')}</div><div id="sigFinalResult"></div></div>`}
+function sigFinalAnswer(i){if(sigFinalAnswered)return;sigFinalAnswered=true;let q=SIG_FINAL_QUIZ[sigFinalIndex],ok=i===q[2];if(ok)sigFinalScore++;document.querySelectorAll('#sigStage4Final .sigFinalOpts button').forEach((b,n)=>{b.disabled=true;if(n===q[2])b.classList.add('correctAnswer');else if(n===i&&!ok)b.classList.add('wrongAnswer')});$('sigFinalResult').innerHTML=`<div class="sigFinalResult"><b>${ok?'CORRECT ✓':'NOT QUITE'}</b><p>${q[3]}</p><button onclick="sigFinalNext()">${sigFinalIndex===9?'SEE RESULT':'NEXT QUESTION →'}</button></div>`}
+function sigFinalNext(){if(!sigFinalAnswered)return;sigFinalIndex++;sigFinalAnswered=false;renderSigFinal()}
+function sigRestartFinal(){sigFinalIndex=0;sigFinalScore=0;sigFinalAnswered=false;renderSigFinal()}
+// Stage 4 section router supersedes the earlier Signals router without changing its sound engine/data.
+showSignalSection=function(name){const ids={learn:'Learn',library:'Library',audio:'Audio',man:'Man',fog:'Fog',distress:'Distress',quiz:'Quiz'};Object.keys(ids).forEach(x=>{let panel=$('sig'+ids[x]),tab=$('sigTab'+ids[x]);if(panel)panel.classList.toggle('active',x===name);if(tab)tab.classList.toggle('active',x===name)});if(name==='learn')renderSigLessons();if(name==='library')renderSoundMaster();if(name==='man'||name==='fog'||name==='distress')renderSignalCards();if(name==='audio')setHornProfile(hornProfile||'large');if(name==='quiz')renderSigFinal();window.scrollTo({top:0,behavior:'smooth'})};
+// Initialise when Stage 4 is opened.
+const _pwShowModule1390=showModule;showModule=function(name,btn){_pwShowModule1390(name,btn);if(name==='signals')setTimeout(()=>{showSignalSection('learn')},0)};
+</script>
 <script id="pwEngineeringAudit1383">
 /* Project Watch 1.38.3 engineering guardrails.
    Read-only checks: they do not alter learner progress or approved curriculum. */
 (function(){
   "use strict";
-  const report={version:"1.38.3",errors:[],warnings:[],checks:{}};
+  const report={version:"1.39.0",baseline:"1.38.3",errors:[],warnings:[],checks:{}};
   const ok=(name,value)=>{report.checks[name]=!!value;if(!value)report.errors.push(name);};
   try{
     ok("home-page", !!document.getElementById("home"));
@@ -23906,6 +23803,9 @@ try{updateHomeCourseProgress();renderHomeCourseDashboard();}catch(e){}
     ok("master-quiz-visual-map", typeof PW_MASTER_QUIZ_URLS!=="undefined" && Object.keys(PW_MASTER_QUIZ_URLS).length>=10);
     ok("stage3-forward-button", !!document.getElementById("lsForwardBtn"));
     ok("stage3-speech-button", !!document.getElementById("lsSpeakBtn"));
+     ok("stage4-six-lessons", typeof SIG_LESSONS!=="undefined" && SIG_LESSONS.length===6);
+     ok("stage4-ten-final-questions", typeof SIG_FINAL_QUIZ!=="undefined" && SIG_FINAL_QUIZ.length===10);
+     ok("stage4-master-sound-library", typeof PW_SOUND_MASTER!=="undefined" && PW_SOUND_MASTER.length>=20);
     ok("storage-available", (function(){try{const k="__pw_audit__";localStorage.setItem(k,"1");localStorage.removeItem(k);return true}catch(e){return false}})());
     document.querySelectorAll("[id]").forEach(el=>{
       if(document.querySelectorAll("#"+CSS.escape(el.id)).length>1) report.warnings.push("duplicate-id:"+el.id);
@@ -23917,5 +23817,8 @@ try{updateHomeCourseProgress();renderHomeCourseDashboard();}catch(e){}
 })();
 </script>
 
+<style id="pwStage4Styles">
+.sigLessonHead{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.sigLessonNav{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:10px 0}.sigLessonNav button{min-width:0;padding:9px 4px;font-size:10px}.sigLessonNav button.done{background:#17633e}.sigLessonNav button.active{outline:2px solid #6ee0ff}.sigLessonNav button:disabled{opacity:.38}.sigLessonCard{background:#041f2d;border:1px solid #ffffff18;border-radius:15px;padding:14px}.sigFact{padding:11px 0;border-bottom:1px solid #ffffff14}.sigFact:last-child{border:0}.sigFact b{display:block;color:#dff7ff;margin-bottom:4px}.sigFact p{margin:0;color:#a8bec9;line-height:1.45}.sigLessonActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.sigLessonActions button{flex:1;min-width:150px}.soundLibCard{position:relative}.soundLibCard .sigPattern{font-size:25px}.soundGroup{font-size:9px;color:#6ee0ff;letter-spacing:.08em;font-weight:900}.sigFinalBox{background:#041f2d;border-radius:15px;padding:14px}.sigFinalQ{font-size:18px;font-weight:800;line-height:1.35;margin:12px 0}.sigFinalOpts{display:grid;gap:7px}.sigFinalOpts button{text-align:left}.sigFinalOpts button.correctAnswer{background:#17633e!important}.sigFinalOpts button.wrongAnswer{background:#7b2d2d!important}.sigFinalResult{margin-top:10px;padding:10px;border-radius:10px;background:#052a3c}.sigFinalScore{text-align:center;padding:24px}.sigFinalScore strong{display:block;font-size:42px;color:#6ee0ff}.sigProgress{height:7px;background:#ffffff16;border-radius:8px;overflow:hidden;margin:8px 0}.sigProgress span{display:block;height:100%;background:#6ee0ff}.sigLocked{opacity:.6;padding:20px;text-align:center;border:1px dashed #ffffff33;border-radius:12px}@media(max-width:700px){.sigLessonNav{grid-template-columns:repeat(3,1fr)}.sigGrid{grid-template-columns:1fr}}
+</style>
 </body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
