@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.40.1 — Stage 5 Collision Avoidance</title>
+<title>Project Watch 1.41.0 • Stage 7 TSS —  1.40.1 — Stage 5 Collision Avoidance</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.40.6</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.41.0</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -17788,8 +17788,9 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  <div class="tssBeginnerLaunch">
    <button onclick="showTSSTutorial()"><span>NEW TO TSS?</span><b>START THE BEGINNER COURSE</b><small>9 guided lessons • under-20 m focus • spoken coaching • live demonstrations</small><em>START COURSE →</em></button>
  </div>
+ <div class="tssExamLaunch"><button onclick="showStage7Final()"><span>STAGE 7 FINAL</span><b>10-QUESTION KNOWLEDGE CHECK</b><small>Unlocks after all 9 guided lessons • pass 8/10</small><em>START FINAL →</em></button></div>
  <div class="tssExamLaunch">
-   <button onclick="showTSSExam()"><span>MOCK ASSESSMENT</span><b>PROJECT WATCH TSS FULL EXAM</b><small>30 questions • Rule 10 • under-20 m • geometry • live practicals</small><em>START EXAM →</em></button>
+   <button onclick="showTSSExam()"><span>ADVANCED PRACTICE</span><b>PROJECT WATCH TSS FULL MOCK</b><small>30 questions • optional after Stage 7 • Rule 10 • geometry • live practicals</small><em>OPEN ADVANCED MOCK →</em></button>
  </div>
  <div class="tssTabs">
   <button id="tssTabLearn" class="active" onclick="showTSS('learn')">📖 LEARN THE TSS</button>
@@ -17975,10 +17976,18 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <button onclick="ttHear()">🔊 HEAR</button>
     <button class="demo" id="ttDemoBtn" onclick="ttRunDemo()">▶ LIVE DEMO</button>
     <button onclick="ttSkip()">SKIP →</button>
-    <button class="primary" onclick="ttNext()">NEXT LESSON →</button>
+    <button class="primary" id="ttNextBtn" onclick="ttNext()">NEXT LESSON →</button>
    </div>
   </main>
  </div>
+</section>
+<section id="stage7FinalPage" class="appPage">
+<div class="panel">
+ <div class="ver">STAGE 7 • TRAFFIC SEPARATION SCHEMES • RULE 10</div>
+ <h2>Stage 7 Final Knowledge Check</h2>
+ <p class="note">Ten questions drawn from the Rule 10 material you have just learned. Pass mark: <b>8/10</b>. The optional 30-question TSS full mock remains available afterwards for deeper practice.</p>
+ <div id="stage7FinalRoot"></div>
+</div>
 </section>
 <section id="homePage" class="appPage active">
   <div class="homeProHero">
@@ -20740,6 +20749,7 @@ const TSS_TUTORIAL=[
  q:'What is the correct beginner sequence for an under-20-metre TSS crossing?',a:['Enter first, then look for a gap','Plan early, do not impede, cross on the Rule 10(c) heading, and keep applying the COLREGs','Stop in the separation zone between lanes'],correct:1}
 ]
 let ttI=0,ttRAF=null,ttRunToken=0,ttAnswered=false;
+let PW_TSS_VISITED=new Set();
 
 function showTSSTutorial(){
  adaptTSSTutorialForProfile();
@@ -20748,16 +20758,17 @@ function showTSSTutorial(){
  ttI=0;ttRender();window.scrollTo({top:0,behavior:'smooth'});
 }
 function ttRender(){
- ttStopDemo();let L=TSS_TUTORIAL[ttI];ttAnswered=false;
+ ttStopDemo();let L=TSS_TUTORIAL[ttI];ttAnswered=false;PW_TSS_VISITED.add(ttI);
  $('ttIndex').textContent=`${ttI+1} / ${TSS_TUTORIAL.length}`;$('ttProgress').style.width=((ttI+1)/TSS_TUTORIAL.length*100)+'%';
  $('ttList').innerHTML=TSS_TUTORIAL.map((x,i)=>`<button class="${i===ttI?'active':''}" onclick="ttSelect(${i})"><span>${String(i+1).padStart(2,'0')}</span><div><b>${x.title}</b><small>${x.rule}</small></div></button>`).join('');
  $('ttRule').textContent=L.rule;$('ttTitle').textContent=L.title;$('ttIntro').textContent=L.intro;$('ttExplain').textContent=L.explain;
  $('ttFacts').innerHTML=L.facts.map(f=>`<div><small>${f[0]}</small><b>${f[1]}</b></div>`).join('');
  $('ttQuestion').innerHTML=`<h4>${L.q}</h4><div class="answers">${L.a.map((a,i)=>`<button onclick="ttAnswer(${i})">${a}</button>`).join('')}</div><div id="ttAnswerResult" class="answerResult"></div>`;
  $('ttMode').textContent='GUIDED DEMO';$('ttStatus').textContent='READY';$('ttDemoBtn').textContent='▶ LIVE DEMO';ttDraw(L.mode,0);
+ const nb=$('ttNextBtn');if(nb)nb.textContent=ttI===TSS_TUTORIAL.length-1?'START STAGE 7 FINAL →':'NEXT LESSON →';
 }
 function ttSelect(i){ttI=Math.max(0,Math.min(TSS_TUTORIAL.length-1,i));ttRender()}
-function ttPrev(){ttSelect(ttI-1)}function ttNext(){if(ttI<TSS_TUTORIAL.length-1)ttSelect(ttI+1);else showTSS('live')}
+function ttPrev(){ttSelect(ttI-1)}function ttNext(){if(ttI<TSS_TUTORIAL.length-1)ttSelect(ttI+1);else showStage7Final()}
 function ttSkip(){try{speechSynthesis.cancel()}catch(e){};ttStopDemo();ttNext()}
 function ttHear(){let L=TSS_TUTORIAL[ttI];speakMarine(`${L.title}. ${L.intro}. ${L.explain}. ${L.facts.map(x=>x[0]+'. '+x[1]).join('. ')}`,'instruction')}
 function ttAnswer(i){let L=TSS_TUTORIAL[ttI],ok=i===L.correct;ttAnswered=true;$('ttAnswerResult').textContent=ok?'✓ Correct.':'✗ Not quite. '+L.a[L.correct]+'.';$('ttAnswerResult').style.color=ok?'#70e3ad':'#ffb77e';speakMarine(ok?'Correct.':'Not quite. '+L.a[L.correct]+'.','confirmation')}
@@ -22289,9 +22300,9 @@ const PW_COURSE_STAGES=[
   objectives:['Recognise lateral and preferred-channel marks','Use all four cardinal marks','Recognise isolated danger, safe water and special marks','Interpret light characteristics and safe passage'],
   requirement:'Learn all 12 marks by day and night, then pass the Stage 6 buoy-passage assessment with at least 10/12 correct.'},
  {id:'tss',no:'07',title:'Traffic Separation Schemes',module:'tss',type:'TRAFFIC MANAGEMENT',
-  desc:'Apply Rule 10 only after the underlying collision-avoidance framework is understood.',
-  objectives:['Read lanes, zones and terminations','Cross on the correct heading','Join/leave using the correct geometry','Apply vessel-specific Rule 10 duties and the other COLREGs'],
-  requirement:'Pass the Project Watch TSS full mock with no safety-critical error.'},
+  desc:'Nine guided Rule 10 lessons build the traffic picture step by step, followed by the Stage 7 final knowledge check.',
+  objectives:['Read lanes, separation zones, ITZs and terminations','Cross on the correct heading','Join/leave using the correct geometry','Apply vessel-specific Rule 10 duties without forgetting the other COLREGs'],
+  requirement:'Review all 9 guided TSS lessons and score at least 8/10 in the Stage 7 final knowledge check.'},
  {id:'ais',no:'08',title:'AIS & Electronic Situational Awareness',module:'ais',type:'ELECTRONIC AID',
   desc:'Use AIS as supporting information without allowing it to replace lookout or COLREG judgement.',
   objectives:['Read identity and dynamic target data','Distinguish COG from heading','Interpret CPA/TCPA cautiously','Recognise Class A/B differences and stale/lost targets'],
@@ -23921,8 +23932,34 @@ function stage5RestartFinal(){stage5FinalIndex=0;stage5FinalScore=0;stage5FinalA
 function completeStage5(){if(!stage5LessonsComplete()||stage5FinalIndex<10||stage5FinalScore<8){alert('Complete all six Stage 5 lessons and pass the final check with at least 8/10 first.');return}const pct=Math.round(stage5FinalScore/10*100);courseRecordScore('collision',pct,true);courseRecordComplete('collision',pct);showCoursePage()}
 // Stage 5 is the Course Mode entry point; the existing Collision Scenarios simulator remains available from Training Library and Stage 5.
 </script>
+
+<script id="pwStage7Course1410">
+const STAGE7_FINAL=[
+ ['Rule 10 applies to IMO-adopted traffic separation schemes. Does it remove your obligations under the other COLREGs?',['Yes','No — the other applicable Rules still apply','Only for vessels under 20 m'],1,'Rule 10(a) expressly does not relieve a vessel of obligations under any other Rule.'],
+ ['If you are using a traffic lane, how should you proceed?',['In the appropriate lane in the general direction of traffic flow','Against the arrows if traffic is light','Along the separation line'],0,'Rule 10(b) requires use of the appropriate lane in the general direction of traffic flow.'],
+ ['If you are obliged to cross a traffic lane, what heading should you use?',['As nearly as practicable at right angles to the general direction of traffic flow','A shallow diagonal to reduce speed over ground','Parallel to the traffic flow'],0,'Rule 10(c) calls for a crossing heading as nearly as practicable at right angles to the traffic flow.'],
+ ['A strong tide sets your track sideways during a TSS crossing. Which is the key Rule 10(c) geometry?',['Your heading remains as nearly as practicable at right angles to traffic flow','Your COG must always be exactly 90 degrees','Your wake must point at the far buoy'],0,'MCA guidance distinguishes heading from track/COG: tidal set may skew the ground track.'],
+ ['When joining a traffic lane from the side, what is the correct approach?',['Join at as small an angle to traffic flow as practicable','Join at 90 degrees','Stop in the separation zone first'],0,'Rule 10(b)(iii) uses different geometry for joining/leaving than for crossing.'],
+ ['What should a vessel normally do regarding a separation line or separation zone?',['Keep clear so far as practicable','Use it as waiting space','Navigate along its centre'],0,'The separation feature is not spare sea room or a normal waiting area.'],
+ ['Suilven is under 20 m. What Rule 10(j) duty applies regarding a power-driven vessel following a traffic lane?',['Do not impede its safe passage','Claim priority because Suilven is smaller','Always enter the inshore traffic zone'],0,'A vessel under 20 m shall not impede the safe passage of a power-driven vessel following a traffic lane.'],
+ ['A fishing vessel operating near a TSS must not do what?',['Impede the passage of a vessel following a traffic lane','Show fishing lights','Use radar'],0,'Rule 10(i) specifically prohibits a fishing vessel from impeding a vessel following a traffic lane.'],
+ ['If your voyage is not using the TSS, what does Rule 10 say?',['Avoid it by as wide a margin as practicable','Cross it repeatedly to shorten the route','Follow the separation line'],0,'Rule 10(h) says a vessel not using a TSS shall avoid it by as wide a margin as practicable.'],
+ ['You have the correct right-angle crossing heading, but the developing traffic picture is unsafe. What should you do?',['Remain clear and reassess — correct geometry does not replace collision-risk assessment','Commit because 90 degrees gives priority','Stop in the separation zone'],0,'Rule 10 works with lookout, risk assessment and avoiding-action duties. Geometry alone never makes an unsafe crossing safe.']
+];
+let s7i=0,s7score=0,s7answered=false;
+function showStage7Final(){
+ if(PW_TSS_VISITED.size<TSS_TUTORIAL.length){alert('Review all 9 Stage 7 lessons before starting the final knowledge check.');return}
+ document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));updateHeaderNav('tss');updateModuleContext('tss');$('stage7FinalPage').classList.add('active');s7i=0;s7score=0;s7answered=false;renderStage7Final();window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderStage7Final(){const r=$('stage7FinalRoot');if(s7i>=STAGE7_FINAL.length){const pass=s7score>=8,pct=s7score*10;courseRecordScore('tss',pct,pass);r.innerHTML=`<div class="s5FinalBox"><div class="ver">STAGE 7 FINAL • RESULT</div><h3>${pass?'STAGE 7 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</h3><div class="s5FinalScore">${s7score} / 10</div><p>${pass?'Traffic Separation Scheme knowledge standard achieved. You may complete Stage 7 or continue into the optional advanced TSS mock and live trainer.':'You need 8/10. Review the nine guided lessons, then try again.'}</p>${pass?'<button class="big" onclick="completeStage7()">STAGE 7 COMPLETE ✓</button><button onclick="showTSSExam()">OPTIONAL ADVANCED TSS MOCK</button>':'<button onclick="restartStage7Final()">TRY AGAIN</button>'}</div>`;return}
+ const q=STAGE7_FINAL[s7i];r.innerHTML=`<div class="s5FinalBox"><div class="ver">STAGE 7 FINAL CHECK • QUESTION ${s7i+1} / 10</div><div class="s5Progress"><span style="width:${s7i*10}%"></span></div><div class="s5Question">${q[0]}</div><div class="s5Opts">${q[1].map((o,i)=>`<button onclick="answerStage7Final(${i})">${o}</button>`).join('')}</div><div id="s7result"></div></div>`}
+function answerStage7Final(i){if(s7answered)return;s7answered=true;const q=STAGE7_FINAL[s7i],ok=i===q[2];if(ok)s7score++;document.querySelectorAll('#stage7FinalRoot .s5Opts button').forEach((b,n)=>{b.disabled=true;if(n===q[2])b.classList.add('correctAnswer');else if(n===i&&!ok)b.classList.add('wrongAnswer')});$('s7result').innerHTML=`<div class="s5Result"><b>${ok?'CORRECT ✓':'NOT QUITE'}</b><p>${q[3]}</p><button onclick="nextStage7Final()">${s7i===9?'SEE RESULT':'NEXT QUESTION →'}</button></div>`}
+function nextStage7Final(){if(!s7answered)return;s7i++;s7answered=false;renderStage7Final()}
+function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final()}
+function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
+</script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.40.6',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.40.6');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.0',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.41.0');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
