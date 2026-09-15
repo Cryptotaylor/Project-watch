@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.6 — Stage 3 Curriculum</title>
+<title>Project Watch 1.37.6a — Stage 3 Lesson Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17432,7 +17432,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.6 • STAGE 3 CURRICULUM</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.6a • STAGE 3 LESSON FIX</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18188,7 +18188,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.6</b></div>
+    <div><small>BUILD</small><b>1.37.6a</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -19888,14 +19888,35 @@ const LS_FINAL_QUIZ=[
  ['Why can the same vessel show a different combination when viewed from another direction?',['Because prescribed lights have defined sectors','Because navigation lights change colour as the vessel turns','Because only AIS decides which lights are visible'],0,'Rule 21 defines the arcs of visibility. Your viewing aspect determines which prescribed sectors face you.','aspect','Rule 21']
 ];
 let lsIndex=0,lsLessonsFinished=0,lsFinalIndex=0,lsFinalScore=0,lsFinalAnswered=false;
+function lsVisual(kind){
+ if(kind==='basic')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i><i class="g"></i></div><b>LIGHTS AT NIGHT</b><span>Read colour, number, position and viewing aspect.</span></div><div class="lsPattern"><b>SHAPES BY DAY</b><span>Read number, order and orientation.</span></div></div>`;
+ if(kind==='nav')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i><i class="g"></i><i class="w"></i></div><b>ORDINARY NAVIGATION LIGHTS</b><span>Masthead • port • starboard • stern</span></div></div>`;
+ if(kind==='aspect')return `<div class="crFlow"><div class="node"><b>AHEAD</b><small>Masthead light(s) and visible sidelights</small></div><span class="arrow">→</span><div class="node"><b>SIDE</b><small>Red = port • Green = starboard</small></div><span class="arrow">→</span><div class="node"><b>ASTERN</b><small>White sternlight is the key ordinary light</small></div></div>`;
+ if(kind==='shapes')return `<div class="lsPatternBoard"><div class="lsPattern"><b>● BALL</b></div><div class="lsPattern"><b>▼ CONE</b></div><div class="lsPattern"><b>◆ DIAMOND</b></div><div class="lsPattern"><b>▮ CYLINDER</b></div></div>`;
+ if(kind==='status')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i></div><b>NOT UNDER COMMAND</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i><i class="r"></i></div><b>RESTRICTED MANOEUVRABILITY</b></div><div class="lsPattern"><div class="lsDots"><i class="g"></i><i class="w"></i></div><b>TRAWLING</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i></div><b>FISHING</b></div></div>`;
+ if(kind==='special')return `<div class="crFlow"><div class="node"><b>ANCHOR / AGROUND</b><small>Stationary status displays</small></div><div class="node"><b>TOWING</b><small>Additional towing lights</small></div><div class="node"><b>PILOT</b><small>White over red</small></div></div>`;
+ return `<div class="lsPatternBoard"><div class="lsPattern"><b>LIGHTS & SHAPES</b><span>Recognition lesson</span></div></div>`;
+}
+function lsQuizVisual(kind){
+ if(kind==='portSide')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i></div><b>IDENTIFY THIS SIDELIGHT</b></div></div>`;
+ if(kind==='redRed')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;
+ if(kind==='greenWhite')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="g"></i><i class="w"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;
+ if(kind==='coneDown')return `<div class="lsPatternBoard"><div class="lsPattern"><b>▼ CONE — APEX DOWN</b><span>Identify this day shape</span></div></div>`;
+ if(kind==='whiteRed')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;
+ return lsVisual('basic');
+}
+
 function lsLessonsComplete(){return lsLessonsFinished>=6}
 function showLightsTutorial(){document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));updateHeaderNav('lights');updateModuleContext('lights');$('lightsTutorialPage').classList.add('active');renderLightsTutorial();window.scrollTo({top:0,behavior:'smooth'})}
 function renderLightsTutorial(){
  const l=LS_LESSONS[lsIndex],list=$('lsLessonList');if(!l||!list)return;
  const nextAvailable=Math.min(5,lsLessonsFinished);
  list.innerHTML=LS_LESSONS.map((x,i)=>{const done=i<lsLessonsFinished,locked=i>nextAvailable;return `<button class="lsLessonBtn ${i===lsIndex?'active':''} ${done?'done':''} ${locked?'lessonLocked':''}" ${locked?'disabled':''} onclick="lsSelect(${i})"><span class="n">${String(i+1).padStart(2,'0')}</span><span><b>${x.title}</b><small>${x.sub}</small></span><span class="tick">${done?'✓':locked?'🔒':''}</span></button>`}).join('');
- $('lsLessonNo').textContent='STAGE 3 • LESSON '+String(lsIndex+1).padStart(2,'0')+' / 06';$('lsLessonTitle').textContent=l.title;$('lsLessonIntro').textContent=l.intro;
- $('lsLessonVisual').innerHTML=lsVisual(l.visual);$('lsLessonFacts').innerHTML=l.facts.map(f=>`<div class="lsFact"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('');
+ $('lsLessonNo').textContent='STAGE 3 • LESSON '+String(lsIndex+1).padStart(2,'0')+' / 06';
+ $('lsLessonTitle').textContent=l.title;$('lsLessonIntro').textContent=l.intro;
+ $('lsLessonFacts').innerHTML=l.facts.map(f=>`<div class="lsFact"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('');
+ try{$('lsLessonVisual').innerHTML=lsVisual(l.visual)}
+ catch(e){console.error('Stage 3 visual fallback',e);$('lsLessonVisual').innerHTML=`<div class="lsPatternBoard"><div class="lsPattern"><b>${l.title}</b><span>${l.sub}</span></div></div>`}
  $('lsProgressText').textContent=`${lsLessonsFinished} / 6 LESSONS`;$('lsProgressFill').style.width=(lsLessonsFinished/6*100)+'%';
  const foot=$('lightsTutorialPage')?.querySelector('.lsLessonFooter .primary');if(foot)foot.textContent=lsIndex===5?'COMPLETE LESSON 6 & START FINAL CHECK →':'COMPLETE LESSON & CONTINUE →';renderLsFinalQuiz();
 }
@@ -19906,7 +19927,7 @@ function lsHear(){let l=LS_LESSONS[lsIndex],speech=l.title+'. '+l.intro+' '+l.fa
 function lsFinalVisual(kind){if(['portSide','redRed','greenWhite','coneDown','whiteRed'].includes(kind))return lsQuizVisual(kind);if(kind==='redWhite')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;if(kind==='redWhiteRed')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i><i class="r"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;if(kind==='ball')return lsVisual('shapes');return lsVisual('aspect')}
 function lsFinalHTML(){
  if(lsFinalIndex>=LS_FINAL_QUIZ.length){const pass=lsFinalScore>=8;return `<div class="crQuizScore"><strong>${lsFinalScore} / ${LS_FINAL_QUIZ.length}</strong><b>${pass?'STAGE 3 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</b><span>${pass?'You have demonstrated the core Lights & Shapes recognition taught in Stage 3. The 45-question full mock remains available as advanced assessment practice.':'Review the six lessons above. You need 8/10 to complete Stage 3.'}</span>${pass?'<button type="button" style="margin-top:12px" onclick="completeStage3()">COMPLETE STAGE 3 →</button>':'<button type="button" style="margin-top:12px" onclick="lsRestartFinal()">TRY AGAIN</button>'} <button type="button" style="margin-top:12px" onclick="showLightsExam()">OPEN 45-QUESTION FULL MOCK →</button></div>`}
- const q=LS_FINAL_QUIZ[lsFinalIndex];return `<div class="crQuiz"><div class="ver">STAGE 3 FINAL CHECK • QUESTION ${lsFinalIndex+1} / ${LS_FINAL_QUIZ.length}</div><div class="lsLessonVisual" style="margin:10px 0">${lsFinalVisual(q[4])}</div><div class="crQuizQ">${q[0]}</div><div class="crQuizOpts">${q[1].map((o,i)=>`<button type="button" onclick="lsFinalAnswer(${i});return false;">${o}</button>`).join('')}</div><div class="quizHelpRow"><span class="blindCheckNote">Choose your answer first. The relevant Rule reference is revealed with the feedback.</span></div><div id="lsFinalResult" class="crQuizResult"></div></div>`
+ const q=LS_FINAL_QUIZ[lsFinalIndex];let visual='';try{visual=lsFinalVisual(q[4])}catch(e){console.error('Stage 3 check visual fallback',e);visual='<div class="lsPatternBoard"><div class="lsPattern"><b>RECOGNITION CHECK</b></div></div>'}return `<div class="crQuiz"><div class="ver">STAGE 3 FINAL CHECK • QUESTION ${lsFinalIndex+1} / ${LS_FINAL_QUIZ.length}</div><div class="lsLessonVisual" style="margin:10px 0">${visual}</div><div class="crQuizQ">${q[0]}</div><div class="crQuizOpts">${q[1].map((o,i)=>`<button type="button" onclick="lsFinalAnswer(${i});return false;">${o}</button>`).join('')}</div><div class="quizHelpRow"><span class="blindCheckNote">Choose your answer first. The relevant Rule reference is revealed with the feedback.</span></div><div id="lsFinalResult" class="crQuizResult"></div></div>`
 }
 function renderLsFinalQuiz(){const area=$('lsFinalQuizArea'),box=$('lsKnowledge');if(!area)return;const unlocked=lsLessonsComplete();if(box)box.classList.toggle('locked',!unlocked);if(!unlocked){area.innerHTML=`<div class="stage2QuizIntro"><b>TEACHING IN PROGRESS</b><br>${lsLessonsFinished} / 6 lessons completed. Complete Lessons 1–6 above to unlock the final check.</div>`;return}area.innerHTML=lsFinalHTML()}
 function lsFinalAnswer(i){if(lsFinalAnswered)return;lsFinalAnswered=true;const q=LS_FINAL_QUIZ[lsFinalIndex],ok=i===q[2];if(ok)lsFinalScore++;document.querySelectorAll('#lsFinalQuizArea .crQuizOpts button').forEach((b,idx)=>{b.classList.add('answerLocked');if(idx===q[2])b.classList.add('correctAnswer');else if(idx===i&&!ok)b.classList.add('wrongAnswer')});const r=$('lsFinalResult');if(r)r.innerHTML=`<b>${ok?'CORRECT ✓':'NOT QUITE'}</b><br>${q[3]}<br><button type="button" style="margin-top:7px" onclick="openRulesLibrary('${q[5]}','Review this Rule after committing your Stage 3 answer, then return to the final check.')">📖 ${q[5]}</button> <button type="button" style="margin-top:7px" onclick="lsFinalNext();return false;">${lsFinalIndex===LS_FINAL_QUIZ.length-1?'SEE RESULT':'NEXT QUESTION →'}</button>`}
