@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.38.2 — Stage 3 Recognition Assessment Fix</title>
+<title>Project Watch 1.38.3 — Engineering Audit</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.38.2 • STAGE 3 RECOGNITION FIX</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.38.3 • ENGINEERING AUDIT</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -19962,46 +19962,11 @@ function lsShapeSVG(shape,label){
  if(shape==='ballDiamondBall')s='<circle cx="80" cy="25" r="16" fill="#05090b"/><polygon points="80,52 105,78 80,104 55,78" fill="#05090b"/><circle cx="80" cy="132" r="16" fill="#05090b"/>';
  return `<div class="lsShapeCard"><svg viewBox="0 0 160 155" role="img" aria-label="${label}"><rect x="3" y="3" width="154" height="149" rx="12" fill="#d8d1b7"/>${s}</svg><b>${label}</b></div>`;
 }
-function lsVisual(kind){
- if(kind==='intro')return `<div class="lsTeachGrid two">${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'NIGHT: lights are positioned on the vessel')}<div class="lsTeachCard day">${lsShapeSVG('ball','BALL')}${lsShapeSVG('coneDown','CONE — APEX DOWN')}<b>DAY: black shapes identify status or activity</b></div></div><div class="lsCallout"><b>Do not read these as a traffic light.</b> Red and green are port and starboard sidelights fitted on opposite sides of the vessel. Their visibility changes with your viewing aspect.</div>`;
- if(kind==='vesselLights')return `<div class="lsTeachGrid two">${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'HEAD-ON / NEAR HEAD-ON')} ${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199),'RECOGNITION DISPLAY')}</div><div class="lsLegend"><span>⚪ MASTHEAD — WHITE</span><span>🔴 PORT — RED</span><span>🟢 STARBOARD — GREEN</span><span>⚪ STERN — WHITE</span></div>`;
- if(kind==='aspects')return `<div class="lsAspectGrid"><div>${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'AHEAD')}</div><div>${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199),'PORT SIDE')}</div><div>${lsShipSVG(lsLamp('w',235,70)+lsLamp('g',310,199),'STARBOARD SIDE')}</div><div>${lsShipSVG(lsLamp('w',348,120),'ASTERN — STERNLIGHT')}</div></div>`;
- if(kind==='dayShapes')return `<div class="lsShapeGrid">${lsShapeSVG('ball','BALL')}${lsShapeSVG('coneDown','CONE — APEX DOWN')}${lsShapeSVG('diamond','DIAMOND')}${lsShapeSVG('cylinder','CYLINDER')}</div><div class="lsCallout"><b>Shape recognition:</b> identify the silhouette first, then its number, vertical order and orientation.</div>`;
- if(kind==='statusVessels')return `<div class="lsTeachGrid four">${lsShipSVG(lsLamp('r',235,72)+lsLamp('r',235,105),'NOT UNDER COMMAND')}${lsShipSVG(lsLamp('r',235,55)+lsLamp('w',235,88)+lsLamp('r',235,121),'RESTRICTED MANOEUVRABILITY')}${lsShipSVG(lsLamp('g',235,72)+lsLamp('w',235,105),'TRAWLING')}${lsShipSVG(lsLamp('r',235,72)+lsLamp('w',235,105),'FISHING — OTHER THAN TRAWLING')}</div>`;
- if(kind==='specialVessels')return `<div class="lsTeachGrid two"><div class="lsTeachCard">${lsShapeSVG('ball','ANCHOR — ONE BALL')}<b>AT ANCHOR</b></div><div class="lsTeachCard">${lsShapeSVG('threeBalls','AGROUND — THREE BALLS')}<b>AGROUND</b></div>${lsShipSVG(lsLamp('w',235,68)+lsLamp('w',235,101)+lsLamp('y',348,121)+lsLamp('w',348,153),'TOWING ASTERN — EXAMPLE DISPLAY')}${lsShipSVG(lsLamp('w',235,70)+lsLamp('r',235,104),'PILOT — WHITE OVER RED')}</div>`;
- return `<div class="lsCallout">Lights & Shapes recognition lesson</div>`;
-}
-function lsQuizVisual(kind){
- if(kind==='headOn')return lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199)+lsLamp('g',310,199),'RECOGNITION DISPLAY');
- if(kind==='portSide')return lsShipSVG(lsLamp('w',235,70)+lsLamp('r',165,199),'RECOGNITION DISPLAY');
- if(kind==='astern')return lsShipSVG(lsLamp('w',348,120),'RECOGNITION DISPLAY');
- if(kind==='redRed')return lsShipSVG(lsLamp('r',235,72)+lsLamp('r',235,105),'IDENTIFY THE STATUS');
- if(kind==='greenWhite')return lsShipSVG(lsLamp('g',235,72)+lsLamp('w',235,105),'IDENTIFY THE STATUS');
- if(kind==='redWhite')return lsShipSVG(lsLamp('r',235,72)+lsLamp('w',235,105),'IDENTIFY THE STATUS');
- if(kind==='redWhiteRed')return lsShipSVG(lsLamp('r',235,55)+lsLamp('w',235,88)+lsLamp('r',235,121),'IDENTIFY THE STATUS');
- if(kind==='whiteRed')return lsShipSVG(lsLamp('w',235,72)+lsLamp('r',235,105),'IDENTIFY THE STATUS');
- if(kind==='coneDown')return `<div class="lsShapeGrid one">${lsShapeSVG('coneDown','IDENTIFY THIS DAY SHAPE')}</div>`;
- if(kind==='anchorBall')return `<div class="lsShapeGrid one">${lsShapeSVG('ball','IDENTIFY THIS DAY SHAPE')}</div>`;
- return lsVisual('intro');
-}
+/* 1.38.3: superseded lsVisual implementation removed */
+/* 1.38.3: superseded lsQuizVisual implementation removed */
 let lsIndex=0,lsLessonsFinished=0,lsFinalIndex=0,lsFinalScore=0,lsFinalAnswered=false;
-function lsVisual(kind){
- if(kind==='basic')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i><i class="g"></i></div><b>LIGHTS AT NIGHT</b><span>Read colour, number, position and viewing aspect.</span></div><div class="lsPattern"><b>SHAPES BY DAY</b><span>Read number, order and orientation.</span></div></div>`;
- if(kind==='nav')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i><i class="g"></i><i class="w"></i></div><b>ORDINARY NAVIGATION LIGHTS</b><span>Masthead • port • starboard • stern</span></div></div>`;
- if(kind==='aspect')return `<div class="crFlow"><div class="node"><b>AHEAD</b><small>Masthead light(s) and visible sidelights</small></div><span class="arrow">→</span><div class="node"><b>SIDE</b><small>Red = port • Green = starboard</small></div><span class="arrow">→</span><div class="node"><b>ASTERN</b><small>White sternlight is the key ordinary light</small></div></div>`;
- if(kind==='shapes')return `<div class="lsPatternBoard"><div class="lsPattern"><b>● BALL</b></div><div class="lsPattern"><b>▼ CONE</b></div><div class="lsPattern"><b>◆ DIAMOND</b></div><div class="lsPattern"><b>▮ CYLINDER</b></div></div>`;
- if(kind==='status')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i></div><b>NOT UNDER COMMAND</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i><i class="r"></i></div><b>RESTRICTED MANOEUVRABILITY</b></div><div class="lsPattern"><div class="lsDots"><i class="g"></i><i class="w"></i></div><b>TRAWLING</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i></div><b>FISHING</b></div></div>`;
- if(kind==='special')return `<div class="crFlow"><div class="node"><b>ANCHOR / AGROUND</b><small>Stationary status displays</small></div><div class="node"><b>TOWING</b><small>Additional towing lights</small></div><div class="node"><b>PILOT</b><small>White over red</small></div></div>`;
- return `<div class="lsPatternBoard"><div class="lsPattern"><b>LIGHTS & SHAPES</b><span>Recognition lesson</span></div></div>`;
-}
-function lsQuizVisual(kind){
- if(kind==='portSide')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i></div><b>IDENTIFY THIS SIDELIGHT</b></div></div>`;
- if(kind==='redRed')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;
- if(kind==='greenWhite')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="g"></i><i class="w"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;
- if(kind==='coneDown')return `<div class="lsPatternBoard"><div class="lsPattern"><b>▼ CONE — APEX DOWN</b><span>Identify this day shape</span></div></div>`;
- if(kind==='whiteRed')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;
- return lsVisual('basic');
-}
+/* 1.38.3: superseded lsVisual implementation removed */
+/* 1.38.3: superseded lsQuizVisual implementation removed */
 
 
 /* PROJECT WATCH 1.38.0 — LOCKED MASTER LIBRARY 03 VISUAL ADAPTER */
@@ -23919,6 +23884,38 @@ try{updateHomeCourseProgress();renderHomeCourseDashboard();}catch(e){}
   <div id="imageCreditBody"></div>
  </div>
 </div>
+
+
+<script id="pwEngineeringAudit1383">
+/* Project Watch 1.38.3 engineering guardrails.
+   Read-only checks: they do not alter learner progress or approved curriculum. */
+(function(){
+  "use strict";
+  const report={version:"1.38.3",errors:[],warnings:[],checks:{}};
+  const ok=(name,value)=>{report.checks[name]=!!value;if(!value)report.errors.push(name);};
+  try{
+    ok("home-page", !!document.getElementById("home"));
+    ok("curriculum-page", !!document.getElementById("coursePage"));
+    ok("lights-module", !!document.getElementById("lightsPage"));
+    ok("stage3-page", !!document.getElementById("lightsTutorialPage"));
+    ok("master-library-page", !!document.getElementById("lightsMasterLibraryPage"));
+    ok("stage3-six-lessons", typeof LS_LESSONS!=="undefined" && LS_LESSONS.length===6);
+    ok("stage3-ten-final-questions", typeof LS_FINAL_QUIZ!=="undefined" && LS_FINAL_QUIZ.length===10);
+    ok("stage3-answer-indexes", typeof LS_FINAL_QUIZ!=="undefined" && LS_FINAL_QUIZ.every(q=>Array.isArray(q[1]) && Number.isInteger(q[2]) && q[2]>=0 && q[2]<q[1].length));
+    ok("master-lesson-visual-map", typeof PW_MASTER_LESSON_URLS!=="undefined" && Object.keys(PW_MASTER_LESSON_URLS).length>=6);
+    ok("master-quiz-visual-map", typeof PW_MASTER_QUIZ_URLS!=="undefined" && Object.keys(PW_MASTER_QUIZ_URLS).length>=10);
+    ok("stage3-forward-button", !!document.getElementById("lsForwardBtn"));
+    ok("stage3-speech-button", !!document.getElementById("lsSpeakBtn"));
+    ok("storage-available", (function(){try{const k="__pw_audit__";localStorage.setItem(k,"1");localStorage.removeItem(k);return true}catch(e){return false}})());
+    document.querySelectorAll("[id]").forEach(el=>{
+      if(document.querySelectorAll("#"+CSS.escape(el.id)).length>1) report.warnings.push("duplicate-id:"+el.id);
+    });
+  }catch(e){report.errors.push("audit-exception:"+e.message)}
+  window.PROJECT_WATCH_ENGINEERING_REPORT=report;
+  if(report.errors.length) console.error("Project Watch engineering audit",report);
+  else console.info("Project Watch engineering audit PASS",report);
+})();
+</script>
 
 </body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
