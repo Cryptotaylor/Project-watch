@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.2 — Separate Training Library</title>
+<title>Project Watch 1.37.3 — Course Start Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37.2 — Separate Training Library */
+/* Project Watch 1.37.3 — Course Start Fix */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -17392,7 +17392,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.2 • SEPARATE TRAINING LIBRARY</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.3 • COURSE START FIX</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18142,7 +18142,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.2</b></div>
+    <div><small>BUILD</small><b>1.37.3</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -22115,8 +22115,19 @@ function coursePrereqComplete(index){
 function showCoursePage(){
  document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
  updateHeaderNav('course');
- $('coursePage').classList.add('active');
- renderCoursePage();window.scrollTo({top:0,behavior:'smooth'});
+ const page=$('coursePage');
+ if(!page)return;
+ page.classList.add('active');
+ renderCoursePage();
+ if(location.hash==='#course-orientation'){
+   const orientation=$('courseOrientation');
+   if(orientation){
+     orientation.classList.add('show');
+     requestAnimationFrame(()=>orientation.scrollIntoView({behavior:'smooth',block:'start'}));
+     return;
+   }
+ }
+ window.scrollTo({top:0,behavior:'smooth'});
 }
 function renderCoursePage(){
  const list=$('courseStageList');if(!list)return;
@@ -22158,8 +22169,12 @@ function courseLaunch(id){
  courseRecordStart(id);
  if(id==='orientation'){
    location.hash='course-orientation';
-   $('courseOrientation')?.classList.add('show');
-   $('courseOrientation')?.scrollIntoView({behavior:'smooth',block:'start'});
+   showCoursePage();
+   const orientation=$('courseOrientation');
+   if(orientation){
+     orientation.classList.add('show');
+     requestAnimationFrame(()=>orientation.scrollIntoView({behavior:'smooth',block:'start'}));
+   }
    return;
  }
  if(id==='foundations'){showColregsTutorial();return}
