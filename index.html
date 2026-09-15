@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.5j — Stage 2 Blind Knowledge Check</title>
+<title>Project Watch 1.37.5k — Stage 2 Answer Order Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37.5j — Stage 2 Blind Knowledge Check */
+/* Project Watch 1.37.5k — Stage 2 Answer Order Fix */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -17432,7 +17432,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5j • STAGE 2 BLIND CHECK</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5k • STAGE 2 ANSWER ORDER</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18183,7 +18183,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.5j</b></div>
+    <div><small>BUILD</small><b>1.37.5k</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -21981,17 +21981,16 @@ const COLREGS_BEGINNER=[
  {title:'Give-way and stand-on',sub:'What those words actually mean',intro:'Stand-on does not mean ignore danger, and give-way does not mean make a tiny token alteration.',visual:'roles',facts:[['Give-way • Rule 16','Take early and substantial action to keep well clear.'],['Stand-on • Rule 17','Initially keep course and speed, while continuing to monitor the developing situation.'],['Escalation','The stand-on vessel may act when it becomes apparent the give-way vessel is not taking appropriate action, and must act when collision cannot be avoided by give-way action alone.'],['Always monitor','Responsibilities do not remove the duty to keep a proper lookout and assess risk.']]},
  {title:'Special environments change the picture',sub:'Channels, TSS and restricted visibility',intro:'The same two vessels can have different obligations when the navigational environment changes.',visual:'special',facts:[['Rule 9 • Narrow channels','Channel constraints and duties can affect what action is safe and practicable.'],['Rule 10 • TSS','Traffic separation schemes have specific lane, crossing, joining, leaving and separation-zone requirements.'],['Rule 19 • Restricted visibility','Radar information, safe speed, engines ready and special avoiding-action cautions become central when vessels are not in sight.'],['Do not use slogans','Simple ideas such as “power gives way to sail” are not a substitute for identifying the applicable rules and circumstances.']]}
 ];
-const CR_QUIZ=[
- ['What is the main purpose of the COLREGs?',['To prevent collisions at sea','To set harbour fees','To replace good seamanship'],0,'The COLREGs provide internationally agreed navigation rules intended to prevent collisions at sea.'],
+const CR_QUIZ=[ ['What is the main purpose of the COLREGs?',['To set harbour fees','To prevent collisions at sea','To replace good seamanship'],1,'The COLREGs provide internationally agreed navigation rules intended to prevent collisions at sea.'],
  ['Which Rule requires every vessel to maintain a proper look-out?',['Rule 5','Rule 10','Rule 19'],0,'Rule 5 is the look-out rule and applies to every vessel.'],
- ['Which group contains the core rules for look-out, safe speed, risk of collision and action to avoid collision?',['Rules 5–8','Rules 20–23','Rules 32–37'],0,'Rules 5, 6, 7 and 8 form the core sequence taught in this stage.'],
- ['Before deciding who gives way, what should you identify first?',['The actual situation and applicable Rules','Which vessel is larger','Which vessel has the newest electronics'],0,'Project Watch teaches you to identify the navigational situation and applicable Rules before deciding obligations.'],
- ['What is the basic duty of a give-way vessel?',['Take early and substantial action to keep well clear','Always stop immediately','Maintain course and speed whatever happens'],0,'A give-way vessel should take early and substantial action to keep well clear.'],
+ ['Which group contains the core rules for look-out, safe speed, risk of collision and action to avoid collision?',['Rules 20–23','Rules 32–37','Rules 5–8'],2,'Rules 5, 6, 7 and 8 form the core sequence taught in this stage.'],
+ ['Before deciding who gives way, what should you identify first?',['Which vessel is larger','The actual situation and applicable Rules','Which vessel has the newest electronics'],1,'Project Watch teaches you to identify the navigational situation and applicable Rules before deciding obligations.'],
+ ['What is the basic duty of a give-way vessel?',['Always stop immediately','Maintain course and speed whatever happens','Take early and substantial action to keep well clear'],2,'A give-way vessel should take early and substantial action to keep well clear.'],
  ['Does being the stand-on vessel mean you can stop monitoring the other vessel?',['No — continue to monitor and be ready to act as Rule 17 requires','Yes — the other vessel has all responsibility','Only during daylight'],0,'Stand-on status does not remove the duty to keep a proper look-out and monitor the developing situation.'],
- ['Which Rule deals specifically with narrow channels?',['Rule 9','Rule 10','Rule 19'],0,'Rule 9 contains the narrow-channel provisions.'],
- ['Which Rule deals specifically with traffic separation schemes?',['Rule 10','Rule 5','Rule 23'],0,'Rule 10 deals with traffic separation schemes.'],
+ ['Which Rule deals specifically with narrow channels?',['Rule 10','Rule 9','Rule 19'],1,'Rule 9 contains the narrow-channel provisions.'],
+ ['Which Rule deals specifically with traffic separation schemes?',['Rule 5','Rule 23','Rule 10'],2,'Rule 10 deals with traffic separation schemes.'],
  ['Which Rule becomes central when vessels are not in sight of one another in restricted visibility?',['Rule 19','Rule 14','Rule 34 only'],0,'Rule 19 addresses conduct of vessels in restricted visibility when they are not in sight of one another.'],
- ['Is a slogan such as “power gives way to sail” enough to decide every encounter?',['No — identify the applicable Rules and circumstances','Yes — it overrides all other Rules','Yes — but only at night'],0,'Simple slogans are not a substitute for identifying the vessel types, situation, environment and applicable COLREG Rules.']
+ ['Is a slogan such as “power gives way to sail” enough to decide every encounter?',['Yes — it overrides all other Rules','No — identify the applicable Rules and circumstances','Yes — but only at night'],1,'Simple slogans are not a substitute for identifying the vessel types, situation, environment and applicable COLREG Rules.']
 ];
 const CR_QUIZ_RULE_REFS=[
  {rule:'Rule 1',label:'RULE 1 • APPLICATION'},
