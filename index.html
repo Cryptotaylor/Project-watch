@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.5f — Stage 2 Completion Fix</title>
+<title>Project Watch 1.37.5g — Stage 2 State Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37.5f — Stage 2 Completion Fix */
+/* Project Watch 1.37.5g — Stage 2 State Fix */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -17432,7 +17432,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5f • STAGE 2 COMPLETION FIX</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5g • STAGE 2 STATE FIX</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18183,7 +18183,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.5f</b></div>
+    <div><small>BUILD</small><b>1.37.5g</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -21981,11 +21981,14 @@ const COLREGS_BEGINNER=[
  {title:'Give-way and stand-on',sub:'What those words actually mean',intro:'Stand-on does not mean ignore danger, and give-way does not mean make a tiny token alteration.',visual:'roles',facts:[['Give-way • Rule 16','Take early and substantial action to keep well clear.'],['Stand-on • Rule 17','Initially keep course and speed, while continuing to monitor the developing situation.'],['Escalation','The stand-on vessel may act when it becomes apparent the give-way vessel is not taking appropriate action, and must act when collision cannot be avoided by give-way action alone.'],['Always monitor','Responsibilities do not remove the duty to keep a proper lookout and assess risk.']]},
  {title:'Special environments change the picture',sub:'Channels, TSS and restricted visibility',intro:'The same two vessels can have different obligations when the navigational environment changes.',visual:'special',facts:[['Rule 9 • Narrow channels','Channel constraints and duties can affect what action is safe and practicable.'],['Rule 10 • TSS','Traffic separation schemes have specific lane, crossing, joining, leaving and separation-zone requirements.'],['Rule 19 • Restricted visibility','Radar information, safe speed, engines ready and special avoiding-action cautions become central when vessels are not in sight.'],['Do not use slogans','Simple ideas such as “power gives way to sail” are not a substitute for identifying the applicable rules and circumstances.']]}
 ];
-let crLesson=0,crDone=new Set(),crQuizIndex=0,crQuizScore=0,crQuizAnswered=false;
+let crLesson=0,crLessonsFinished=0,crQuizIndex=0,crQuizScore=0,crQuizAnswered=false;
 function showColregsTutorial(){
  document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
  updateHeaderNav('course');$('colregsTutorialPage').classList.add('active');
- crLesson=Math.max(0,Math.min(5,crLesson||0));renderCrLesson();window.scrollTo({top:0,behavior:'smooth'});
+ crLesson=Math.max(0,Math.min(5,crLesson||0));
+ // Stage 2 state is now a sequential count, matching the Stage 1 progression model.
+ crLessonsFinished=Math.max(0,Math.min(6,crLessonsFinished||0));
+ renderCrLesson();window.scrollTo({top:0,behavior:'smooth'});
 }
 function crVisual(l){
  if(!l)return '';
@@ -21998,37 +22001,53 @@ function crVisual(l){
  return `<div class="crFlow"><div class="node"><b>${l.title}</b><small>${l.intro}</small></div></div>`;
 }
 
-function crLessonsComplete(){return COLREGS_BEGINNER.every((_,i)=>crDone.has(i))}
+function crLessonsComplete(){return crLessonsFinished>=6}
 function renderCrLesson(){
  const l=COLREGS_BEGINNER[crLesson],list=$('crLessonList');if(!l||!list)return;
- const nextAvailable=Math.min(5,crDone.size);
+ const nextAvailable=Math.min(5,crLessonsFinished);
  list.innerHTML=COLREGS_BEGINNER.map((x,i)=>{
-  const locked=i>nextAvailable&&!crDone.has(i);
-  return `<button class="${i===crLesson?'active':''} ${crDone.has(i)?'done':''} ${locked?'lessonLocked':''}" ${locked?'disabled':''} onclick="crSelect(${i})"><small>LESSON ${i+1}</small><b>${x.title}<span class="tick">${crDone.has(i)?' ✓':locked?' 🔒':''}</span></b></button>`;
+  const done=i<crLessonsFinished,locked=i>nextAvailable;
+  return `<button class="${i===crLesson?'active':''} ${done?'done':''} ${locked?'lessonLocked':''}" ${locked?'disabled':''} onclick="crSelect(${i})"><small>LESSON ${i+1}</small><b>${x.title}<span class="tick">${done?' ✓':locked?' 🔒':''}</span></b></button>`;
  }).join('');
  $('crLessonNo').textContent='STAGE 2 • LESSON '+String(crLesson+1).padStart(2,'0')+' / 06';
  $('crLessonTitle').textContent=l.title;$('crLessonIntro').textContent=l.intro;
- // Teaching text is rendered independently from the visual so a graphic can never blank the lesson.
  $('crLessonBody').innerHTML=l.facts.map(x=>`<div class="crFact"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
  try{$('crLessonVisual').innerHTML=crVisual(l)}catch(e){console.warn('Stage 2 visual fallback',e);$('crLessonVisual').innerHTML=`<div class="crFlow"><div class="node"><b>${l.title}</b><small>${l.intro}</small></div></div>`}
- $('crProgressText').textContent=`${crDone.size} / 6 LESSONS`;$('crProgressFill').style.width=(crDone.size/6*100)+'%';const nb=$('crNextBtn');if(nb)nb.textContent=crLesson===5?'COMPLETE LESSON 6 & START FINAL CHECK →':'COMPLETE LESSON & CONTINUE →';renderCrQuiz();
+ $('crProgressText').textContent=`${crLessonsFinished} / 6 LESSONS`;
+ $('crProgressFill').style.width=(crLessonsFinished/6*100)+'%';
+ const nb=$('crNextBtn');
+ if(nb)nb.textContent=crLesson===5?'COMPLETE LESSON 6 & START FINAL CHECK →':'COMPLETE LESSON & CONTINUE →';
+ renderCrQuiz();
 }
-function crSelect(i){stopCourseSpeech();crLesson=Math.max(0,Math.min(5,i));renderCrLesson()}
+function crSelect(i){
+ stopCourseSpeech();
+ const maxAllowed=Math.min(5,crLessonsFinished);
+ crLesson=Math.max(0,Math.min(maxAllowed,i));
+ renderCrLesson();
+}
 function crPrev(){crSelect(crLesson-1)}
 function crNext(){
  stopCourseSpeech();
- crDone.add(crLesson);
- if(crLesson<5){crLesson++;renderCrLesson();return}
- // Lesson 6 is the end of a sequential pathway. If the learner arrived here
- // through the course flow, normalise the completed set to exactly Lessons 1–6.
- for(let i=0;i<6;i++)crDone.add(i);
+ // Sequential completion: completing Lesson N sets the finished count to at least N.
+ crLessonsFinished=Math.max(crLessonsFinished,crLesson+1);
+ if(crLesson<5){
+  crLesson++;
+  renderCrLesson();
+  return;
+ }
+ // Lesson 6 has one deterministic outcome: 6/6 and the final check.
+ crLessonsFinished=6;
  renderCrLesson();
  const k=$('crKnowledge');
- if(k){k.classList.remove('locked');renderCrQuiz();k.scrollIntoView({behavior:'smooth',block:'start'})}
+ if(k){
+  k.classList.remove('locked');
+  renderCrQuiz();
+  requestAnimationFrame(()=>k.scrollIntoView({behavior:'smooth',block:'start'}));
+ }
 }
 function crComplete(){crNext()}
 function crSpeak(){if('speechSynthesis' in window&&speechSynthesis.speaking){stopCourseSpeech();return}const l=COLREGS_BEGINNER[crLesson],speech=l.title+'. '+l.intro+'. '+l.facts.map(x=>x[0]+'. '+x[1]).join(' ');const u=speakMarine(speech,'instruction'),b=$('crSpeakBtn');if(b)b.textContent='■ STOP LESSON';if(u)u.onend=()=>{const x=$('crSpeakBtn');if(x)x.textContent='🔊 HEAR LESSON'}}
-function renderCrQuiz(){const area=$('crQuizArea'),box=$('crKnowledge');if(!area)return;const unlocked=crLessonsComplete();if(box)box.classList.toggle('locked',!unlocked);if(!unlocked){area.innerHTML=`<div class="stage2QuizIntro"><b>TEACHING IN PROGRESS</b><br>${crDone.size} / 6 lessons completed. Work through Lessons 1–6 above. The final check unlocks automatically after Lesson 6.</div>`;return}area.innerHTML=crQuizHTML()}
+function renderCrQuiz(){const area=$('crQuizArea'),box=$('crKnowledge');if(!area)return;const unlocked=crLessonsComplete();if(box)box.classList.toggle('locked',!unlocked);if(!unlocked){area.innerHTML=`<div class="stage2QuizIntro"><b>TEACHING IN PROGRESS</b><br>${crLessonsFinished} / 6 lessons completed. Work through Lessons 1–6 above. The final check unlocks automatically after Lesson 6.</div>`;return}area.innerHTML=crQuizHTML()}
 function crQuizHTML(){
  if(crQuizIndex>=CR_QUIZ.length){const pass=crQuizScore>=8;return `<div class="crQuizScore"><strong>${crQuizScore} / ${CR_QUIZ.length}</strong><b>${pass?'STAGE 2 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</b><span>${pass?'You have demonstrated the COLREG foundations taught in Stage 2.':'Review the six teaching lessons above. You need 8/10 to complete Stage 2.'}</span>${pass?'<button type="button" style="margin-top:12px" onclick="completeStage2()">COMPLETE STAGE 2 →</button>':'<button type="button" style="margin-top:12px" onclick="crRestartQuiz()">TRY AGAIN</button>'} <button type="button" style="margin-top:12px" onclick="openRulesLibrary()">📖 RULES LIBRARY</button></div>`}
  const q=CR_QUIZ[crQuizIndex],ref=CR_QUIZ_RULE_REFS[crQuizIndex];return `<div class="crQuiz"><div class="ver">STAGE 2 FINAL CHECK • QUESTION ${crQuizIndex+1} / ${CR_QUIZ.length}</div><div class="crQuizQ">${q[0]}</div><div class="crQuizOpts">${q[1].map((o,i)=>`<button type="button" onclick="crAnswer(${i});return false;">${o}</button>`).join('')}</div><div class="quizHelpRow">${ref?`<button type="button" onclick="openRulesLibrary('${ref.rule}','Training aid for Stage 2 final-check question ${crQuizIndex+1}. Review this exact reference, then return to the question.')">📖 ${ref.label}</button>`:'<button type="button" onclick="openRulesLibrary()">📖 RULES LIBRARY</button>'}</div><div id="crQuizResult" class="crQuizResult"></div></div>`;
