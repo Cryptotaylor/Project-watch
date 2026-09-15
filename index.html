@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.5b — Claire Stage 1 Fix</title>
+<title>Project Watch 1.37.5c — Stage 1 Lesson Order</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37.5b — Claire Stage 1 Fix */
+/* Project Watch 1.37.5c — Stage 1 Lesson Order */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -17424,7 +17424,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5b • STAGE 1 UX FIX</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5c • STAGE 1 ORDER</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18175,7 +18175,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.5b</b></div>
+    <div><small>BUILD</small><b>1.37.5c</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -18279,7 +18279,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <div>
         <div class="ver">STAGE 01 • ORIENTATION & WATCHKEEPING FUNDAMENTALS</div>
         <h2>Learn the bridge language first.</h2>
-        <p>This is a short teaching stage — not a tick-box pass. Work through the six cards, then complete a five-question check. The safety acknowledgement does not score marks.</p>
+        <p>This is a short teaching stage — not a tick-box pass. Start with how Project Watch teaches, then learn the bridge fundamentals across six lessons before the five-question check. The safety acknowledgement does not score marks.</p>
       </div>
       <button onclick="showCoursePage()">← COURSE MAP</button>
     </div>
@@ -22107,6 +22107,10 @@ function showTrainingLibrary(){
 
 
 const ORIENTATION_LESSONS=[
+ {title:'How Project Watch teaches',sub:'Learn → practise → assess',intro:'Different parts of Project Watch have different purposes.',facts:[
+  ['Learn','Teaching screens explain the subject before you are tested.'],
+  ['Practise','Guided simulators let you apply it with coaching.'],
+  ['Assess','Knowledge checks and mock exams test material after it has been taught. A wrong answer is feedback, not the end of the course.']]},
  {title:'Your own vessel',sub:'Start with what you command',intro:'Before interpreting other traffic, know the vessel from which you are observing it.',facts:[
   ['Own vessel','The vessel you are controlling is your own vessel. In Project Watch it uses the personal vessel profile, or Suilven as the default.'],
   ['Bow & stern','Bow means the front of the vessel. Stern means the rear.'],
@@ -22126,11 +22130,7 @@ const ORIENTATION_LESSONS=[
  {title:'Lookout first',sub:'Rule 5 mindset',intro:'No screen replaces the basic duty to maintain a proper lookout.',facts:[
   ['Sight and hearing','Look outside and listen.'],
   ['All available means','Use radar, AIS and other appropriate aids when available, but as supporting information.'],
-  ['Build the picture','Keep updating what vessels are doing; do not make one observation and stop watching.']]},
- {title:'How Project Watch teaches',sub:'Learn → practise → assess',intro:'Different parts of Project Watch have different purposes.',facts:[
-  ['Learn','Teaching screens explain the subject before you are tested.'],
-  ['Practise','Guided simulators let you apply it with coaching.'],
-  ['Assess','Knowledge checks and mock exams test material after it has been taught. A wrong answer is feedback, not the end of the course.']]}
+  ['Build the picture','Keep updating what vessels are doing; do not make one observation and stop watching.']]}
 ];
 const ORIENTATION_QUIZ=[
  ['Facing forward, which side is starboard?',['Left','Right','Behind you'],1,'Starboard is the right-hand side when facing forward.'],
