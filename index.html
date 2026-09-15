@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.5k — Stage 2 Answer Order Fix</title>
+<title>Project Watch 1.37.6 — Stage 3 Curriculum</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17361,7 +17361,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:750px){.tssScenarioBar,.tssSimControls{grid-template-columns:repeat(2,1fr)}.tssSimHud{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
-</style>
+.lsLessonBtn.lessonLocked{opacity:.42;cursor:not-allowed}.lsLessonBtn.lessonLocked:hover{transform:none}.stage2Knowledge.locked #lsFinalQuizArea{opacity:.68}</style>
 </head>
 <body>
 <div id="vesselSetupModal" class="vesselSetupModal" aria-hidden="true">
@@ -17432,7 +17432,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5k • STAGE 2 ANSWER ORDER</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.6 • STAGE 3 CURRICULUM</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -17584,10 +17584,10 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <h1>Learn to read a vessel before you meet it.</h1>
       <p>Lights at night and black shapes by day tell you what a vessel is, what it is doing and whether its ability to manoeuvre may be limited. This course teaches the recognition system before you use the full bridge trainer.</p>
     </div>
-    <div class="lsHeroBadge"><small>BEGINNER COURSE</small><b>7 LESSONS</b><span>LIGHTS • SHAPES • STATUS</span></div>
+    <div class="lsHeroBadge"><small>STAGE 3 COURSE</small><b>6 LESSONS</b><span>LIGHTS • SHAPES • STATUS</span></div>
   </div>
 
-  <div class="lsProgress"><div><span>COURSE PROGRESS</span><b id="lsProgressText">0 / 7 COMPLETE</b></div><i><em id="lsProgressFill"></em></i></div>
+  <div class="lsProgress"><div><span>STAGE 3 PROGRESS</span><b id="lsProgressText">0 / 6 LESSONS</b></div><i><em id="lsProgressFill"></em></i></div>
 
   <div class="lsCourseGrid">
     <aside id="lsLessonList" class="lsLessonList"></aside>
@@ -17598,7 +17598,6 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       </div>
       <div id="lsLessonVisual" class="lsLessonVisual"></div>
       <div id="lsLessonFacts" class="lsLessonFacts"></div>
-      <div id="lsQuizWrap" class="lsQuizWrap"></div>
       <div class="lsLessonFooter">
         <button onclick="lsPrev()">← PREVIOUS</button>
         <button onclick="lsHear()">🔊 HEAR LESSON</button>
@@ -17607,6 +17606,12 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       </div>
     </main>
   </div>
+  <section id="lsKnowledge" class="panel stage2Knowledge locked" style="margin-top:14px">
+    <div class="ver">FINAL CHECK • UNLOCKS AFTER LESSON 6</div>
+    <h2>Stage 3 knowledge check</h2>
+    <p class="note">This is the final part of Stage 3, not another lesson. Complete all six teaching lessons first, then answer 10 recognition questions based only on what Project Watch has just taught. You need 8/10 to complete Stage 3.</p>
+    <div id="lsFinalQuizArea"><div class="stage2QuizIntro"><b>TEACHING IN PROGRESS</b><br>0 / 6 lessons completed. Complete Lessons 1–6 above to unlock the final check.</div></div>
+  </section>
 </section>
 
 <section id="lightsExamPage" class="appPage">
@@ -18183,7 +18188,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.5k</b></div>
+    <div><small>BUILD</small><b>1.37.6</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -19846,7 +19851,7 @@ function submitLightsFullExam(){
   const pct=Math.round(correct/lightsExamSet.length*100);
   const criticalWrong=lightsExamSet.filter((q,i)=>q.critical&&lightsExamAnswers[i]!==q.correct);
   const pass=pct>=90&&criticalWrong.length===0;
-  courseRecordScore('lights',pct,pass);
+  // Full mock is advanced assessment practice; structured Stage 3 completion is controlled by its 10-question final check.
   $('lxProgress').textContent=`Complete • ${correct}/${lightsExamSet.length} • ${pct}%`;
   $('lxQuestionArea').innerHTML=`<div class="lxResultsSummary ${pass?'pass':'fail'}">
       <div><div class="ver">PROJECT WATCH LIGHTS & SHAPES MOCK</div><h2>${pass?'PASS':'NOT YET PASSED'}</h2>
@@ -19863,106 +19868,51 @@ function lxReviewHTML(q,user,i){
 }
 
 const LS_LESSONS=[
- {title:'Why vessels show lights & shapes',sub:'Read status before manoeuvre',intro:'Part C of the COLREGs is a recognition language. At night you mainly read lights; by day, prescribed black shapes can identify particular status or activity.',
-  facts:[['Night and poor visibility','Rule 20 requires the prescribed lights from sunset to sunrise. Lights, if carried, are also exhibited from sunrise to sunset in restricted visibility.'],['Day shapes','Shapes are daytime status signals. They are black and designed to be recognised by outline.'],['What you are learning','Do not just memorise colours. Ask: what vessel is this, what is it doing, and does that status affect its manoeuvrability?'],['Rules 20–31','Part C covers application, light definitions and ranges, then vessel-specific displays.']],visual:'basic'},
- {title:'The basic navigation lights',sub:'White, red and green',intro:'Start with the ordinary lights before learning special vessel-status patterns.',
-  facts:[['Masthead light','White. Shown over the fore-and-aft centreline over a forward arc defined by Rule 21.'],['Sidelights','Red to port and green to starboard. Their visibility depends on the viewing aspect.'],['Sternlight','White light showing aft over its prescribed arc.'],['All-round light','Visible through 360 degrees. Status lights such as red-white-red are all-round lights.']],visual:'nav'},
- {title:'Viewing aspect changes what you see',sub:'Bow, side and stern recognition',intro:'The same vessel can show a very different combination depending on where you are looking from.',
-  facts:[['From ahead','You may see masthead light(s) and one or both sidelights depending on aspect.'],['From the side','The sidelight on the visible side matters: red is port, green is starboard.'],['From astern','The sternlight becomes the key ordinary navigation light.'],['Do not invent missing lights','A light may exist on the vessel but be outside its prescribed sector from your viewing position.']],visual:'aspect'},
- {title:'Day shapes are a language too',sub:'Ball, cone, diamond and cylinder',intro:'Shapes are not decoration. Their number, order and orientation identify status or activity.',
-  facts:[['Ball','Used in several displays, including anchor, not under command and aground combinations.'],['Cone','Orientation matters. A sailing vessel proceeding under machinery shows a cone apex downward by day.'],['Diamond','Appears in towing and restricted-manoeuvrability displays.'],['Cylinder','A vessel constrained by her draught may exhibit a cylinder.']],visual:'shapes'},
- {title:'Learn the high-value status patterns',sub:'Recognise before deciding',intro:'Some vertical light combinations immediately tell you that the target is not an ordinary power-driven vessel.',
-  facts:[['Red over red','Vessel not under command. When making way, sidelights and sternlight are also shown.'],['Red • white • red','Restricted in ability to manoeuvre. Additional navigation lights depend on whether she is making way.'],['Green over white','Trawling.'],['Red over white','Fishing other than trawling.']],visual:'status'},
- {title:'Anchor, aground, tow & pilot',sub:'Common patterns with different meaning',intro:'Recognition prevents you from treating a stationary, towing or specialist vessel as an ordinary crossing target.',
-  facts:[['At anchor','Anchor lights depend on vessel length; a ball is the basic day shape.'],['Aground','Anchor display plus two all-round red lights; three balls by day, subject to Rule 30 size provisions.'],['Towing','Towing configurations use additional masthead towing lights; a yellow towing light is shown above the sternlight when towing astern.'],['Pilot','White over red identifies a pilot vessel engaged on pilotage duty.']],visual:'special'},
- {title:'Use the bridge trainer',sub:'Reference → aspect → test',intro:'Now use the full Project Watch trainer to connect the patterns to realistic vessel views.',
-  facts:[['Reference first','Choose DAY SHAPES or NAV LIGHTS and step through each vessel.'],['Change aspect','Use BOW, STARBOARD, STERN and PORT. Notice which lights disappear or appear.'],['Read the memory line','It explains the identifying pattern and the applicable Rule.'],['Then test yourself','Switch to TEST YOURSELF and identify the vessel without the answer being shown.']],visual:'quiz'}
+ {title:'Why vessels show lights & shapes',sub:'Read status before manoeuvre',intro:'Part C of the COLREGs is a recognition language. At night you mainly read lights; by day, prescribed black shapes can identify particular status or activity.',facts:[['Night and poor visibility','Rule 20 requires the prescribed lights from sunset to sunrise. Lights, if carried, are also exhibited from sunrise to sunset in restricted visibility.'],['Day shapes','Shapes are daytime status signals. They are black and designed to be recognised by outline.'],['What you are learning','Do not just memorise colours. Ask: what vessel is this, what is it doing, and does that status affect its manoeuvrability?'],['Rules 20–31','Part C covers application, light definitions and ranges, then vessel-specific displays.']],visual:'basic'},
+ {title:'The basic navigation lights',sub:'White, red and green',intro:'Start with the ordinary lights before learning special vessel-status patterns.',facts:[['Masthead light','White. Shown over the fore-and-aft centreline over a forward arc defined by Rule 21.'],['Sidelights','Red to port and green to starboard. Their visibility depends on the viewing aspect.'],['Sternlight','White light showing aft over its prescribed arc.'],['All-round light','Visible through 360 degrees. Status lights such as red-white-red are all-round lights.']],visual:'nav'},
+ {title:'Viewing aspect changes what you see',sub:'Bow, side and stern recognition',intro:'The same vessel can show a very different combination depending on where you are looking from.',facts:[['From ahead','You may see masthead light(s) and one or both sidelights depending on aspect.'],['From the side','The sidelight on the visible side matters: red is port, green is starboard.'],['From astern','The sternlight becomes the key ordinary navigation light.'],['Do not invent missing lights','A light may exist on the vessel but be outside its prescribed sector from your viewing position.']],visual:'aspect'},
+ {title:'Day shapes are a language too',sub:'Ball, cone, diamond and cylinder',intro:'Shapes are not decoration. Their number, order and orientation identify status or activity.',facts:[['Ball','Used in several displays, including anchor, not under command and aground combinations.'],['Cone','Orientation matters. A sailing vessel proceeding under machinery shows a cone apex downward by day.'],['Diamond','Appears in towing and restricted-manoeuvrability displays.'],['Cylinder','A vessel constrained by her draught may exhibit a cylinder.']],visual:'shapes'},
+ {title:'Learn the high-value status patterns',sub:'Recognise before deciding',intro:'Some vertical light combinations immediately tell you that the target is not an ordinary power-driven vessel.',facts:[['Red over red','Vessel not under command. When making way, sidelights and sternlight are also shown.'],['Red • white • red','Restricted in ability to manoeuvre. Additional navigation lights depend on whether she is making way.'],['Green over white','Trawling.'],['Red over white','Fishing other than trawling.']],visual:'status'},
+ {title:'Anchor, aground, tow & pilot',sub:'Common patterns with different meaning',intro:'Recognition prevents you from treating a stationary, towing or specialist vessel as an ordinary crossing target.',facts:[['At anchor','Anchor lights depend on vessel length; a ball is the basic day shape.'],['Aground','Anchor display plus two all-round red lights; three balls by day, subject to Rule 30 size provisions.'],['Towing','Towing configurations use additional masthead towing lights; a yellow towing light is shown above the sternlight when towing astern.'],['Pilot','White over red identifies a pilot vessel engaged on pilotage duty.']],visual:'special'}
 ];
-let lsIndex=0,lsDone=new Set(),lsQuizIndex=0;
-const LS_QUIZ=[
- ['Which colour is the port sidelight?',['Red','Green','White','Yellow'],0,'Rule 21: the port sidelight is red and the starboard sidelight is green.','portSide'],
- ['What does red over red identify?',['Pilot vessel','Not under command','Trawling','At anchor'],1,'Rule 27: two all-round red lights in a vertical line identify a vessel not under command.','redRed'],
- ['Green over white identifies…',['Trawling','Pilotage duty','Aground','Constrained by draught'],0,'Rule 26: green over white identifies a vessel engaged in trawling.','greenWhite'],
- ['A sailing vessel using machinery shows which day shape?',['One ball','Diamond','Cone apex downward','Cylinder'],2,'Rule 25: a vessel proceeding under sail while also being propelled by machinery exhibits a conical shape, apex downwards, forward where it can best be seen.','coneDown'],
- ['White over red identifies…',['Pilot vessel on pilotage duty','Fishing other than trawling','Not under command','Mine clearance'],0,'Rule 29: white over red identifies a pilot vessel engaged on pilotage duty.','whiteRed']
+const LS_FINAL_QUIZ=[
+ ['Which colour is the port sidelight?',['Green','Red','White'],1,'Rule 21: the port sidelight is red and the starboard sidelight is green.','portSide','Rule 21'],
+ ['What does red over red identify?',['Not under command','Pilot vessel','Trawling'],0,'Rule 27: two all-round red lights in a vertical line identify a vessel not under command.','redRed','Rule 27'],
+ ['Green over white identifies…',['Pilotage duty','Aground','Trawling'],2,'Rule 26: green over white identifies a vessel engaged in trawling.','greenWhite','Rule 26'],
+ ['A sailing vessel using machinery shows which day shape?',['Diamond','Cone apex downward','One ball'],1,'Rule 25: a sailing vessel also propelled by machinery exhibits a cone apex downward by day.','coneDown','Rule 25'],
+ ['White over red identifies…',['Pilot vessel on pilotage duty','Fishing other than trawling','Not under command'],0,'Rule 29: white over red identifies a pilot vessel engaged on pilotage duty.','whiteRed','Rule 29'],
+ ['From directly astern, which ordinary navigation light is the key light you expect to see?',['A sidelight','A masthead light','The white sternlight'],2,'The sternlight shows over its prescribed after sector and is the ordinary navigation light facing an observer directly astern.','astern','Rule 21'],
+ ['Red over white identifies…',['Restricted ability to manoeuvre','Fishing other than trawling','Pilotage duty'],1,'Rule 26: red over white identifies fishing other than trawling.','redWhite','Rule 26'],
+ ['Which day shape is the basic indication of a vessel at anchor?',['One ball','One cylinder','One diamond'],0,'Rule 30 uses a ball as the basic day shape for a vessel at anchor.','ball','Rule 30'],
+ ['Red • white • red identifies…',['Aground','Pilot vessel','Restricted in ability to manoeuvre'],2,'Rule 27: red-white-red in a vertical line identifies restricted ability to manoeuvre.','redWhiteRed','Rule 27'],
+ ['Why can the same vessel show a different combination when viewed from another direction?',['Because prescribed lights have defined sectors','Because navigation lights change colour as the vessel turns','Because only AIS decides which lights are visible'],0,'Rule 21 defines the arcs of visibility. Your viewing aspect determines which prescribed sectors face you.','aspect','Rule 21']
 ];
-
-function lsQuizVisual(kind){
-  const lamp=(c,x,y)=>`<i class="lsLamp ${c}" style="left:${x}%;top:${y}%"></i>`;
-  if(kind==='coneDown'){
-    return `<div class="lsShapeRow">
-      <div class="lsShapeDemo">
-        <div style="height:105px;display:flex;align-items:center;justify-content:center">
-          <div style="width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-top:62px solid #050505"></div>
-        </div>
-        <b>DAY SHAPE SHOWN</b>
-      </div>
-      <div class="lsVisualCaption">Identify the day shape before choosing your answer.</div>
-    </div>`;
-  }
-
-  let lights='',caption='Identify the light pattern before choosing your answer.';
-  if(kind==='portSide'){
-    lights=lamp('r',31,58);
-    caption='PORT-SIDE ASPECT • The visible sidelight is red. Which side of the vessel uses this colour?';
-  }else if(kind==='redRed'){
-    lights=lamp('r',48,28)+lamp('r',48,50);
-    caption='IDENTIFYING STATUS LIGHTS • Two all-round red lights in a vertical line. Identify the vessel status.';
-  }else if(kind==='greenWhite'){
-    lights=lamp('g',48,28)+lamp('w',48,50);
-    caption='IDENTIFYING STATUS LIGHTS • Read the all-round colours from top to bottom. Additional navigation lights depend on whether the fishing vessel is making way.';
-  }else if(kind==='whiteRed'){
-    lights=lamp('w',48,28)+lamp('r',48,50);
-    caption='IDENTIFYING PILOT LIGHTS • Read the two all-round lights from top to bottom. Other required lights depend on whether the pilot vessel is underway or at anchor.';
-  }
-  return `<div class="lsNightSky">
-    <div class="lsHorizon"></div>
-    <div class="lsVesselSil"></div>
-    <div class="lsMast"></div>
-    ${lights}
-    <div class="lsVisualCaption">${caption}</div>
-  </div>`;
-}
-
-function lsVisual(v){
- if(v==='shapes')return `<div class="lsShapeRow"><div class="lsShapeDemo"><div class="lsShape lsBall"></div>BALL</div><div class="lsShapeDemo"><div class="lsShape lsCone"></div>CONE</div><div class="lsShapeDemo"><div class="lsShape lsDiamond"></div>DIAMOND</div><div class="lsShapeDemo"><div class="lsShape lsCylinder"></div>CYLINDER</div></div>`;
- if(v==='status')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i></div><b>NOT UNDER COMMAND</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i><i class="r"></i></div><b>RESTRICTED MANOEUVRABILITY</b></div><div class="lsPattern"><div class="lsDots"><i class="g"></i><i class="w"></i></div><b>TRAWLING</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i></div><b>FISHING</b></div><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i></div><b>PILOT</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i><i class="r"></i></div><b>CONSTRAINED BY DRAUGHT • MAY EXHIBIT</b></div></div>`;
- if(v==='special')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="w"></i></div><b>ANCHOR • BASIC UNDER-50 m NIGHT DISPLAY</b></div><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="r"></i><i class="w"></i></div><b>AGROUND • STATUS + ANCHOR LIGHT</b></div><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="w"></i><i class="y"></i></div><b>TOWING • SIMPLIFIED MEMORY VIEW</b></div><div class="lsPattern"><div class="lsDots"><i class="w"></i><i class="r"></i></div><b>PILOT</b></div></div>`;
- let caption=v==='basic'?'Your first question should be: what is this vessel telling me about its identity, activity and status?':v==='aspect'?'Aspect matters. The prescribed arcs mean you never expect to see every navigation light from every direction.':v==='quiz'?'Finish here, then open the existing bridge trainer and use the real DAY / NIGHT and viewing-aspect controls.':'Ordinary power-driven vessel: white masthead light, red and green sidelights, and a white sternlight — only the lights whose sectors face you are visible.';
- return `<div class="lsNightSky"><div class="lsHorizon"></div><div class="lsVesselSil"></div><div class="lsMast"></div><i class="lsLamp w" style="left:calc(50% - 7px);bottom:158px"></i><i class="lsLamp r" style="left:calc(50% - 92px);bottom:75px"></i><i class="lsLamp g" style="left:calc(50% + 77px);bottom:75px"></i><div class="lsVisualCaption">${caption}</div></div>`;
-}
-function showLightsTutorial(){
- document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));
- updateHeaderNav('lights');updateModuleContext('lights');
- $('lightsTutorialPage').classList.add('active');renderLightsTutorial();window.scrollTo({top:0,behavior:'smooth'});
-}
+let lsIndex=0,lsLessonsFinished=0,lsFinalIndex=0,lsFinalScore=0,lsFinalAnswered=false;
+function lsLessonsComplete(){return lsLessonsFinished>=6}
+function showLightsTutorial(){document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));updateHeaderNav('lights');updateModuleContext('lights');$('lightsTutorialPage').classList.add('active');renderLightsTutorial();window.scrollTo({top:0,behavior:'smooth'})}
 function renderLightsTutorial(){
- let l=LS_LESSONS[lsIndex];
- $('lsLessonList').innerHTML=LS_LESSONS.map((x,i)=>`<button class="lsLessonBtn ${i===lsIndex?'active':''} ${lsDone.has(i)?'done':''}" onclick="lsSelect(${i})"><span class="n">${String(i+1).padStart(2,'0')}</span><span><b>${x.title}</b><small>${x.sub}</small></span><span class="tick">${lsDone.has(i)?'✓':''}</span></button>`).join('');
- $('lsLessonNo').textContent='LESSON '+String(lsIndex+1).padStart(2,'0');
- $('lsLessonTitle').textContent=l.title;$('lsLessonIntro').textContent=l.intro;
- $('lsLessonVisual').innerHTML=lsIndex===6?lsQuizVisual(LS_QUIZ[lsQuizIndex][4]):lsVisual(l.visual);
- $('lsLessonFacts').innerHTML=l.facts.map(f=>`<div class="lsFact"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('');
- $('lsQuizWrap').innerHTML=lsIndex===6?lsQuizHTML():'';
- $('lsProgressText').textContent=`${lsDone.size} / ${LS_LESSONS.length} COMPLETE`;
- $('lsProgressFill').style.width=(lsDone.size/LS_LESSONS.length*100)+'%';
+ const l=LS_LESSONS[lsIndex],list=$('lsLessonList');if(!l||!list)return;
+ const nextAvailable=Math.min(5,lsLessonsFinished);
+ list.innerHTML=LS_LESSONS.map((x,i)=>{const done=i<lsLessonsFinished,locked=i>nextAvailable;return `<button class="lsLessonBtn ${i===lsIndex?'active':''} ${done?'done':''} ${locked?'lessonLocked':''}" ${locked?'disabled':''} onclick="lsSelect(${i})"><span class="n">${String(i+1).padStart(2,'0')}</span><span><b>${x.title}</b><small>${x.sub}</small></span><span class="tick">${done?'✓':locked?'🔒':''}</span></button>`}).join('');
+ $('lsLessonNo').textContent='STAGE 3 • LESSON '+String(lsIndex+1).padStart(2,'0')+' / 06';$('lsLessonTitle').textContent=l.title;$('lsLessonIntro').textContent=l.intro;
+ $('lsLessonVisual').innerHTML=lsVisual(l.visual);$('lsLessonFacts').innerHTML=l.facts.map(f=>`<div class="lsFact"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('');
+ $('lsProgressText').textContent=`${lsLessonsFinished} / 6 LESSONS`;$('lsProgressFill').style.width=(lsLessonsFinished/6*100)+'%';
+ const foot=$('lightsTutorialPage')?.querySelector('.lsLessonFooter .primary');if(foot)foot.textContent=lsIndex===5?'COMPLETE LESSON 6 & START FINAL CHECK →':'COMPLETE LESSON & CONTINUE →';renderLsFinalQuiz();
 }
-function lsSelect(i){lsIndex=Math.max(0,Math.min(LS_LESSONS.length-1,i));renderLightsTutorial()}
-function lsPrev(){lsSelect(lsIndex-1)} function lsNext(){lsSelect(lsIndex+1)}
-function lsComplete(){lsDone.add(lsIndex);renderLightsTutorial();if(lsIndex<LS_LESSONS.length-1)setTimeout(()=>lsSelect(lsIndex+1),250)}
-function lsHear(){
- let l=LS_LESSONS[lsIndex],speech=l.title+'. '+l.intro+' '+l.facts.map(f=>f[0]+'. '+f[1]).join(' ');
- speakMarine(speech,'instruction');
+function lsSelect(i){stopCourseSpeech();lsIndex=Math.max(0,Math.min(Math.min(5,lsLessonsFinished),i));renderLightsTutorial()}
+function lsPrev(){lsSelect(lsIndex-1)} function lsNext(){lsSelect(Math.min(lsLessonsFinished,lsIndex+1))}
+function lsComplete(){stopCourseSpeech();if(lsIndex<5){lsLessonsFinished=Math.max(lsLessonsFinished,lsIndex+1);lsIndex++;renderLightsTutorial();return}lsLessonsFinished=6;renderLightsTutorial();const k=$('lsKnowledge');if(k){k.classList.remove('locked');renderLsFinalQuiz();requestAnimationFrame(()=>k.scrollIntoView({behavior:'smooth',block:'start'}))}}
+function lsHear(){let l=LS_LESSONS[lsIndex],speech=l.title+'. '+l.intro+' '+l.facts.map(f=>f[0]+'. '+f[1]).join(' ');speakMarine(speech,'instruction')}
+function lsFinalVisual(kind){if(['portSide','redRed','greenWhite','coneDown','whiteRed'].includes(kind))return lsQuizVisual(kind);if(kind==='redWhite')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;if(kind==='redWhiteRed')return `<div class="lsPatternBoard"><div class="lsPattern"><div class="lsDots"><i class="r"></i><i class="w"></i><i class="r"></i></div><b>IDENTIFY THIS STATUS</b></div></div>`;if(kind==='ball')return lsVisual('shapes');return lsVisual('aspect')}
+function lsFinalHTML(){
+ if(lsFinalIndex>=LS_FINAL_QUIZ.length){const pass=lsFinalScore>=8;return `<div class="crQuizScore"><strong>${lsFinalScore} / ${LS_FINAL_QUIZ.length}</strong><b>${pass?'STAGE 3 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</b><span>${pass?'You have demonstrated the core Lights & Shapes recognition taught in Stage 3. The 45-question full mock remains available as advanced assessment practice.':'Review the six lessons above. You need 8/10 to complete Stage 3.'}</span>${pass?'<button type="button" style="margin-top:12px" onclick="completeStage3()">COMPLETE STAGE 3 →</button>':'<button type="button" style="margin-top:12px" onclick="lsRestartFinal()">TRY AGAIN</button>'} <button type="button" style="margin-top:12px" onclick="showLightsExam()">OPEN 45-QUESTION FULL MOCK →</button></div>`}
+ const q=LS_FINAL_QUIZ[lsFinalIndex];return `<div class="crQuiz"><div class="ver">STAGE 3 FINAL CHECK • QUESTION ${lsFinalIndex+1} / ${LS_FINAL_QUIZ.length}</div><div class="lsLessonVisual" style="margin:10px 0">${lsFinalVisual(q[4])}</div><div class="crQuizQ">${q[0]}</div><div class="crQuizOpts">${q[1].map((o,i)=>`<button type="button" onclick="lsFinalAnswer(${i});return false;">${o}</button>`).join('')}</div><div class="quizHelpRow"><span class="blindCheckNote">Choose your answer first. The relevant Rule reference is revealed with the feedback.</span></div><div id="lsFinalResult" class="crQuizResult"></div></div>`
 }
-function lsQuizHTML(){
- let q=LS_QUIZ[lsQuizIndex];
- return `<div class="lsQuizCard"><div class="ver">QUICK RECOGNITION CHECK • ${lsQuizIndex+1} / ${LS_QUIZ.length}</div><div class="lsQuizPrompt">LOOK AT THE DISPLAY ABOVE</div><h3>${q[0]}</h3><div class="lsQuizChoices">${q[1].map((x,i)=>`<button onclick="lsAnswer(${i})">${x}</button>`).join('')}</div><div id="lsQuizResult" class="lsQuizResult"></div></div>`;
-}
-function lsAnswer(i){
- let q=LS_QUIZ[lsQuizIndex],ok=i===q[2],r=$('lsQuizResult');
- r.textContent=(ok?'✓ Correct. ':'✗ Not quite. ')+q[3];r.className='lsQuizResult '+(ok?'ok':'warn');
- if(ok)setTimeout(()=>{lsQuizIndex=(lsQuizIndex+1)%LS_QUIZ.length;renderLightsTutorial()},900);
-}
+function renderLsFinalQuiz(){const area=$('lsFinalQuizArea'),box=$('lsKnowledge');if(!area)return;const unlocked=lsLessonsComplete();if(box)box.classList.toggle('locked',!unlocked);if(!unlocked){area.innerHTML=`<div class="stage2QuizIntro"><b>TEACHING IN PROGRESS</b><br>${lsLessonsFinished} / 6 lessons completed. Complete Lessons 1–6 above to unlock the final check.</div>`;return}area.innerHTML=lsFinalHTML()}
+function lsFinalAnswer(i){if(lsFinalAnswered)return;lsFinalAnswered=true;const q=LS_FINAL_QUIZ[lsFinalIndex],ok=i===q[2];if(ok)lsFinalScore++;document.querySelectorAll('#lsFinalQuizArea .crQuizOpts button').forEach((b,idx)=>{b.classList.add('answerLocked');if(idx===q[2])b.classList.add('correctAnswer');else if(idx===i&&!ok)b.classList.add('wrongAnswer')});const r=$('lsFinalResult');if(r)r.innerHTML=`<b>${ok?'CORRECT ✓':'NOT QUITE'}</b><br>${q[3]}<br><button type="button" style="margin-top:7px" onclick="openRulesLibrary('${q[5]}','Review this Rule after committing your Stage 3 answer, then return to the final check.')">📖 ${q[5]}</button> <button type="button" style="margin-top:7px" onclick="lsFinalNext();return false;">${lsFinalIndex===LS_FINAL_QUIZ.length-1?'SEE RESULT':'NEXT QUESTION →'}</button>`}
+function lsFinalNext(){if(!lsFinalAnswered)return;lsFinalIndex=Math.min(LS_FINAL_QUIZ.length,lsFinalIndex+1);lsFinalAnswered=false;renderLsFinalQuiz();$('lsKnowledge')?.scrollIntoView({behavior:'smooth',block:'start'})}
+function lsRestartFinal(){lsFinalIndex=0;lsFinalScore=0;lsFinalAnswered=false;renderLsFinalQuiz()}
+function completeStage3(){if(!lsLessonsComplete()){alert('Complete all six Stage 3 teaching lessons first.');return}if(lsFinalIndex<LS_FINAL_QUIZ.length||lsFinalScore<8){alert('Complete the Stage 3 final check with at least 8/10 first.');return}courseRecordScore('lights',Math.round(lsFinalScore/LS_FINAL_QUIZ.length*100),true);showCoursePage()}
 
 const BV_ASPECTS=[['ahead','BOW'],['stbd','STARBOARD'],['astern','STERN'],['port','PORT']];
 const BV=[
@@ -22342,11 +22292,11 @@ const PW_COURSE_STAGES=[
  {id:'foundations',no:'02',title:'COLREG Foundations',module:'colregs',type:'RULE FRAMEWORK',
   desc:'Six teaching lessons follow the same proven flow as Stage 1. The 10-question final check unlocks only after Lesson 6.',
   objectives:['Locate the major COLREG Parts','Explain Rules 5–8 principles','Distinguish in-sight and restricted-visibility frameworks','Understand give-way / stand-on escalation'],
-  requirement:'Complete all 7 beginner lessons and score at least 8/10 in the foundation knowledge check.'},
+  requirement:'Complete all 6 teaching lessons and score at least 8/10 in the foundation knowledge check.'},
  {id:'lights',no:'03',title:'Lights & Shapes Recognition',module:'lights',type:'VESSEL RECOGNITION',
   desc:'Recognise what another vessel is, its aspect and any special status before deciding responsibility.',
   objectives:['Recognise core Rule 20–31 displays','Use viewing aspect correctly','Interpret day shapes','Identify NUC, RAM, fishing, towing, pilot and anchor/aground displays'],
-  requirement:'Pass the Project Watch Lights & Shapes full mock.'},
+  requirement:'Complete all 6 teaching lessons and score at least 8/10 in the Stage 3 final knowledge check. The 45-question full mock remains available as advanced assessment practice.'},
  {id:'signals',no:'04',title:'Sound, Fog & Distress Signals',module:'signals',type:'COMMUNICATION',
   desc:'Recognise manoeuvring and restricted-visibility signals and understand distress indications.',
   objectives:['Recognise Rule 34 manoeuvring signals','Recognise common Rule 35 fog signals','Distinguish doubt/warning signals','Identify key distress signals and procedures'],
