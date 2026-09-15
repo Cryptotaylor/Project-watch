@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.41.0 • Stage 7 TSS —  1.40.1 — Stage 5 Collision Avoidance</title>
+<title>Project Watch 1.41.2 • Stage 7 TSS —  1.40.1 — Stage 5 Collision Avoidance</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.41.0</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.41.2</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -23959,7 +23959,7 @@ function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final
 function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.41.0',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.41.0');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.2',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.41.2');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24093,6 +24093,52 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
  };
  if(document.getElementById('buoyTutorialPage')?.classList.contains('active'))renderBuoyTutorial();
  window.PW_STAGE6_CAROUSEL={version:'1.40.6'};
+})();
+</script>
+
+
+<style id="pw1412TssRedesign">
+#tssTutorialPage #ttQuestion{display:block!important;background:#062b3b;border:1px solid #6ee0ff38;padding:12px}
+#tssTutorialPage #ttQuestion h4{color:#8ee7ff;margin:0 0 5px;font-size:10px;letter-spacing:.4px}
+#tssTutorialPage #ttQuestion p{margin:0;color:#c8dce4;font-size:9px;line-height:1.5}
+.s7Visual{margin:10px 0 14px;border-radius:14px;overflow:hidden;background:#e9dfc7;border:1px solid #ffffff22}.s7Visual svg{display:block;width:100%;height:auto;max-height:310px}.s7Legend{font-size:8px;color:#9fc0cc;margin:-4px 0 10px;text-align:center}.s7FinalHint{padding:8px 10px;border-radius:9px;background:#082a39;border:1px solid #ffffff12;color:#b9d3dc;font-size:8.5px;margin-bottom:10px}
+</style>
+<script id="pw1412TssLiveRouteFix">
+// 1.41.2 live-route correction: tutorial is learning-only; final uses shuffled choices + scenario graphics.
+(function(){
+ const oldRender=window.ttRender;
+ window.ttRender=function(){
+   oldRender();
+   const q=document.getElementById('ttQuestion');
+   if(q) q.innerHTML='<h4>LEARNING MODE • NO QUESTIONS</h4><p>Study the diagram, run the live demonstration and read the Rule 10 explanation. Use PREVIOUS / NEXT freely. Your assessment begins only after all nine lessons have been reviewed.</p>';
+   const nb=document.getElementById('ttNextBtn');
+   if(nb && window.ttI===TSS_TUTORIAL.length-1) nb.textContent='START STAGE 7 ASSESSMENT →';
+ };
+ window.ttAnswer=function(){return false};
+ function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+ function ship(x,y,rot,c,label){return `<g transform="translate(${x} ${y}) rotate(${rot})"><path d="M0 -18 L10 12 L0 18 L-10 12 Z" fill="${c}" stroke="#123" stroke-width="2"/><path d="M0 -25 L0 -12" stroke="#123" stroke-width="2"/></g><text x="${x+14}" y="${y+4}" font-size="12" font-weight="800" fill="#173b49">${label||''}</text>`}
+ function base(extra=''){return `<svg viewBox="0 0 720 330" aria-label="Traffic separation scheme plan view"><rect width="720" height="330" fill="#eadfc4"/><rect x="0" y="52" width="720" height="82" fill="#dce8eb"/><rect x="0" y="196" width="720" height="82" fill="#dce8eb"/><rect x="0" y="134" width="720" height="62" fill="#f4d8d8"/><path d="M0 134H720M0 196H720" stroke="#b76565" stroke-width="3" stroke-dasharray="10 7"/><text x="18" y="105" font-size="13" font-weight="900" fill="#874949">TRAFFIC LANE →</text><text x="530" y="247" font-size="13" font-weight="900" fill="#874949">← TRAFFIC LANE</text><text x="275" y="169" font-size="12" font-weight="900" fill="#9c5555">SEPARATION ZONE</text><defs><marker id="s7a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#087d65"/></marker><marker id="s7b" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#19739b"/></marker></defs>${extra}</svg>`}
+ window.s7Visual=function(type){
+  if(type==='cross') return base(`<path d="M360 315V18" stroke="#087d65" stroke-width="7" stroke-dasharray="12 7" marker-end="url(#s7a)"/><path d="M510 315L350 18" stroke="#b33e3e" stroke-width="5" stroke-dasharray="9 7"/><text x="373" y="315" font-size="12" font-weight="900" fill="#087d65">A • 90° HEADING</text><text x="510" y="305" font-size="12" font-weight="900" fill="#a33">B • DIAGONAL</text>`);
+  if(type==='tide') return base(`<path d="M330 315V18" stroke="#087d65" stroke-width="7" marker-end="url(#s7a)"/><path d="M330 305 C350 245 390 185 445 125 C480 85 500 55 510 20" stroke="#19739b" stroke-width="4" stroke-dasharray="8 6" fill="none"/><path d="M250 292H315" stroke="#19739b" stroke-width="5" marker-end="url(#s7b)"/><text x="205" y="282" font-size="12" font-weight="900" fill="#19739b">TIDAL SET</text><text x="340" y="305" font-size="11" font-weight="900" fill="#087d65">HEADING 90°</text><text x="455" y="105" font-size="11" font-weight="900" fill="#19739b">GROUND TRACK</text>`);
+  if(type==='wrong') return base(ship(170,93,90,'#587b8d','A')+ship(355,235,-90,'#587b8d','B')+ship(540,92,-90,'#c94b4b','C')+`<text x="485" y="45" font-size="11" font-weight="900" fill="#a33">ONE VESSEL IS WRONG-WAY</text>`);
+  if(type==='join') return base(`<path d="M95 20 C120 50 165 76 240 91" stroke="#087d65" stroke-width="7" fill="none" marker-end="url(#s7a)"/><path d="M360 18V115" stroke="#b33e3e" stroke-width="5" stroke-dasharray="9 6"/><text x="25" y="28" font-size="11" font-weight="900" fill="#087d65">SMALL ANGLE JOIN</text><text x="375" y="35" font-size="11" font-weight="900" fill="#a33">NOT A 90° JOIN</text>`);
+  if(type==='zone') return base(`<circle cx="360" cy="165" r="22" fill="#c94b4b"/><text x="392" y="170" font-size="12" font-weight="900" fill="#a33">DO NOT USE AS WAITING SPACE</text>`);
+  if(type==='small') return base(ship(210,25,180,'#087d65','12 m yacht')+ship(390,92,90,'#587b8d','lane ship')+`<path d="M210 42V122" stroke="#087d65" stroke-width="4" stroke-dasharray="7 5"/><text x="25" y="315" font-size="12" font-weight="900" fill="#173b49">UNDER 20 m • RULE 10(j) • DO NOT IMPEDE SAFE PASSAGE</text>`);
+  if(type==='itz') return `<svg viewBox="0 0 720 330"><rect width="720" height="330" fill="#eadfc4"/><rect x="0" y="0" width="150" height="330" fill="#d5c39d"/><text x="34" y="165" font-size="15" font-weight="900" fill="#705f3d">COAST</text><rect x="150" y="0" width="150" height="330" fill="#d9edf0"/><text x="178" y="45" font-size="14" font-weight="900" fill="#1c6478">ITZ</text><path d="M300 0V330" stroke="#b76565" stroke-width="3" stroke-dasharray="10 7"/><rect x="300" y="0" width="420" height="330" fill="#dce8eb"/><text x="410" y="165" font-size="15" font-weight="900" fill="#874949">TRAFFIC LANE →</text>${ship(220,180,0,'#087d65','<20 m')}</svg>`;
+  return base(`<text x="210" y="315" font-size="12" font-weight="900" fill="#173b49">READ THE WHOLE SCHEME • APPLY RULE 10 + OTHER COLREGS</text>`)
+ };
+ const visualTypes=['layout','wrong','cross','tide','join','zone','small','itz','layout','cross'];
+ const raw=STAGE7_FINAL.map((q,i)=>({q:q[0],opts:q[1].map((t,j)=>({t,ok:j===q[2]})),why:q[3],visual:visualTypes[i]}));
+ let deck=[];
+ window.showStage7Final=function(){
+   if(PW_TSS_VISITED.size<TSS_TUTORIAL.length){alert('Review all 9 Stage 7 lessons before starting the final knowledge check.');return}
+   document.querySelectorAll('.appPage.active,.screen.active').forEach(p=>p.classList.remove('active'));updateHeaderNav('tss');updateModuleContext('tss');document.getElementById('stage7FinalPage').classList.add('active');
+   deck=raw.map(x=>({...x,opts:shuffle(x.opts.map(o=>({...o})))})); s7i=0;s7score=0;s7answered=false;renderStage7Final();window.scrollTo({top:0,behavior:'smooth'});
+ };
+ window.renderStage7Final=function(){const r=document.getElementById('stage7FinalRoot');if(s7i>=deck.length){const pass=s7score>=8,pct=s7score*10;courseRecordScore('tss',pct,pass);r.innerHTML=`<div class="s5FinalBox"><div class="ver">STAGE 7 FINAL • RESULT</div><h3>${pass?'STAGE 7 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</h3><div class="s5FinalScore">${s7score} / 10</div><p>${pass?'Traffic Separation Scheme knowledge standard achieved.':'You need 8/10. Review the nine learning lessons, then try again.'}</p>${pass?'<button class="big" onclick="completeStage7()">STAGE 7 COMPLETE ✓</button><button onclick="showTSSExam()">OPTIONAL ADVANCED TSS PRACTICE</button>':'<button onclick="restartStage7Final()">TRY AGAIN</button>'}</div>`;return}const q=deck[s7i];r.innerHTML=`<div class="s5FinalBox"><div class="ver">STAGE 7 VISUAL ASSESSMENT • QUESTION ${s7i+1} / 10</div><div class="s5Progress"><span style="width:${s7i*10}%"></span></div><div class="s7FinalHint">Read the traffic flow and geometry first. Then choose the answer.</div><div class="s7Visual">${s7Visual(q.visual)}</div><div class="s5Question">${q.q}</div><div class="s5Opts">${q.opts.map((o,i)=>`<button onclick="answerStage7Final(${i})">${o.t}</button>`).join('')}</div><div id="s7result"></div></div>`};
+ window.answerStage7Final=function(i){if(s7answered)return;s7answered=true;const q=deck[s7i],ok=q.opts[i].ok;if(ok)s7score++;document.querySelectorAll('#stage7FinalRoot .s5Opts button').forEach((b,n)=>{b.disabled=true;if(q.opts[n].ok)b.classList.add('correctAnswer');else if(n===i&&!ok)b.classList.add('wrongAnswer')});document.getElementById('s7result').innerHTML=`<div class="s5Result"><b>${ok?'CORRECT ✓':'NOT QUITE'}</b><p>${q.why}</p><button onclick="nextStage7Final()">${s7i===9?'SEE RESULT':'NEXT QUESTION →'}</button></div>`};
+ window.restartStage7Final=function(){deck=raw.map(x=>({...x,opts:shuffle(x.opts.map(o=>({...o})))}));s7i=0;s7score=0;s7answered=false;renderStage7Final()};
 })();
 </script>
 
