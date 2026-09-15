@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.41.4 • Stage 7 TSS —  1.40.1 — Stage 5 Collision Avoidance</title>
+<title>Project Watch 1.42.2 • Fast Test + Course Completion</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17451,7 +17451,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.42.1</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.42.2</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -23969,7 +23969,7 @@ function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final
 function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.42.1');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.42.2');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24204,7 +24204,7 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
 })();
 </script>
 <script id="pw1414TeachingPlateAudit">
-(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.42.1'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
+(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.42.2'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
 </script>
 
 <script>
@@ -24252,6 +24252,50 @@ function aisRenderFinal(){let p=$('aisFinalPanel');if(aisFinalI>=aisFinalQs.leng
 function aisAnswerFinal(i){let q=aisFinalQs[aisFinalI],ok=q.opts[i].ok;if(ok)aisFinalScore++;document.querySelectorAll('.aisFinalAnswers button').forEach((b,j)=>{b.disabled=true;if(q.opts[j].ok)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});$('aisFinalFeedback').innerHTML=`<p style="margin-top:14px;color:${ok?'#70e6b0':'#ff9b9b'}"><b>${ok?'CORRECT':'NOT QUITE'}.</b> ${q.opts.find(o=>o.ok).t}</p><button onclick="aisFinalI++;aisRenderFinal()">${aisFinalI===9?'FINISH STAGE 8 →':'NEXT QUESTION →'}</button>`}
 function aisFinalBack(){$('aisFinalPanel').style.display='none';$('aisCoursePanel').style.display='block';aisCourseGo(aisCourseLesson)}
 const _aisInitStage8=aisInit;aisInit=function(){_aisInitStage8();aisCourseLoad();aisCourseGo(0)};
+</script>
+
+<style id="pw1422FastTestCss">
+#pwFastTestBtn{background:#7a4cff!important;border-color:#bda8ff!important;color:#fff!important}
+#pwFastOverlay{position:fixed;inset:0;z-index:9999;background:#001018ee;display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}
+#pwFastOverlay.show{display:flex}.pwFastCard{width:min(920px,96vw);max-height:94vh;overflow:auto;background:#062b3d;border:1px solid #6ee0ff55;border-radius:18px;padding:20px;box-shadow:0 20px 70px #000b}.pwFastHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.pwFastHead h2{margin:4px 0 5px}.pwFastClose{width:auto!important;background:#173f52!important}.pwFastWarn{margin:12px 0;padding:10px 12px;border:1px solid #ffc85766;background:#3a300e;border-radius:10px;color:#fff2b9;font-size:12px}.pwFastStages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:14px 0}.pwFastStage{padding:10px 12px;border:1px solid #ffffff1f;border-radius:10px;background:#041f2d;display:flex;justify-content:space-between;gap:10px}.pwFastStage.done{border-color:#41d47f66;background:#07372d}.pwFastActions{display:flex;gap:8px;flex-wrap:wrap}.pwFastActions button{flex:1;min-width:190px}.pwFastActions .finish{background:#128d65}.pwFastActions .reset{background:#7a3030}.pwFastScore{color:#8ee7ff;font-weight:900}
+#pwCompletionOverlay{position:fixed;inset:0;z-index:10000;background:radial-gradient(circle at 50% 20%,#0b5870,#001018 58%);display:none;align-items:center;justify-content:center;padding:18px;overflow:auto}#pwCompletionOverlay.show{display:flex}.pwCompleteCard{width:min(940px,96vw);max-height:94vh;overflow:auto;background:#052a3c;border:1px solid #63e7b877;border-radius:22px;padding:26px;box-shadow:0 22px 80px #000c;text-align:center}.pwCompleteMark{font-size:48px}.pwCompleteCard h1{font-size:clamp(28px,5vw,48px);margin:4px 0}.pwCompleteSub{color:#bfe9f5;max-width:700px;margin:0 auto 18px;line-height:1.5}.pwCompleteScores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;text-align:left;margin:18px 0}.pwCompleteRow{background:#031f2d;border:1px solid #ffffff1c;border-radius:10px;padding:10px 12px;display:flex;justify-content:space-between;gap:10px}.pwCompleteRow b:last-child{color:#70e6b0}.pwCompleteBadge{display:inline-block;margin:8px 0 15px;padding:9px 14px;border:1px solid #63e7b877;border-radius:999px;background:#07372d;color:#9ff1ce;font-weight:900;letter-spacing:.08em}.pwCompleteNote{font-size:11px;color:#9fb9c4}.pwCompleteActions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:16px}.pwCompleteActions button{min-width:190px}.pwCompleteActions .primary{background:#168bcf}.pwCompleteActions .library{background:#128d65}
+@media(max-width:650px){.pwFastStages,.pwCompleteScores{grid-template-columns:1fr}.pwFastCard,.pwCompleteCard{padding:15px}}
+</style>
+<div id="pwFastOverlay" aria-hidden="true"><div class="pwFastCard">
+ <div class="pwFastHead"><div><div class="ver">ENGINEERING QA • BUILD 1.42.2</div><h2>⚡ FAST TEST</h2><p class="note">Artificial test controls for checking course completion without repeating the full curriculum.</p></div><button class="pwFastClose" onclick="pwFastClose()">✕ CLOSE</button></div>
+ <div class="pwFastWarn"><b>TEST DATA ONLY.</b> These controls deliberately write artificial passes into this browser's Project Watch course record. Use RESET TEST USER afterwards for a clean learner test.</div>
+ <div id="pwFastStages" class="pwFastStages"></div>
+ <div class="pwFastActions"><button onclick="pwFastPassNext()">✓ PASS NEXT INCOMPLETE STAGE</button><button class="finish" onclick="pwFastCompleteAll()">⚡ COMPLETE ALL 8 + TEST FINISH</button><button onclick="pwShowCompletion(true)">🏆 SHOW COMPLETION SCREEN</button><button class="reset" onclick="resetProjectWatchForTesting()">↻ RESET TEST USER</button></div>
+</div></div>
+<div id="pwCompletionOverlay" aria-hidden="true"><div class="pwCompleteCard">
+ <div class="pwCompleteMark">⚓</div><div class="ver">PROJECT WATCH • COURSE COMPLETION</div><h1>Watch Complete.</h1>
+ <div class="pwCompleteBadge">PROJECT WATCH • ALL 8 STAGES COMPLETE</div>
+ <p class="pwCompleteSub">You have completed the full Project Watch structured bridge-watchkeeping pathway. Your training library remains open, so every lesson, simulator, COLREG reference and practice assessment can still be revisited at any time.</p>
+ <div id="pwCompleteScores" class="pwCompleteScores"></div>
+ <p class="pwCompleteNote">Project Watch completion recognition is an in-app training record. It is not an MCA or RYA qualification, approval or certificate.</p>
+ <div class="pwCompleteActions"><button class="primary" onclick="pwCompletionClose();showCoursePage()">VIEW COURSE RECORD →</button><button class="library" onclick="pwCompletionClose();showTrainingLibrary()">OPEN TRAINING LIBRARY →</button><button onclick="pwCompletionClose()">CONTINUE →</button></div>
+</div></div>
+<script id="pw1422FastTestJs">
+(function(){
+ const FLAG='pw_course_completion_seen_v1422';
+ function state(){try{return courseState()}catch(e){return {completed:{},best:{}}}}
+ window.pwFastOpen=function(){document.getElementById('pwFastOverlay')?.classList.add('show');pwFastRender()};
+ window.pwFastClose=function(){document.getElementById('pwFastOverlay')?.classList.remove('show')};
+ window.pwFastRender=function(){const root=document.getElementById('pwFastStages');if(!root||typeof PW_COURSE_STAGES==='undefined')return;const c=state();root.innerHTML=PW_COURSE_STAGES.map((s,i)=>{const done=!!c.completed?.[s.id],score=c.best?.[s.id];return `<div class="pwFastStage ${done?'done':''}"><span><b>${s.no} • ${s.title}</b><br><small>${done?'ARTIFICIAL/RECORDED PASS':'NOT COMPLETE'}</small></span><span class="pwFastScore">${score!=null?score+'%':done?'PASS':'—'}</span></div>`}).join('')};
+ function artificialPass(id,score){const c=state();c.completed=c.completed||{};c.best=c.best||{};c.started=c.started||{};c.started[id]=c.started[id]||Date.now();c.completed[id]=Date.now();c.best[id]=Math.max(Number(c.best[id]||0),score);courseSave(c);try{updateHomeCourseProgress()}catch(e){}try{renderCoursePage()}catch(e){}}
+ window.pwFastPassNext=function(){const s=PW_COURSE_STAGES.find(x=>!courseCompleted(x.id));if(!s){pwShowCompletion(true);return}const before=courseCount();artificialPass(s.id,100);pwFastRender();if(before<8&&courseCount()===8){pwFastClose();setTimeout(()=>pwShowCompletion(true),120)}};
+ window.pwFastCompleteAll=function(){try{localStorage.removeItem(FLAG)}catch(e){};PW_COURSE_STAGES.forEach(s=>artificialPass(s.id,100));pwFastRender();pwFastClose();setTimeout(()=>pwShowCompletion(true),120)};
+ window.pwCompletionClose=function(){document.getElementById('pwCompletionOverlay')?.classList.remove('show')};
+ window.pwShowCompletion=function(force){if(typeof PW_COURSE_STAGES==='undefined'||courseCount()<PW_COURSE_STAGES.length){if(force)alert('The completion screen is only available when all 8 stages are complete. Use FAST TEST to create an artificial full pass.');return}const c=state(),root=document.getElementById('pwCompleteScores');if(root)root.innerHTML=PW_COURSE_STAGES.map(s=>`<div class="pwCompleteRow"><span><b>${s.no} • ${s.title}</b></span><b>${c.best?.[s.id]!=null?c.best[s.id]+'%':'COMPLETE'}</b></div>`).join('');document.getElementById('pwCompletionOverlay')?.classList.add('show');try{localStorage.setItem(FLAG,'1')}catch(e){}};
+ function maybeCelebrate(before){if(before<PW_COURSE_STAGES.length&&courseCount()===PW_COURSE_STAGES.length){try{localStorage.removeItem(FLAG)}catch(e){};setTimeout(()=>pwShowCompletion(false),180)}}
+ if(typeof courseRecordComplete==='function'){const old=courseRecordComplete;courseRecordComplete=function(id,score=null){const before=courseCount();const r=old(id,score);maybeCelebrate(before);return r}}
+ if(typeof courseRecordScore==='function'){const old=courseRecordScore;courseRecordScore=function(id,score,pass){const before=courseCount();const r=old(id,score,pass);if(pass)maybeCelebrate(before);return r}}
+ const oldBar=window.pwRenderTestBar;
+ if(typeof oldBar==='function'){window.pwRenderTestBar=function(){oldBar();const b=document.getElementById('pwTestModeBar');if(b&&pwTestMode()&&!document.getElementById('pwFastTestBtn')){const x=document.createElement('button');x.id='pwFastTestBtn';x.textContent='⚡ FAST TEST';x.onclick=pwFastOpen;b.appendChild(x)}else if(b&&!pwTestMode())document.getElementById('pwFastTestBtn')?.remove()}}
+ const oldCourse=window.renderCoursePage;
+ if(typeof oldCourse==='function'){window.renderCoursePage=function(){const r=oldCourse();if(courseCount()===PW_COURSE_STAGES.length){let list=document.getElementById('courseStageList');if(list&&!document.getElementById('pwCourseFinishBtn')){let d=document.createElement('div');d.id='pwCourseFinishBtn';d.style='margin:14px 0;padding:14px;border:1px solid #63e7b855;border-radius:12px;background:#07372d;text-align:center';d.innerHTML='<b style="color:#9ff1ce">⚓ ALL 8 PROJECT WATCH STAGES COMPLETE</b><br><button style="margin-top:9px;background:#128d65" onclick="pwShowCompletion(true)">VIEW COMPLETION & SCORES →</button>';list.parentElement.insertBefore(d,list)}}return r}}
+ window.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{try{pwRenderTestBar();renderHomeCourseDashboard()}catch(e){}},80)});
+})();
 </script>
 </body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
