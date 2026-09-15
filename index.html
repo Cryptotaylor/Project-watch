@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.40.5</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.40.6</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -23922,7 +23922,7 @@ function completeStage5(){if(!stage5LessonsComplete()||stage5FinalIndex<10||stag
 // Stage 5 is the Course Mode entry point; the existing Collision Scenarios simulator remains available from Training Library and Stage 5.
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.40.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.40.5');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.40.6',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.40.6');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24029,8 +24029,35 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
  const prior=renderBuoyTutorial;renderBuoyTutorial=function(){prior();review.add(key());renderGate()};
  const priorShow=showBuoyPassage;showBuoyPassage=function(mode){if(mode==='challenge'&&review.size<BUOY_ORDER.length*2){alert(`Review all 12 marks in both DAY and NIGHT modes first. ${review.size}/24 views completed.`);showBuoyTutorial();return}return priorShow(mode)};
  if(document.getElementById('buoyTutorialPage')?.classList.contains('active'))renderBuoyTutorial();
- window.PW_STAGE6_REVIEW_GATE={version:'1.40.5',review};
+ window.PW_STAGE6_REVIEW_GATE={version:'1.40.6',review};
 })();
 </script>
+
+<style id="pw1406Stage6CarouselStyle">
+#stage6Ready.show{display:flex!important}
+</style>
+<script id="pw1406Stage6Carousel">
+(function(){
+ // Stage 6 learning remains freely browsable forever; 24/24 only unlocks assessment.
+ btPrev=function(){btSelect((btI-1+BUOY_ORDER.length)%BUOY_ORDER.length)};
+ btNext=function(){btSelect((btI+1)%BUOY_ORDER.length)};
+ const priorRender=renderBuoyTutorial;
+ renderBuoyTutorial=function(){
+   priorRender();
+   const actions=document.querySelector('#buoyTutorialPage .btActions');
+   const next=actions&&actions.querySelector('button:last-child');
+   const prev=actions&&actions.querySelector('button:first-child');
+   if(prev){prev.disabled=false;prev.onclick=btPrev;prev.textContent='← PREVIOUS'}
+   if(next){next.disabled=false;next.classList.remove('stage6AssessCta','stage6AssessLocked');next.onclick=btNext;next.textContent=btI===BUOY_ORDER.length-1?'NEXT MARK → 01':'NEXT MARK →'}
+   // The separate assessment panel remains the only assessment CTA and appears at 24/24.
+   const ready=document.getElementById('stage6Ready');
+   const state=window.PW_STAGE6_REVIEW_GATE;
+   if(ready&&state&&state.review){ready.classList.toggle('show',state.review.size>=BUOY_ORDER.length*2)}
+ };
+ if(document.getElementById('buoyTutorialPage')?.classList.contains('active'))renderBuoyTutorial();
+ window.PW_STAGE6_CAROUSEL={version:'1.40.6'};
+})();
+</script>
+
 </body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
