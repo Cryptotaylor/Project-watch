@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.41.2 • Stage 7 TSS —  1.40.1 — Stage 5 Collision Avoidance</title>
+<title>Project Watch 1.41.3 • Stage 7 TSS —  1.40.1 — Stage 5 Collision Avoidance</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.41.2</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.41.3</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -23959,7 +23959,7 @@ function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final
 function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.41.2',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.41.2');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.3',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.41.3');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24104,7 +24104,7 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
 .s7Visual{margin:10px 0 14px;border-radius:14px;overflow:hidden;background:#e9dfc7;border:1px solid #ffffff22}.s7Visual svg{display:block;width:100%;height:auto;max-height:310px}.s7Legend{font-size:8px;color:#9fc0cc;margin:-4px 0 10px;text-align:center}.s7FinalHint{padding:8px 10px;border-radius:9px;background:#082a39;border:1px solid #ffffff12;color:#b9d3dc;font-size:8.5px;margin-bottom:10px}
 </style>
 <script id="pw1412TssLiveRouteFix">
-// 1.41.2 live-route correction: tutorial is learning-only; final uses shuffled choices + scenario graphics.
+// 1.41.3 live-route correction: tutorial is learning-only; final uses shuffled choices + scenario graphics.
 (function(){
  const oldRender=window.ttRender;
  window.ttRender=function(){
@@ -24139,6 +24139,48 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
  window.renderStage7Final=function(){const r=document.getElementById('stage7FinalRoot');if(s7i>=deck.length){const pass=s7score>=8,pct=s7score*10;courseRecordScore('tss',pct,pass);r.innerHTML=`<div class="s5FinalBox"><div class="ver">STAGE 7 FINAL • RESULT</div><h3>${pass?'STAGE 7 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</h3><div class="s5FinalScore">${s7score} / 10</div><p>${pass?'Traffic Separation Scheme knowledge standard achieved.':'You need 8/10. Review the nine learning lessons, then try again.'}</p>${pass?'<button class="big" onclick="completeStage7()">STAGE 7 COMPLETE ✓</button><button onclick="showTSSExam()">OPTIONAL ADVANCED TSS PRACTICE</button>':'<button onclick="restartStage7Final()">TRY AGAIN</button>'}</div>`;return}const q=deck[s7i];r.innerHTML=`<div class="s5FinalBox"><div class="ver">STAGE 7 VISUAL ASSESSMENT • QUESTION ${s7i+1} / 10</div><div class="s5Progress"><span style="width:${s7i*10}%"></span></div><div class="s7FinalHint">Read the traffic flow and geometry first. Then choose the answer.</div><div class="s7Visual">${s7Visual(q.visual)}</div><div class="s5Question">${q.q}</div><div class="s5Opts">${q.opts.map((o,i)=>`<button onclick="answerStage7Final(${i})">${o.t}</button>`).join('')}</div><div id="s7result"></div></div>`};
  window.answerStage7Final=function(i){if(s7answered)return;s7answered=true;const q=deck[s7i],ok=q.opts[i].ok;if(ok)s7score++;document.querySelectorAll('#stage7FinalRoot .s5Opts button').forEach((b,n)=>{b.disabled=true;if(q.opts[n].ok)b.classList.add('correctAnswer');else if(n===i&&!ok)b.classList.add('wrongAnswer')});document.getElementById('s7result').innerHTML=`<div class="s5Result"><b>${ok?'CORRECT ✓':'NOT QUITE'}</b><p>${q.why}</p><button onclick="nextStage7Final()">${s7i===9?'SEE RESULT':'NEXT QUESTION →'}</button></div>`};
  window.restartStage7Final=function(){deck=raw.map(x=>({...x,opts:shuffle(x.opts.map(o=>({...o})))}));s7i=0;s7score=0;s7answered=false;renderStage7Final()};
+})();
+</script>
+
+
+<style id="pw1413TeachStyle">
+/* Stage 7 dedicated teaching plates: deliberately independent of the TSS simulator. */
+#tssTutorialPage .ttDemo{height:auto!important;min-height:390px;background:#f3ead5!important;border:1px solid #ffffff24;overflow:hidden}
+#tssTutorialPage .ttDemo svg{display:block;width:100%;height:auto;min-height:390px}
+#tssTutorialPage #ttDemoBtn,#tssTutorialPage #ttStatus{display:none!important}
+#tssTutorialPage .ttActions{grid-template-columns:.8fr .8fr 1fr .8fr!important}
+#tssTutorialPage .ttQuestion{background:#062735;border:1px solid #72ddfb26}
+#tssTutorialPage .ttQuestion h4{color:#72ddfb}
+.s7tLane{fill:#dce8eb;stroke:#64808b;stroke-width:2}.s7tSep{fill:#f3d2d2;stroke:#b85d5d;stroke-width:2;stroke-dasharray:9 6}.s7tItz{fill:#d8eee6;stroke:#6b9b8b;stroke-width:2;stroke-dasharray:7 5}.s7tCoast{fill:#cbb889}.s7tFlow{stroke:#9c4f4f;stroke-width:7;fill:none;marker-end:url(#s7tRed)}.s7tGood{stroke:#087d65;stroke-width:7;fill:none;marker-end:url(#s7tGreen)}.s7tBad{stroke:#bd4040;stroke-width:6;fill:none;stroke-dasharray:10 7;marker-end:url(#s7tBad)}.s7tTide{stroke:#19739b;stroke-width:6;fill:none;marker-end:url(#s7tBlue)}.s7tTxt{font:900 14px system-ui,sans-serif;fill:#173b49}.s7tSmall{font:800 11px system-ui,sans-serif;fill:#47626c}.s7tRule{font:900 13px system-ui,sans-serif;fill:#087d65}.s7tWarn{font:900 13px system-ui,sans-serif;fill:#ad3535}.s7tPanel{fill:#fffaf0;stroke:#b9aa8d;stroke-width:2}.s7tCall{fill:#062b3a}.s7tCallText{font:900 12px system-ui,sans-serif;fill:#eefaff}
+@media(max-width:650px){#tssTutorialPage .ttDemo{min-height:300px}#tssTutorialPage .ttDemo svg{min-height:300px}.s7tTxt{font-size:12px}.s7tSmall,.s7tRule,.s7tWarn{font-size:10px}}
+</style>
+<script id="pw1413DedicatedTssTeaching">
+(function(){
+ const defs=`<defs><marker id="s7tRed" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#9c4f4f"/></marker><marker id="s7tGreen" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#087d65"/></marker><marker id="s7tBad" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#bd4040"/></marker><marker id="s7tBlue" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#19739b"/></marker></defs>`;
+ function ship(x,y,r,label,fill='#6d8088'){return `<g transform="translate(${x} ${y}) rotate(${r})"><path d="M0 -20L10 12L0 18L-10 12Z" fill="${fill}" stroke="#243e48" stroke-width="2"/><line y1="-18" y2="-31" stroke="#243e48" stroke-width="2"/></g>${label?`<text x="${x+14}" y="${y+4}" class="s7tSmall">${label}</text>`:''}`}
+ function scheme(extra='',itz=false){return `<svg viewBox="0 0 820 430" role="img" aria-label="Rule 10 teaching diagram">${defs}<rect width="820" height="430" fill="#eee4cc"/>${itz?'<rect x="0" y="0" width="95" height="430" class="s7tCoast"/><rect x="95" y="0" width="105" height="430" class="s7tItz"/><text x="116" y="32" class="s7tTxt">ITZ</text>':''}<rect x="${itz?200:45}" y="65" width="${itz?575:730}" height="100" class="s7tLane"/><rect x="${itz?200:45}" y="180" width="${itz?575:730}" height="70" class="s7tSep"/><rect x="${itz?200:45}" y="265" width="${itz?575:730}" height="100" class="s7tLane"/><path d="M${itz?240:90} 115H${itz?720:720}" class="s7tFlow"/><path d="M${itz?730:730} 315H${itz?250:100}" class="s7tFlow"/><text x="${itz?245:90}" y="96" class="s7tTxt">EASTBOUND TRAFFIC</text><text x="${itz?515:515}" y="345" class="s7tTxt">WESTBOUND TRAFFIC</text><text x="${itz?405:325}" y="222" class="s7tTxt">SEPARATION ZONE</text>${extra}</svg>`}
+ function plate(i){
+  if(i===0)return scheme(`${ship(290,115,90,'POWER-DRIVEN SHIP')}${ship(575,315,270,'POWER-DRIVEN SHIP')}<rect x="52" y="382" width="716" height="34" rx="8" class="s7tCall"/><text x="410" y="404" text-anchor="middle" class="s7tCallText">START WITH YOUR STATUS: UNDER 20 m → DO NOT IMPEDE SAFE PASSAGE OF LANE-FOLLOWING POWER-DRIVEN VESSELS</text>`);
+  if(i===1)return scheme(`<g><line x1="90" y1="48" x2="90" y2="64" stroke="#173b49" stroke-width="2"/><text x="55" y="35" class="s7tSmall">LANE + FLOW</text><line x1="410" y1="170" x2="410" y2="181" stroke="#173b49" stroke-width="2"/><text x="350" y="160" class="s7tSmall">SEPARATION FEATURE</text></g><rect x="52" y="382" width="716" height="34" rx="8" class="s7tCall"/><text x="410" y="404" text-anchor="middle" class="s7tCallText">READ THE WHOLE SCHEME BEFORE MANOEUVRING: LANES • FLOW • SEPARATION • ITZ • YOUR ROUTE</text>`,true);
+  if(i===2)return scheme(`${ship(145,315,0,'SMALL VESSEL','#087d65')}<path d="M145 290V150" class="s7tGood"/><text x="18" y="398" class="s7tRule">✓ UNDER 20 m MAY USE AN ITZ</text><text x="305" y="398" class="s7tSmall">ITZ ≠ EMPTY WATER OR A ONE-WAY TRAFFIC LANE</text>`,true);
+  if(i===3)return scheme(`${ship(410,395,0,'YOU','#087d65')}${ship(320,115,90,'LANE SHIP')}<path d="M410 378V250" class="s7tBad"/><text x="445" y="388" class="s7tWarn">✕ DO NOT FORCE A CROSSING</text><rect x="52" y="382" width="250" height="34" rx="8" class="s7tCall"/><text x="177" y="404" text-anchor="middle" class="s7tCallText">WAIT CLEAR • FIND A SAFE GAP</text>`);
+  if(i===4)return scheme(`<path d="M410 397V35" class="s7tGood"/><path d="M250 397L390 255" class="s7tBad"/><path d="M570 397L430 255" class="s7tBad"/>${ship(410,350,0,'90° HEADING','#087d65')}<path d="M410 315h38v-38" fill="none" stroke="#087d65" stroke-width="5"/><text x="456" y="286" class="s7tRule">90°</text><text x="100" y="404" class="s7tWarn">✕ SHALLOW</text><text x="630" y="404" class="s7tWarn">SHALLOW ✕</text>`);
+  if(i===5)return scheme(`<path d="M360 397V35" class="s7tGood"/>${ship(360,340,0,'BOW / HEADING','#087d65')}<path d="M360 365 C385 300 430 230 500 160 C535 125 555 80 570 38" class="s7tTide"/><path d="M220 392H325" class="s7tTide"/><text x="190" y="378" class="s7tTxt">TIDAL SET →</text><text x="505" y="148" class="s7tSmall">COG / GROUND TRACK</text><text x="385" y="42" class="s7tRule">HEADING STAYS 90° TO FLOW</text>`);
+  if(i===6)return scheme(`<circle cx="410" cy="215" r="25" fill="#bd4040"/><path d="M410 390V250" class="s7tBad"/><text x="445" y="220" class="s7tWarn">✕ NOT A WAITING AREA</text><text x="220" y="404" class="s7tRule">KEEP CLEAR OF THE SEPARATION LINE / ZONE SO FAR AS PRACTICABLE</text>`);
+  if(i===7)return scheme(`${ship(275,115,90,'LANE SHIP')}${ship(625,315,270,'FISHING')}${ship(410,400,0,'<20 m','#087d65')}<text x="75" y="400" class="s7tRule">SMALL VESSEL: DO NOT IMPEDE</text><text x="500" y="400" class="s7tRule">FISHING: DO NOT IMPEDE</text>`);
+  return scheme(`${ship(280,115,90,'VESSEL A')}${ship(410,400,0,'VESSEL B','#087d65')}<path d="M410 382V250" class="s7tGood"/><rect x="52" y="382" width="716" height="34" rx="8" class="s7tCall"/><text x="410" y="404" text-anchor="middle" class="s7tCallText">RULE 10 ORGANISES TRAFFIC — IT DOES NOT CANCEL RULES 5–8 OR THE OTHER STEERING & SAILING RULES</text>`);
+ }
+ function apply(){
+   const d=document.getElementById('ttDemo'); if(!d)return;
+   d.innerHTML=plate(window.ttI||0);
+   const m=document.getElementById('ttMode');if(m)m.textContent='TEACHING PLATE';
+   const q=document.getElementById('ttQuestion');if(q)q.innerHTML='<h4>STUDY THIS TEACHING PLATE</h4><p>There is no question here. Read the labels and key points, then use PREVIOUS / NEXT. The Stage 7 assessment begins after Lesson 9.</p>';
+ }
+ const previous=window.ttRender;
+ window.ttRender=function(){previous();apply()};
+ window.ttRunDemo=function(){apply()};
+ // Refresh the visible lesson if Stage 7 is already open when this script loads.
+ try{if(document.getElementById('tssTutorialPage')?.classList.contains('active'))apply()}catch(e){}
 })();
 </script>
 
