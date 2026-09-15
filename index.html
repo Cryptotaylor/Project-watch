@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#031923">
-<title>Project Watch 1.37.5a — Focused Reference Aid + Test Reset</title>
+<title>Project Watch 1.37.5b — Claire Stage 1 Fix</title>
 <style>
 :root{
   --bg:#02141d;--panel:#07364e;--panel2:#052a3c;--blue:#168bcf;
@@ -689,7 +689,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:650px){.tssExamHero{grid-template-columns:1fr}.tssExamBadge{text-align:left}.tssExamBasis,.tssExamToolbar,.tssPracticalExamDeck{grid-template-columns:1fr}.tssExamLaunch button{grid-template-columns:1fr}.tssExamLaunch span,.tssExamLaunch em{grid-row:auto;grid-column:auto}.txVisual{height:310px}}
 
 
-/* Project Watch 1.37.5a — Focused Reference Aid + Test Reset */
+/* Project Watch 1.37.5b — Claire Stage 1 Fix */
 .homeAisOverlay{position:absolute;right:9px;top:10px;width:72px;height:60px;border:1px solid #68e6ff77;border-radius:8px;background:#021c26a8;overflow:hidden}
 .homeAisOverlay:before,.homeAisOverlay:after{content:"";position:absolute;inset:0;background:linear-gradient(#7ddcf71f 1px,transparent 1px),linear-gradient(90deg,#7ddcf71f 1px,transparent 1px);background-size:16px 16px}
 .homeAisOverlay i{position:absolute;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:12px solid #79e7bf;z-index:2}.homeAisOverlay i:nth-child(1){left:16px;top:13px;transform:rotate(38deg)}.homeAisOverlay i:nth-child(2){left:44px;top:28px;transform:rotate(110deg);border-bottom-color:#ff8f83}.homeAisOverlay i:nth-child(3){left:27px;top:41px;transform:rotate(210deg);border-bottom-color:#72a8ff}.homeAisOverlay i:nth-child(4){left:54px;top:9px;transform:rotate(72deg);border-bottom-color:#ffc16e}
@@ -863,6 +863,15 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 /* TEMPORARY QA CONTROL — Claire/new-user testing only */
 .testResetBtn{background:#51252a!important;border:1px solid #d87a82!important;color:#ffe4e6!important}
 .testResetBtn:hover{background:#683038!important}
+
+
+/* 1.37.5b — Claire Stage 1 usability fixes */
+.orientationKnowledge.locked{opacity:.58;position:relative}
+.orientationKnowledge.locked:after{content:"COMPLETE BRIDGE LANGUAGE LESSONS 1–6 TO UNLOCK";display:block;margin-top:10px;padding:10px;border-radius:8px;background:#031923;border:1px solid #ffffff18;text-align:center;font-size:8px;font-weight:900;color:#9eb7c1;letter-spacing:.4px}
+.orientationQOpts button.correctAnswer{background:#167347!important;border-color:#69e7a4!important;color:#fff!important}
+.orientationQOpts button.wrongAnswer{background:#7a2f36!important;border-color:#ff8d96!important;color:#fff!important}
+.orientationQOpts button.answerLocked{pointer-events:none}
+.orientationQResult .nextQBtn{background:#168bcf;margin-top:8px;width:auto}
 
 .detailSheet{display:none;position:fixed;inset:0;background:#001018dd;z-index:100;padding:18px;overflow:auto}
 .detailSheet.open{display:block}
@@ -17415,7 +17424,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5a • TEST RESET</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver">1.37.5b • STAGE 1 UX FIX</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18166,7 +18175,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   </div>
 
   <div class="homeFooterBar">
-    <div><small>BUILD</small><b>1.37.5a</b></div>
+    <div><small>BUILD</small><b>1.37.5b</b></div>
     <div><small>COURSE MODE</small><b>8 STAGES • STRUCTURED PROGRESSION</b></div>
     <div><small>TRAINING VESSEL</small><b>SUILVEN • NORDHAVN 43</b></div>
   </div>
@@ -18279,9 +18288,9 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
     <div id="orientationLessonCard" class="orientationLessonCard"></div>
 
     <div id="orientationKnowledge" class="orientationKnowledge">
-      <div class="ver">STAGE 01 • KNOWLEDGE CHECK</div>
-      <h3>Show that the fundamentals make sense.</h3>
-      <p>Five simple questions based only on the material above. You need 4/5 to complete Stage 1. Wrong answers are explained and you can try again.</p>
+      <div class="ver">FINAL CHECK • UNLOCKS AFTER LESSON 6</div>
+      <h3>Stage 1 knowledge check</h3>
+      <p>This is the final part of Stage 1, not a second Stage 1. Complete all six Bridge Language lessons first. Then this five-question check unlocks. You need 4/5 to finish Stage 1.</p>
       <div id="orientationQuizArea"></div>
     </div>
 
@@ -22142,14 +22151,17 @@ function renderOrientation(){
  renderOrientationQuiz();
 }
 function orientationSelect(i){
- stopCourseSpeech();orientationSeen.add(orientationLesson);
- orientationLesson=Math.max(0,Math.min(ORIENTATION_LESSONS.length-1,i));orientationSeen.add(orientationLesson);renderOrientation();
+ stopCourseSpeech();
+ orientationLesson=Math.max(0,Math.min(ORIENTATION_LESSONS.length-1,i));renderOrientation();
 }
 function orientationPrev(){orientationSelect(orientationLesson-1)}
 function orientationNext(){
  orientationSeen.add(orientationLesson);
  if(orientationLesson<ORIENTATION_LESSONS.length-1){orientationLesson++;renderOrientation();return}
- $('orientationKnowledge')?.scrollIntoView({behavior:'smooth',block:'start'});renderOrientationQuiz();
+ renderOrientation();
+ const k=$('orientationKnowledge');
+ if(k){k.classList.remove('locked');k.scrollIntoView({behavior:'smooth',block:'start'})}
+ renderOrientationQuiz();
 }
 function orientationHear(){
  if('speechSynthesis' in window&&speechSynthesis.speaking){stopCourseSpeech();return}
@@ -22158,22 +22170,43 @@ function orientationHear(){
  const b=$('orientationHearBtn');if(b)b.textContent='■ STOP LESSON';
  if(u)u.onend=()=>{const x=$('orientationHearBtn');if(x)x.textContent='🔊 HEAR LESSON'};
 }
+function orientationLessonsComplete(){return ORIENTATION_LESSONS.every((_,i)=>orientationSeen.has(i))}
 function renderOrientationQuiz(){
- const area=$('orientationQuizArea');if(!area)return;
+ const area=$('orientationQuizArea'),box=$('orientationKnowledge');if(!area)return;
+ const unlocked=orientationLessonsComplete();
+ if(box)box.classList.toggle('locked',!unlocked);
+ if(!unlocked){
+   area.innerHTML=`<div class="orientationQ"><div class="ver">TEACHING IN PROGRESS</div><h4>Complete Bridge Language lessons 1–6 first.</h4><div class="orientationQResult">${orientationSeen.size} / 6 lessons completed. Use the lesson cards above and press NEXT LESSON after each one.</div></div>`;
+   return;
+ }
  if(orientationQuizIndex>=ORIENTATION_QUIZ.length){
-   const pct=Math.round(orientationQuizScore/ORIENTATION_QUIZ.length*100),pass=orientationQuizScore>=4;
+   const pass=orientationQuizScore>=4;
    area.innerHTML=`<div class="crQuizScore"><strong>${orientationQuizScore} / 5</strong><b>${pass?'STAGE 1 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</b><span>${pass?'You have demonstrated the Stage 1 fundamentals. Tick the safety acknowledgement below, then complete the stage.':'Review the six teaching cards above. You need 4/5.'}</span>${pass?'<button style="margin-top:10px" onclick="completeOrientation()">COMPLETE STAGE 1 →</button>':'<button style="margin-top:10px" onclick="restartOrientationQuiz()">TRY AGAIN</button>'}</div>`;
    return;
  }
  const q=ORIENTATION_QUIZ[orientationQuizIndex];
- area.innerHTML=`<div class="orientationQ"><div class="ver">QUESTION ${orientationQuizIndex+1} / 5</div><h4>${q[0]}</h4><div class="orientationQOpts">${q[1].map((a,i)=>`<button type="button" onclick="answerOrientation(${i})">${a}</button>`).join('')}</div><div id="orientationQResult" class="orientationQResult"></div></div>`;
+ area.innerHTML=`<div class="orientationQ"><div class="ver">STAGE 1 FINAL CHECK • QUESTION ${orientationQuizIndex+1} / 5</div><h4>${q[0]}</h4><div class="orientationQOpts">${q[1].map((a,i)=>`<button id="orientationAnswer${i}" type="button" onclick="answerOrientation(${i});return false;">${a}</button>`).join('')}</div><div id="orientationQResult" class="orientationQResult"></div></div>`;
 }
 function answerOrientation(i){
- if(orientationQuizAnswered)return;orientationQuizAnswered=true;
- const q=ORIENTATION_QUIZ[orientationQuizIndex],ok=i===q[2];if(ok)orientationQuizScore++;
- $('orientationQResult').innerHTML=`<b>${ok?'CORRECT ✓':'NOT QUITE'}</b><br>${q[3]}<br><button type="button" style="margin-top:7px" onclick="nextOrientationQuestion()">${orientationQuizIndex===4?'SEE RESULT':'NEXT QUESTION →'}</button>`;
+ if(orientationQuizAnswered)return;
+ orientationQuizAnswered=true;
+ const q=ORIENTATION_QUIZ[orientationQuizIndex],ok=i===q[2];
+ if(ok)orientationQuizScore++;
+ document.querySelectorAll('.orientationQOpts button').forEach((b,idx)=>{
+   b.classList.add('answerLocked');
+   if(idx===q[2])b.classList.add('correctAnswer');
+   else if(idx===i&&!ok)b.classList.add('wrongAnswer');
+ });
+ const result=$('orientationQResult');
+ if(result)result.innerHTML=`<b>${ok?'CORRECT ✓':'NOT QUITE'}</b><br>${q[3]}<br><button type="button" class="nextQBtn" onclick="nextOrientationQuestion();return false;">${orientationQuizIndex===ORIENTATION_QUIZ.length-1?'SEE RESULT':'NEXT QUESTION →'}</button>`;
 }
-function nextOrientationQuestion(){orientationQuizIndex++;orientationQuizAnswered=false;renderOrientationQuiz()}
+function nextOrientationQuestion(){
+ if(!orientationQuizAnswered)return;
+ orientationQuizIndex=Math.min(ORIENTATION_QUIZ.length,orientationQuizIndex+1);
+ orientationQuizAnswered=false;
+ renderOrientationQuiz();
+ $('orientationKnowledge')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
 function restartOrientationQuiz(){orientationQuizIndex=0;orientationQuizScore=0;orientationQuizAnswered=false;renderOrientationQuiz()}
 function stopCourseSpeech(){
  try{if('speechSynthesis' in window)speechSynthesis.cancel()}catch(e){}
@@ -22243,7 +22276,7 @@ const PW_COURSE_STAGES=[
  {id:'orientation',no:'01',title:'Orientation & Watchkeeping Fundamentals',module:'course',type:'FOUNDATION',
   desc:'Establish the language and safety mindset used by every later module.',
   objectives:['Describe heading, COG and SOG','Use port/starboard and relative sectors correctly','Explain why lookout outranks electronic aids','Understand Guided, Watch and Exam modes'],
-  requirement:'Complete the six teaching cards, score at least 4/5 in the knowledge check, then confirm the safety acknowledgement.'},
+  requirement:'First complete Bridge Language lessons 1–6. Then unlock the Stage 1 final knowledge check, score at least 4/5, and confirm the safety acknowledgement.'},
  {id:'foundations',no:'02',title:'COLREG Foundations',module:'colregs',type:'RULE FRAMEWORK',
   desc:'Six teaching lessons explain the Rule framework first; a 10-question knowledge check comes only at the end.',
   objectives:['Locate the major COLREG Parts','Explain Rules 5–8 principles','Distinguish in-sight and restricted-visibility frameworks','Understand give-way / stand-on escalation'],
@@ -22387,6 +22420,9 @@ function courseLaunch(id){
 }
 function completeOrientation(){
  const chk=$('orientationAgree');
+ if(!orientationLessonsComplete()){
+   alert('Complete all six Bridge Language teaching lessons first.');return;
+ }
  if(orientationQuizIndex<ORIENTATION_QUIZ.length||orientationQuizScore<4){
    alert('Complete the five-question Stage 1 knowledge check first. You need at least 4/5.');
    $('orientationKnowledge')?.scrollIntoView({behavior:'smooth',block:'start'});return;
