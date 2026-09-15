@@ -17448,7 +17448,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.40.3</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.40.4</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -23922,7 +23922,7 @@ function completeStage5(){if(!stage5LessonsComplete()||stage5FinalIndex<10||stag
 // Stage 5 is the Course Mode entry point; the existing Collision Scenarios simulator remains available from Training Library and Stage 5.
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.40.3',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.40.3');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.3 audit',r);else console.info('Project Watch 1.40.3 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.40.4',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.40.4');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.4 audit',r);else console.info('Project Watch 1.40.4 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -23930,7 +23930,7 @@ function completeStage5(){if(!stage5LessonsComplete()||stage5FinalIndex<10||stag
 #pwTestModeBar{position:static;z-index:auto;background:#062536;border:1px solid #59d9ff66;border-radius:10px;padding:6px 8px;box-shadow:none;color:#dff8ff;font:800 10px Arial;display:flex;gap:6px;align-items:center;white-space:nowrap}#pwTestModeBar.active{border-color:#ffd65c;background:#3b3109;color:#fff4be}#pwTestModeBar button{padding:7px 10px;font-size:10px}.pwTestBadge{letter-spacing:.7px}.bpNightAssess .bpSea{background:#020b14!important}.bpNightAssess .bpLaneMark:not(.current){opacity:.08!important}.bpNightAssess .bpLaneMark.current svg .buoyBody,.bpNightAssess .bpLaneMark.current svg .buoyTop{opacity:.08!important}.bpNightAssess .bpLaneMark.current b{display:none!important}.bpNightAssess .bpLaneMark.current .buoyLamp{filter:drop-shadow(0 0 9px currentColor)}.bpAssessmentNote{padding:10px 12px;border-radius:10px;background:#0a3042;border:1px solid #ffffff18;margin:10px 0;font-size:12px;line-height:1.45}.bpAssessmentNote b{color:#8ee7ff}.bpAssessmentNote.chart{border-color:#ffd65c55;background:#302a12}.courseStage.testUnlocked{box-shadow:inset 0 0 0 1px #ffd65c55}.courseStage.testUnlocked .courseStatus{color:#ffd65c!important}
 </style>
 <script id="pw1402Stage6AndTestMode">
-// Project Watch 1.40.3 — engineering Test Mode + Stage 6 buoyage course conversion.
+// Project Watch 1.40.4 — engineering Test Mode + Stage 6 buoyage course conversion.
 const PW_TEST_MODE_KEY='pw_engineering_test_mode';
 function pwTestMode(){try{return localStorage.getItem(PW_TEST_MODE_KEY)==='1'}catch(e){return false}}
 function pwToggleTestMode(){try{localStorage.setItem(PW_TEST_MODE_KEY,pwTestMode()?'0':'1')}catch(e){} pwRenderTestBar(); if(document.getElementById('coursePage')?.classList.contains('active'))renderCoursePage()}
@@ -23948,6 +23948,62 @@ const _pwRenderBuoyLane=renderBuoyLane;renderBuoyLane=function(){_pwRenderBuoyLa
 const _pwBpFinish=bpFinish;bpFinish=function(){if(bpMode!=='challenge'){_pwBpFinish();return}let pass=bpScore>=10;let pct=Math.round(bpScore/BUOY_ORDER.length*100);$('buoyPassagePage').classList.remove('bpNightAssess');$('bpMarkFamily').textContent=pass?'STAGE 6 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN';$('bpMarkName').textContent=`${bpScore} / ${BUOY_ORDER.length} • ${pct}%`;$('bpPrompt').textContent=pass?'You recognised the day/night buoyage cues and made at least 10 of 12 correct passage decisions. Stage 6 is complete.':'You need at least 10/12. Review the 12-mark day/night learning set, then run the passage assessment again.';$('bpChoices').innerHTML=pass?'<button class="big" onclick="courseRecordComplete(\'buoyage\','+pct+');showCoursePage()">STAGE 6 COMPLETE ✓</button><button onclick="showBuoyPassage(\'challenge\')">RUN AGAIN</button>':'<button class="big" onclick="showBuoyTutorial()">REVIEW MARKS</button><button onclick="showBuoyPassage(\'challenge\')">TRY AGAIN</button>';$('bpFeedback').textContent='';$('bpProgress').textContent='COMPLETE';if(pass)courseRecordScore('buoyage',pct,true);};
 // Keep the legacy 36-question mock in the Training Library codebase, but Course Mode and the Stage 6 card no longer use it.
 window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderTestBar,0);
+</script>
+<style id="pw1404Stage6VisualFix">
+/* 1.40.4 Stage 6 assessment visibility + transition */
+#buoyTutorialPage .btActions .stage6AssessCta{background:#128d65;border-color:#63e7b8;color:#fff;box-shadow:0 0 0 1px #63e7b833 inset}
+#buoyTutorialPage .stage6Ready{margin-top:12px;padding:14px 16px;border:1px solid #63e7b855;border-radius:12px;background:#07362d;color:#d8fff2;display:none;align-items:center;justify-content:space-between;gap:14px}
+#buoyTutorialPage .stage6Ready.show{display:flex}
+#buoyTutorialPage .stage6Ready b{font-size:14px}#buoyTutorialPage .stage6Ready span{font-size:10px;color:#acd9ca}
+.bpDayAssess .bpLaneMark{opacity:.34!important}.bpDayAssess .bpLaneMark.current{opacity:1!important;filter:drop-shadow(0 0 14px #7eeaff)}
+.bpDayAssess .bpLaneMark.current .dayBody,.bpDayAssess .bpLaneMark.current .dayTop{opacity:1!important;filter:none!important}
+.bpNightAssess .bpSea{background:linear-gradient(#01060b 0 19%,#03131e 20%,#010911 100%)!important}
+.bpNightAssess .bpWaterGrid{opacity:.18}.bpNightAssess .bpLaneMark{opacity:.035!important}.bpNightAssess .bpLaneMark.current{opacity:1!important;filter:none!important}
+.bpNightAssess .bpLaneMark.current .dayBody,.bpNightAssess .bpLaneMark.current .dayTop,.bpNightAssess .bpLaneMark.current .waterShadow{opacity:.025!important}
+.bpNightAssess .bpLaneMark.current .buoyLamp{filter:drop-shadow(0 0 7px currentColor) drop-shadow(0 0 18px currentColor) drop-shadow(0 0 32px currentColor)}
+.bpNightAssess .bpBoat{filter:brightness(.55) drop-shadow(0 7px 7px #000)!important}
+</style>
+<script id="pw1404Stage6Fix">
+// Clear learning -> assessment handoff and true live night-light animation.
+(function(){
+ let assessAnim=null,assessStart=0;
+ function stopAssessAnim(){if(assessAnim){cancelAnimationFrame(assessAnim);assessAnim=null}assessStart=0}
+ function lampColour(on){return on==='red'?'#ff3434':on==='green'?'#23e36e':on==='yellow'?'#ffd231':on==='blue'?'#4d8cff':'#ffffff'}
+ function startAssessAnim(){
+   stopAssessAnim(); if(bpMode!=='challenge'||!bpAssessmentNight)return;
+   const id=BUOY_ORDER[bpI], item=BUOY_DATA.find(x=>x.id===id), mark=document.getElementById('bpMark_'+id); if(!item||!mark)return;
+   const lamp=mark.querySelector('.buoyLamp'); if(!lamp)return;
+   function frame(ts){
+     if(bpMode!=='challenge'||!bpAssessmentNight||!document.getElementById('buoyPassagePage').classList.contains('active')){stopAssessAnim();return}
+     if(!assessStart)assessStart=ts; const on=isLampOn(item,(ts-assessStart)/1000);
+     if(!on)lamp.style.opacity='0'; else {const c=lampColour(on);lamp.style.opacity='1';lamp.setAttribute('fill',c);lamp.style.color=c}
+     assessAnim=requestAnimationFrame(frame);
+   }
+   assessAnim=requestAnimationFrame(frame);
+ }
+ const oldTutorial=renderBuoyTutorial;
+ renderBuoyTutorial=function(){
+   oldTutorial();
+   const actions=document.querySelector('#buoyTutorialPage .btActions'); if(!actions)return;
+   let ready=document.getElementById('stage6Ready');
+   if(!ready){ready=document.createElement('div');ready.id='stage6Ready';ready.className='stage6Ready';ready.innerHTML='<div><b>ALL 12 MARKS REVIEWED</b><br><span>Happy with the daymarks, night lights and passage guidance? Move straight into the final simulator.</span></div><button class="big" onclick="showBuoyPassage(\'challenge\')">START PASSAGE ASSESSMENT →</button>';actions.parentElement.appendChild(ready)}
+   ready.classList.toggle('show',btI===BUOY_ORDER.length-1);
+   const next=actions.querySelector('button:last-child');
+   if(btI===BUOY_ORDER.length-1){next.textContent='START ASSESSMENT →';next.classList.add('stage6AssessCta');next.onclick=()=>showBuoyPassage('challenge')}
+   else{next.textContent='NEXT MARK →';next.classList.remove('stage6AssessCta');next.onclick=btNext}
+ };
+ // Refresh tutorial immediately if already open after script load.
+ if(document.getElementById('buoyTutorialPage')?.classList.contains('active'))renderBuoyTutorial();
+ const oldStep=renderBuoyPassageStep;
+ renderBuoyPassageStep=function(){
+   stopAssessAnim(); oldStep(); if(bpMode!=='challenge')return;
+   const page=document.getElementById('buoyPassagePage'); page.classList.toggle('bpDayAssess',!bpAssessmentNight);
+   document.querySelectorAll('.bpLaneMark').forEach((e,i)=>{e.style.opacity=''; if(i===bpI)e.classList.add('current')});
+   if(bpAssessmentNight)startAssessAnim();
+ };
+ const oldFinish=bpFinish; bpFinish=function(){stopAssessAnim();document.getElementById('buoyPassagePage')?.classList.remove('bpDayAssess');oldFinish()};
+ window.PW_STAGE6_VISUAL_FIX='1.40.4';
+})();
 </script>
 </body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
