@@ -16327,7 +16327,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.10-COLREG-CONTEXT-READONLY</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.11-COLREG-CONTEXT-READONLY</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">WATCH ONE</div>
@@ -23240,29 +23240,68 @@ body.pw-watch-one .homeProHeroShade{background:linear-gradient(90deg,rgba(2,19,2
 
 
 
-<script id="pwColregContextReadOnly14610">
-/* Build 1.46.10 — READ-ONLY vessel context for Collision Scenarios.
-   Safety rule: this adapter never writes vessel state, course state, progress, routing or scenario mode. */
+<style id="pwCollisionLocalSwitch14611">
+#pwLocalColregContext{margin:10px 0 0;padding:9px 10px;border:1px solid rgba(70,207,255,.28);border-radius:9px;background:rgba(2,27,39,.72);max-width:100%}
+#pwLocalColregContext .pwLcTop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#pwLocalColregContext .pwLcLabel{color:#77dcff;font-size:9px;font-weight:900;letter-spacing:.55px;margin-right:auto}
+#pwLocalColregContext button{border:1px solid rgba(119,220,255,.28);background:#062b3a;color:#a9cbd7;border-radius:7px;padding:6px 9px;font-size:8px;font-weight:900;letter-spacing:.35px;cursor:pointer}
+#pwLocalColregContext button.active{background:#0b6682;color:#fff;border-color:#61dcff}
+#pwLocalColregContext .pwLcStatus{margin-top:7px;color:#8fb8c6;font-size:8px;font-weight:800;letter-spacing:.3px}
+</style>
+<script id="pwCollisionLocalSwitch14611">
 (function(){
- const BUILD='1.46.10-COLREG-CONTEXT-READONLY';
- function profile(){try{return typeof vesselProfile==='function'?vesselProfile():null}catch(e){return null}}
- function physical(){const p=profile();try{return typeof vesselPhysicalType==='function'?vesselPhysicalType():(p&&p.propulsion==='sail'?'sail':'power')}catch(e){return 'power'}}
- function operational(){try{return typeof vesselOperationalState==='function'?vesselOperationalState():'power'}catch(e){return 'power'}}
- function name(){try{return typeof vesselName==='function'?vesselName():(profile()?.name||'Training vessel')}catch(e){return 'Training vessel'}}
- function status(){return physical()==='sail'&&operational()==='sail'?'SAILING VESSEL':'POWER-DRIVEN VESSEL'}
- function scenarioVisible(){const h=document.getElementById('handover'),w=document.getElementById('watch');return !!((h&&getComputedStyle(h).display!=='none')||(w&&getComputedStyle(w).display!=='none'))}
- function render(){
-   if(!scenarioVisible())return;
-   let host=document.querySelector('#handover .scenarioBriefHero')||document.querySelector('#handover .handoverHead')||document.getElementById('handover');
-   if(!host)return;
-   let b=document.getElementById('pwReadOnlyColregContext');
-   if(!b){b=document.createElement('div');b.id='pwReadOnlyColregContext';b.style.cssText='margin:8px 0 0;padding:7px 10px;border:1px solid rgba(70,207,255,.28);border-radius:8px;background:rgba(2,27,39,.72);color:#77dcff;font-size:9px;font-weight:900;letter-spacing:.55px;width:max-content;max-width:100%';host.appendChild(b)}
-   const machinery=physical()==='sail'&&operational()!=='sail'?' • PROPELLING MACHINERY IN USE':'';
-   b.textContent=`ACTIVE TRAINING VESSEL: ${String(name()).toUpperCase()} • COLREG STATUS: ${status()}${machinery}`;
+ const BUILD='1.46.11-COLLISION-LOCAL-SWITCH';
+ let localChoice=null;
+ function globalChoice(){
+   try{
+     const p=typeof vesselProfile==='function'?vesselProfile():null;
+     const physical=typeof vesselPhysicalType==='function'?vesselPhysicalType():(p&&p.propulsion==='sail'?'sail':'power');
+     const operational=typeof vesselOperationalState==='function'?vesselOperationalState():'power';
+     if(p&&p.id==='watch2')return physical==='sail'&&operational==='sail'?'watch2sail':'watch2power';
+     if(p&&p.id==='watch1')return 'watch1';
+     if(physical==='sail'&&operational==='sail')return 'watch2sail';
+     return 'watch1';
+   }catch(e){return 'watch1'}
  }
- document.addEventListener('DOMContentLoaded',()=>setTimeout(render,180));
- document.addEventListener('click',()=>setTimeout(render,80),true);
- window.pwRenderReadOnlyColregContext=render;
+ function choice(){return localChoice||globalChoice()}
+ function modeFor(c){return c==='watch2sail'?'sail':'power'}
+ function labelFor(c){
+   if(c==='watch2sail')return 'WATCH TWO • SAILING VESSEL • MACHINERY NOT IN USE';
+   if(c==='watch2power')return 'WATCH TWO • POWER-DRIVEN • PROPELLING MACHINERY IN USE';
+   return 'WATCH ONE • POWER-DRIVEN VESSEL';
+ }
+ function visible(){const h=document.getElementById('handover');return !!(h&&getComputedStyle(h).display!=='none')}
+ function applyLocal(c){
+   localChoice=c;
+   if(typeof setOwnVesselMode==='function')setOwnVesselMode(modeFor(c));
+   render();
+ }
+ function render(){
+   if(!visible())return;
+   const host=document.querySelector('#handover .scenarioBriefHero')||document.querySelector('#handover .handoverHead')||document.getElementById('handover');
+   if(!host)return;
+   let b=document.getElementById('pwLocalColregContext');
+   if(!b){
+     b=document.createElement('div');b.id='pwLocalColregContext';
+     b.innerHTML='<div class="pwLcTop"><span class="pwLcLabel">COLLISION TRAINER • OWN-VESSEL PERSPECTIVE</span><button type="button" data-pwlc="watch1">WATCH ONE</button><button type="button" data-pwlc="watch2sail">WATCH TWO • SAIL</button><button type="button" data-pwlc="watch2power">WATCH TWO • ENGINE</button></div><div class="pwLcStatus"></div>';
+     b.addEventListener('click',function(ev){
+       const btn=ev.target.closest('button[data-pwlc]');if(!btn)return;
+       ev.preventDefault();ev.stopPropagation();applyLocal(btn.dataset.pwlc);
+     });
+     host.appendChild(b);
+   }
+   const c=choice();
+   b.querySelectorAll('button[data-pwlc]').forEach(x=>x.classList.toggle('active',x.dataset.pwlc===c));
+   const st=b.querySelector('.pwLcStatus');if(st)st.textContent='ACTIVE IN THIS TRAINER: '+labelFor(c)+' • SWITCHING HERE DOES NOT CHANGE COURSE PROGRESS OR LEAVE THIS SCREEN';
+ }
+ function syncOnEntry(){
+   if(localChoice===null&&visible()&&typeof setOwnVesselMode==='function')setOwnVesselMode(modeFor(globalChoice()));
+   render();
+ }
+ document.addEventListener('DOMContentLoaded',()=>setTimeout(syncOnEntry,180));
+ document.addEventListener('click',()=>setTimeout(syncOnEntry,80),true);
+ window.pwCollisionLocalVesselChoice=()=>choice();
+ window.pwRenderCollisionLocalSwitch=render;
  window.PROJECT_WATCH_BUILD=BUILD;
 })();
 </script>
