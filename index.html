@@ -17589,7 +17589,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 
 
 <style id="stage4-workspace-polish-1448">
-/* BUILD 1.45.2 — Stage 4 lesson workspace visual polish only.
+/* BUILD 1.45.3 — Stage 4 lesson workspace visual polish only.
    No Stage 4 data, renderer, handlers, audio, progress, locking or final-check logic changed. */
 #sigLessonApp{display:grid;grid-template-columns:238px minmax(0,1fr);grid-template-areas:"nav head" "nav card" "nav foot";gap:0 14px;align-items:start}
 #sigLessonApp .sigLessonHead{grid-area:head;background:#063044;border:1px solid #15566c;border-radius:16px 16px 0 0;padding:18px 20px 14px;min-height:92px;position:relative;overflow:hidden}
@@ -17627,7 +17627,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 \n<style id="stage4-maritime-1449">\n/* Build 1.44.9 — Stage 4 maritime training visual pass. CSS only. */\n#moduleContext.show{display:grid!important;min-height:72px!important;visibility:visible!important;opacity:1!important}\n#sigLessonApp .sigLessonHead:after{content:"BRIDGE SOUND TRAINING"}\n#sigLessonApp .sigFact{padding-left:20px!important}\n#sigLessonApp .sigFact:before,#sigLessonApp .sigFact:after{display:none!important}\n#sigLessonApp .sigFact b:before{display:inline-grid;place-items:center;width:40px;height:30px;margin-right:12px;border:1px solid #176078;border-radius:8px;background:#031f2a;color:#dff9ff;font:900 18px/1 system-ui;vertical-align:middle;box-shadow:inset 0 0 12px rgba(105,215,242,.05)}\n#sigLessonApp .sigFact:nth-of-type(1) b:before{content:"●";font-size:13px;text-shadow:0 0 8px rgba(223,249,255,.7)}\n#sigLessonApp .sigFact:nth-of-type(2) b:before{content:"━━";font-size:15px;letter-spacing:-4px}\n#sigLessonApp .sigFact:nth-of-type(3) b:before{content:"WH";font-size:10px;letter-spacing:.08em}\n#sigLessonApp .sigFact:nth-of-type(4) b:before{content:"WH + ◯";font-size:9px;letter-spacing:.02em}\n#sigLessonApp .sigFact:nth-of-type(5) b:before{content:"WH ◯ ◎";font-size:8px;letter-spacing:-.02em}\n#sigLessonApp .sigFact:nth-of-type(6) b:before{content:"SIGNAL";font-size:7px;letter-spacing:.09em}\n#sigLessonApp .sigFact b{display:flex!important;align-items:center;margin-bottom:5px!important}\n#sigLessonApp .sigFact p{padding-left:52px}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]{background:#062f41!important;border-color:#16708d!important;padding:14px 16px 14px 68px!important;min-height:76px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]:before{content:"▶"!important;left:17px!important;width:34px!important;height:34px!important;border:1px solid #38bde7!important;background:#031f2a!important;color:#dff9ff!important;font-size:11px!important;letter-spacing:0!important}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]:after{content:"PLAY SIGNAL";position:absolute;right:13px;top:10px;color:#69d7f2;font-size:7px;font-weight:900;letter-spacing:.13em;opacity:.85}\n#sigLessonApp .sigLessonActions button.big{background:#148fc5!important;border-color:#42c8ef!important;min-height:76px!important}\n@media(max-width:680px){#sigLessonApp .sigFact p{padding-left:0}#sigLessonApp .sigFact b:before{flex:0 0 38px}}\n</style>\n
 
 <style id="stage4-approved-bridge-art-1451">
-/* BUILD 1.45.2 — approved technical bridge-instrument artwork.
+/* BUILD 1.45.3 — approved technical bridge-instrument artwork.
    Visual layer only. Stage 4 functionality is untouched. */
 #sigLessonApp .sigFact:before,
 #sigLessonApp .sigFact b:before{content:none!important;display:none!important}
@@ -17736,7 +17736,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.45.2</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.45.3</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -24634,6 +24634,72 @@ const _aisInitStage8=aisInit;aisInit=function(){_aisInitStage8();aisCourseLoad()
  if(typeof courseRecordScore==='function'){const old=courseRecordScore;courseRecordScore=function(id,score,pass){const before=courseCount();const r=old(id,score,pass);if(pass)maybeCelebrate(before);return r}}
  const oldCourse=window.renderCoursePage;
  if(typeof oldCourse==='function'){window.renderCoursePage=function(){const r=oldCourse();if(courseCount()===PW_COURSE_STAGES.length){let list=document.getElementById('courseStageList');if(list&&!document.getElementById('pwCourseFinishBtn')){let d=document.createElement('div');d.id='pwCourseFinishBtn';d.style='margin:14px 0;padding:14px;border:1px solid #63e7b855;border-radius:12px;background:#07372d;text-align:center';d.innerHTML='<b style="color:#9ff1ce">⚓ ALL 8 PROJECT WATCH STAGES COMPLETE</b><br><button style="margin-top:9px;background:#128d65" onclick="pwShowCompletion()">VIEW COMPLETION & SCORES →</button>';list.parentElement.insertBefore(d,list)}}return r}}
+})();
+</script>
+
+
+<style>
+#pwDeepResults{display:none;margin:12px 0 20px;background:#031f2d;border:1px solid #6ee0ff33;border-radius:14px;padding:12px}
+#pwDeepResults.show{display:block}.pwDeepHead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px}.pwDeepHead b{font-size:13px}.pwDeepHead small{color:#8fb1bf}.pwDeepGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.pwDeepHit{display:block;width:100%;text-align:left;background:#062a3b;border:1px solid #ffffff18;border-radius:11px;padding:11px;color:#fff}.pwDeepHit:hover{border-color:#6ee0ff66}.pwDeepHit .k{font-size:8px;letter-spacing:.1em;font-weight:900;color:#6ee0ff}.pwDeepHit b{display:block;margin:3px 0 4px;font-size:14px}.pwDeepHit small{display:block;color:#aec6d0;line-height:1.35}.pwDeepHit i{display:block;font-style:normal;color:#7de8ff;font-size:9px;font-weight:900;margin-top:7px}.pwDeepNone{color:#a8bec9;padding:8px 2px}@media(max-width:760px){.pwDeepGrid{grid-template-columns:1fr}}
+</style>
+<script>
+(function(){
+ const esc=s=>String(s??'').replace(/<[^>]*>/g,' ').replace(/&[a-z#0-9]+;/gi,' ').replace(/\s+/g,' ').trim();
+ const norm=s=>esc(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+ const aliases={
+  'may day':'mayday','panpan':'pan pan','pan pan':'panpan','securite':'safety securite','call regs':'colregs','col regs':'colregs',
+  'motor sailing':'motorsailing','motor sailer':'motorsailing','man overboard':'mob','not under command':'nuc',
+  'restricted ability to manoeuvre':'ram','restricted ability to maneuver':'ram','constrained by draught':'cbd','constrained by draft':'cbd',
+  'traffic separation scheme':'tss','inshore traffic zone':'itz','closest point':'cpa','time to cpa':'tcpa','course over ground':'cog','speed over ground':'sog',
+  'channel sixteen':'channel 16','ch 16':'channel 16','five blasts':'five short blasts','danger signal':'doubt signal'
+ };
+ const core=[
+  ['Distress / MAYDAY procedure','Sound Signals • Distress','MAYDAY distress call distress message grave imminent danger assistance VHF channel 16 DSC digital selective calling position persons on board over radio procedure','signals','distress'],
+  ['PAN-PAN urgency procedure','Sound Signals • Distress','PAN PAN panpan urgency urgent safety radio call VHF channel 16 working channel assistance not grave imminent danger','signals','distress'],
+  ['SÉCURITÉ safety message','Sound Signals • Distress','securite sécurité safety message navigational warning meteorological warning radio VHF','signals','distress'],
+  ['Distress signals • Annex IV','COLREGs • Annex IV','distress annex iv annex 4 SOS mayday red flare rocket parachute flare orange smoke flames gun explosive continuous fog signal NC november charlie DSC EPIRB satellite distress','signals','distress'],
+  ['EPIRB & PLB','Sound Signals • Distress','epirb plb 406 mhz beacon satellite distress alert registration emergency position indicating radio beacon personal locator beacon','signals','distress'],
+  ['Rule 34 • Manoeuvring & warning signals','Sound Signals • Rule 34','one short blast starboard two short port three short astern five short rapid danger doubt overtaking bend narrow channel','signals','man'],
+  ['Rule 35 • Restricted visibility','Sound Signals • Rule 35','fog restricted visibility prolonged blast power driven making way stopped sailing fishing towing anchor aground pilot bell gong','signals','fog'],
+  ['Lights & Shapes master recognition','Lights & Shapes','navigation lights day shapes masthead sidelight sternlight towing all round red green white yellow NUC RAM CBD fishing trawling pilot anchor aground','lights',''],
+  ['Buoyage & marks','Buoyage','IALA region A lateral port starboard cardinal north east south west isolated danger safe water special preferred channel bifurcation emergency wreck','buoyage',''],
+  ['Traffic Separation Schemes • Rule 10','Traffic Separation','TSS rule 10 lane separation zone inshore traffic zone ITZ crossing right angles joining leaving fishing sailing under 20 metres','tss',''],
+  ['AIS target information','AIS','AIS automatic identification system target MMSI callsign vessel name class A class B position heading COG SOG CPA TCPA vector lost stale dangerous target','ais',''],
+  ['Collision encounters','Collision Scenarios','crossing head on overtaking give way stand on sailing power driven motor sailing risk collision CPA action avoid rule 12 13 14 15 16 17 18 19','scenarios','']
+ ];
+ function docs(){
+  let d=core.map((x,i)=>({title:x[0],path:x[1],text:x.slice(0,3).join(' '),module:x[3],section:x[4],rank:100-i}));
+  try{if(typeof RULE_DATA==='object')Object.keys(RULE_DATA).forEach(n=>{let r=RULE_DATA[n];d.push({title:'Rule '+n+' • '+(r.title||''),path:'COLREGs • Rule '+n,text:'rule '+n+' '+esc(r.title)+' '+esc(r.summary)+' '+esc(r.training)+' '+esc(r.project),module:'colregs',rule:n,rank:80})})}catch(e){}
+  try{if(typeof ANNEX_DATA==='object')Object.keys(ANNEX_DATA).forEach(n=>{let a=ANNEX_DATA[n];d.push({title:a.title||('Annex '+n),path:'COLREGs • Annex '+n,text:esc(a.title)+' '+esc(a.summary)+' '+esc(a.training)+' '+esc(a.project)+' '+esc(a.source),module:'colregs',annex:n,rank:75})})}catch(e){}
+  try{if(typeof PW_SOUND_MASTER!=='undefined')PW_SOUND_MASTER.forEach(x=>d.push({title:x.title||x.name||'Sound signal',path:'Sound Signals • Master Library',text:esc(JSON.stringify(x)),module:'signals',section:(String(x.rule||'').includes('34')?'man':String(x.rule||'').includes('35')?'fog':'library'),rank:70}))}catch(e){}
+  try{if(typeof SIG_LESSONS!=='undefined')SIG_LESSONS.forEach((x,i)=>d.push({title:x.title,path:'Sound Signals • Lesson '+(i+1),text:esc(JSON.stringify(x)),module:'signals',section:'learn',lesson:i,rank:65}))}catch(e){}
+  // Deep-index every existing library doorway too, preserving its destination.
+  document.querySelectorAll('#libraryPage .lib20Card').forEach((c,i)=>d.push({title:esc(c.querySelector('b')?.textContent||'Library resource'),path:esc(c.querySelector('.lib20Eyebrow')?.textContent||'Library'),text:(c.dataset.tags||'')+' '+esc(c.textContent),card:c,rank:40-i}));
+  return d;
+ }
+ function go(h){
+  if(h.card){h.card.click();return}
+  if(h.rule && typeof openRule==='function'){showModule('colregs');setTimeout(()=>openRule(h.rule),60);return}
+  if(h.annex && typeof openAnnex==='function'){showModule('colregs');setTimeout(()=>openAnnex(h.annex),60);return}
+  showModule(h.module);
+  if(h.module==='signals'&&h.section)setTimeout(()=>{showSignalSection(h.section);if(h.lesson!=null&&typeof sigSelectLesson==='function')setTimeout(()=>sigSelectLesson(h.lesson),30)},40);
+ }
+ window.pwDeepGo=function(i){let a=window.__pwDeepHits||[];if(a[i])go(a[i])};
+ function ensureBox(){let hero=document.querySelector('#libraryPage .lib20Hero');if(!hero)return null;let b=document.getElementById('pwDeepResults');if(!b){b=document.createElement('div');b.id='pwDeepResults';hero.insertAdjacentElement('afterend',b)}return b}
+ window.pwLibraryFilter=function(){
+  const input=document.getElementById('lib20Search'), raw=input?.value||'', q0=norm(raw); let q=q0;
+  Object.keys(aliases).forEach(a=>{if(q.includes(norm(a)))q+=' '+norm(aliases[a])});
+  const terms=[...new Set(q.split(/\s+/).filter(Boolean))], box=ensureBox();
+  if(!terms.length){if(box){box.className='';box.innerHTML=''};document.querySelectorAll('#libraryPage .lib20Card,#libraryPage .lib20Section').forEach(x=>x.classList.remove('hidden'));document.getElementById('lib20Empty')?.classList.remove('show');return}
+  let hits=docs().map(h=>{let t=norm(h.text+' '+h.title+' '+h.path),score=h.rank||0,ok=true;terms.forEach(term=>{if(!t.includes(term))ok=false;else score+=t.startsWith(term)?20:6});if(norm(h.title).includes(q0))score+=45;return {h,score,ok}}).filter(x=>x.ok).sort((a,b)=>b.score-a.score);
+  // If exact all-term matching is too strict, use useful partial matching rather than a false 'nothing found'.
+  if(!hits.length&&terms.length>1)hits=docs().map(h=>{let t=norm(h.text+' '+h.title+' '+h.path),n=terms.filter(z=>t.includes(z)).length;return{h,score:(h.rank||0)+n*8,n}}).filter(x=>x.n>=Math.ceil(terms.length*.6)).sort((a,b)=>b.score-a.score);
+  window.__pwDeepHits=hits.slice(0,24).map(x=>x.h);
+  if(box){box.className='show';box.innerHTML=`<div class="pwDeepHead"><b>DEEP LIBRARY SEARCH • ${window.__pwDeepHits.length} RESULT${window.__pwDeepHits.length===1?'':'S'}</b><small>Searching inside Project Watch, not just the seven library cards</small></div>`+(window.__pwDeepHits.length?`<div class="pwDeepGrid">${window.__pwDeepHits.map((h,i)=>`<button class="pwDeepHit" onclick="pwDeepGo(${i})"><span class="k">${esc(h.path)}</span><b>${esc(h.title)}</b><small>${esc(h.text).slice(0,170)}${esc(h.text).length>170?'…':''}</small><i>OPEN RELEVANT CONTENT →</i></button>`).join('')}</div>`:`<div class="pwDeepNone">No indexed Project Watch content matches “${esc(raw)}”.</div>`)}
+  // Keep doorway cards as secondary context only when they contain the query.
+  let shown=0;document.querySelectorAll('#libraryPage .lib20Card').forEach(card=>{let t=norm((card.dataset.tags||'')+' '+card.textContent),ok=terms.some(z=>t.includes(z))&&(typeof pwLibraryMode==='undefined'||pwLibraryMode==='all'||(card.dataset.modes||'').split(' ').includes(pwLibraryMode));card.classList.toggle('hidden',!ok);if(ok)shown++});
+  document.querySelectorAll('#libraryPage .lib20Section').forEach(sec=>sec.classList.toggle('hidden',!sec.querySelector('.lib20Card:not(.hidden)')));document.getElementById('lib20Empty')?.classList.remove('show');
+ };
 })();
 </script>
 
