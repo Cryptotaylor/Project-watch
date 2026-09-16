@@ -17571,7 +17571,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   #sigLessonApp .sigLessonFacts > div{padding-left:45px}
   #sigLessonApp .sigLessonFacts > div:before{left:13px}
 }
-/* BUILD 1.46.0-RC732 — Stage 4 lesson workspace visual polish only.
+/* BUILD 1.46.0-RC7-TEST32 — Stage 4 lesson workspace visual polish only.
    No Stage 4 data, renderer, handlers, audio, progress, locking or final-check logic changed. */
 #sigLessonApp{display:grid;grid-template-columns:238px minmax(0,1fr);grid-template-areas:"nav head" "nav card" "nav foot";gap:0 14px;align-items:start}
 #sigLessonApp .sigLessonHead{grid-area:head;background:#063044;border:1px solid #15566c;border-radius:16px 16px 0 0;padding:18px 20px 14px;min-height:92px;position:relative;overflow:hidden}
@@ -17605,7 +17605,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:900px){#sigLessonApp{grid-template-columns:190px minmax(0,1fr)}#sigLessonApp .sigLessonCard{grid-template-columns:1fr}#sigLessonApp .sigLessonActions{grid-template-columns:1fr 1fr}#sigLessonApp .sigLessonActions button.big{grid-column:1/-1}}
 @media(max-width:680px){#sigLessonApp{display:block}#sigLessonApp .sigLessonNav{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:12px}#sigLessonApp .sigLessonNav:before{grid-column:1/-1}#sigLessonApp .sigLessonNav button{min-height:50px;text-align:center;padding:8px 4px}#sigLessonApp .sigLessonHead:after{display:none}#sigLessonApp .sigLessonCard{grid-template-columns:1fr}#sigLessonApp .sigLessonActions{grid-template-columns:1fr}}
 \n/* Build 1.44.9 — Stage 4 maritime training visual pass. CSS only. */\n#moduleContext.show{display:grid!important;min-height:72px!important;visibility:visible!important;opacity:1!important}\n#sigLessonApp .sigLessonHead:after{content:"BRIDGE SOUND TRAINING"}\n#sigLessonApp .sigFact{padding-left:20px!important}\n#sigLessonApp .sigFact:before,#sigLessonApp .sigFact:after{display:none!important}\n#sigLessonApp .sigFact b:before{display:inline-grid;place-items:center;width:40px;height:30px;margin-right:12px;border:1px solid #176078;border-radius:8px;background:#031f2a;color:#dff9ff;font:900 18px/1 system-ui;vertical-align:middle;box-shadow:inset 0 0 12px rgba(105,215,242,.05)}\n#sigLessonApp .sigFact:nth-of-type(1) b:before{content:"●";font-size:13px;text-shadow:0 0 8px rgba(223,249,255,.7)}\n#sigLessonApp .sigFact:nth-of-type(2) b:before{content:"━━";font-size:15px;letter-spacing:-4px}\n#sigLessonApp .sigFact:nth-of-type(3) b:before{content:"WH";font-size:10px;letter-spacing:.08em}\n#sigLessonApp .sigFact:nth-of-type(4) b:before{content:"WH + ◯";font-size:9px;letter-spacing:.02em}\n#sigLessonApp .sigFact:nth-of-type(5) b:before{content:"WH ◯ ◎";font-size:8px;letter-spacing:-.02em}\n#sigLessonApp .sigFact:nth-of-type(6) b:before{content:"SIGNAL";font-size:7px;letter-spacing:.09em}\n#sigLessonApp .sigFact b{display:flex!important;align-items:center;margin-bottom:5px!important}\n#sigLessonApp .sigFact p{padding-left:52px}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]{background:#062f41!important;border-color:#16708d!important;padding:14px 16px 14px 68px!important;min-height:76px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]:before{content:"▶"!important;left:17px!important;width:34px!important;height:34px!important;border:1px solid #38bde7!important;background:#031f2a!important;color:#dff9ff!important;font-size:11px!important;letter-spacing:0!important}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]:after{content:"PLAY SIGNAL";position:absolute;right:13px;top:10px;color:#69d7f2;font-size:7px;font-weight:900;letter-spacing:.13em;opacity:.85}\n#sigLessonApp .sigLessonActions button.big{background:#148fc5!important;border-color:#42c8ef!important;min-height:76px!important}\n@media(max-width:680px){#sigLessonApp .sigFact p{padding-left:0}#sigLessonApp .sigFact b:before{flex:0 0 38px}}\n
-/* BUILD 1.46.0-RC732 — approved technical bridge-instrument artwork.
+/* BUILD 1.46.0-RC7-TEST32 — approved technical bridge-instrument artwork.
    Visual layer only. Stage 4 functionality is untouched. */
 #sigLessonApp .sigFact:before,
 #sigLessonApp .sigFact b:before{content:none!important;display:none!important}
@@ -17775,7 +17775,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.0-RC732</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.0-RC7-TEST32</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -24584,6 +24584,92 @@ const _aisInitStage8=aisInit;aisInit=function(){_aisInitStage8();aisCourseLoad()
   let shown=0;document.querySelectorAll('#libraryPage .lib20Card').forEach(card=>{let t=norm((card.dataset.tags||'')+' '+card.textContent),ok=terms.some(z=>t.includes(z))&&(typeof pwLibraryMode==='undefined'||pwLibraryMode==='all'||(card.dataset.modes||'').split(' ').includes(pwLibraryMode));card.classList.toggle('hidden',!ok);if(ok)shown++});
   document.querySelectorAll('#libraryPage .lib20Section').forEach(sec=>sec.classList.toggle('hidden',!sec.querySelector('.lib20Card:not(.hidden)')));document.getElementById('lib20Empty')?.classList.remove('show');
  };
+})();
+</script>
+
+
+<style id="pwDevHarnessStyle">
+#pwDevHarness{position:fixed;right:14px;bottom:14px;z-index:2147483647;width:310px;
+background:#061923;border:2px solid #00a9d6;border-radius:12px;padding:12px;
+box-shadow:0 12px 35px rgba(0,0,0,.55);font:13px/1.35 system-ui,sans-serif;color:#eafaff}
+#pwDevHarness h3{margin:0 0 8px;color:#59ddff;font-size:15px}
+#pwDevHarness p{margin:6px 0;color:#b9d5df}
+#pwDevHarness button{width:100%;margin:4px 0;padding:9px;border-radius:8px;border:1px solid #16718c;
+background:#0b3343;color:#fff;font-weight:700;cursor:pointer}
+#pwDevHarness button:hover{background:#10465a}
+#pwDevHarness .danger{border-color:#b04a4a;background:#4a2020}
+#pwDevHarness .status{margin-top:7px;padding:7px;border-radius:7px;background:#031219;color:#8de7ff}
+</style>
+<div id="pwDevHarness">
+<h3>PROJECT WATCH — DEV TEST ENGINE</h3>
+<p>Temporary RC7 harness. Uses the existing course-state functions. Not for release.</p>
+<button onclick="pwDevSnapshot()">1. Snapshot current progress</button>
+<button onclick="pwDevCompleteAll()">2. Simulate Stages 1–8 complete</button>
+<button onclick="pwDevOpenCourse()">3. Open Course Map / completion view</button>
+<button onclick="pwDevFreshUser()">Fresh-user simulation</button>
+<button class="danger" onclick="pwDevRestore()">Restore snapshot</button>
+<div class="status" id="pwDevStatus">Ready — snapshot before testing.</div>
+</div>
+<script id="pwDevHarnessScript">
+(function(){
+  const KEY="pw_dev_rc7_snapshot";
+  function status(t){const e=document.getElementById("pwDevStatus");if(e)e.textContent=t;}
+  function clone(v){return JSON.parse(JSON.stringify(v));}
+  window.pwDevSnapshot=function(){
+    try{
+      const st=clone(courseState());
+      sessionStorage.setItem(KEY,JSON.stringify(st));
+      status("Snapshot saved.");
+    }catch(e){status("Snapshot failed: "+e.message);}
+  };
+  window.pwDevCompleteAll=function(){
+    try{
+      if(!sessionStorage.getItem(KEY)) pwDevSnapshot();
+      const st=courseState();
+      const ids=(typeof COURSE_STAGES!=="undefined" && Array.isArray(COURSE_STAGES))
+        ? COURSE_STAGES.map(x=>x.id||x.key||x.stage).filter(Boolean)
+        : Object.keys(st.stages||st.progress||{});
+      if(!ids.length) throw new Error("No course stage IDs discovered.");
+      ids.forEach((id,i)=>{
+        try{ courseRecordStart(id); }catch(e){}
+        try{ courseRecordScore(id,100); }catch(e){}
+        try{ courseRecordComplete(id); }catch(e){}
+      });
+      try{courseSave();}catch(e){}
+      try{updateHomeCourseProgress();}catch(e){}
+      try{renderHomeCourseDashboard();}catch(e){}
+      status("Simulated completion for "+ids.length+" discovered stages.");
+    }catch(e){status("Simulation failed: "+e.message);}
+  };
+  window.pwDevOpenCourse=function(){
+    try{
+      if(typeof showCoursePage==="function") showCoursePage();
+      else if(typeof renderCoursePage==="function") renderCoursePage();
+      status("Course/completion view requested.");
+    }catch(e){status("Open failed: "+e.message);}
+  };
+  window.pwDevFreshUser=function(){
+    try{
+      if(!sessionStorage.getItem(KEY)) pwDevSnapshot();
+      if(typeof courseResetProgress==="function") courseResetProgress();
+      try{updateHomeCourseProgress();}catch(e){}
+      try{renderHomeCourseDashboard();}catch(e){}
+      status("Fresh-user state simulated. Restore snapshot when finished.");
+    }catch(e){status("Fresh-user simulation failed: "+e.message);}
+  };
+  window.pwDevRestore=function(){
+    try{
+      const raw=sessionStorage.getItem(KEY);
+      if(!raw) throw new Error("No snapshot saved.");
+      const snap=JSON.parse(raw), st=courseState();
+      Object.keys(st).forEach(k=>delete st[k]);
+      Object.assign(st,clone(snap));
+      courseSave();
+      try{updateHomeCourseProgress();}catch(e){}
+      try{renderHomeCourseDashboard();}catch(e){}
+      status("Original progress restored.");
+    }catch(e){status("Restore failed: "+e.message);}
+  };
 })();
 </script>
 
