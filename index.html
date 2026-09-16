@@ -17458,74 +17458,132 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 .aisCoursePanel,.aisFinalPanel{margin:18px 0;padding:22px;border:1px solid #17566d;border-radius:18px;background:#073247}.aisCourseHead{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.aisCourseHead h2{margin:5px 0 8px;font-size:27px}.aisCourseHead p{max-width:900px;color:#b8cbd3;line-height:1.55}.aisCourseProgress{min-width:130px;text-align:center;background:#031f2c;padding:14px;border-radius:12px}.aisCourseProgress b{display:block;font-size:24px;color:#62e0b0}.aisCourseTabs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:18px 0}.aisCourseTabs button{background:#0b4b65;border:1px solid #176884;color:#d8edf4;padding:11px 7px;border-radius:10px;font-weight:800}.aisCourseTabs button.active{background:#1596cf;box-shadow:inset 0 0 0 2px #69d8ff}.aisCourseTabs button.done:after{content:' ✓';color:#77f0b9}.aisTeachingCard{display:grid;grid-template-columns:2fr 1fr;gap:16px;background:#031f2c;border-radius:15px;padding:20px}.aisTeachingCard h2{font-size:25px;margin:5px 0 10px}.aisTeachingCard p{color:#c1d1d7;line-height:1.6}.aisTeachPoints{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:15px}.aisTeachPoints div{background:#07384b;padding:12px;border-radius:10px;color:#d6e6eb}.aisTeachPoints b{display:block;color:#65d8ff;margin-bottom:4px}.aisTeachingCallout{background:#123b3b;border:1px solid #2a7568;border-radius:12px;padding:16px;color:#d8eee8;line-height:1.55}.aisTeachingCallout b{display:block;color:#79edc1;font-size:13px;letter-spacing:.08em;margin-bottom:8px}.aisTeachingCallout{position:relative;overflow:hidden;background:linear-gradient(145deg,#0d3d3b,#0b302f);border:1px solid #42b991;box-shadow:0 0 0 1px rgba(103,240,187,.08),0 10px 28px rgba(0,0,0,.22);padding:0}.aisTakeWatchHead{padding:14px 16px 10px;border-bottom:1px solid rgba(121,237,193,.2);background:rgba(121,237,193,.06)}.aisTakeWatchHead b{font-size:15px;color:#8af2c9;margin:0 0 3px}.aisTakeWatchHead span{font-size:11px;color:#9fc8bc;letter-spacing:.04em}.aisTakeWatchMain{padding:18px 16px 14px;font-size:19px;font-weight:900;line-height:1.28;color:#f0fff9;text-transform:uppercase}.aisTakeWatchDetail{padding:0 16px 16px;color:#c7e4dc;font-size:14px;line-height:1.5}.aisOnWatch{margin:0 12px 12px;padding:10px 12px;border-radius:8px;background:#062724;color:#79edc1;font-size:11px;font-weight:900;letter-spacing:.08em;text-align:center}.aisTeachingCallout.reveal{animation:aisTakeReveal .38s ease-out}@keyframes aisTakeReveal{from{transform:translateY(5px);opacity:.55}to{transform:none;opacity:1}}.aisCourseNav{display:grid;grid-template-columns:1fr 1.2fr 1.5fr;gap:10px;margin-top:14px}.aisCourseNav button,.aisFinalPanel button{border:0;border-radius:10px;padding:14px;background:#1596cf;color:white;font-weight:900}.aisCourseNav button:disabled{background:#244652;color:#76909a}.aisFinalQ{background:#031f2c;padding:20px;border-radius:14px}.aisFinalAnswers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}.aisFinalAnswers button{text-align:left}.aisFinalAnswers button.correct{background:#168b67}.aisFinalAnswers button.wrong{background:#9c3d43}.aisFinalResult{text-align:center;padding:28px}.aisFinalResult h2{font-size:30px}.aisFinalResult.pass h2{color:#65e4ae}@media(max-width:850px){.aisCourseTabs{grid-template-columns:repeat(3,1fr)}.aisTeachingCard{grid-template-columns:1fr}.aisCourseNav{grid-template-columns:1fr}.aisCourseHead{display:block}.aisFinalAnswers{grid-template-columns:1fr}}
 </style>
 
-<style id="stage4-review-1446">
-#sigLessonApp .s4LessonShell{display:flex;gap:16px;align-items:stretch;width:100%}
-#sigLessonApp .s4Rail{flex:0 0 250px;background:#062b3a;border:1px solid #176078;border-radius:17px;padding:15px}
-#sigLessonApp .s4ProgressHead{display:flex;align-items:end;justify-content:space-between;color:#67d3ef;font-size:10px;font-weight:900;letter-spacing:.12em}
-#sigLessonApp .s4ProgressHead strong{font-size:21px;color:#fff;letter-spacing:0}
-#sigLessonApp .s4ProgressBar{height:5px;background:#021c27;border-radius:10px;margin:10px 0 14px;overflow:hidden}
-#sigLessonApp .s4ProgressBar i{display:block;height:100%;background:#25aee2;border-radius:10px}
-#sigLessonApp .s4RailButtons{display:grid;gap:7px}
-#sigLessonApp .s4RailButtons button{display:flex;gap:10px;align-items:center;width:100%;min-height:58px;padding:9px;background:#082f3e;border:1px solid transparent;border-radius:11px;text-align:left;color:#8ca8b3}
-#sigLessonApp .s4RailButtons button.active{background:#117ca3;border-color:#35bce8;color:#fff}
-#sigLessonApp .s4RailButtons button.done{color:#d4f8ff}
-#sigLessonApp .s4RailButtons button:disabled{opacity:.42}
-#sigLessonApp .s4No{display:grid;place-items:center;flex:0 0 36px;height:36px;border-radius:9px;background:#032330;color:#6bd5f1;font-weight:900}
-#sigLessonApp .s4RailText b{display:block;font-size:11px;line-height:1.18}
-#sigLessonApp .s4RailText small{display:block;margin-top:4px;color:#69bdd3;font-size:7px;letter-spacing:.15em;font-weight:900}
+<style id="stage4-safe-visual-refresh-1447">
+/* BUILD 1.44.7 — Stage 4 visual refresh.
+   CSS ONLY: the known-good 1.44.4 Stage 4 renderer, handlers, lesson data,
+   audio, locking, progress and final-check logic remain untouched. */
 
-#sigLessonApp .s4Content{flex:1 1 auto;min-width:0;background:#062b3a;border:1px solid #176078;border-radius:17px;overflow:hidden}
-#sigLessonApp .s4Hero{display:flex;justify-content:space-between;gap:20px;padding:20px 22px;background:#073448;border-bottom:1px solid #155b72}
-#sigLessonApp .s4Hero h3{margin:4px 0 7px;color:#fff;font-size:25px}
-#sigLessonApp .s4Hero p{margin:0;max-width:760px;color:#9db5bf;font-size:12px;line-height:1.5}
-#sigLessonApp .s4LessonNumber{flex:0 0 72px;height:72px;display:grid;place-content:center;text-align:center;border:1px solid #1d7791;border-radius:13px;background:#042532}
-#sigLessonApp .s4LessonNumber small{font-size:7px;color:#6dd4ef;letter-spacing:.16em;font-weight:900}
-#sigLessonApp .s4LessonNumber strong{font-size:25px;color:#fff}
-
-#sigLessonApp .s4Facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:17px 18px}
-#sigLessonApp .s4Fact{display:flex;align-items:center;gap:12px;min-height:86px;padding:11px;background:#031f2a;border:1px solid #0d4659;border-radius:12px}
-#sigLessonApp .s4FactVisual{flex:0 0 70px;height:62px;display:grid;place-items:center;border-radius:9px;background:#021720}
-#sigLessonApp .s4Fact b{color:#fff;font-size:13px}
-#sigLessonApp .s4Fact p{margin:4px 0 0;color:#91aab5;font-size:10px;line-height:1.45}
-#sigLessonApp .s4Pulse{display:block;background:#fff;box-shadow:0 0 14px rgba(126,223,255,.75)}
-#sigLessonApp .s4Pulse.short{width:14px;height:14px;border-radius:50%}
-#sigLessonApp .s4Pulse.long{width:48px;height:9px;border-radius:20px}
-#sigLessonApp .s4Boat{position:relative;display:block;width:52px;height:30px;transform-origin:center bottom}
-#sigLessonApp .s4Boat:before{content:"";position:absolute;left:3px;right:3px;bottom:4px;height:9px;background:#c9f3ff;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)}
-#sigLessonApp .s4Boat:after{content:"";position:absolute;left:17px;bottom:13px;width:20px;height:8px;border:2px solid #6bd6f1;border-bottom:0}
-#sigLessonApp .s4Boat.xs{transform:scale(.68)}#sigLessonApp .s4Boat.sm{transform:scale(.82)}
-#sigLessonApp .s4Boat.md{transform:scale(1)}#sigLessonApp .s4Boat.lg{transform:scale(1.14)}
-#sigLessonApp .s4Diamond{font-size:22px;color:#6bd6f1}
-
-#sigLessonApp .s4Listen{padding:0 18px 17px}
-#sigLessonApp .s4ListenHead{display:flex;justify-content:space-between;align-items:center;margin:0 2px 8px}
-#sigLessonApp .s4ListenHead b{font-size:9px;letter-spacing:.14em;color:#6bd6f1}
-#sigLessonApp .s4ListenHead span{font-size:9px;color:#7897a3}
-#sigLessonApp .s4SoundCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-#sigLessonApp .s4SoundCards button{min-height:122px;padding:13px 15px;border:1px solid #168ab0;border-radius:13px;background:#096384;color:#fff;text-align:left;display:flex;flex-direction:column}
-#sigLessonApp .s4SoundTop{display:flex;justify-content:space-between;align-items:center}
-#sigLessonApp .s4SoundTop small{font-size:7px;letter-spacing:.15em;color:#c2f2ff;font-weight:900}
-#sigLessonApp .s4SoundCards button>strong{margin:6px 0 1px;font-size:24px;letter-spacing:.15em}
-#sigLessonApp .s4SoundCards button>b{font-size:11px}
-#sigLessonApp .s4Play{margin-top:auto;padding-top:9px;font-size:8px;letter-spacing:.13em;color:#c2f2ff;font-weight:900}
-
-#sigLessonApp .s4Continue{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 18px;background:#042431;border-top:1px solid #155b72}
-#sigLessonApp .s4Continue>div b{display:block;font-size:8px;letter-spacing:.14em;color:#6bd6f1}
-#sigLessonApp .s4Continue>div span{display:block;margin-top:4px;font-size:9px;color:#829da8}
-#sigLessonApp .s4Continue .big{min-width:230px}
-#sigLessonApp .s4FinalReady{display:flex;align-items:center;gap:12px;margin-top:12px;padding:14px 17px;border:1px solid #17855f;border-radius:13px;background:#063a33}
-#sigLessonApp .s4FinalReady b{color:#fff}.s4FinalReady span{color:#9ac9ba;font-size:10px}
-#sigLessonApp .s4FinalReady button{margin-left:auto}
-
-@media(max-width:900px){
- #sigLessonApp .s4LessonShell{display:block}
- #sigLessonApp .s4Rail{margin-bottom:12px}
- #sigLessonApp .s4RailButtons{grid-template-columns:repeat(3,minmax(0,1fr))}
+#sigLessonApp{
+  --s4-line:#176078;
+  --s4-panel:#062b3a;
+  --s4-deep:#031f2a;
+  --s4-cyan:#69d7f2;
 }
-@media(max-width:650px){
- #sigLessonApp .s4RailButtons,#sigLessonApp .s4Facts,#sigLessonApp .s4SoundCards{grid-template-columns:1fr}
- #sigLessonApp .s4Continue{display:block}
- #sigLessonApp .s4Continue .big{width:100%;min-width:0;margin-top:12px}
+
+/* Existing two-column lesson layout */
+#sigLessonApp .sigLessonLayout,
+#sigLessonApp .sigLessonsLayout,
+#sigLessonApp .sigLessonWrap{
+  gap:16px;
+}
+
+/* Existing lesson navigation gets more hierarchy without changing markup */
+#sigLessonApp .sigLessonNav{
+  border:1px solid var(--s4-line);
+  border-radius:16px;
+  background:#062b3a;
+  padding:14px;
+}
+#sigLessonApp .sigLessonNav button{
+  border-radius:11px;
+  transition:none;
+}
+#sigLessonApp .sigLessonNav button.active{
+  border:1px solid #38bde7;
+  box-shadow:inset 0 0 0 1px rgba(105,215,242,.12);
+}
+
+/* Existing right-hand lesson card — presentation only */
+#sigLessonApp .sigLessonCard{
+  border:1px solid var(--s4-line);
+  border-radius:16px;
+  overflow:hidden;
+  background:#062b3a;
+}
+#sigLessonApp .sigLessonCard > .ver{
+  color:var(--s4-cyan);
+  letter-spacing:.05em;
+}
+#sigLessonApp .sigLessonCard h3{
+  font-size:25px;
+  line-height:1.08;
+  margin-top:5px;
+}
+#sigLessonApp .sigLessonCard > p{
+  max-width:900px;
+  line-height:1.5;
+}
+
+/* Existing fact/teaching boxes */
+#sigLessonApp .sigLessonFacts{
+  gap:10px;
+}
+#sigLessonApp .sigLessonFacts > div{
+  position:relative;
+  min-height:76px;
+  border:1px solid #0d4659;
+  border-radius:12px;
+  background:#031f2a;
+  padding:14px 15px 14px 54px;
+}
+#sigLessonApp .sigLessonFacts > div:before{
+  content:"";
+  position:absolute;
+  left:16px;
+  top:50%;
+  width:22px;
+  height:8px;
+  border-radius:8px;
+  background:#d9f7ff;
+  box-shadow:0 0 12px rgba(105,215,242,.55);
+  transform:translateY(-50%);
+}
+#sigLessonApp .sigLessonFacts > div:nth-child(2):before{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+}
+#sigLessonApp .sigLessonFacts b{
+  color:#fff;
+}
+#sigLessonApp .sigLessonFacts p{
+  color:#91aab5;
+  line-height:1.45;
+}
+
+/* Existing blue signal buttons: retain their handlers and labels,
+   but make them read as deliberate audio cards. */
+#sigLessonApp button[onclick*="playDefinedSignal"]{
+  position:relative;
+  min-height:72px;
+  border-radius:12px;
+  border:1px solid #39bce6;
+  padding:13px 16px;
+  text-align:center;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+}
+#sigLessonApp button[onclick*="playDefinedSignal"]:before{
+  content:"◖ )))";
+  display:inline-block;
+  margin-right:9px;
+  color:#d7f7ff;
+  font-weight:900;
+  letter-spacing:.04em;
+}
+
+/* Existing completion control */
+#sigLessonApp button[onclick*="sigFinishLesson"]{
+  min-height:52px;
+  border-radius:12px;
+  font-weight:900;
+  letter-spacing:.02em;
+}
+
+/* Tablet/mobile: leave the application's existing behaviour in charge,
+   only prevent the visual additions becoming cramped. */
+@media(max-width:760px){
+  #sigLessonApp .sigLessonFacts > div{padding-left:45px}
+  #sigLessonApp .sigLessonFacts > div:before{left:13px}
 }
 </style>
 
@@ -17599,7 +17657,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.44.6</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.44.7</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -24012,73 +24070,8 @@ const SIG_FINAL_QUIZ=[
 ];
 let sigLessonIndex=0,sigLessonsFinished=0,sigFinalIndex=0,sigFinalScore=0,sigFinalAnswered=false;
 function sigLessonsComplete(){return sigLessonsFinished>=SIG_LESSONS.length}
-function renderSigLessons(){
- const root=$('sigLessonApp');if(!root)return;
- const l=SIG_LESSONS[sigLessonIndex],next=Math.min(5,sigLessonsFinished);
- const pct=Math.round((sigLessonsFinished/6)*100);
- const factVisual=(label)=>{
-   const t=label.toLowerCase();
-   if(t.includes('short blast'))return '<span class="s4Pulse short"></span>';
-   if(t.includes('prolonged blast'))return '<span class="s4Pulse long"></span>';
-   if(t.includes('under 12'))return '<span class="s4Boat xs"></span>';
-   if(t.includes('12 m'))return '<span class="s4Boat sm"></span>';
-   if(t.includes('20 m'))return '<span class="s4Boat md"></span>';
-   if(t.includes('100 m'))return '<span class="s4Boat lg"></span>';
-   return '<span class="s4Diamond">◆</span>';
- };
- root.innerHTML=`
- <div class="s4LessonShell">
-   <aside class="s4Rail">
-     <div class="s4ProgressHead"><span>STAGE 4 PROGRESS</span><strong>${sigLessonsFinished} / 6</strong></div>
-     <div class="s4ProgressBar"><i style="width:${pct}%"></i></div>
-     <div class="s4RailButtons">
-       ${SIG_LESSONS.map((x,i)=>`<button class="${i===sigLessonIndex?'active':''} ${i<sigLessonsFinished?'done':''}" ${i>next?'disabled':''} onclick="sigSelectLesson(${i})">
-         <span class="s4No">${i<sigLessonsFinished?'✓':String(i+1).padStart(2,'0')}</span>
-         <span class="s4RailText"><b>${x.title}</b><small>${i<sigLessonsFinished?'COMPLETE':i===sigLessonIndex?'IN PROGRESS':'LOCKED'}</small></span>
-       </button>`).join('')}
-     </div>
-   </aside>
-
-   <div class="s4Content">
-     <div class="s4Hero">
-       <div>
-         <div class="ver">STAGE 4 • LESSON ${sigLessonIndex+1} / 6 • ${l.sub}</div>
-         <h3>${l.title}</h3>
-         <p>${l.intro}</p>
-       </div>
-       <div class="s4LessonNumber"><small>LESSON</small><strong>${String(sigLessonIndex+1).padStart(2,'0')}</strong></div>
-     </div>
-
-     <div class="s4Facts">
-       ${l.facts.map(f=>`<div class="s4Fact">
-         <div class="s4FactVisual">${factVisual(f[0])}</div>
-         <div><b>${f[0]}</b><p>${f[1]}</p></div>
-       </div>`).join('')}
-     </div>
-
-     ${l.play.length?`<div class="s4Listen">
-       <div class="s4ListenHead"><b>LISTEN & RECOGNISE</b><span>Hear the approved training pattern</span></div>
-       <div class="s4SoundCards">
-         ${l.play.map(id=>{
-           let x=PW_SOUND_MASTER.find(z=>z.id===id);
-           return x&&x.seq?.length?`<button onclick="playDefinedSignal('${id}')">
-             <span class="s4SoundTop"><span>🔊</span><small>HEAR SIGNAL</small></span>
-             <strong>${x.pattern}</strong>
-             <b>${x.title}</b>
-             <span class="s4Play">▶ PLAY SIGNAL</span>
-           </button>`:''
-         }).join('')}
-       </div>
-     </div>`:''}
-
-     <div class="s4Continue">
-       <div><b>LESSON ${sigLessonIndex+1} OF 6</b><span>${sigLessonIndex<sigLessonsFinished?'Completed — you can revisit this lesson at any time.':'Review the cards and listen to the signals before continuing.'}</span></div>
-       <button class="big" onclick="sigFinishLesson()">${sigLessonIndex<sigLessonsFinished?'LESSON COMPLETE ✓':sigLessonIndex===5?'COMPLETE LESSON 6':'COMPLETE & CONTINUE →'}</button>
-     </div>
-   </div>
- </div>
- ${sigLessonsComplete()?'<div class="s4FinalReady"><b>STAGE 4 LESSONS COMPLETE</b><span>Ready for the 10-question recognition check.</span><button class="big" onclick="showSignalSection(\'quiz\')">OPEN FINAL CHECK →</button></div>':''}`;
-}function sigSelectLesson(i){if(i<=Math.min(5,sigLessonsFinished)){sigLessonIndex=i;renderSigLessons();window.scrollTo({top:0,behavior:'smooth'})}}
+function renderSigLessons(){const root=$('sigLessonApp');if(!root)return;const l=SIG_LESSONS[sigLessonIndex],next=Math.min(5,sigLessonsFinished);root.innerHTML=`<div class="sigLessonHead"><div><div class="ver">STAGE 4 • LESSON ${sigLessonIndex+1} / 6</div><h3>${l.title}</h3><div class="note">${l.sub}</div></div></div><div class="sigLessonNav">${SIG_LESSONS.map((x,i)=>`<button class="${i===sigLessonIndex?'active':''} ${i<sigLessonsFinished?'done':''}" ${i>next?'disabled':''} onclick="sigSelectLesson(${i})">${String(i+1).padStart(2,'0')}<br>${i<sigLessonsFinished?'✓ DONE':'LESSON'}</button>`).join('')}</div><div class="sigLessonCard"><p>${l.intro}</p>${l.facts.map(f=>`<div class="sigFact"><b>${f[0]}</b><p>${f[1]}</p></div>`).join('')}<div class="sigLessonActions">${l.play.map(id=>{let x=PW_SOUND_MASTER.find(z=>z.id===id);return x&&x.seq?.length?`<button onclick="playDefinedSignal('${id}')">🔊 ${x.pattern} • ${x.title}</button>`:''}).join('')}<button class="big" onclick="sigFinishLesson()">${sigLessonIndex<sigLessonsFinished?'LESSON COMPLETE ✓':sigLessonIndex===5?'COMPLETE LESSON 6':'COMPLETE & CONTINUE →'}</button></div></div><div style="margin-top:14px">${sigLessonsComplete()?'<button class="big" onclick="showSignalSection(\'quiz\')">OPEN 10-QUESTION FINAL CHECK →</button>':''}</div>`}
+function sigSelectLesson(i){if(i<=Math.min(5,sigLessonsFinished)){sigLessonIndex=i;renderSigLessons();window.scrollTo({top:0,behavior:'smooth'})}}
 function sigFinishLesson(){sigLessonsFinished=Math.max(sigLessonsFinished,sigLessonIndex+1);if(sigLessonIndex<5)sigLessonIndex++;renderSigLessons()}
 function renderSoundMaster(){let g=$('soundMasterGrid');if(!g)return;g.innerHTML=PW_SOUND_MASTER.map(s=>`<div class="sigCard soundLibCard"><div class="soundGroup">RULE ${s.rule}</div><h4>${s.title}</h4><div class="sigPattern">${s.pattern}</div><p>${s.meaning}</p>${s.seq?.length?`<button onclick="playDefinedSignal('${s.id}')">🔊 PLAY SIGNAL</button>`:'<span class="note">Reference entry</span>'}</div>`).join('')}
 function renderSigFinal(){const root=$('sigStage4Final');if(!root)return;if(!sigLessonsComplete()){root.innerHTML='<div class="sigLocked"><b>FINAL CHECK LOCKED</b><p>Complete Lessons 1–6 first.</p></div>';return}if(sigFinalIndex>=SIG_FINAL_QUIZ.length){let pass=sigFinalScore>=8,pct=Math.round(sigFinalScore/10*100);root.innerHTML=`<div class="sigFinalScore"><div class="ver">STAGE 4 RESULT</div><strong>${sigFinalScore} / 10</strong><h3>${pass?'STAGE 4 KNOWLEDGE ACHIEVED':'REVIEW AND TRY AGAIN'}</h3><p>${pass?'You have demonstrated the core sound-signal recognition taught in Stage 4.':'You need 8/10. Review the six lessons and Master Sound Library, then try again.'}</p>${pass?'<button class="big" onclick="completeStage4()">STAGE 4 COMPLETE ✓</button>':'<button onclick="sigRestartFinal()">TRY AGAIN</button>'}</div>`;if(pass){courseRecordScore('signals',pct,true);courseRecordComplete('signals',pct)}return}let q=SIG_FINAL_QUIZ[sigFinalIndex],sound=PW_SOUND_MASTER.find(x=>x.id===q[4]);root.innerHTML=`<div class="sigFinalBox"><div class="ver">STAGE 4 FINAL CHECK • QUESTION ${sigFinalIndex+1} / 10</div><div class="sigProgress"><span style="width:${sigFinalIndex*10}%"></span></div>${sound?.seq?.length?`<button class="big" onclick="playDefinedSignal('${sound.id}')">🔊 PLAY QUESTION SIGNAL</button>`:''}<div class="sigFinalQ">${q[0]}</div><div class="sigFinalOpts">${q[1].map((o,i)=>`<button onclick="sigFinalAnswer(${i})">${o}</button>`).join('')}</div><div id="sigFinalResult"></div></div>`}
@@ -24237,7 +24230,7 @@ function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final
 function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.44.6');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.44.4');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24472,7 +24465,7 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
 })();
 </script>
 <script id="pw1414TeachingPlateAudit">
-(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.44.6'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
+(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.44.4'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
 </script>
 
 <script>
