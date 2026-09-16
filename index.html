@@ -17403,7 +17403,10 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:750px){.tssScenarioBar,.tssSimControls{grid-template-columns:repeat(2,1fr)}.tssSimHud{grid-template-columns:repeat(3,1fr)}}
 
 @media(min-width:850px){.layout{grid-template-columns:1.45fr .75fr}.sea{height:545px}.hero{height:300px}.conditions{grid-template-columns:repeat(4,1fr)}}
-.lsLessonBtn.lessonLocked{opacity:.42;cursor:not-allowed}.lsLessonBtn.lessonLocked:hover{transform:none}.stage2Knowledge.locked #lsFinalQuizArea{opacity:.68}</style>
+.lsLessonBtn.lessonLocked{opacity:.42;cursor:not-allowed}.lsLessonBtn.lessonLocked:hover{transform:none}.stage2Knowledge.locked #lsFinalQuizArea{opacity:.68}
+.csColregAssumption{margin-top:10px;padding:10px 12px;border:1px solid #24758a;border-radius:10px;background:rgba(4,32,43,.72);display:flex;gap:10px;align-items:flex-start;color:#b9ced5;font-size:11px;line-height:1.45}.csColregAssumption b{color:#55d8ee;white-space:nowrap;letter-spacing:.06em}.csColregAssumption span{display:block}.chartRolePillText{font-size:5.4px!important}
+@media(max-width:800px){.csColregAssumption{display:block}.csColregAssumption b{display:block;margin-bottom:4px;white-space:normal}}
+</style>
 
 <style id="stage3TeachingReview1376b">
 .lsTeachGrid{display:grid;gap:12px;align-items:stretch}.lsTeachGrid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.lsTeachGrid.four{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -17493,7 +17496,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.43.4</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.43.5</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18346,6 +18349,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
         <div class="ver">STEP 2 • ENCOUNTER</div>
         <h3>Choose a scenario</h3>
         <p>Each chart card uses the same verified starting geometry as the simulator. Select an encounter to receive the bridge brief before taking the watch.</p>
+        <div class="csColregAssumption"><b>COLREG ENCOUNTER ASSUMPTIONS</b><span>Unless a scenario states otherwise: vessels are in sight of one another, visibility is good, both are underway, and risk of collision is being assessed. Maintain a proper lookout and apply Rules 5, 7 and 8 throughout.</span></div>
       </div>
       <div class="csFilterBar" id="scenarioFilters">
         <button class="active" data-filter="all" onclick="setScenarioFilter('all',this)">ALL</button>
@@ -19048,7 +19052,7 @@ function scenarioRole(id){
   const s=SCENARIOS[id];
   if(s.kind==='cross_giveway'||s.kind==='overtaking'||s.kind==='power_give_sail'||s.kind==='sail_giveway')return['GIVE-WAY','chartGive'];
   if(s.kind==='cross_standon'||s.kind==='cross_standon_fail'||s.kind==='overtaken'||s.kind==='sail_standon')return['STAND-ON','chartStand'];
-  if(s.kind==='head_on')return['BOTH MANOEUVRE','chartGive'];
+  if(s.kind==='head_on')return['BOTH ALTER TO STARBOARD','chartGive'];
   return['ASSESS','chartStand'];
 }
 function scenarioChartHTML(id){
@@ -19100,15 +19104,15 @@ function scenarioChartHTML(id){
       ${wind}
       ${boat(ownX,ownY,0,'own')}
       ${boat(tx,ty,tgtRelH,'target')}
-      <rect class="chartRolePill ${role[1]}" x="114" y="7" width="58" height="12" rx="4"/>
-      <text class="chartRolePillText" x="143" y="15" text-anchor="middle">${role[0]}</text>
+      <rect class="chartRolePill ${role[1]}" x="91" y="7" width="81" height="12" rx="4"/>
+      <text class="chartRolePillText" x="131.5" y="15" text-anchor="middle">${role[0]}</text>
     </svg>
   </span>`;
 }
 
 function scenarioSubtitle(id){
   const s=SCENARIOS[id];
-  if(id==='power_vs_sail') return 'Rule 18 • own power vessel normally keeps clear of sailing vessel';
+  if(id==='power_vs_sail') return 'Rule 18 • power normally keeps clear of sail • subject to Rules 9, 10 & 13';
   if(id==='sail_vs_power') return 'Rule 18 • own sailing vessel is normally stand-on';
   if(id==='sail_port_tack') return 'Rule 12 • port tack gives way to starboard tack';
   if(id==='sail_starboard_tack') return 'Rule 12 • target on port tack gives way';
@@ -19118,8 +19122,8 @@ function scenarioSubtitle(id){
   if(s.kind==='head_on') return 'Power / power • reciprocal or nearly reciprocal';
   if(s.kind==='overtaking') return 'Rule 13 • overtaking vessel responsible';
   if(s.kind==='overtaken') return 'Rule 13 • target overtaking vessel responsible';
-  if(s.kind==='cross_standon') return 'Power / power • own vessel stand-on';
-  if(s.kind==='cross_standon_fail') return 'Rule 17 • stand-on vessel must monitor and act if the give-way vessel fails';
+  if(s.kind==='cross_standon') return 'Power / power • stand-on: maintain course and speed initially; keep monitoring';
+  if(s.kind==='cross_standon_fail') return 'Rule 17 escalation • STAND-ON → MONITOR → MAY ACT → MUST ACT';
   return 'Power / power • give-way assessment';
 }
 
@@ -19136,15 +19140,17 @@ function setScenarioFilter(filter,el){
   renderScenarioList();
 }
 function scenarioRules(id){
-  const map={cross_stbd:'Rules 5, 7, 8, 15 & 16',cross_port:'Rules 5, 7, 8, 15 & 17',rule17_fail:'Rules 5, 7, 8, 15 & 17',head_on:'Rules 5, 7, 8 & 14',overtake:'Rules 5, 7, 8 & 13',overtaken:'Rules 5, 7, 8 & 13',cross_stbd_offset:'Rules 5, 7, 8, 15 & 16',head_on_offset:'Rules 5, 7, 8 & 14',overtake_port:'Rules 5, 7, 8 & 13',power_vs_sail:'Rules 5, 7, 8 & 18',sail_vs_power:'Rules 5, 7, 8 & 18',sail_port_tack:'Rules 5, 7, 8 & 12',sail_starboard_tack:'Rules 5, 7, 8 & 12',sail_windward:'Rules 5, 7, 8 & 12',sail_leeward:'Rules 5, 7, 8 & 12',sail_overtaking:'Rules 5, 7, 8 & 13'};
+  const map={cross_stbd:'Rules 5, 7, 8, 15 & 16',cross_port:'Rules 5, 7, 8, 15 & 17',rule17_fail:'Rules 5, 7, 8, 15 & 17',head_on:'Rules 5, 7, 8 & 14',overtake:'Rules 5, 7, 8 & 13',overtaken:'Rules 5, 7, 8 & 13',cross_stbd_offset:'Rules 5, 7, 8, 15 & 16',head_on_offset:'Rules 5, 7, 8 & 14',overtake_port:'Rules 5, 7, 8 & 13',power_vs_sail:'Rules 5, 7, 8, 9, 10, 13 & 18',sail_vs_power:'Rules 5, 7, 8 & 18',sail_port_tack:'Rules 5, 7, 8 & 12',sail_starboard_tack:'Rules 5, 7, 8 & 12',sail_windward:'Rules 5, 7, 8 & 12',sail_leeward:'Rules 5, 7, 8 & 12',sail_overtaking:'Rules 5, 7, 8 & 13'};
   return map[id]||'COLREG encounter rules';
 }
 function scenarioObjective(id){
   const s=SCENARIOS[id];
-  if(s.kind==='cross_standon_fail')return 'Monitor the give-way vessel and recognise when stand-on action becomes necessary.';
-  if(s.kind==='cross_standon'||s.kind==='overtaken'||s.kind==='sail_standon')return 'Identify your stand-on responsibility while continuously assessing collision risk.';
-  if(s.kind==='head_on')return 'Recognise reciprocal or nearly reciprocal geometry and make the expected clear alteration.';
+  if(s.kind==='cross_standon_fail')return 'Maintain course and speed initially. If it becomes apparent the give-way vessel is not taking appropriate action, you may act; when collision cannot be avoided by her action alone, you must take the action that will best aid avoidance.';
+  if(s.kind==='cross_standon'||s.kind==='overtaken'||s.kind==='sail_standon')return 'Maintain course and speed initially while continuously assessing risk and monitoring the give-way vessel; be ready to apply Rule 17 where applicable.';
+  if(s.kind==='head_on')return 'Recognise reciprocal or nearly reciprocal courses with risk of collision: each power-driven vessel alters course to starboard so they pass port-to-port.';
   if(s.kind==='overtaking')return 'Keep out of the way until finally past and clear.';
+  if(id==='cross_stbd_offset')return 'Do not judge risk from CPA alone. Assess bearing, range, CPA/TCPA and the developing encounter using all available means.';
+  if(id==='power_vs_sail')return 'Apply Rule 18 to this ordinary power-versus-sail encounter while remembering that Rules 9, 10 and 13, and other vessel-status circumstances, can change the simple hierarchy.';
   if(s.kind==='power_give_sail'||s.kind==='sail_giveway')return 'Apply vessel-status responsibilities and take early, substantial avoiding action.';
   return 'Recognise developing risk and take early, substantial action to keep well clear.';
 }
@@ -24046,7 +24052,7 @@ function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final
 function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.43.4');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.43.5');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24281,7 +24287,7 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
 })();
 </script>
 <script id="pw1414TeachingPlateAudit">
-(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.43.4'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
+(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.43.5'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
 </script>
 
 <script>
