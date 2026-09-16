@@ -16347,7 +16347,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.20-BACK-STATE-SEPARATION</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.21-AUDITED-BASELINE</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">WATCH ONE</div>
@@ -23225,7 +23225,7 @@ const _aisInitStage8=aisInit;aisInit=function(){_aisInitStage8();aisCourseLoad()
 .pwHeroControls{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pwHeroControls label{display:block;color:#b9d3dc;font-size:8px;font-weight:800;letter-spacing:.05em}.pwHeroControls input{width:100%;margin-top:6px}.pwHeroPhotoGuide{margin-top:9px!important;color:#77dff5!important}.pwHeroReset{margin-top:9px;border:1px solid #2d7187;background:#07384b;color:#dff8ff;border-radius:7px;padding:6px 9px;font-size:8px;font-weight:900;cursor:pointer}
 @media(max-width:650px){.pwHeroControls{grid-template-columns:1fr}.pwHeroFramePreview{height:105px}}
 </style>
-<script id="pwHeroFramingPatch1463">
+<script id="pwHeroFramingController">
 (function(){
  const FRAME_KEY='projectWatchCustomHeroFrameV1';
  function profileId(){try{return vesselProfile().id||'custom'}catch(e){return 'watch1'}}
@@ -23247,7 +23247,7 @@ const _aisInitStage8=aisInit;aisInit=function(){_aisInitStage8();aisCourseLoad()
 body.pw-watch-one .homeProHeroImg{filter:saturate(1.05) brightness(.94) contrast(1.04)!important}
 body.pw-watch-one .homeProHeroShade{background:linear-gradient(90deg,rgba(2,19,28,.88) 0%,rgba(3,24,32,.70) 38%,rgba(3,24,32,.24) 62%,rgba(2,19,28,.08) 100%),linear-gradient(180deg,rgba(2,19,28,.03) 0%,rgba(2,19,28,.02) 58%,rgba(2,19,28,.40) 100%)!important}
 </style>
-<script id="pwHeroContrastPatch1467">
+<script id="pwHeroContrastController">
 (function(){
  function syncHeroContrast(){
   let id='watch1';try{id=vesselProfile().id||'watch1'}catch(e){}
@@ -23262,7 +23262,7 @@ body.pw-watch-one .homeProHeroShade{background:linear-gradient(90deg,rgba(2,19,2
 
 
 
-<style id="pwCollisionStateLock14613">
+<style id="pwCollisionStateController">
 /* During a live collision watch, vessel/profile changing is intentionally unavailable. */
 body.pw-collision-watch-active #pwVesselSwitch,
 body.pw-collision-watch-active .vesselProfileOpen{display:none!important}
@@ -23283,12 +23283,12 @@ body.pw-collision-watch-active #pwLiveVesselIdentity{display:block}
 #pwLiveVesselIdentity b{display:block;color:#fff;font-size:10px;letter-spacing:.55px}
 #pwLiveVesselIdentity small{display:block;margin-top:3px;color:#7fdcf5;font-size:7px;font-weight:900;letter-spacing:.35px}
 </style>
-<script id="pwCollisionStateLock14613">
-/* Build 1.46.18 — Collision State Lock
+<script id="pwCollisionStateController">
+/* Collision simulator state controller
    Vessel operating state is chosen on the briefing screen and locked for the live watch.
    No course-progress/completion/storage writes are introduced here. */
 (function(){
- const BUILD='1.46.20-BACK-STATE-SEPARATION';
+ const BUILD='1.46.21-AUDITED-BASELINE';
 
  function visible(id){
    const e=document.getElementById(id);
@@ -23403,12 +23403,7 @@ body.pw-collision-watch-active #pwLiveVesselIdentity{display:block}
  #pwWatch1Btn::after,#pwWatch2Btn::after,#pwCustomBtn::after{display:none}
 }
 </style>
-<script id="pwVesselTypeLabels14615">
-(function(){window.PROJECT_WATCH_BUILD='1.46.20-BACK-STATE-SEPARATION';})();
-</script>
-
-
-<style id="pwResponsiveTypography14616">
+<style id="pwTypographyFoundation">
 /* PROJECT WATCH 1.46.19 — platform-wide responsive typography.
    CSS only: preserves hierarchy while establishing readable minimums across tablet/desktop.
    Deliberately does NOT scale canvases, images, radar geometry, or overall application zoom. */
@@ -23512,12 +23507,7 @@ h1,.heroTitle{font-size:var(--pw-fs-display);line-height:1.05}
   }
 }
 </style>
-<script id="pwResponsiveTypographyBuild14616">
-(function(){window.PROJECT_WATCH_BUILD='1.46.20-BACK-STATE-SEPARATION';})();
-</script>
-
-
-<style id="pwReadableTypography14617">
+<style id="pwTypographyReadability">
 /* PROJECT WATCH 1.46.18 — READABILITY PASS
    Stronger global minimums. This intentionally overrides legacy 6–10px declarations. */
 :root{
@@ -23582,7 +23572,7 @@ h3,h4,h5,h6,.cardTitle,.moduleTitle,.scenarioTitle{
 
 
 
-<style id="pwReadability14618">
+<style id="pwTypographyDeviceCalibration">
 /* 1.46.18 — consistent iPad readability + header containment */
 @media (min-width:768px) and (max-width:1366px){
   :root{
@@ -23636,9 +23626,6 @@ h3,h4,h5,h6,.cardTitle,.moduleTitle,.scenarioTitle{
 </style>
 
 
-<script id="pwNavigation14618">
-
-</script>
-
-</body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
+<script id="pwBuildMarker">window.PROJECT_WATCH_BUILD='1.46.21-AUDITED-BASELINE';</script>
+</body></html>
