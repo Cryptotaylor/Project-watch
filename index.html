@@ -17527,7 +17527,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.44.0</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.44.1</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -20173,8 +20173,13 @@ function bvGraphic(){
      let col=x[0], sx=x[1], sy=x[2];
      if(['anchorU50','anchor50','agroundU50','aground50'].includes(c.id) && col==='W'){
        whiteCount++;
+       // Keep anchor whites visually distinct from the aground R/R all-round stack.
+       // Bow/stern recognition plates separate the fore/aft whites laterally; side views retain fore/aft projection.
        let role=(c.id==='anchor50'||c.id==='aground50') && whiteCount===2 ? 'anchorA':'anchorF';
-       let q=bvStatusPoint(role); body+=bvLamp(col,q[0],q[1]);
+       let q=bvStatusPoint(role);
+       if(c.id==='aground50' && (bvAspect==='ahead'||bvAspect==='astern')) q = whiteCount===1 ? [350,96] : [190,132];
+       if(c.id==='agroundU50' && (bvAspect==='ahead'||bvAspect==='astern')) q = [350,104];
+       body+=bvLamp(col,q[0],q[1]);
      } else if(c.id==='gear150' && idx===2){
        body+=bvLamp(col,bvSideX('stbd'),sy);
      } else if(c.id==='dredge' && idx>=3){
@@ -20184,7 +20189,7 @@ function bvGraphic(){
    });
    bvNav(c).forEach(x=>body+=bvLamp(...x));
  }
- let label=day?'DAY SHAPE • LIBRARY 03':(BV_ASPECTS.find(a=>a[0]===bvAspect)?.[1]||'BOW')+' VIEW • LIBRARY 03';
+ let label=day?'DAY SHAPE':(BV_ASPECTS.find(a=>a[0]===bvAspect)?.[1]||'BOW')+' VIEW';
  let labelFill=day?'#555':'#8fd9ee';
  return `<svg viewBox="0 0 540 380" role="img" aria-label="${c.name} — ${label}">${body}<text x="270" y="354" text-anchor="middle" fill="${labelFill}" font-size="12" font-weight="800" letter-spacing="1.2">${label}</text></svg>`;
 }
@@ -20198,7 +20203,7 @@ function bvRender(){
  if(bvMode==='learn'){
    let aspect=bvLight==='night'?BV_ASPECTS.find(a=>a[0]===bvAspect)[1]+' VIEW':'DAYLIGHT';
    let seen=bvLight==='day'?('Prescribed day display: '+bvDayDescription(c)+'.'):c.memory;
-   $('bvIdentity').innerHTML=`<h3>${c.name}</h3><p><b>WHAT YOU SEE:</b> ${seen}</p><p style="margin-top:8px"><b>WHAT IT MEANS:</b> ${c.name}.</p><span class="bridgeBadge">COLREG RULE ${c.rule}</span><span class="bridgeBadge">${aspect}</span><span class="bridgeBadge">MASTER LIBRARY 03</span>`;
+   $('bvIdentity').innerHTML=`<h3>${c.name}</h3><p><b>WHAT YOU SEE:</b> ${seen}</p><p style="margin-top:8px"><b>WHAT IT MEANS:</b> ${c.name}.</p><span class="bridgeBadge">COLREG RULE ${c.rule}</span><span class="bridgeBadge">${aspect}</span>`;
    $('bvQuiz').innerHTML=''
  } else {
    $('bvIdentity').innerHTML=`<h3>${bvLight==='night'?'IDENTIFY THESE LIGHTS':'IDENTIFY THIS SHAPE'}</h3><p>${bvLight==='night'?'Identify the vessel/status from the lights and viewing aspect.':'Identify the vessel/status from the prescribed day shape.'}</p>`;
@@ -24095,7 +24100,7 @@ function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final
 function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.44.0');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.44.1');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24330,7 +24335,7 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
 })();
 </script>
 <script id="pw1414TeachingPlateAudit">
-(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.44.0'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
+(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.44.1'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
 </script>
 
 <script>
@@ -24403,5 +24408,26 @@ const _aisInitStage8=aisInit;aisInit=function(){_aisInitStage8();aisCourseLoad()
  if(typeof oldCourse==='function'){window.renderCoursePage=function(){const r=oldCourse();if(courseCount()===PW_COURSE_STAGES.length){let list=document.getElementById('courseStageList');if(list&&!document.getElementById('pwCourseFinishBtn')){let d=document.createElement('div');d.id='pwCourseFinishBtn';d.style='margin:14px 0;padding:14px;border:1px solid #63e7b855;border-radius:12px;background:#07372d;text-align:center';d.innerHTML='<b style="color:#9ff1ce">⚓ ALL 8 PROJECT WATCH STAGES COMPLETE</b><br><button style="margin-top:9px;background:#128d65" onclick="pwShowCompletion()">VIEW COMPLETION & SCORES →</button>';list.parentElement.insertBefore(d,list)}}return r}}
 })();
 </script>
+
+<script>
+/* Build 1.44.1 — Library 03 signed off for Stage 3; learner-facing audit metadata removed. */
+(function(){
+  function apply1441Signoff(){
+    // Master-review board: replace the pre-signoff green instruction with the signed-off state.
+    document.querySelectorAll('div,p,section').forEach(function(el){
+      var t=(el.textContent||'').trim();
+      if(t.indexOf('Review method:')===0 && t.indexOf('Nothing on this board should be wired into Stage 3 until signed off.')!==-1){
+        el.innerHTML='<b>APPROVED FOR STAGE 3:</b> Master Library 03 has completed visual and regulatory review and is now the locked visual source of truth for Stage 3 teaching and recognition checks. Future changes to an approved card should be treated as controlled corrections rather than a new visual standard.';
+      }
+      if(t==='STATUS: FINAL VISUAL REVIEW') el.textContent='STATUS: APPROVED • STAGE 3';
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply1441Signoff);
+  else apply1441Signoff();
+  // The master board can be injected/shown after load, so re-apply after user actions/rendering.
+  new MutationObserver(apply1441Signoff).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+
 </body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
