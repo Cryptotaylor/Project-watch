@@ -16327,7 +16327,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.6-HOME-REFRESH</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.7-HERO-CONTRAST</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">WATCH ONE</div>
@@ -23194,7 +23194,7 @@ const _aisInitStage8=aisInit;aisInit=function(){_aisInitStage8();aisCourseLoad()
  const FRAME_KEY='projectWatchCustomHeroFrameV1';
  function profileId(){try{return vesselProfile().id||'custom'}catch(e){return 'watch1'}}
  function customFrame(){try{return JSON.parse(localStorage.getItem(FRAME_KEY)||'{}')}catch(e){return {}}}
- function frameFor(id){if(id==='watch1')return {x:50,y:80};if(id==='watch2')return {x:50,y:82};const f=customFrame();return {x:Number.isFinite(+f.x)?+f.x:50,y:Number.isFinite(+f.y)?+f.y:58}}
+ function frameFor(id){if(id==='watch1')return {x:58,y:80};if(id==='watch2')return {x:50,y:82};const f=customFrame();return {x:Number.isFinite(+f.x)?+f.x:50,y:Number.isFinite(+f.y)?+f.y:58}}
  function applyFrame(){const img=document.getElementById('homeVesselHeroImg');if(!img)return;const f=frameFor(profileId());img.style.objectPosition=f.x+'% '+f.y+'%';}
  function preview(){const img=document.getElementById('pwHeroFrameImg');if(!img)return;let src='';try{const p=vesselProfile();src=(typeof PW_PENDING_PHOTO!=='undefined'&&PW_PENDING_PHOTO)||p.photo||''}catch(e){} if(src)img.src=src;const f=customFrame();img.style.objectPosition=(f.x??50)+'% '+(f.y??58)+'%';}
  function ensureControls(){const setup=document.querySelector('.vesselPhotoSetup');if(!setup||document.getElementById('pwHeroFramingBox'))return;const box=document.createElement('div');box.id='pwHeroFramingBox';box.className='pwHeroFramingBox';box.innerHTML='<h4>HOME SCREEN PHOTO POSITION</h4><p>Position your vessel inside the Project Watch hero frame. The complete hull should remain visible with clear space around the boat.</p><div class="pwHeroFramePreview"><img id="pwHeroFrameImg" alt="Home hero preview"><div class="pwHeroFrameGrid"></div></div><div class="pwHeroControls"><label>LEFT / RIGHT<input id="pwHeroX" type="range" min="0" max="100" value="50"></label><label>UP / DOWN<input id="pwHeroY" type="range" min="0" max="100" value="58"></label></div><button type="button" class="pwHeroReset" id="pwHeroReset">RESET POSITION</button><p class="pwHeroPhotoGuide">Recommended photo: landscape 16:9, ideally 1920 × 1080 or larger. Leave clear water/sky around the full vessel so it can be framed on different screens.</p>';setup.insertAdjacentElement('afterend',box);const f=customFrame();box.querySelector('#pwHeroX').value=f.x??50;box.querySelector('#pwHeroY').value=f.y??58;function save(){const x=+box.querySelector('#pwHeroX').value,y=+box.querySelector('#pwHeroY').value;localStorage.setItem(FRAME_KEY,JSON.stringify({x,y}));preview();applyFrame()}box.querySelector('#pwHeroX').addEventListener('input',save);box.querySelector('#pwHeroY').addEventListener('input',save);box.querySelector('#pwHeroReset').onclick=()=>{box.querySelector('#pwHeroX').value=50;box.querySelector('#pwHeroY').value=58;save()};preview();}
@@ -23205,5 +23205,21 @@ const _aisInitStage8=aisInit;aisInit=function(){_aisInitStage8();aisCourseLoad()
 })();
 </script>
 
+
+<style id="pwHeroContrast1467">
+/* 1.46.7: Watch One hero text-contrast calibration only */
+body.pw-watch-one .homeProHeroImg{filter:saturate(1.05) brightness(.94) contrast(1.04)!important}
+body.pw-watch-one .homeProHeroShade{background:linear-gradient(90deg,rgba(2,19,28,.88) 0%,rgba(3,24,32,.70) 38%,rgba(3,24,32,.24) 62%,rgba(2,19,28,.08) 100%),linear-gradient(180deg,rgba(2,19,28,.03) 0%,rgba(2,19,28,.02) 58%,rgba(2,19,28,.40) 100%)!important}
+</style>
+<script id="pwHeroContrastPatch1467">
+(function(){
+ function syncHeroContrast(){
+  let id='watch1';try{id=vesselProfile().id||'watch1'}catch(e){}
+  document.body.classList.toggle('pw-watch-one',id==='watch1');
+ }
+ document.addEventListener('DOMContentLoaded',()=>{syncHeroContrast();setTimeout(syncHeroContrast,120)});
+ const prev=window.refreshVesselUI;window.refreshVesselUI=function(){if(prev)prev.apply(this,arguments);syncHeroContrast()};
+})();
+</script>
 </body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
