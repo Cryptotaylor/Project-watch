@@ -17571,7 +17571,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
   #sigLessonApp .sigLessonFacts > div{padding-left:45px}
   #sigLessonApp .sigLessonFacts > div:before{left:13px}
 }
-/* BUILD 1.46.0-RC432 — Stage 4 lesson workspace visual polish only.
+/* BUILD 1.46.0-RC532 — Stage 4 lesson workspace visual polish only.
    No Stage 4 data, renderer, handlers, audio, progress, locking or final-check logic changed. */
 #sigLessonApp{display:grid;grid-template-columns:238px minmax(0,1fr);grid-template-areas:"nav head" "nav card" "nav foot";gap:0 14px;align-items:start}
 #sigLessonApp .sigLessonHead{grid-area:head;background:#063044;border:1px solid #15566c;border-radius:16px 16px 0 0;padding:18px 20px 14px;min-height:92px;position:relative;overflow:hidden}
@@ -17605,7 +17605,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 @media(max-width:900px){#sigLessonApp{grid-template-columns:190px minmax(0,1fr)}#sigLessonApp .sigLessonCard{grid-template-columns:1fr}#sigLessonApp .sigLessonActions{grid-template-columns:1fr 1fr}#sigLessonApp .sigLessonActions button.big{grid-column:1/-1}}
 @media(max-width:680px){#sigLessonApp{display:block}#sigLessonApp .sigLessonNav{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:12px}#sigLessonApp .sigLessonNav:before{grid-column:1/-1}#sigLessonApp .sigLessonNav button{min-height:50px;text-align:center;padding:8px 4px}#sigLessonApp .sigLessonHead:after{display:none}#sigLessonApp .sigLessonCard{grid-template-columns:1fr}#sigLessonApp .sigLessonActions{grid-template-columns:1fr}}
 \n/* Build 1.44.9 — Stage 4 maritime training visual pass. CSS only. */\n#moduleContext.show{display:grid!important;min-height:72px!important;visibility:visible!important;opacity:1!important}\n#sigLessonApp .sigLessonHead:after{content:"BRIDGE SOUND TRAINING"}\n#sigLessonApp .sigFact{padding-left:20px!important}\n#sigLessonApp .sigFact:before,#sigLessonApp .sigFact:after{display:none!important}\n#sigLessonApp .sigFact b:before{display:inline-grid;place-items:center;width:40px;height:30px;margin-right:12px;border:1px solid #176078;border-radius:8px;background:#031f2a;color:#dff9ff;font:900 18px/1 system-ui;vertical-align:middle;box-shadow:inset 0 0 12px rgba(105,215,242,.05)}\n#sigLessonApp .sigFact:nth-of-type(1) b:before{content:"●";font-size:13px;text-shadow:0 0 8px rgba(223,249,255,.7)}\n#sigLessonApp .sigFact:nth-of-type(2) b:before{content:"━━";font-size:15px;letter-spacing:-4px}\n#sigLessonApp .sigFact:nth-of-type(3) b:before{content:"WH";font-size:10px;letter-spacing:.08em}\n#sigLessonApp .sigFact:nth-of-type(4) b:before{content:"WH + ◯";font-size:9px;letter-spacing:.02em}\n#sigLessonApp .sigFact:nth-of-type(5) b:before{content:"WH ◯ ◎";font-size:8px;letter-spacing:-.02em}\n#sigLessonApp .sigFact:nth-of-type(6) b:before{content:"SIGNAL";font-size:7px;letter-spacing:.09em}\n#sigLessonApp .sigFact b{display:flex!important;align-items:center;margin-bottom:5px!important}\n#sigLessonApp .sigFact p{padding-left:52px}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]{background:#062f41!important;border-color:#16708d!important;padding:14px 16px 14px 68px!important;min-height:76px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]:before{content:"▶"!important;left:17px!important;width:34px!important;height:34px!important;border:1px solid #38bde7!important;background:#031f2a!important;color:#dff9ff!important;font-size:11px!important;letter-spacing:0!important}\n#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]:after{content:"PLAY SIGNAL";position:absolute;right:13px;top:10px;color:#69d7f2;font-size:7px;font-weight:900;letter-spacing:.13em;opacity:.85}\n#sigLessonApp .sigLessonActions button.big{background:#148fc5!important;border-color:#42c8ef!important;min-height:76px!important}\n@media(max-width:680px){#sigLessonApp .sigFact p{padding-left:0}#sigLessonApp .sigFact b:before{flex:0 0 38px}}\n
-/* BUILD 1.46.0-RC432 — approved technical bridge-instrument artwork.
+/* BUILD 1.46.0-RC532 — approved technical bridge-instrument artwork.
    Visual layer only. Stage 4 functionality is untouched. */
 #sigLessonApp .sigFact:before,
 #sigLessonApp .sigFact b:before{content:none!important;display:none!important}
@@ -17775,7 +17775,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.0-RC432</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.0-RC532</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -21045,6 +21045,147 @@ function tssEcdisSVG(live=false,mode=tssGeometryMode){
  </svg>`;
 }
 
+
+/* TSS vessel-profile integration */
+function refreshTSSVesselContext(){
+ const page=$('tssPage');if(!page)return;
+ const h=page.querySelector('h2');
+ if(h)h.textContent=`TSS Training • ${vesselName()}`;
+ const note=page.querySelector('.panel > .note');
+ if(note)note.innerHTML=`<b>Training vessel: ${vesselName()} • ${vesselDisplayLength()} • ${vesselTypeText()}.</b> ${vesselRule10Context()} Learn the geometry first, then apply it under traffic pressure.`;
+ const exam=$('tssExamPage');
+ if(exam){
+   const hero=exam.querySelector('.tssExamHero p');
+   if(hero)hero.textContent=`You are assessed as skipper of ${vesselName()}, a ${vesselDisplayLength()} ${vesselTypeText()}. The exam tests Rule 10, crossing geometry, heading versus COG, joining/leaving, separation zones, lane use and collision-rule interaction. ${vesselRule10JApplies()?'Rule 10(j) applies to your configured vessel.':'Under-20 m Rule 10(j) items remain general-knowledge questions rather than statements about your vessel.'}`;
+   const b=exam.querySelector('.tssExamBasis div:first-child b');
+   if(b)b.textContent=`${vesselName()} • ${vesselDisplayLength()} • ${vesselTypeText()}`;
+ }
+ const tut=$('tssTutorialPage');
+ if(tut){
+   const hp=tut.querySelector('.tutTssHero p');
+   if(hp)hp.textContent=`You are in command of ${vesselName()}, a ${vesselDisplayLength()} ${vesselTypeText()}. Project Watch adapts the vessel-status parts of Rule 10 to this profile while keeping the verified crossing geometry unchanged.`;
+ }
+ const live=$('tssLive');
+ if(live){
+   const lp=live.querySelector('.tssLesson > .note');
+   if(lp)lp.textContent=`Training vessel: ${vesselName()}, ${vesselDisplayLength()}, ${vesselTypeText()}. Assess the traffic first. When a safe crossing develops, cross the complete scheme on the Rule 10(c) heading while continuing to apply the other COLREGs.${vesselRule10JApplies()?' Rule 10(j) also applies to this configured vessel.':''}`;
+ }
+}
+
+function adaptTSSExamForProfile(){
+ if(typeof TSS_EXAM_BANK==='undefined')return;
+ const applies=vesselRule10JApplies(),nm=vesselName();
+ const first=TSS_EXAM_BANK.find(q=>q.cat==='Under-20 m');
+ if(first){
+   if(applies){
+     first.q=`Does Rule 10(j)'s additional non-impeding duty apply to ${nm} in this configured profile?`;
+     first.a=['Yes','No','Only at night','Only in an ITZ'];first.correct=0;
+     first.why=vesselPropulsion()==='sail'
+       ?`Yes. ${nm} is configured as a sailing vessel, so Rule 10(j) applies even if length is 20 m or more.`
+       :`Yes. ${nm} is under 20 m, so Rule 10(j) applies.`;
+   }else{
+     first.q=`Does Rule 10(j)'s additional non-impeding duty apply to ${nm} solely because of this vessel's configured length/type?`;
+     first.a=['Yes','No','Only at night','Only in an ITZ'];first.correct=1;
+     first.why=`No. ${nm} is configured as a power-driven vessel of ${vesselDisplayLength()}, so Rule 10(j) does not apply solely by length.`;
+   }
+ }
+}
+
+function adaptTSSTutorialForProfile(){
+ if(typeof TSS_TUTORIAL==='undefined'||!TSS_TUTORIAL.length)return;
+ const nm=vesselName(),len=vesselDisplayLength(),type=vesselTypeText();
+ const applies=vesselRule10JApplies();
+ const itzAllowed=vesselLength()<20 || vesselPropulsion()==='sail';
+
+ // Lesson 1 — vessel status
+ const L0=TSS_TUTORIAL[0];
+ L0.rule=applies?'YOUR VESSEL • RULE 10(j)':'YOUR VESSEL • RULE 10';
+ L0.title='Start here: know your vessel status';
+ L0.intro=`Project Watch is configured for ${nm}, a ${len} ${type}.`;
+ L0.facts=[
+   ['TRAINING VESSEL',`${nm} • ${len} • ${type}`],
+   ['RULE 10(j)',applies
+     ?(vesselPropulsion()==='sail'
+       ?'Applies because your configured vessel is a sailing vessel.'
+       :'Applies because your configured vessel is under 20 metres.')
+     :'Does not apply solely by length because your configured vessel is power-driven and 20 m or more.'],
+   ['OTHER COLREGS','Rule 10 does not remove your responsibilities under the other COLREGs.'],
+   ['LOCAL INFORMATION','Check the chart and Sailing Directions because individual schemes can contain special provisions.']
+ ];
+ L0.explain=applies
+   ?`Before learning the manoeuvres, fix your vessel status in your mind. You are operating ${nm}, a ${len} ${type}. Rule 10(j) applies to this configured vessel, so you must not impede the safe passage of a power-driven vessel following a traffic lane, while continuing to comply with the other COLREGs.`
+   :`Before learning the manoeuvres, fix your vessel status in your mind. You are operating ${nm}, a ${len} ${type}. Rule 10(j) does not apply solely by length to this configured vessel, but the rest of Rule 10 and the other COLREGs still apply.`;
+ L0.q=applies
+   ?`Does Rule 10(j)'s additional non-impeding duty apply to ${nm}?`
+   :`Does Rule 10(j)'s additional non-impeding duty apply to ${nm} solely because of this vessel's configured length/type?`;
+ L0.a=['YES','NO','ONLY IN DAYLIGHT'];L0.correct=applies?0:1;
+
+ // Lesson 2 — scheme reading
+ const L1=TSS_TUTORIAL[1];
+ L1.rule=applies?'RULE 10(a) & (j)':'RULE 10(a)';
+ L1.explain=`Do not begin by steering toward the first gap you see. Read the complete scheme. Identify both traffic directions, the separation feature, any inshore traffic zone, your intended route and the traffic that could be affected by you. Lane traffic does not gain automatic priority simply because it is in a TSS.${applies?' Your Rule 10(j) non-impeding duty also applies to this configured vessel.':''}`;
+ L1.q='Does being in or near a TSS remove your normal COLREG responsibilities?';
+ L1.a=['YES','NO','ONLY INSIDE AN ITZ'];L1.correct=1;
+
+ // Lesson 3 — ITZ
+ const L2=TSS_TUTORIAL[2];
+ L2.title='The Inshore Traffic Zone';
+ L2.intro=itzAllowed
+   ?`${nm} falls within a vessel category expressly permitted to use an Inshore Traffic Zone under Rule 10(d).`
+   :'Rule 10(d) restricts general use of an Inshore Traffic Zone; learn which vessel categories are expressly permitted.';
+ L2.facts=[
+   ['YOUR PROFILE',itzAllowed
+     ?`${nm} may use an ITZ under the vessel-category permission in Rule 10(d).`
+     :`${nm} is not given the small-vessel/sailing-vessel ITZ permission by this profile alone.`],
+   ['PERMITTED CATEGORIES','Vessels under 20 m, sailing vessels and vessels engaged in fishing are expressly permitted categories.'],
+   ['NOT A ONE-WAY LANE','Within an ITZ you may encounter vessels heading in any direction.'],
+   ['CHECK THE SCHEME','Use the chart and Sailing Directions for the particular TSS and local provisions.']
+ ];
+ L2.explain=itzAllowed
+   ?`Rule 10(d) permits ${nm} to use an inshore traffic zone under the configured vessel category. But do not treat the ITZ as an empty or easier one-way traffic lane. Maintain a proper lookout and check the particular scheme.`
+   :`Rule 10(d) contains specific permissions for use of an inshore traffic zone. Your configured vessel does not receive the under-20-metre or sailing-vessel permission, so study the actual scheme and any other applicable reason before using the ITZ.`;
+ L2.q=itzAllowed?`May ${nm} use an Inshore Traffic Zone under the configured vessel category?`:'Which category is expressly permitted to use an Inshore Traffic Zone under Rule 10(d)?';
+ L2.a=itzAllowed?['YES','NO','ONLY WITH A COMMERCIAL LICENCE']:['A vessel under 20 m','Every power-driven vessel over 20 m','Only a pilot vessel'];
+ L2.correct=0;
+
+ // Lesson 4 — crossing decision
+ const L3=TSS_TUTORIAL[3];
+ L3.rule=applies?'RULE 10(c) & (j)':'RULE 10(c) + COLLISION ASSESSMENT';
+ L3.facts=[
+   ['FIRST QUESTION','Can the crossing be avoided so far as practicable?'],
+   ['TRAFFIC ASSESSMENT','Do not force an unsafe close-quarters situation with lane traffic.'],
+   ['WAIT OUTSIDE','If the developing picture is unsuitable, remain clear rather than forcing the crossing.'],
+   ['PLAN A GAP','Commit only when the traffic picture supports a safe, continuous crossing.']
+ ];
+ L3.explain=applies
+   ?`Rule 10 says to avoid crossing traffic lanes so far as practicable. If you are obliged to cross, your Rule 10(j) duty means you must plan early so that a power-driven vessel following the lane is not forced to alter course or speed because of ${nm}. In this demonstration ${nm} waits outside until a safe gap develops.`
+   :`Rule 10 says to avoid crossing traffic lanes so far as practicable. If you are obliged to cross, assess the traffic early and do not force an unsafe close-quarters situation. In this demonstration ${nm} waits outside until a safe gap develops.`;
+ L3.q='If the developing traffic picture makes the crossing unsafe, what should you do?';
+ L3.a=['Cross anyway because the heading will be 90 degrees','Wait and reassess rather than force the crossing','Enter the separation zone and stop'];L3.correct=1;
+
+ // Lesson 7 — lane use
+ const L6=TSS_TUTORIAL[6];
+ L6.intro=`${nm} is not automatically prohibited from using a traffic lane by this training profile.`;
+ L6.facts=[
+   ['LEGAL PRINCIPLE','Rule 10 does not create a blanket ban on recreational vessels using a traffic lane.'],
+   ['CORRECT FLOW','If using a lane, proceed in the appropriate lane in its general direction of traffic flow.'],
+   ['KEEP CLEAR','So far as practicable keep clear of the separation line or zone.'],
+   ['PROFILE DUTY',applies?'Rule 10(j) non-impeding duty applies to your configured vessel.':'Rule 10(j) does not apply solely by length/type to your configured vessel.']
+ ];
+ L6.explain=`If ${nm}'s passage uses a traffic lane, use the appropriate lane in the general direction of traffic flow and comply with Rule 10.${applies?' Your Rule 10(j) non-impeding duty also remains in force.':''} This beginner course does not present the shipping lane as a default route, and the chart and local scheme provisions must always be checked.`;
+ L6.q=`If ${nm} is using a traffic lane, may the vessel steam against the arrows?`;
+ L6.a=['YES','NO — use the appropriate lane in the general direction of traffic flow','ONLY IN DAYLIGHT'];L6.correct=1;
+
+ // Final watch
+ const LF=TSS_TUTORIAL[TSS_TUTORIAL.length-1];
+ LF.rule=applies?'YOUR VESSEL WATCH • FULL RULE 10':'YOUR VESSEL WATCH • FULL RULE 10';
+ LF.title=`Take the watch: ${nm}`;
+ LF.intro=`Put the Rule 10 lessons together using ${nm}.`;
+ LF.explain=`This final demonstration uses ${nm}, your configured ${len} ${type}. The vessel remains outside while the traffic picture is unsuitable. When a safe gap develops, the vessel commits, holds the right-angle heading, crosses the complete scheme without stopping, clears the far lane and continues the watch.${applies?' The Rule 10(j) non-impeding duty also applies to this configured vessel.':''}`;
+ LF.q='What is the correct beginner sequence for a TSS crossing?';
+ LF.a=['Enter first, then look for a gap','Plan early, assess traffic, cross on the Rule 10(c) heading, and keep applying the COLREGs','Stop in the separation zone between lanes'];LF.correct=1;
+}
+
 function showTSS(name){
  const ids={learn:'Learn',examples:'Examples',bridge:'Bridge',test:'Test',live:'Live'};
  Object.keys(ids).forEach(x=>{
@@ -23035,143 +23176,10 @@ function startPersonaliseObserver(){
  });
  pwPersonaliseObserver.observe(document.body,{childList:true,subtree:true});
 }
-function refreshTSSVesselContext(){
- const page=$('tssPage');if(!page)return;
- const h=page.querySelector('h2');
- if(h)h.textContent=`TSS Training • ${vesselName()}`;
- const note=page.querySelector('.panel > .note');
- if(note)note.innerHTML=`<b>Training vessel: ${vesselName()} • ${vesselDisplayLength()} • ${vesselTypeText()}.</b> ${vesselRule10Context()} Learn the geometry first, then apply it under traffic pressure.`;
- const exam=$('tssExamPage');
- if(exam){
-   const hero=exam.querySelector('.tssExamHero p');
-   if(hero)hero.textContent=`You are assessed as skipper of ${vesselName()}, a ${vesselDisplayLength()} ${vesselTypeText()}. The exam tests Rule 10, crossing geometry, heading versus COG, joining/leaving, separation zones, lane use and collision-rule interaction. ${vesselRule10JApplies()?'Rule 10(j) applies to your configured vessel.':'Under-20 m Rule 10(j) items remain general-knowledge questions rather than statements about your vessel.'}`;
-   const b=exam.querySelector('.tssExamBasis div:first-child b');
-   if(b)b.textContent=`${vesselName()} • ${vesselDisplayLength()} • ${vesselTypeText()}`;
- }
- const tut=$('tssTutorialPage');
- if(tut){
-   const hp=tut.querySelector('.tutTssHero p');
-   if(hp)hp.textContent=`You are in command of ${vesselName()}, a ${vesselDisplayLength()} ${vesselTypeText()}. Project Watch adapts the vessel-status parts of Rule 10 to this profile while keeping the verified crossing geometry unchanged.`;
- }
- const live=$('tssLive');
- if(live){
-   const lp=live.querySelector('.tssLesson > .note');
-   if(lp)lp.textContent=`Training vessel: ${vesselName()}, ${vesselDisplayLength()}, ${vesselTypeText()}. Assess the traffic first. When a safe crossing develops, cross the complete scheme on the Rule 10(c) heading while continuing to apply the other COLREGs.${vesselRule10JApplies()?' Rule 10(j) also applies to this configured vessel.':''}`;
- }
-}
-function adaptTSSExamForProfile(){
- if(typeof TSS_EXAM_BANK==='undefined')return;
- const applies=vesselRule10JApplies(),nm=vesselName();
- const first=TSS_EXAM_BANK.find(q=>q.cat==='Under-20 m');
- if(first){
-   if(applies){
-     first.q=`Does Rule 10(j)'s additional non-impeding duty apply to ${nm} in this configured profile?`;
-     first.a=['Yes','No','Only at night','Only in an ITZ'];first.correct=0;
-     first.why=vesselPropulsion()==='sail'
-       ?`Yes. ${nm} is configured as a sailing vessel, so Rule 10(j) applies even if length is 20 m or more.`
-       :`Yes. ${nm} is under 20 m, so Rule 10(j) applies.`;
-   }else{
-     first.q=`Does Rule 10(j)'s additional non-impeding duty apply to ${nm} solely because of this vessel's configured length/type?`;
-     first.a=['Yes','No','Only at night','Only in an ITZ'];first.correct=1;
-     first.why=`No. ${nm} is configured as a power-driven vessel of ${vesselDisplayLength()}, so Rule 10(j) does not apply solely by length.`;
-   }
- }
-}
 
-function adaptTSSTutorialForProfile(){
- if(typeof TSS_TUTORIAL==='undefined'||!TSS_TUTORIAL.length)return;
- const nm=vesselName(),len=vesselDisplayLength(),type=vesselTypeText();
- const applies=vesselRule10JApplies();
- const itzAllowed=vesselLength()<20 || vesselPropulsion()==='sail';
 
- // Lesson 1 — vessel status
- const L0=TSS_TUTORIAL[0];
- L0.rule=applies?'YOUR VESSEL • RULE 10(j)':'YOUR VESSEL • RULE 10';
- L0.title='Start here: know your vessel status';
- L0.intro=`Project Watch is configured for ${nm}, a ${len} ${type}.`;
- L0.facts=[
-   ['TRAINING VESSEL',`${nm} • ${len} • ${type}`],
-   ['RULE 10(j)',applies
-     ?(vesselPropulsion()==='sail'
-       ?'Applies because your configured vessel is a sailing vessel.'
-       :'Applies because your configured vessel is under 20 metres.')
-     :'Does not apply solely by length because your configured vessel is power-driven and 20 m or more.'],
-   ['OTHER COLREGS','Rule 10 does not remove your responsibilities under the other COLREGs.'],
-   ['LOCAL INFORMATION','Check the chart and Sailing Directions because individual schemes can contain special provisions.']
- ];
- L0.explain=applies
-   ?`Before learning the manoeuvres, fix your vessel status in your mind. You are operating ${nm}, a ${len} ${type}. Rule 10(j) applies to this configured vessel, so you must not impede the safe passage of a power-driven vessel following a traffic lane, while continuing to comply with the other COLREGs.`
-   :`Before learning the manoeuvres, fix your vessel status in your mind. You are operating ${nm}, a ${len} ${type}. Rule 10(j) does not apply solely by length to this configured vessel, but the rest of Rule 10 and the other COLREGs still apply.`;
- L0.q=applies
-   ?`Does Rule 10(j)'s additional non-impeding duty apply to ${nm}?`
-   :`Does Rule 10(j)'s additional non-impeding duty apply to ${nm} solely because of this vessel's configured length/type?`;
- L0.a=['YES','NO','ONLY IN DAYLIGHT'];L0.correct=applies?0:1;
 
- // Lesson 2 — scheme reading
- const L1=TSS_TUTORIAL[1];
- L1.rule=applies?'RULE 10(a) & (j)':'RULE 10(a)';
- L1.explain=`Do not begin by steering toward the first gap you see. Read the complete scheme. Identify both traffic directions, the separation feature, any inshore traffic zone, your intended route and the traffic that could be affected by you. Lane traffic does not gain automatic priority simply because it is in a TSS.${applies?' Your Rule 10(j) non-impeding duty also applies to this configured vessel.':''}`;
- L1.q='Does being in or near a TSS remove your normal COLREG responsibilities?';
- L1.a=['YES','NO','ONLY INSIDE AN ITZ'];L1.correct=1;
 
- // Lesson 3 — ITZ
- const L2=TSS_TUTORIAL[2];
- L2.title='The Inshore Traffic Zone';
- L2.intro=itzAllowed
-   ?`${nm} falls within a vessel category expressly permitted to use an Inshore Traffic Zone under Rule 10(d).`
-   :'Rule 10(d) restricts general use of an Inshore Traffic Zone; learn which vessel categories are expressly permitted.';
- L2.facts=[
-   ['YOUR PROFILE',itzAllowed
-     ?`${nm} may use an ITZ under the vessel-category permission in Rule 10(d).`
-     :`${nm} is not given the small-vessel/sailing-vessel ITZ permission by this profile alone.`],
-   ['PERMITTED CATEGORIES','Vessels under 20 m, sailing vessels and vessels engaged in fishing are expressly permitted categories.'],
-   ['NOT A ONE-WAY LANE','Within an ITZ you may encounter vessels heading in any direction.'],
-   ['CHECK THE SCHEME','Use the chart and Sailing Directions for the particular TSS and local provisions.']
- ];
- L2.explain=itzAllowed
-   ?`Rule 10(d) permits ${nm} to use an inshore traffic zone under the configured vessel category. But do not treat the ITZ as an empty or easier one-way traffic lane. Maintain a proper lookout and check the particular scheme.`
-   :`Rule 10(d) contains specific permissions for use of an inshore traffic zone. Your configured vessel does not receive the under-20-metre or sailing-vessel permission, so study the actual scheme and any other applicable reason before using the ITZ.`;
- L2.q=itzAllowed?`May ${nm} use an Inshore Traffic Zone under the configured vessel category?`:'Which category is expressly permitted to use an Inshore Traffic Zone under Rule 10(d)?';
- L2.a=itzAllowed?['YES','NO','ONLY WITH A COMMERCIAL LICENCE']:['A vessel under 20 m','Every power-driven vessel over 20 m','Only a pilot vessel'];
- L2.correct=0;
-
- // Lesson 4 — crossing decision
- const L3=TSS_TUTORIAL[3];
- L3.rule=applies?'RULE 10(c) & (j)':'RULE 10(c) + COLLISION ASSESSMENT';
- L3.facts=[
-   ['FIRST QUESTION','Can the crossing be avoided so far as practicable?'],
-   ['TRAFFIC ASSESSMENT','Do not force an unsafe close-quarters situation with lane traffic.'],
-   ['WAIT OUTSIDE','If the developing picture is unsuitable, remain clear rather than forcing the crossing.'],
-   ['PLAN A GAP','Commit only when the traffic picture supports a safe, continuous crossing.']
- ];
- L3.explain=applies
-   ?`Rule 10 says to avoid crossing traffic lanes so far as practicable. If you are obliged to cross, your Rule 10(j) duty means you must plan early so that a power-driven vessel following the lane is not forced to alter course or speed because of ${nm}. In this demonstration ${nm} waits outside until a safe gap develops.`
-   :`Rule 10 says to avoid crossing traffic lanes so far as practicable. If you are obliged to cross, assess the traffic early and do not force an unsafe close-quarters situation. In this demonstration ${nm} waits outside until a safe gap develops.`;
- L3.q='If the developing traffic picture makes the crossing unsafe, what should you do?';
- L3.a=['Cross anyway because the heading will be 90 degrees','Wait and reassess rather than force the crossing','Enter the separation zone and stop'];L3.correct=1;
-
- // Lesson 7 — lane use
- const L6=TSS_TUTORIAL[6];
- L6.intro=`${nm} is not automatically prohibited from using a traffic lane by this training profile.`;
- L6.facts=[
-   ['LEGAL PRINCIPLE','Rule 10 does not create a blanket ban on recreational vessels using a traffic lane.'],
-   ['CORRECT FLOW','If using a lane, proceed in the appropriate lane in its general direction of traffic flow.'],
-   ['KEEP CLEAR','So far as practicable keep clear of the separation line or zone.'],
-   ['PROFILE DUTY',applies?'Rule 10(j) non-impeding duty applies to your configured vessel.':'Rule 10(j) does not apply solely by length/type to your configured vessel.']
- ];
- L6.explain=`If ${nm}'s passage uses a traffic lane, use the appropriate lane in the general direction of traffic flow and comply with Rule 10.${applies?' Your Rule 10(j) non-impeding duty also remains in force.':''} This beginner course does not present the shipping lane as a default route, and the chart and local scheme provisions must always be checked.`;
- L6.q=`If ${nm} is using a traffic lane, may the vessel steam against the arrows?`;
- L6.a=['YES','NO — use the appropriate lane in the general direction of traffic flow','ONLY IN DAYLIGHT'];L6.correct=1;
-
- // Final watch
- const LF=TSS_TUTORIAL[TSS_TUTORIAL.length-1];
- LF.rule=applies?'YOUR VESSEL WATCH • FULL RULE 10':'YOUR VESSEL WATCH • FULL RULE 10';
- LF.title=`Take the watch: ${nm}`;
- LF.intro=`Put the Rule 10 lessons together using ${nm}.`;
- LF.explain=`This final demonstration uses ${nm}, your configured ${len} ${type}. The vessel remains outside while the traffic picture is unsuitable. When a safe gap develops, the vessel commits, holds the right-angle heading, crosses the complete scheme without stopping, clears the far lane and continues the watch.${applies?' The Rule 10(j) non-impeding duty also applies to this configured vessel.':''}`;
- LF.q='What is the correct beginner sequence for a TSS crossing?';
- LF.a=['Enter first, then look for a gap','Plan early, assess traffic, cross on the Rule 10(c) heading, and keep applying the COLREGs','Stop in the separation zone between lanes'];LF.correct=1;
-}
 
 function initVesselProfile(){
  PW_VESSEL_PROFILE=loadVesselProfile();
