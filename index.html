@@ -16327,7 +16327,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.11-COLREG-CONTEXT-READONLY</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.12-COLLISION-UI-CLEANUP</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">WATCH ONE</div>
@@ -23240,70 +23240,67 @@ body.pw-watch-one .homeProHeroShade{background:linear-gradient(90deg,rgba(2,19,2
 
 
 
-<style id="pwCollisionLocalSwitch14611">
-#pwLocalColregContext{margin:10px 0 0;padding:9px 10px;border:1px solid rgba(70,207,255,.28);border-radius:9px;background:rgba(2,27,39,.72);max-width:100%}
-#pwLocalColregContext .pwLcTop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-#pwLocalColregContext .pwLcLabel{color:#77dcff;font-size:9px;font-weight:900;letter-spacing:.55px;margin-right:auto}
-#pwLocalColregContext button{border:1px solid rgba(119,220,255,.28);background:#062b3a;color:#a9cbd7;border-radius:7px;padding:6px 9px;font-size:8px;font-weight:900;letter-spacing:.35px;cursor:pointer}
-#pwLocalColregContext button.active{background:#0b6682;color:#fff;border-color:#61dcff}
-#pwLocalColregContext .pwLcStatus{margin-top:7px;color:#8fb8c6;font-size:8px;font-weight:800;letter-spacing:.3px}
+
+<style id="pwCollisionUiCleanup14612">
+body.pw-collision-active .vesselTopBtn,
+body.pw-collision-active #pwVesselModeBtn,
+body.pw-collision-active .vesselNameTop{display:none!important}
+#handover #pwCollisionOwnStatus{
+  display:inline-flex;align-items:center;margin-top:8px;padding:5px 9px;
+  border:1px solid rgba(87,211,245,.25);border-radius:7px;
+  background:rgba(2,30,42,.72);color:#a8cbd7;font-size:8px;font-weight:900;
+  letter-spacing:.35px
+}
 </style>
-<script id="pwCollisionLocalSwitch14611">
+<script id="pwCollisionUiCleanup14612">
+/* Build 1.46.12 — Collision UI cleanup.
+   The existing photographic Vessel Status cards remain the ONLY local propulsion-state
+   control. They already call setOwnVesselMode('power'|'sail'), which redraws the
+   encounter library locally. This adapter adds no storage, progress, completion,
+   profile-selection or navigation writes. */
 (function(){
- const BUILD='1.46.11-COLLISION-LOCAL-SWITCH';
- let localChoice=null;
- function globalChoice(){
-   try{
-     const p=typeof vesselProfile==='function'?vesselProfile():null;
-     const physical=typeof vesselPhysicalType==='function'?vesselPhysicalType():(p&&p.propulsion==='sail'?'sail':'power');
-     const operational=typeof vesselOperationalState==='function'?vesselOperationalState():'power';
-     if(p&&p.id==='watch2')return physical==='sail'&&operational==='sail'?'watch2sail':'watch2power';
-     if(p&&p.id==='watch1')return 'watch1';
-     if(physical==='sail'&&operational==='sail')return 'watch2sail';
-     return 'watch1';
-   }catch(e){return 'watch1'}
+ const BUILD='1.46.12-COLLISION-UI-CLEANUP';
+
+ function collisionVisible(){
+   const h=document.getElementById('handover');
+   return !!(h && getComputedStyle(h).display!=='none');
  }
- function choice(){return localChoice||globalChoice()}
- function modeFor(c){return c==='watch2sail'?'sail':'power'}
- function labelFor(c){
-   if(c==='watch2sail')return 'WATCH TWO • SAILING VESSEL • MACHINERY NOT IN USE';
-   if(c==='watch2power')return 'WATCH TWO • POWER-DRIVEN • PROPELLING MACHINERY IN USE';
-   return 'WATCH ONE • POWER-DRIVEN VESSEL';
- }
- function visible(){const h=document.getElementById('handover');return !!(h&&getComputedStyle(h).display!=='none')}
- function applyLocal(c){
-   localChoice=c;
-   if(typeof setOwnVesselMode==='function')setOwnVesselMode(modeFor(c));
-   render();
- }
- function render(){
-   if(!visible())return;
-   const host=document.querySelector('#handover .scenarioBriefHero')||document.querySelector('#handover .handoverHead')||document.getElementById('handover');
+ function syncCollisionChrome(){
+   const active=collisionVisible();
+   document.body.classList.toggle('pw-collision-active',active);
+   if(!active)return;
+
+   const host=document.querySelector('#handover .scenarioBriefHero');
    if(!host)return;
-   let b=document.getElementById('pwLocalColregContext');
-   if(!b){
-     b=document.createElement('div');b.id='pwLocalColregContext';
-     b.innerHTML='<div class="pwLcTop"><span class="pwLcLabel">COLLISION TRAINER • OWN-VESSEL PERSPECTIVE</span><button type="button" data-pwlc="watch1">WATCH ONE</button><button type="button" data-pwlc="watch2sail">WATCH TWO • SAIL</button><button type="button" data-pwlc="watch2power">WATCH TWO • ENGINE</button></div><div class="pwLcStatus"></div>';
-     b.addEventListener('click',function(ev){
-       const btn=ev.target.closest('button[data-pwlc]');if(!btn)return;
-       ev.preventDefault();ev.stopPropagation();applyLocal(btn.dataset.pwlc);
-     });
-     host.appendChild(b);
+   let badge=document.getElementById('pwCollisionOwnStatus');
+   if(!badge){
+     badge=document.createElement('div');
+     badge.id='pwCollisionOwnStatus';
+     host.appendChild(badge);
    }
-   const c=choice();
-   b.querySelectorAll('button[data-pwlc]').forEach(x=>x.classList.toggle('active',x.dataset.pwlc===c));
-   const st=b.querySelector('.pwLcStatus');if(st)st.textContent='ACTIVE IN THIS TRAINER: '+labelFor(c)+' • SWITCHING HERE DOES NOT CHANGE COURSE PROGRESS OR LEAVE THIS SCREEN';
+   const mode=(typeof ownVesselMode==='string' && ownVesselMode==='sail')?'sail':'power';
+   badge.textContent=mode==='sail'
+     ? 'OWN VESSEL: SAILING VESSEL • ENGINE OFF'
+     : 'OWN VESSEL: POWER-DRIVEN VESSEL';
  }
- function syncOnEntry(){
-   if(localChoice===null&&visible()&&typeof setOwnVesselMode==='function')setOwnVesselMode(modeFor(globalChoice()));
-   render();
+
+ // Wrap only the Collision trainer's existing local mode setter so the small
+ // status badge follows the already-proven photographic-card behaviour.
+ if(typeof window.setOwnVesselMode==='function'){
+   const original=window.setOwnVesselMode;
+   window.setOwnVesselMode=function(mode){
+     const result=original.apply(this,arguments);
+     setTimeout(syncCollisionChrome,0);
+     return result;
+   };
  }
- document.addEventListener('DOMContentLoaded',()=>setTimeout(syncOnEntry,180));
- document.addEventListener('click',()=>setTimeout(syncOnEntry,80),true);
- window.pwCollisionLocalVesselChoice=()=>choice();
- window.pwRenderCollisionLocalSwitch=render;
+
+ document.addEventListener('DOMContentLoaded',()=>setTimeout(syncCollisionChrome,150));
+ document.addEventListener('click',()=>setTimeout(syncCollisionChrome,60),true);
+ window.pwSyncCollisionChrome=syncCollisionChrome;
  window.PROJECT_WATCH_BUILD=BUILD;
 })();
 </script>
+
 </body></html>
 <style>.scenarioPhoto,.scenarioGeometry,.scenarioPhotoShade,.scenarioAspectChip,.scenarioVisualTag{display:none!important}</style>
