@@ -497,6 +497,48 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
  .scenarioLaunchBar{grid-template-columns:1fr}.scenarioLaunchActions{display:grid;grid-template-columns:1fr 1fr}.scenarioLaunchActions .big{min-width:0}
 }
 
+
+/* 1.43.4 Collision Scenarios 2.0 — visual architecture; simulator logic preserved */
+#handover{--cs-accent:#55d7ff;--cs-green:#56d99b;--cs-panel:#05283a;--cs-deep:#031b27}
+#handover .scenarioBriefHero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 18%,#0b5875 0,transparent 30%),linear-gradient(135deg,#05283a 0%,#07364a 55%,#041d2a 100%);padding:27px 28px}
+#handover .scenarioBriefHero:after{content:"";position:absolute;right:-50px;bottom:-95px;width:330px;height:190px;border:1px solid #69ddff1c;border-radius:50%;box-shadow:0 0 0 28px #69ddff0a,0 0 0 58px #69ddff08;pointer-events:none}
+#handover .scenarioBriefHero>div{position:relative;z-index:1}
+#handover .scenarioBriefHero h1{font-size:30px;letter-spacing:-.5px}
+#handover .scenarioWorkspace{grid-template-columns:minmax(290px,31%) 1fr;gap:13px}
+#handover .scenarioSetupPanel,#handover .scenarioLibraryPanel{background:linear-gradient(180deg,#052a3d,#042432);border-color:#4ccff32b}
+#handover .scenarioPanelHead .ver{color:#64d9f7}
+#handover .scenarioSetupPanel .photographicVesselMode button{border:1px solid #ffffff16;background:#073348;transition:.15s;overflow:hidden}
+#handover .scenarioSetupPanel .photographicVesselMode button.active{background:linear-gradient(90deg,#1597d4,#0b6f9e);border-color:#75e2ff;box-shadow:0 0 0 1px #75e2ff55 inset,0 8px 18px #0003}
+#handover .modebar button{position:relative;border:1px solid #ffffff18;background:#0b4057}
+#handover .modebar button.active{background:#168fcf;border-color:#79e4ff}
+.csModeHelp{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:6px 0 9px}
+.csModeHelp div{padding:7px;border-radius:8px;background:#031d29;border:1px solid #ffffff10}
+.csModeHelp b{display:block;font-size:8px;color:#e8f9ff}.csModeHelp small{display:block;margin-top:2px;font-size:7px;line-height:1.35;color:#8eacb8}
+.csFilterBar{display:flex;gap:5px;flex-wrap:wrap;margin:9px 0 11px}
+.csFilterBar button{border:1px solid #4dcff333;background:#062c3e;color:#a9c7d3;border-radius:999px;padding:6px 10px;font-size:7px;font-weight:900;letter-spacing:.55px}
+.csFilterBar button.active{background:#168fcf;color:white;border-color:#77e2ff}
+#handover .scenarioLibraryPanel .scenarios{gap:9px}
+#handover .scenarioBtn{position:relative;grid-template-columns:43% 57%;min-height:126px;border:1px solid #ffffff17;background:linear-gradient(135deg,#062a3b,#07374c);border-radius:13px;overflow:hidden;transition:transform .14s,border-color .14s,box-shadow .14s}
+#handover .scenarioBtn:hover{transform:translateY(-1px);border-color:#63dcff66;box-shadow:0 8px 18px #0003}
+#handover .scenarioBtn.active{background:linear-gradient(135deg,#07405a,#0a4d69);border-color:#7be4ff;box-shadow:0 0 0 1px #7be4ff55 inset,0 9px 22px #0004}
+#handover .scenarioBtn.active:after{content:"SELECTED";position:absolute;top:7px;right:7px;padding:4px 6px;border-radius:5px;background:#56d99b;color:#04261d;font-size:6px;font-weight:1000;letter-spacing:.6px;z-index:5}
+#handover .scenarioChart{min-height:126px;background:#e7e0c9}
+#handover .scenarioCopy{padding:12px 11px!important;display:flex!important;flex-direction:column;justify-content:center;text-align:left}
+#handover .scenarioCopy b{font-size:13px;line-height:1.18;color:#fff;padding-right:25px}
+#handover .scenarioCopy span{font-size:8.5px;line-height:1.4;color:#a9c7d3;margin-top:5px}
+.csRoleLine{display:flex!important;gap:4px;flex-wrap:wrap;margin-top:8px!important}
+.csRoleLine i{font-style:normal;padding:4px 6px;border-radius:5px;background:#031b27;border:1px solid #ffffff16;color:#9fc2cf;font-size:6.5px;font-weight:900;letter-spacing:.4px}
+.csRoleLine i.roleGive{background:#4d2024;color:#ffd5d8;border-color:#ef777755}.csRoleLine i.roleStand{background:#164b3a;color:#c8ffe8;border-color:#64dfa055}.csRoleLine i.roleBoth{background:#65451a;color:#ffe5ac;border-color:#e6b75a55}
+.csSelectedBrief{margin-top:12px;padding:13px;border-radius:13px;background:linear-gradient(135deg,#031e2a,#062f40);border:1px solid #61d9fa42;box-shadow:0 7px 20px #0002}
+.csSelectedBriefTop{display:flex;justify-content:space-between;gap:10px;align-items:start}.csSelectedBrief .ver{color:#64d9f7}.csSelectedBrief h3{font-size:17px;margin:3px 0 2px}.csSelectedBrief .csBriefRole{padding:5px 8px;border-radius:6px;background:#0b4158;border:1px solid #ffffff17;font-size:7px;font-weight:900;white-space:nowrap}
+.csBriefGrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}.csBriefGrid div{padding:8px;border-radius:8px;background:#031923;border:1px solid #ffffff0e}.csBriefGrid small{display:block;font-size:6px;color:#6ea6ba;letter-spacing:.55px}.csBriefGrid b{display:block;font-size:8px;line-height:1.35;margin-top:2px;color:#e6f5fa}
+.csHandoverGrid{display:grid;grid-template-columns:repeat(6,minmax(75px,1fr));gap:5px;margin-top:7px}.csHandoverGrid div{padding:7px 8px;border-radius:7px;background:#031923;border:1px solid #ffffff10}.csHandoverGrid small{display:block;font-size:6px;color:#7399a9;letter-spacing:.5px}.csHandoverGrid b{display:block;font-size:8px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#handover .scenarioLaunchBar{background:linear-gradient(90deg,#04212e,#063347);border-color:#59d5f33b;padding:13px 15px}
+#handover .scenarioLaunchActions .big:last-child{background:#168fcf;box-shadow:0 7px 17px #0004;font-size:11px}
+@media(max-width:1050px){.csHandoverGrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){#handover .scenarioWorkspace{grid-template-columns:1fr}.csModeHelp{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.csModeHelp,.csBriefGrid{grid-template-columns:1fr}.csHandoverGrid{grid-template-columns:repeat(2,1fr)}#handover .scenarioBtn{grid-template-columns:44% 56%}}
+
 /* 1.27.2 compact helm */
 .helmScaleLabels{display:grid;grid-template-columns:repeat(7,1fr);font-size:7px;font-weight:900;color:#8daab7;margin:2px 2px 4px}.helmScaleLabels span{text-align:center}.helmScaleLabels span:first-child{text-align:left}.helmScaleLabels span:last-child{text-align:right}
 .helmTrack{position:relative;height:38px;border-radius:10px;background:#062b3d;border:1px solid #ffffff20;touch-action:none;cursor:pointer;overflow:hidden;outline:none}
@@ -17451,7 +17493,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.43.3</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.43.4</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
@@ -18287,7 +18329,11 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 <button id="watchMode" onclick="setTrainingMode('watch')">WATCH</button>
 <button id="examMode" onclick="setTrainingMode('exam')">EXAM</button>
 </div>
-      <p class="note"><b>Guided</b> gives supported coaching where scenario-specific logic has been validated. <b>Watch</b> records the exercise with collision alerts only. <b>Exam</b> is intended for debrief-led assessment.</p>
+      <div class="csModeHelp">
+        <div><b>GUIDED • LEARN</b><small>Prompts and supported coaching through the encounter.</small></div>
+        <div><b>WATCH • APPLY</b><small>Minimal intervention with collision warnings retained.</small></div>
+        <div><b>EXAM • PROVE IT</b><small>No coaching; performance is reviewed in the debrief.</small></div>
+      </div>
       <div class="scenarioMeta">
 <div><small>INITIAL RANGE</small><b>2.00 NM</b></div>
 <div><small>SIMULATION</small><b>8×</b></div>
@@ -18299,17 +18345,25 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
       <div class="scenarioPanelHead">
         <div class="ver">STEP 2 • ENCOUNTER</div>
         <h3>Choose a scenario</h3>
-        <p>Each chart card uses the same verified starting geometry as the simulator.</p>
+        <p>Each chart card uses the same verified starting geometry as the simulator. Select an encounter to receive the bridge brief before taking the watch.</p>
       </div>
-      <div class="scenarios" id="scenarioList" style="margin-top:10px"></div>
+      <div class="csFilterBar" id="scenarioFilters">
+        <button class="active" data-filter="all" onclick="setScenarioFilter('all',this)">ALL</button>
+        <button data-filter="crossing" onclick="setScenarioFilter('crossing',this)">CROSSING</button>
+        <button data-filter="headon" onclick="setScenarioFilter('headon',this)">HEAD-ON</button>
+        <button data-filter="overtaking" onclick="setScenarioFilter('overtaking',this)">OVERTAKING</button>
+        <button data-filter="sail" onclick="setScenarioFilter('sail',this)">SAIL</button>
+      </div>
+      <div class="scenarios" id="scenarioList"></div>
+      <div class="csSelectedBrief" id="scenarioSelectedBrief"></div>
     </main>
   </div>
 
   <div class="scenarioLaunchBar">
     <div>
-      <div class="ver">READY FOR HANDOVER</div>
-      <b>Scenario selected • controls checked • bridge ready</b>
-      <small>The simulator opens on its own screen. Debrief follows when the watch ends.</small>
+      <div class="ver">WATCH HANDOVER • BRIDGE READY</div>
+      <b>Scenario selected • vessel configured • coaching level set</b>
+      <div class="csHandoverGrid" id="scenarioHandoverSummary"></div>
     </div>
     <div class="scenarioLaunchActions">
       <button class="big alt" onclick="armAudio(); collisionSound(); speakMarine('Collision alert. Starboard bough.')">TEST AUDIO</button>
@@ -19069,16 +19123,52 @@ function scenarioSubtitle(id){
   return 'Power / power • give-way assessment';
 }
 
+let scenarioFilter='all';
+function scenarioFamily(id){
+  if(id.includes('sail')||id==='power_vs_sail')return 'sail';
+  if(id.includes('head_on'))return 'headon';
+  if(id.includes('overtake')||id==='overtaken')return 'overtaking';
+  return 'crossing';
+}
+function setScenarioFilter(filter,el){
+  scenarioFilter=filter;
+  document.querySelectorAll('#scenarioFilters button').forEach(b=>b.classList.toggle('active',b===el));
+  renderScenarioList();
+}
+function scenarioRules(id){
+  const map={cross_stbd:'Rules 5, 7, 8, 15 & 16',cross_port:'Rules 5, 7, 8, 15 & 17',rule17_fail:'Rules 5, 7, 8, 15 & 17',head_on:'Rules 5, 7, 8 & 14',overtake:'Rules 5, 7, 8 & 13',overtaken:'Rules 5, 7, 8 & 13',cross_stbd_offset:'Rules 5, 7, 8, 15 & 16',head_on_offset:'Rules 5, 7, 8 & 14',overtake_port:'Rules 5, 7, 8 & 13',power_vs_sail:'Rules 5, 7, 8 & 18',sail_vs_power:'Rules 5, 7, 8 & 18',sail_port_tack:'Rules 5, 7, 8 & 12',sail_starboard_tack:'Rules 5, 7, 8 & 12',sail_windward:'Rules 5, 7, 8 & 12',sail_leeward:'Rules 5, 7, 8 & 12',sail_overtaking:'Rules 5, 7, 8 & 13'};
+  return map[id]||'COLREG encounter rules';
+}
+function scenarioObjective(id){
+  const s=SCENARIOS[id];
+  if(s.kind==='cross_standon_fail')return 'Monitor the give-way vessel and recognise when stand-on action becomes necessary.';
+  if(s.kind==='cross_standon'||s.kind==='overtaken'||s.kind==='sail_standon')return 'Identify your stand-on responsibility while continuously assessing collision risk.';
+  if(s.kind==='head_on')return 'Recognise reciprocal or nearly reciprocal geometry and make the expected clear alteration.';
+  if(s.kind==='overtaking')return 'Keep out of the way until finally past and clear.';
+  if(s.kind==='power_give_sail'||s.kind==='sail_giveway')return 'Apply vessel-status responsibilities and take early, substantial avoiding action.';
+  return 'Recognise developing risk and take early, substantial action to keep well clear.';
+}
+function scenarioRoleLabel(id){return scenarioRole(id)[0];}
+function updateScenarioBrief(){
+  const box=$('scenarioSelectedBrief'),sum=$('scenarioHandoverSummary'),s=SCENARIOS[scenarioId];if(!s)return;
+  const role=scenarioRoleLabel(scenarioId),mode=(typeof trainingMode!=='undefined'?trainingMode:'guided').toUpperCase();
+  if(box)box.innerHTML=`<div class="csSelectedBriefTop"><div><div class="ver">SELECTED ENCOUNTER • BRIDGE BRIEF</div><h3>${s.name}</h3><span class="note">${scenarioSubtitle(scenarioId)}</span></div><span class="csBriefRole">YOUR ROLE • ${role}</span></div><div class="csBriefGrid"><div><small>PRIMARY RULE SET</small><b>${scenarioRules(scenarioId)}</b></div><div><small>WATCH OBJECTIVE</small><b>${scenarioObjective(scenarioId)}</b></div><div><small>STARTING PICTURE</small><b>${SCENARIO_VISUALS[scenarioId]?.[0]||'COLREG encounter'}</b></div><div><small>ASSESSMENT FOCUS</small><b>Risk • timing • clarity of action • safe passing outcome</b></div></div>`;
+  if(sum)sum.innerHTML=`<div><small>VESSEL</small><b>${ownVesselMode==='sail'?'Sailing • engine off':'Power-driven'}</b></div><div><small>ENCOUNTER</small><b>${s.name}</b></div><div><small>ROLE</small><b>${role}</b></div><div><small>MODE</small><b>${mode}</b></div><div><small>VISIBILITY</small><b>Good</b></div><div><small>START RANGE</small><b>2.00 NM</b></div>`;
+}
 function renderScenarioList(){
-  const ids=ownVesselMode==='sail'?SAIL_SCENARIO_ORDER:POWER_SCENARIO_ORDER;
+  let ids=ownVesselMode==='sail'?SAIL_SCENARIO_ORDER:POWER_SCENARIO_ORDER;
+  if(scenarioFilter!=='all')ids=ids.filter(id=>scenarioFamily(id)===scenarioFilter);
+  // Never hide every encounter: reset to all for vessel/filter combinations with no matches.
+  if(!ids.length){scenarioFilter='all';document.querySelectorAll('#scenarioFilters button').forEach(b=>b.classList.toggle('active',b.dataset.filter==='all'));ids=ownVesselMode==='sail'?SAIL_SCENARIO_ORDER:POWER_SCENARIO_ORDER;}
   const box=$('scenarioList');
   box.innerHTML=ids.map((id,i)=>{
     const s=SCENARIOS[id];
     return `<button class="scenarioBtn ${id===scenarioId?'active':''}" data-sid="${id}" onclick="selectScenario('${id}',this)">
       ${scenarioChartHTML(id)}
-      <span class="scenarioCopy"><b>${String(i+1).padStart(2,'0')} • ${s.name}</b><span>${scenarioSubtitle(id)}</span></span>
+      <span class="scenarioCopy"><b>${String(i+1).padStart(2,'0')} • ${s.name}</b><span>${scenarioSubtitle(id)}</span><span class="csRoleLine"><i class="${scenarioRoleLabel(id)==='GIVE-WAY'?'roleGive':scenarioRoleLabel(id)==='STAND-ON'?'roleStand':'roleBoth'}">${scenarioRoleLabel(id)}</i><i>${scenarioRules(id)}</i></span></span>
     </button>`;
   }).join('');
+  updateScenarioBrief();
 }
 
 function setOwnVesselMode(mode){
@@ -19108,6 +19198,7 @@ function selectScenario(id,el){
   scenarioId=id;
   document.querySelectorAll('.scenarioBtn').forEach(b=>b.classList.remove('active'));
   if(el)el.classList.add('active');
+  updateScenarioBrief();
 }
 
 
@@ -23351,6 +23442,7 @@ function setTrainingMode(m){
     let el=$(x+'Mode');
     if(el) el.className=(x===m?'active':'');
   });
+  updateScenarioBrief();
 }
 
 function startWatch(){
@@ -23954,7 +24046,7 @@ function restartStage7Final(){s7i=0;s7score=0;s7answered=false;renderStage7Final
 function completeStage7(){if(s7score<8||s7i<10)return;courseRecordComplete('tss',s7score*10);showCoursePage()}
 </script>
 <script id="pwEngineeringAudit1400">
-(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.43.3');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
+(function(){'use strict';const r={version:'1.41.5',errors:[],checks:{}};const ok=(n,v)=>{r.checks[n]=!!v;if(!v)r.errors.push(n)};try{ok('stage5-page',!!document.getElementById('stage5Page'));ok('stage5-six-lessons',typeof STAGE5_LESSONS!=='undefined'&&STAGE5_LESSONS.length===6);ok('stage5-ten-final-questions',typeof STAGE5_FINAL!=='undefined'&&STAGE5_FINAL.length===10);ok('stage5-answer-indexes',STAGE5_FINAL.every(q=>Array.isArray(q[1])&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<q[1].length));ok('master-encounter-library',typeof PW_STAGE5_MASTER!=='undefined'&&PW_STAGE5_MASTER.length>=10);ok('stage4-six-lessons',typeof SIG_LESSONS!=='undefined'&&SIG_LESSONS.length===6);ok('stage4-ten-final-questions',typeof SIG_FINAL_QUIZ!=='undefined'&&SIG_FINAL_QUIZ.length===10);ok('stage3-six-lessons',typeof LS_LESSONS!=='undefined'&&LS_LESSONS.length===6);ok('stage3-ten-final-questions',typeof LS_FINAL_QUIZ!=='undefined'&&LS_FINAL_QUIZ.length===10);ok('visible-build',!!document.getElementById('pwVisibleBuild')&&document.getElementById('pwVisibleBuild').textContent.trim()==='BUILD 1.43.4');ok('stage5-return-button',!!document.getElementById('pwStageReturnBtn'));ok('stage7-nine-lessons',typeof TSS_TUTORIAL!=='undefined'&&TSS_TUTORIAL.length===9);ok('stage7-ten-final-questions',typeof STAGE7_FINAL!=='undefined'&&STAGE7_FINAL.length===10);ok('stage7-final-page',!!document.getElementById('stage7FinalPage'));}catch(e){r.errors.push('audit-exception:'+e.message)}window.PROJECT_WATCH_ENGINEERING_REPORT=r;if(r.errors.length)console.error('Project Watch 1.40.5 audit',r);else console.info('Project Watch 1.40.5 audit PASS',r)})();
 </script>
 <button id="pwStageReturnBtn" class="pwStageReturnBtn" onclick="stage5ReturnFromAux()">← BACK TO STAGE 5</button>
 
@@ -24189,7 +24281,7 @@ window.addEventListener('DOMContentLoaded',pwRenderTestBar);setTimeout(pwRenderT
 })();
 </script>
 <script id="pw1414TeachingPlateAudit">
-(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.43.3'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
+(function(){try{const r=window.PROJECT_WATCH_ENGINEERING_REPORT||(window.PROJECT_WATCH_ENGINEERING_REPORT={version:'1.41.5',errors:[],checks:{}});r.version='1.42.1';r.checks['stage7-teaching-plate-per-lesson']=true;r.checks['stage7-teaching-index-from-rendered-counter']=true;if(document.getElementById('pwVisibleBuild')?.textContent.trim()!=='BUILD 1.43.4'){r.errors.push('visible-build-1415');}}catch(e){console.error(e)}})();
 </script>
 
 <script>
