@@ -16327,7 +16327,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.16-RESPONSIVE-TYPOGRAPHY</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.17-READABILITY-BACK-NAV</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">WATCH ONE</div>
@@ -23264,11 +23264,11 @@ body.pw-collision-watch-active #pwLiveVesselIdentity{display:block}
 #pwLiveVesselIdentity small{display:block;margin-top:3px;color:#7fdcf5;font-size:7px;font-weight:900;letter-spacing:.35px}
 </style>
 <script id="pwCollisionStateLock14613">
-/* Build 1.46.16 — Collision State Lock
+/* Build 1.46.17 — Collision State Lock
    Vessel operating state is chosen on the briefing screen and locked for the live watch.
    No course-progress/completion/storage writes are introduced here. */
 (function(){
- const BUILD='1.46.16-RESPONSIVE-TYPOGRAPHY';
+ const BUILD='1.46.17-READABILITY-BACK-NAV';
 
  function visible(id){
    const e=document.getElementById(id);
@@ -23384,12 +23384,12 @@ body.pw-collision-watch-active #pwLiveVesselIdentity{display:block}
 }
 </style>
 <script id="pwVesselTypeLabels14615">
-(function(){window.PROJECT_WATCH_BUILD='1.46.16-RESPONSIVE-TYPOGRAPHY';})();
+(function(){window.PROJECT_WATCH_BUILD='1.46.17-READABILITY-BACK-NAV';})();
 </script>
 
 
 <style id="pwResponsiveTypography14616">
-/* PROJECT WATCH 1.46.16 — platform-wide responsive typography.
+/* PROJECT WATCH 1.46.17 — platform-wide responsive typography.
    CSS only: preserves hierarchy while establishing readable minimums across tablet/desktop.
    Deliberately does NOT scale canvases, images, radar geometry, or overall application zoom. */
 :root{
@@ -23446,7 +23446,7 @@ h1,.heroTitle{font-size:var(--pw-fs-display);line-height:1.05}
 }
 .instrument label,.dataLabel,.statLabel{font-size:var(--pw-fs-small)!important}
 
-/* Preserve the deliberately compact vessel subtitles added in 1.46.16,
+/* Preserve the deliberately compact vessel subtitles added in 1.46.17,
    but lift their floor on larger displays. */
 #pwWatch1Btn::after,#pwWatch2Btn::after,#pwCustomBtn::after{
   font-size:clamp(6px,0.42vw,8px)!important;
@@ -23493,7 +23493,91 @@ h1,.heroTitle{font-size:var(--pw-fs-display);line-height:1.05}
 }
 </style>
 <script id="pwResponsiveTypographyBuild14616">
-(function(){window.PROJECT_WATCH_BUILD='1.46.16-RESPONSIVE-TYPOGRAPHY';})();
+(function(){window.PROJECT_WATCH_BUILD='1.46.17-READABILITY-BACK-NAV';})();
+</script>
+
+
+<style id="pwReadableTypography14617">
+/* PROJECT WATCH 1.46.17 — READABILITY PASS
+   Stronger global minimums. This intentionally overrides legacy 6–10px declarations. */
+:root{
+ --pw-body:clamp(14px,0.95vw,17px);
+ --pw-small:clamp(12px,0.78vw,14px);
+ --pw-micro:clamp(10px,0.66vw,12px);
+ --pw-control:clamp(12px,0.82vw,15px);
+ --pw-h3:clamp(18px,1.25vw,24px);
+ --pw-h2:clamp(23px,1.65vw,32px);
+ --pw-h1:clamp(32px,2.7vw,50px);
+}
+body{font-size:var(--pw-body)!important}
+
+/* Legacy build contains thousands of fixed px declarations.
+   Raise the floor across normal text without resizing graphical/canvas geometry. */
+p,li,dd,dt,td,th,label,legend,summary,
+.card p,.panel p,.lesson p,.module p,.scenario p,
+[class*="desc"],[class*="Desc"],[class*="copy"],[class*="Copy"],
+[class*="text"],[class*="Text"],[class*="intro"],[class*="Intro"],
+[class*="brief"],[class*="Brief"],[class*="instruction"],[class*="Instruction"]{
+ font-size:var(--pw-body)!important;line-height:1.45!important;
+}
+small,.small,.mini,.micro,.tiny,.muted,.hint,.sub,.eyebrow,.kicker,.build,
+[class*="meta"],[class*="Meta"],[class*="caption"],[class*="Caption"],
+[class*="label"],[class*="Label"],[class*="status"],[class*="Status"]{
+ font-size:var(--pw-small)!important;line-height:1.32!important;
+}
+button,.btn,[role="button"],a.button,input,select,textarea,
+.vesselTopBtn,.vesselProfileOpen{
+ font-size:var(--pw-control)!important;line-height:1.18!important;
+}
+h1,.heroTitle{font-size:var(--pw-h1)!important;line-height:1.06!important}
+h2,.sectionTitle{font-size:var(--pw-h2)!important;line-height:1.12!important}
+h3,h4,h5,h6,.cardTitle,.moduleTitle,.scenarioTitle{
+ font-size:var(--pw-h3)!important;line-height:1.16!important;
+}
+
+/* Compact chips/data legends need to remain compact enough to fit, but readable. */
+.tag,.pill,.chip,.badge,[class*="tag"],[class*="Tag"],[class*="pill"],[class*="Pill"],
+[class*="badge"],[class*="Badge"],.instrument label,.dataLabel,.statLabel{
+ font-size:var(--pw-micro)!important;line-height:1.15!important;
+}
+
+/* Vessel switch subtitles: readable, still subordinate. */
+#pwWatch1Btn::after,#pwWatch2Btn::after,#pwCustomBtn::after{
+ font-size:clamp(8px,0.55vw,10px)!important;
+}
+
+/* iPad portrait/landscape: explicit floor rather than relying on viewport interpolation. */
+@media (min-width:768px) and (max-width:1366px){
+ :root{--pw-body:15px;--pw-small:12px;--pw-micro:10px;--pw-control:13px;
+       --pw-h3:19px;--pw-h2:25px;--pw-h1:36px}
+}
+/* Large desktop: grow copy with viewing distance instead of leaving it at tablet scale. */
+@media (min-width:1600px){
+ :root{--pw-body:17px;--pw-small:14px;--pw-micro:12px;--pw-control:15px;
+       --pw-h3:23px;--pw-h2:31px;--pw-h1:48px}
+}
+</style>
+
+
+<script id="pwBackButton14617">
+(function(){
+ function fixBackLabel(){
+   var header=document.querySelector('header,.topbar,.topBar,.appHeader,[class*="header"],[class*="Header"]')||document;
+   var nodes=[].slice.call(header.querySelectorAll('button,a,[role="button"],.vesselProfileOpen'));
+   nodes.forEach(function(el){
+     if(el.id==='pwWatch1Btn'||el.id==='pwWatch2Btn'||el.id==='pwCustomBtn') return;
+     var t=(el.textContent||'').trim().replace(/\s+/g,' ').toUpperCase();
+     if(t==='WATCH ONE'||t==='WATCH TWO'||t==='WATCH 1'||t==='WATCH 2'){
+       el.textContent='← BACK';
+       el.setAttribute('aria-label','Back');
+       el.setAttribute('title','Back');
+     }
+   });
+ }
+ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fixBackLabel);
+ else fixBackLabel();
+ new MutationObserver(fixBackLabel).observe(document.documentElement,{subtree:true,childList:true});
+})();
 </script>
 
 </body></html>
