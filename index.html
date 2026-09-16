@@ -16327,7 +16327,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.12-COLLISION-UI-CLEANUP</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.13-COLLISION-STATE-LOCK</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">WATCH ONE</div>
@@ -23241,63 +23241,112 @@ body.pw-watch-one .homeProHeroShade{background:linear-gradient(90deg,rgba(2,19,2
 
 
 
-<style id="pwCollisionUiCleanup14612">
-body.pw-collision-active .vesselTopBtn,
-body.pw-collision-active #pwVesselModeBtn,
-body.pw-collision-active .vesselNameTop{display:none!important}
-#handover #pwCollisionOwnStatus{
-  display:inline-flex;align-items:center;margin-top:8px;padding:5px 9px;
-  border:1px solid rgba(87,211,245,.25);border-radius:7px;
-  background:rgba(2,30,42,.72);color:#a8cbd7;font-size:8px;font-weight:900;
-  letter-spacing:.35px
+
+<style id="pwCollisionStateLock14613">
+/* During a live collision watch, vessel/profile changing is intentionally unavailable. */
+body.pw-collision-watch-active #pwVesselSwitch,
+body.pw-collision-watch-active .vesselProfileOpen{display:none!important}
+body.pw-collision-watch-active #hdrMode{
+  min-width:190px;text-align:left;line-height:1.05;cursor:pointer;
+  display:flex;flex-direction:column;justify-content:center
 }
+body.pw-collision-watch-active #hdrMode::before{
+  content:"← BACK TO COLLISION SCENARIOS";
+  color:#fff;font-size:9px;font-weight:900;letter-spacing:.45px
+}
+body.pw-collision-watch-active #hdrMode{font-size:0}
+#pwLiveVesselIdentity{
+  display:none;margin-left:8px;padding:6px 10px;border-left:1px solid rgba(91,213,245,.25);
+  color:#9bc5d3;line-height:1.05;white-space:nowrap
+}
+body.pw-collision-watch-active #pwLiveVesselIdentity{display:block}
+#pwLiveVesselIdentity b{display:block;color:#fff;font-size:10px;letter-spacing:.55px}
+#pwLiveVesselIdentity small{display:block;margin-top:3px;color:#7fdcf5;font-size:7px;font-weight:900;letter-spacing:.35px}
 </style>
-<script id="pwCollisionUiCleanup14612">
-/* Build 1.46.12 — Collision UI cleanup.
-   The existing photographic Vessel Status cards remain the ONLY local propulsion-state
-   control. They already call setOwnVesselMode('power'|'sail'), which redraws the
-   encounter library locally. This adapter adds no storage, progress, completion,
-   profile-selection or navigation writes. */
+<script id="pwCollisionStateLock14613">
+/* Build 1.46.13 — Collision State Lock
+   Vessel operating state is chosen on the briefing screen and locked for the live watch.
+   No course-progress/completion/storage writes are introduced here. */
 (function(){
- const BUILD='1.46.12-COLLISION-UI-CLEANUP';
+ const BUILD='1.46.13-COLLISION-STATE-LOCK';
 
- function collisionVisible(){
-   const h=document.getElementById('handover');
-   return !!(h && getComputedStyle(h).display!=='none');
+ function visible(id){
+   const e=document.getElementById(id);
+   return !!(e && getComputedStyle(e).display!=='none');
  }
- function syncCollisionChrome(){
-   const active=collisionVisible();
-   document.body.classList.toggle('pw-collision-active',active);
-   if(!active)return;
-
-   const host=document.querySelector('#handover .scenarioBriefHero');
-   if(!host)return;
-   let badge=document.getElementById('pwCollisionOwnStatus');
-   if(!badge){
-     badge=document.createElement('div');
-     badge.id='pwCollisionOwnStatus';
-     host.appendChild(badge);
+ function profileLabel(){
+   try{
+     const p=typeof vesselProfile==='function'?vesselProfile():null;
+     if(p&&p.id==='watch1')return 'WATCH ONE';
+     if(p&&p.id==='watch2')return 'WATCH TWO';
+     return (p&&p.name?String(p.name).toUpperCase():'MY VESSEL');
+   }catch(e){return 'TRAINING VESSEL'}
+ }
+ function stateLabel(){
+   return (typeof ownVesselMode==='string'&&ownVesselMode==='sail')
+     ? 'SAILING VESSEL • ENGINE OFF'
+     : 'POWER-DRIVEN VESSEL';
+ }
+ function ensureIdentity(){
+   const hr=document.querySelector('.headerRight');if(!hr)return null;
+   let el=document.getElementById('pwLiveVesselIdentity');
+   if(!el){
+     el=document.createElement('div');el.id='pwLiveVesselIdentity';
+     hr.insertBefore(el,document.getElementById('hdrMode')||null);
    }
-   const mode=(typeof ownVesselMode==='string' && ownVesselMode==='sail')?'sail':'power';
-   badge.textContent=mode==='sail'
-     ? 'OWN VESSEL: SAILING VESSEL • ENGINE OFF'
-     : 'OWN VESSEL: POWER-DRIVEN VESSEL';
+   return el;
  }
+ function sync(){
+   const live=visible('watch');
+   document.body.classList.toggle('pw-collision-watch-active',live);
+   const id=ensureIdentity();
+   if(id)id.innerHTML='<b>'+profileLabel()+'</b><small>'+stateLabel()+'</small>';
 
- // Wrap only the Collision trainer's existing local mode setter so the small
- // status badge follows the already-proven photographic-card behaviour.
- if(typeof window.setOwnVesselMode==='function'){
-   const original=window.setOwnVesselMode;
-   window.setOwnVesselMode=function(mode){
-     const result=original.apply(this,arguments);
-     setTimeout(syncCollisionChrome,0);
-     return result;
-   };
+   // The live simulator's own-vessel line is the authoritative state chosen at briefing.
+   const w=document.getElementById('watchVesselStatus');
+   if(live&&w)w.textContent='OWN VESSEL • '+stateLabel();
+
+   const hdr=document.getElementById('hdrMode');
+   if(hdr){
+     if(live){
+       hdr.setAttribute('role','button');hdr.setAttribute('tabindex','0');
+       hdr.setAttribute('aria-label','Back to Collision Scenarios');
+     }else{
+       hdr.removeAttribute('role');hdr.removeAttribute('tabindex');hdr.removeAttribute('aria-label');
+     }
+   }
  }
+ function backToCollision(){
+   if(!visible('watch'))return false;
+   try{if(typeof running!=='undefined')running=false}catch(e){}
+   const play=document.getElementById('play');if(play)play.textContent='▶ PLAY';
+   if(typeof go==='function')go('handover');
+   setTimeout(sync,0);
+   return true;
+ }
+ document.addEventListener('click',function(e){
+   const h=e.target.closest&&e.target.closest('#hdrMode');
+   if(h&&backToCollision()){e.preventDefault();e.stopPropagation()}
+ },true);
+ document.addEventListener('keydown',function(e){
+   if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.id==='hdrMode'&&backToCollision()){
+     e.preventDefault();e.stopPropagation()
+   }
+ },true);
 
- document.addEventListener('DOMContentLoaded',()=>setTimeout(syncCollisionChrome,150));
- document.addEventListener('click',()=>setTimeout(syncCollisionChrome,60),true);
- window.pwSyncCollisionChrome=syncCollisionChrome;
+ // Keep the chosen briefing state visible as the simulator opens; no live vessel switching.
+ const oldStart=window.startWatch;
+ if(typeof oldStart==='function')window.startWatch=function(){
+   const r=oldStart.apply(this,arguments);setTimeout(sync,0);return r
+ };
+ const oldGo=window.go;
+ if(typeof oldGo==='function')window.go=function(){
+   const r=oldGo.apply(this,arguments);setTimeout(sync,0);return r
+ };
+
+ document.addEventListener('DOMContentLoaded',()=>setTimeout(sync,120));
+ document.addEventListener('click',()=>setTimeout(sync,40),true);
+ window.pwSyncCollisionStateLock=sync;
  window.PROJECT_WATCH_BUILD=BUILD;
 })();
 </script>
