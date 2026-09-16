@@ -16327,7 +16327,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.9-LIVE-VESSEL-SWITCH</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.46.10-COLREG-CONTEXT-READONLY</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">WATCH ONE</div>
@@ -23237,21 +23237,33 @@ body.pw-watch-one .homeProHeroShade{background:linear-gradient(90deg,rgba(2,19,2
  const prev=window.refreshVesselUI;window.refreshVesselUI=function(){if(prev)prev.apply(this,arguments);syncHeroContrast()};
 })();
 </script>
-\n<script id="pwVesselColregs1468">\n/* Build 1.46.8 — central vessel state -> collision training bridge.\n   Additive adapter: preserves the proven scenario engine and feeds it the active profile/state. */\n(function(){\n const BUILD='1.46.9-LIVE-VESSEL-SWITCH';\n function physical(){try{return typeof vesselPhysicalType==='function'?vesselPhysicalType():(vesselProfile().propulsion==='sail'?'sail':'power')}catch(e){return 'power'}}\n function operational(){try{return typeof vesselOperationalState==='function'?vesselOperationalState():'power'}catch(e){return 'power'}}\n function desiredMode(){return physical()==='sail'&&operational()==='sail'?'sail':'power'}\n function scenarioOpen(){const h=document.getElementById('handover'),w=document.getElementById('watch');return !!((h&&getComputedStyle(h).display!=='none')||(w&&getComputedStyle(w).display!=='none'))}\n function syncCollisionState(force){\n   if(typeof window.setOwnVesselMode!=='function'||typeof window.renderScenarioList!=='function')return;\n   const mode=desiredMode();\n   if(force||window.ownVesselMode!==mode){\n     try{window.setOwnVesselMode(mode)}catch(e){}\n   }\n   const nm=typeof vesselName==='function'?vesselName():'Training vessel';\n   const strap=document.getElementById('handoverStrap');\n   if(strap)strap.textContent=mode==='sail'?`${nm} • Sailing vessel • machinery OFF`:`${nm} • Power-driven vessel${physical()==='sail'?' • machinery IN USE':''}`;\n   const expl=document.getElementById('ownModeExplainer');\n   if(expl){\n     expl.innerHTML=mode==='sail'\n       ?`<b>${nm.toUpperCase()} • UNDER SAIL:</b> propelling machinery is not being used. Rule 12 sailing-vessel encounters and Rule 18 power-versus-sail responsibilities are available; Rule 13 overtaking and Rules 9/10 still apply where relevant.`\n       :`<b>${nm.toUpperCase()} • POWER-DRIVEN:</b> ${physical()==='sail'?'this sailing yacht is using propelling machinery and is treated as power-driven for these encounters.':'machinery is propelling the vessel.'} Rule 13 overtaking and the normal power-driven encounter rules remain available.`;\n   }\n   const pBtn=document.getElementById('powerModeBtn'),sBtn=document.getElementById('sailModeBtn');\n   if(pBtn)pBtn.title=physical()==='sail'?'Use the global operating-state control to switch this yacht between sail and power.':'Active vessel is power-driven.';\n   if(sBtn){sBtn.disabled=physical()!=='sail';sBtn.style.opacity=physical()==='sail'?'1':'.38';sBtn.title=physical()==='sail'?'Watch Two / sailing My Vessel under sail':'Select Watch Two or a sailing My Vessel to train as a sailing vessel';}\n }\n // Collision-screen mode controls now consume the central vessel state instead of creating a separate identity.\n const coreSet=window.setOwnVesselMode;\n if(typeof coreSet==='function'){\n   window.setOwnVesselMode=function(mode){\n     if(physical()!=='sail'&&mode==='sail'){\n       mode='power';\n     } else if(physical()==='sail'&&typeof pwStoreSet==='function'&&typeof OP_KEY!=='undefined'){\n       try{pwStoreSet(OP_KEY,JSON.stringify({profile:vesselProfile().id,state:mode==='sail'?'sail':'power'}))}catch(e){}\n     }\n     const r=coreSet.call(this,mode);\n     setTimeout(()=>{try{if(typeof refreshVesselUI==='function')refreshVesselUI()}catch(e){}},0);\n     return r;\n   };\n }\n // Extend the global operating-state toggle so a live collision workspace changes family immediately.\n const coreToggle=window.pwToggleOperationalState;\n if(typeof coreToggle==='function'){\n   window.pwToggleOperationalState=function(){\n     const r=coreToggle.apply(this,arguments);\n     setTimeout(()=>syncCollisionState(true),20);\n     return r;\n   };\n }\n // Profile-aware defaults whenever the encounter workspace is opened.\n function bindOpenSync(){\n   document.addEventListener('click',function(ev){\n     const t=ev.target.closest('button,[onclick]'); if(!t)return;\n     const oc=t.getAttribute('onclick')||'';\n     if(/scenario|handover|stage5OpenSimulator|openLibraryModule\('scenarios'/i.test(oc))setTimeout(()=>syncCollisionState(true),50);\n   },true);\n }\n // Context badge explains the actual COLREG status at a glance.\n function addBadge(){\n   const hero=document.querySelector('#handover .scenarioBriefHero');if(!hero||document.getElementById('pwColregStateBadge'))return;\n   const b=document.createElement('div');b.id='pwColregStateBadge';b.style.cssText='margin-top:8px;font-size:8px;font-weight:900;letter-spacing:.55px;color:#75ddff';hero.querySelector('div')?.appendChild(b);\n }\n function refreshBadge(){addBadge();const b=document.getElementById('pwColregStateBadge');if(!b)return;const nm=typeof vesselName==='function'?vesselName():'TRAINING VESSEL';b.textContent=desiredMode()==='sail'?`${nm.toUpperCase()} • COLREG STATUS: SAILING VESSEL • RULES 12 / 18 • RULE 13 OVERRIDES WHEN OVERTAKING`:`${nm.toUpperCase()} • COLREG STATUS: POWER-DRIVEN${physical()==='sail'?' • PROPELLING MACHINERY IN USE':''}`;}\n document.addEventListener('DOMContentLoaded',()=>{bindOpenSync();setTimeout(()=>{syncCollisionState(false);refreshBadge()},160)});\n document.addEventListener('click',()=>setTimeout(()=>{if(scenarioOpen()){syncCollisionState(false);refreshBadge()}},60),true);\n setInterval(()=>{if(scenarioOpen())refreshBadge()},1200);\n window.pwSyncCollisionVesselState=()=>{syncCollisionState(true);refreshBadge()};\n window.PROJECT_WATCH_BUILD=BUILD;\n})();\n</script>\n
-<script id="pwLiveVesselSwitch1469">
-/* Build 1.46.9 — live vessel switching. Keeps the current module/scenario open. */
+
+
+
+<script id="pwColregContextReadOnly14610">
+/* Build 1.46.10 — READ-ONLY vessel context for Collision Scenarios.
+   Safety rule: this adapter never writes vessel state, course state, progress, routing or scenario mode. */
 (function(){
- function protectSwitcher(){
-   const sw=document.getElementById('pwVesselSwitch');if(!sw)return;
-   sw.setAttribute('data-no-personalise','true');
-   const labels={pwWatch1Btn:'WATCH ONE',pwWatch2Btn:'WATCH TWO',pwCustomBtn:'MY VESSEL'};
-   Object.entries(labels).forEach(([id,label])=>{const b=document.getElementById(id);if(b)b.textContent=label});
+ const BUILD='1.46.10-COLREG-CONTEXT-READONLY';
+ function profile(){try{return typeof vesselProfile==='function'?vesselProfile():null}catch(e){return null}}
+ function physical(){const p=profile();try{return typeof vesselPhysicalType==='function'?vesselPhysicalType():(p&&p.propulsion==='sail'?'sail':'power')}catch(e){return 'power'}}
+ function operational(){try{return typeof vesselOperationalState==='function'?vesselOperationalState():'power'}catch(e){return 'power'}}
+ function name(){try{return typeof vesselName==='function'?vesselName():(profile()?.name||'Training vessel')}catch(e){return 'Training vessel'}}
+ function status(){return physical()==='sail'&&operational()==='sail'?'SAILING VESSEL':'POWER-DRIVEN VESSEL'}
+ function scenarioVisible(){const h=document.getElementById('handover'),w=document.getElementById('watch');return !!((h&&getComputedStyle(h).display!=='none')||(w&&getComputedStyle(w).display!=='none'))}
+ function render(){
+   if(!scenarioVisible())return;
+   let host=document.querySelector('#handover .scenarioBriefHero')||document.querySelector('#handover .handoverHead')||document.getElementById('handover');
+   if(!host)return;
+   let b=document.getElementById('pwReadOnlyColregContext');
+   if(!b){b=document.createElement('div');b.id='pwReadOnlyColregContext';b.style.cssText='margin:8px 0 0;padding:7px 10px;border:1px solid rgba(70,207,255,.28);border-radius:8px;background:rgba(2,27,39,.72);color:#77dcff;font-size:9px;font-weight:900;letter-spacing:.55px;width:max-content;max-width:100%';host.appendChild(b)}
+   const machinery=physical()==='sail'&&operational()!=='sail'?' • PROPELLING MACHINERY IN USE':'';
+   b.textContent=`ACTIVE TRAINING VESSEL: ${String(name()).toUpperCase()} • COLREG STATUS: ${status()}${machinery}`;
  }
- const prior=window.refreshVesselUI;
- window.refreshVesselUI=function(){if(prior)prior.apply(this,arguments);protectSwitcher()};
- document.addEventListener('DOMContentLoaded',()=>{protectSwitcher();setTimeout(protectSwitcher,120)});
- const mo=new MutationObserver(protectSwitcher);document.addEventListener('DOMContentLoaded',()=>{const h=document.querySelector('.headerRight');if(h)mo.observe(h,{childList:true,subtree:true,characterData:true})});
- window.PROJECT_WATCH_BUILD='1.46.9-LIVE-VESSEL-SWITCH';
+ document.addEventListener('DOMContentLoaded',()=>setTimeout(render,180));
+ document.addEventListener('click',()=>setTimeout(render,80),true);
+ window.pwRenderReadOnlyColregContext=render;
+ window.PROJECT_WATCH_BUILD=BUILD;
 })();
 </script>
 </body></html>
