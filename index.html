@@ -17587,6 +17587,43 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 }
 </style>
 
+
+<style id="stage4-workspace-polish-1448">
+/* BUILD 1.44.8 — Stage 4 lesson workspace visual polish only.
+   No Stage 4 data, renderer, handlers, audio, progress, locking or final-check logic changed. */
+#sigLessonApp{display:grid;grid-template-columns:238px minmax(0,1fr);grid-template-areas:"nav head" "nav card" "nav foot";gap:0 14px;align-items:start}
+#sigLessonApp .sigLessonHead{grid-area:head;background:#063044;border:1px solid #15566c;border-radius:16px 16px 0 0;padding:18px 20px 14px;min-height:92px;position:relative;overflow:hidden}
+#sigLessonApp .sigLessonHead:after{content:"SOUND TRAINING";position:absolute;right:18px;top:18px;font-size:9px;font-weight:900;letter-spacing:.18em;color:#69d7f2;border:1px solid #176078;border-radius:999px;padding:6px 9px;background:#041f2a}
+#sigLessonApp .sigLessonHead h3{margin:4px 0 2px;font-size:27px;line-height:1.05;color:#fff}
+#sigLessonApp .sigLessonHead .note{font-size:11px;color:#7f9eaa}
+#sigLessonApp .sigLessonNav{grid-area:nav;display:flex;flex-direction:column;gap:8px;background:#052b3a;border:1px solid #176078;border-radius:16px;padding:13px;position:relative}
+#sigLessonApp .sigLessonNav:before{content:"STAGE 4 PROGRESS";display:block;color:#69d7f2;font-size:10px;font-weight:900;letter-spacing:.14em;padding:3px 5px 10px;border-bottom:4px solid #031f2a;margin-bottom:3px}
+#sigLessonApp .sigLessonNav button{width:100%;min-height:56px;text-align:left;padding:10px 12px;border-radius:11px;background:#052736;border:1px solid transparent;color:#75929e;font-size:11px;font-weight:900;line-height:1.35}
+#sigLessonApp .sigLessonNav button.active{background:#1185ae;border-color:#40c5ee;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+#sigLessonApp .sigLessonNav button.done{border-color:#1b6c77;color:#b9e8e4}
+#sigLessonApp .sigLessonNav button:disabled{opacity:.34}
+#sigLessonApp .sigLessonCard{grid-area:card;margin-top:0!important;border:1px solid #176078;border-top:0;border-radius:0 0 16px 16px;background:#052b3a;padding:18px 18px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;overflow:hidden}
+#sigLessonApp .sigLessonCard>p{grid-column:1/-1;margin:0 0 6px;padding:0 1px 8px;color:#91aab5;font-size:12px;line-height:1.45}
+#sigLessonApp .sigFact{position:relative;min-height:78px;margin:0!important;padding:14px 14px 13px 58px!important;border:1px solid #0e4659!important;border-radius:12px!important;background:#031f2a!important;overflow:hidden}
+#sigLessonApp .sigFact:before{content:"";position:absolute;left:16px;top:22px;width:26px;height:26px;border:1px solid #176078;border-radius:8px;background:#062d3b;box-shadow:inset 0 0 0 3px #031f2a}
+#sigLessonApp .sigFact:after{content:"•";position:absolute;left:24px;top:20px;color:#dff9ff;font-size:24px;line-height:26px;font-weight:900;text-shadow:0 0 9px rgba(105,215,242,.8)}
+#sigLessonApp .sigFact:nth-of-type(2):after{content:"—";left:21px;top:19px;font-size:20px}
+#sigLessonApp .sigFact:nth-of-type(3):after{content:"⚑";left:22px;top:23px;font-size:13px}
+#sigLessonApp .sigFact:nth-of-type(4):after{content:"◉";left:22px;top:22px;font-size:14px}
+#sigLessonApp .sigFact:nth-of-type(5):after{content:"◎";left:22px;top:22px;font-size:15px}
+#sigLessonApp .sigFact:nth-of-type(6):after{content:"◇";left:22px;top:22px;font-size:15px}
+#sigLessonApp .sigFact b{display:block;color:#fff;font-size:13px;margin-bottom:4px}
+#sigLessonApp .sigFact p{margin:0;color:#8ea8b3;font-size:11px;line-height:1.38}
+#sigLessonApp .sigLessonActions{grid-column:1/-1;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr)) minmax(220px,.9fr);gap:8px;margin-top:4px;padding-top:12px;border-top:1px solid #0d4659}
+#sigLessonApp .sigLessonActions button{min-height:66px!important;border-radius:12px!important;font-size:11px!important;line-height:1.35!important;padding:12px 14px!important;white-space:normal!important}
+#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]{position:relative;text-align:left!important;padding-left:54px!important;background:#148fc5!important;border:1px solid #42c8ef!important;color:#fff!important}
+#sigLessonApp .sigLessonActions button[onclick*="playDefinedSignal"]:before{content:")))";position:absolute;left:15px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#073247;color:#dff9ff;font-size:10px;letter-spacing:-1px}
+#sigLessonApp .sigLessonActions button.big{background:#1595cd!important;border:1px solid #42c8ef!important;color:#fff!important;font-weight:900!important;text-align:center!important;padding-left:14px!important}
+#sigLessonApp>div[style*="margin-top"]{grid-area:foot}
+@media(max-width:900px){#sigLessonApp{grid-template-columns:190px minmax(0,1fr)}#sigLessonApp .sigLessonCard{grid-template-columns:1fr}#sigLessonApp .sigLessonActions{grid-template-columns:1fr 1fr}#sigLessonApp .sigLessonActions button.big{grid-column:1/-1}}
+@media(max-width:680px){#sigLessonApp{display:block}#sigLessonApp .sigLessonNav{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:12px}#sigLessonApp .sigLessonNav:before{grid-column:1/-1}#sigLessonApp .sigLessonNav button{min-height:50px;text-align:center;padding:8px 4px}#sigLessonApp .sigLessonHead:after{display:none}#sigLessonApp .sigLessonCard{grid-template-columns:1fr}#sigLessonApp .sigLessonActions{grid-template-columns:1fr}}
+</style>
+
 </head>
 <body>
 <div id="vesselSetupModal" class="vesselSetupModal" aria-hidden="true">
@@ -17657,7 +17694,7 @@ svg{width:100%;height:100%}.own{fill:#fff}.tgt{fill:#ff655f}.ot{fill:none;stroke
 </div>
 <div class="app">
 <header>
-  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.44.7</div></div>
+  <div><div class="brand">PROJECT WATCH</div><div class="ver" id="pwVisibleBuild">BUILD 1.44.8</div></div>
   <div class="headerRight">
     <button class="vesselProfileOpen" onclick="openVesselSetup(false)">⚓ MY VESSEL</button>
     <div id="hdrMode">SUILVEN</div>
